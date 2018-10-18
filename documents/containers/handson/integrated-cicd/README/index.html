@@ -1244,8 +1244,14 @@ v1.0: digest: sha256:5769c194f3861f71c9fd43eb763813676aaba0b41acf453fb6a09a1af75
 </pre></div>
 
 
-<!-- TODO レジストリをPublicにする -->
-
+<p>それでは、OCIRにコンテナが保存されていることを確認してみましょう。OCIコンソールの画面で左上のメニューを展開し、"Developer Services"をクリックします。</p>
+<p><img alt="" src="../images/36.png" /></p>
+<p>画面左のメニューで"Registry"をクリックすると、リポジトリの一覧が表示されます。この中に、指定した名前のコンテナがあることを確認してください。</p>
+<p><img alt="" src="../images/37.png" /></p>
+<p>これでレジストリへのコンテナイメージの格納は完了しましたが、デフォルトでは、イメージを取得するためにPush時と同じ認証情報が必要な状態です。Kubernetesでの利用を簡単にするために、リポジトリをPublicに変更して、認証なしでイメージの取得が行えるように設定しておきます。</p>
+<p>画面右上にある[Actions]メニューを開き、[Change to Public]をクリックしてください。</p>
+<p><img alt="" src="../images/38.png" /></p>
+<p>以上で、OCIRへのコンテナイメージの格納は完了です。</p>
 <h3 id="34-oke">3.4. OKEへのデプロイ<a class="headerlink" href="#34-oke" title="Permanent link">&para;</a></h3>
 <p>それでは、いよいよOKEクラスターにアプリケーションのコンテナをデプロイします。</p>
 <p>OKEを始めとして、Kubernetesのクラスターにコンテナをデプロイするには、クラスター上の配置情報をmanifestと呼ばれるファイルに記述しておく必要があります。</p>
@@ -1254,7 +1260,30 @@ v1.0: digest: sha256:5769c194f3861f71c9fd43eb763813676aaba0b41acf453fb6a09a1af75
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">apiVersion</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">apps/v1</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">apiVersion</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">apps/v1</span>
 <span class="l l-Scalar l-Scalar-Plain">kind</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">Deployment</span>
 <span class="l l-Scalar l-Scalar-Plain">metadata</span><span class="p p-Indicator">:</span>
   <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">cowweb</span>
@@ -1273,13 +1302,13 @@ v1.0: digest: sha256:5769c194f3861f71c9fd43eb763813676aaba0b41acf453fb6a09a1af75
     <span class="l l-Scalar l-Scalar-Plain">spec</span><span class="p p-Indicator">:</span>
       <span class="l l-Scalar l-Scalar-Plain">containers</span><span class="p p-Indicator">:</span>
       <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">cowweb</span>
-        <span class="l l-Scalar l-Scalar-Plain">image</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">iad.ocir.io/gse00014510/acme-web-app/cowweb:v1.0</span>
-        <span class="l l-Scalar l-Scalar-Plain">ports</span><span class="p p-Indicator">:</span>
+<span class="hll">        <span class="l l-Scalar l-Scalar-Plain">image</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">iad.ocir.io/gse00014510/acme-web-app/cowweb:v1.0</span>   <span class="c1"># &lt;--この行を修正する</span>
+</span>        <span class="l l-Scalar l-Scalar-Plain">ports</span><span class="p p-Indicator">:</span>
         <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">api</span>
           <span class="l l-Scalar l-Scalar-Plain">containerPort</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">8080</span>
 <span class="l l-Scalar l-Scalar-Plain">...（以下略）...</span>
 </pre></div>
-
+</td></tr></table>
 
 <p>このファイルによって、サンプルアプリケーションのコンテナが、クラスター上にどのように配置されるかが定義されています。例えば、6行目にある<code>replicas:2</code>という記述は、このコンテナが、2つ立ち上げられて冗長構成を取るということを意味しています。</p>
 <div class="admonition note">
@@ -1293,11 +1322,22 @@ v1.0: digest: sha256:5769c194f3861f71c9fd43eb763813676aaba0b41acf453fb6a09a1af75
 
 
 <p>上記の他にcowweb-service.yamlというも用意してあります。こちらの内容も確認してみます。</p>
-<div class="codehilite"><pre><span></span>cat ./kubernetes/cowweb-service.yaml
+<div class="codehilite"><pre><span></span>    cat ./kubernetes/cowweb-service.yaml
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">apiVersion</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">v1</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">apiVersion</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">v1</span>
 <span class="l l-Scalar l-Scalar-Plain">kind</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">Service</span>
 <span class="l l-Scalar l-Scalar-Plain">metadata</span><span class="p p-Indicator">:</span>
   <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">cowweb</span>
@@ -1308,14 +1348,22 @@ v1.0: digest: sha256:5769c194f3861f71c9fd43eb763813676aaba0b41acf453fb6a09a1af75
     <span class="l l-Scalar l-Scalar-Plain">targetPort</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">8080</span>
   <span class="l l-Scalar l-Scalar-Plain">selector</span><span class="p p-Indicator">:</span>
     <span class="l l-Scalar l-Scalar-Plain">app</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">cowweb</span>
-  <span class="l l-Scalar l-Scalar-Plain">type</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">LoadBalancer</span>
+<span class="hll">  <span class="l l-Scalar l-Scalar-Plain">type</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">LoadBalancer</span>
+</span></pre></div>
+</td></tr></table>
+
+<p>このmanifestファイルは、クラスターに対するリクエストのトラフィックを受け付ける際のルールを定義しています。<code>type: LoadBalancer</code>という記述は、クラスターが可動している環境（ここではOracle Cloud）のLoadBancer機能を利用して、外部からアクセスできるipAdressを提供することを意味しています。</p>
+<p>それでは、Kubernetes上でサンプルアプリケーションのコンテナを動かしてみます。まずは、クラスターを区画に分けて管理するための領域である、namespaceを作成します。以下のコマンドで、namespace名は任意の文字列を指定できます。</p>
+<div class="codehilite"><pre><span></span>kubectl create namespace [namespace名]
 </pre></div>
 
 
-<p>このmanifestファイルは、クラスターに対するリクエストのトラフィックを受け付ける際のルールを定義しています。<code>type: LoadBalancer</code>という記述は、クラスターが可動している環境（ここではOracle Cloud）のLoadBancer機能を利用して、外部からアクセスできるipAdressを提供することを意味しています。</p>
-<p>それでは、Kubernetes上でサンプルアプリケーションのコンテナを動かしてみます。以下のコマンドを実行すると、manifestファイルをクラスターに適用する指示が送られます。</p>
-<!-- TODO namespaceの作成 -->
+<p>デフォルトのNamespaceを上記で作成したものに変更しておきます。これを行うと、以降、kubectlの実行の度にNamespaceを指定する必要がなくなります。</p>
+<div class="codehilite"><pre><span></span>kubectl config set-context $(kubectl config current-context) --namespace=[namespace名]
+</pre></div>
 
+
+<p>次に、manifestファイルをクラスターに適用し、PodやServiceをクラスター内に作成します。</p>
 <div class="codehilite"><pre><span></span>kubectl apply -f ./kubernetes/cowweb.yaml
 </pre></div>
 
@@ -1325,31 +1373,22 @@ v1.0: digest: sha256:5769c194f3861f71c9fd43eb763813676aaba0b41acf453fb6a09a1af75
 
 
 <p>以下のコマンドを実行して、リソースの構成が完了しているかどうかを確認することができます。</p>
-<p><strong>Podの状況</strong></p>
-<div class="codehilite"><pre><span></span>kubectl get pod
+<div class="codehilite"><pre><span></span>kubectl get pod,service
 </pre></div>
 
 
-<p>以下のように、すべてのPodのSTATUSがRunnigになっていればOKです。</p>
+<p>すべてのPodのSTATUSがRunnigであることと、cowwebという名前のServiceのEXTERNAL-IPになんらかのIPアドレスが表示されることが確認できれば、リソースの作成は完了です。</p>
 <div class="codehilite"><pre><span></span>NAME                      READY   STATUS    RESTARTS   AGE
 cowweb-6b9846fbf6-5h7mh   1/1     Running   0          6m
 cowweb-6b9846fbf6-4e8sb   1/1     Running   0          6m
-</pre></div>
 
-
-<p><strong>Serviceの状況</strong></p>
-<div class="codehilite"><pre><span></span>kubectl get service
-</pre></div>
-
-
-<p>以下のように、cowwebという名前のServiceのEXTERNAL-IPに、なんらかのIPアドレスが表示されていればOKです。</p>
-<div class="codehilite"><pre><span></span>NAME         TYPE           CLUSTER-IP     EXTERNAL-IP       PORT(S)        AGE
+NAME         TYPE           CLUSTER-IP     EXTERNAL-IP       PORT(S)        AGE
 cowweb       LoadBalancer   10.96.214.70   129.213.189.200   80:31205/TCP   1m
 kubernetes   ClusterIP      10.96.0.1      &lt;none&gt;            443/TCP        19d
 </pre></div>
 
 
-<p>このEXTERNAL-IPの値は次の手順で利用するため、テキストエディタ等にペーストするなどして控えておいてください。</p>
+<p>このときのEXTERNAL-IPの値は次の手順で利用するため、テキストエディタ等にペーストするなどして控えておいてください。</p>
 <p>これでクラスターへのデプロイは完了しましたので、実際に動作確認してみます。以下のコマンドを実行してください。</p>
 <div class="codehilite"><pre><span></span>curl &quot;http://[EXTERNAL-IPの値]/cowsay/say?message=Hello%20cowweb&quot;
 </pre></div>
