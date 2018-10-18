@@ -1,0 +1,9 @@
+.md-typeset h1 {
+  font-size: 26pt;
+}
+.md-typeset h2 {
+  border-bottom: solid 1px #03A9F4;
+}
+.md-typeset h3 {
+  border-bottom: 1px dotted #03A9F4;
+}

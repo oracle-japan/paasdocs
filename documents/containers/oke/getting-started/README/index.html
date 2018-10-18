@@ -1,0 +1,1379 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="ja" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+      
+      
+      
+        <meta name="lang:clipboard.copy" content="クリップボードへコピー">
+      
+        <meta name="lang:clipboard.copied" content="コピーしました">
+      
+        <meta name="lang:search.language" content="en, jp">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="何も見つかりませんでした">
+      
+        <meta name="lang:search.result.one" content="1件見つかりました">
+      
+        <meta name="lang:search.result.other" content="#件見つかりました">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-　、。，．]+">
+      
+      <link rel="shortcut icon" href="../../../../../assets/images/cloud_46@2x.png">
+      <meta name="generator" content="mkdocs-0.17.5, mkdocs-material-2.9.4">
+    
+    
+      
+        <title>OKEによるKubernetesクラスターの利用 - Oracle Cloud - PaaS ドキュメント</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../../assets/stylesheets/application.451f80e5.css">
+      
+        <link rel="stylesheet" href="../../../../../assets/stylesheets/application-palette.22915126.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="#03a9f4">
+      
+    
+    
+      <script src="../../../../../assets/javascripts/modernizr.1aa3b519.js"></script>
+    
+    
+      <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+      
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../../../../../assets/fonts/material-icons.css">
+    
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+    
+      <link rel="stylesheet" href="../../../../../stylesheets/extra.css">
+    
+    
+  </head>
+  
+    
+    
+    <body dir="ltr" data-md-color-primary="light-blue" data-md-color-accent="light-blue">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448"
+    viewBox="0 0 416 448" id="__github">
+  <path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19-18.125
+        8.5-18.125-8.5-10.75-19-3.125-20.5 3.125-20.5 10.75-19 18.125-8.5
+        18.125 8.5 10.75 19 3.125 20.5zM320 304q0 10-3.125 20.5t-10.75
+        19-18.125 8.5-18.125-8.5-10.75-19-3.125-20.5 3.125-20.5 10.75-19
+        18.125-8.5 18.125 8.5 10.75 19 3.125 20.5zM360
+        304q0-30-17.25-51t-46.75-21q-10.25 0-48.75 5.25-17.75 2.75-39.25
+        2.75t-39.25-2.75q-38-5.25-48.75-5.25-29.5 0-46.75 21t-17.25 51q0 22 8
+        38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0
+        37.25-1.75t35-7.375 30.5-15 20.25-25.75 8-38.375zM416 260q0 51.75-15.25
+        82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5-41.75
+        1.125q-19.5 0-35.5-0.75t-36.875-3.125-38.125-7.5-34.25-12.875-30.25-20.25-21.5-28.75q-15.5-30.75-15.5-82.75
+        0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25
+        30.875q36.75-8.75 77.25-8.75 37 0 70 8 26.25-20.5
+        46.75-30.25t47.25-9.75q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34
+        99.5z" />
+</svg>
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#okekubernetes" tabindex="1" class="md-skip">
+        Skip to content
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="../../../../.." title="Oracle Cloud - PaaS ドキュメント" class="md-header-nav__button md-logo">
+          
+            <img src="../../../../../assets/images/cloud_w_46@2x.png" width="24" height="24">
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            
+              <span class="md-header-nav__topic">
+                Oracle Cloud - PaaS ドキュメント
+              </span>
+              <span class="md-header-nav__topic">
+                OKEによるKubernetesクラスターの利用
+              </span>
+            
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          
+            <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+            
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="検索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            検索キーワードを入力してください
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+          
+        
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            
+
+
+  
+
+
+  <a href="https://github.com/oracle-japan/paasdocs/" title="リポジトリへ" class="md-source" data-md-source="github">
+    
+      <div class="md-source__icon">
+        <svg viewBox="0 0 24 24" width="24" height="24">
+          <use xlink:href="#__github" width="24" height="24"></use>
+        </svg>
+      </div>
+    
+    <div class="md-source__repository">
+      oracle-japan/paasdocs
+    </div>
+  </a>
+
+          </div>
+        </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+        
+
+  
+
+<nav class="md-tabs md-tabs--active" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  <li class="md-tabs__item">
+    
+      <a href="../../../../.." title="Home" class="md-tabs__link">
+        Home
+      </a>
+    
+  </li>
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../../README/" title="コンテナ" class="md-tabs__link md-tabs__link--active">
+          コンテナ
+        </a>
+      
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+      
+      <main class="md-main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="../../../../.." title="Oracle Cloud - PaaS ドキュメント" class="md-nav__button md-logo">
+      
+        <img src="../../../../../assets/images/cloud_w_46@2x.png" width="48" height="48">
+      
+    </a>
+    Oracle Cloud - PaaS ドキュメント
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+
+  <a href="https://github.com/oracle-japan/paasdocs/" title="リポジトリへ" class="md-source" data-md-source="github">
+    
+      <div class="md-source__icon">
+        <svg viewBox="0 0 24 24" width="24" height="24">
+          <use xlink:href="#__github" width="24" height="24"></use>
+        </svg>
+      </div>
+    
+    <div class="md-source__repository">
+      oracle-japan/paasdocs
+    </div>
+  </a>
+
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../../../.." title="Home" class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" checked>
+    
+    <label class="md-nav__link" for="nav-2">
+      コンテナ
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        コンテナ
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../README/" title="コンテナのホーム" class="md-nav__link">
+      コンテナのホーム
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-2" type="checkbox" id="nav-2-2" checked>
+    
+    <label class="md-nav__link" for="nav-2-2">
+      OKE (Oracle Container Engine for Kubernetes)
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-2-2">
+        OKE (Oracle Container Engine for Kubernetes)
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        OKEによるKubernetesクラスターの利用
+      </label>
+    
+    <a href="./" title="OKEによるKubernetesクラスターの利用" class="md-nav__link md-nav__link--active">
+      OKEによるKubernetesクラスターの利用
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">目次</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" title="動作確認できている条件" class="md-nav__link">
+    動作確認できている条件
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" title="全体の流れ" class="md-nav__link">
+    全体の流れ
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-oci" title="1 . OCIでの準備作業" class="md-nav__link">
+    1 . OCIでの準備作業
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-1-oci" title="1-1. OCIのサービスコンソールにアクセスする" class="md-nav__link">
+    1-1. OCIのサービスコンソールにアクセスする
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1-2-oci" title="1-2. OCI上に必要なリソースを作成する" class="md-nav__link">
+    1-2. OCI上に必要なリソースを作成する
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-2-1-compartment" title="1-2-1. Compartmentを作成する" class="md-nav__link">
+    1-2-1. Compartmentを作成する
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1-2-2-oke" title="1-2-2. OKEクラスター用のネットワークリソースを作成する" class="md-nav__link">
+    1-2-2. OKEクラスター用のネットワークリソースを作成する
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1-2-3-okeusergrouppolicy" title="1-2-3. OKEを操作するためのUser/Group/Policyの構成を行う" class="md-nav__link">
+    1-2-3. OKEを操作するためのUser/Group/Policyの構成を行う
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-okekubernetes" title="2 . OKEでKubernetesクラスターをプロビジョニングする" class="md-nav__link">
+    2 . OKEでKubernetesクラスターをプロビジョニングする
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-kubernetesclikubectl" title="3 . Kubernetesの管理用CLI(kubectl)をセットアップする" class="md-nav__link">
+    3 . Kubernetesの管理用CLI(kubectl)をセットアップする
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#3-1-kubectlpython" title="3-1. kubectlとPythonのインストール" class="md-nav__link">
+    3-1. kubectlとPythonのインストール
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#3-1-1-kubectl" title="3-1-1. kubectlのインストール" class="md-nav__link">
+    3-1-1. kubectlのインストール
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-1-2-python" title="3-1-2. Pythonのインストール" class="md-nav__link">
+    3-1-2. Pythonのインストール
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-2-oracle-cloud-infrastructurecli" title="3-2. Oracle Cloud InfrastructureのCLIをセットアップする" class="md-nav__link">
+    3-2. Oracle Cloud InfrastructureのCLIをセットアップする
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#3-2-1-ocid" title="3-2-1. OCIDの確認" class="md-nav__link">
+    3-2-1. OCIDの確認
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-2-2-oci-cli" title="3-2-2. OCI CLIのセットアップ" class="md-nav__link">
+    3-2-2. OCI CLIのセットアップ
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-3-kubectl" title="3-3. kubectlの設定を行って、クラスターにアクセスする" class="md-nav__link">
+    3-3. kubectlの設定を行って、クラスターにアクセスする
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">目次</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" title="動作確認できている条件" class="md-nav__link">
+    動作確認できている条件
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" title="全体の流れ" class="md-nav__link">
+    全体の流れ
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-oci" title="1 . OCIでの準備作業" class="md-nav__link">
+    1 . OCIでの準備作業
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-1-oci" title="1-1. OCIのサービスコンソールにアクセスする" class="md-nav__link">
+    1-1. OCIのサービスコンソールにアクセスする
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1-2-oci" title="1-2. OCI上に必要なリソースを作成する" class="md-nav__link">
+    1-2. OCI上に必要なリソースを作成する
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-2-1-compartment" title="1-2-1. Compartmentを作成する" class="md-nav__link">
+    1-2-1. Compartmentを作成する
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1-2-2-oke" title="1-2-2. OKEクラスター用のネットワークリソースを作成する" class="md-nav__link">
+    1-2-2. OKEクラスター用のネットワークリソースを作成する
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1-2-3-okeusergrouppolicy" title="1-2-3. OKEを操作するためのUser/Group/Policyの構成を行う" class="md-nav__link">
+    1-2-3. OKEを操作するためのUser/Group/Policyの構成を行う
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-okekubernetes" title="2 . OKEでKubernetesクラスターをプロビジョニングする" class="md-nav__link">
+    2 . OKEでKubernetesクラスターをプロビジョニングする
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-kubernetesclikubectl" title="3 . Kubernetesの管理用CLI(kubectl)をセットアップする" class="md-nav__link">
+    3 . Kubernetesの管理用CLI(kubectl)をセットアップする
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#3-1-kubectlpython" title="3-1. kubectlとPythonのインストール" class="md-nav__link">
+    3-1. kubectlとPythonのインストール
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#3-1-1-kubectl" title="3-1-1. kubectlのインストール" class="md-nav__link">
+    3-1-1. kubectlのインストール
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-1-2-python" title="3-1-2. Pythonのインストール" class="md-nav__link">
+    3-1-2. Pythonのインストール
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-2-oracle-cloud-infrastructurecli" title="3-2. Oracle Cloud InfrastructureのCLIをセットアップする" class="md-nav__link">
+    3-2. Oracle Cloud InfrastructureのCLIをセットアップする
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#3-2-1-ocid" title="3-2-1. OCIDの確認" class="md-nav__link">
+    3-2-1. OCIDの確認
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-2-2-oci-cli" title="3-2-2. OCI CLIのセットアップ" class="md-nav__link">
+    3-2-2. OCI CLIのセットアップ
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-3-kubectl" title="3-3. kubectlの設定を行って、クラスターにアクセスする" class="md-nav__link">
+    3-3. kubectlの設定を行って、クラスターにアクセスする
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/oracle-japan/paasdocs/edit/master/docs/documents/containers/oke/getting-started/README.md" title="編集" class="md-icon md-content__icon">&#xE3C9;</a>
+                
+                
+                <h1 id="okekubernetes">OKEによるKubernetesクラスターの作成<a class="headerlink" href="#okekubernetes" title="Permanent link">&para;</a></h1>
+<p>Oracle Container Engine for Kubernetes（以下OKE）は、OracleのマネージドKubernetesサービスです。このエントリーでは、OKEを使ってKubernetesクラスターをプロビジョニングするまでの手順を記します。</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>このエントリーでは、<a href="https://docs.us-phoenix-1.oraclecloud.com/Content/ContEng/Concepts/contengoverview.htm">公式ドキュメント</a>の例にある設置値を使って、各種の設定を行っていきます。
+実際の運用／開発でOKEを使う際には、利用目的に併せた設定値を入力するようご注意ください。</p>
+</div>
+<h2 id="_1">動作確認できている条件<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<ul>
+<li>クラウド<ul>
+<li>North America リージョンのDCが有効なOracle Cloudアカウントがあること</li>
+</ul>
+</li>
+<li>ローカルPC<ul>
+<li>Ubuntu 18.04（Linux/Unix互換のシェルが利用できる環境が必要です。）</li>
+</ul>
+</li>
+</ul>
+<h2 id="_2">全体の流れ<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p>手順の大まかな流れは以下のとおりです。</p>
+<ol>
+<li>OCI上での準備作業</li>
+<li>OKEでKubernetesクラスターをプロビジョニングする</li>
+<li>Kubernetesの管理用CLI(kubectl)をセットアップする</li>
+</ol>
+<p>OCIはOracleのIaaSで、OKEはOCIの機能群のひとつとして提供されています。</p>
+<h2 id="1-oci">1 . OCIでの準備作業<a class="headerlink" href="#1-oci" title="Permanent link">&para;</a></h2>
+<p>まずはじめに、OCI上にKubernetes用の領域(Compartment)や、OKEクラスターの管理アカウント、ネットワーク設定など、必要なリソースを作成していきます。</p>
+<h3 id="1-1-oci">1-1. OCIのサービスコンソールにアクセスする<a class="headerlink" href="#1-1-oci" title="Permanent link">&para;</a></h3>
+<p>Oracle Cloudのダッシューボードにログインし、ダッシューボード画面で、"Compute"パネル右下のメニューアイコン -&gt; "サービス・コンソールを開く"の順にクリックします。</p>
+<p><img alt="" src="../images/01.png" /></p>
+<p>"Compute"パネルが表示されていない場合は、画面上半分の青い領域にある"ダッシューボードのカスタマイズ"をクリックして、"Compute"パネルの表示を有効にしてください。</p>
+<h3 id="1-2-oci">1-2. OCI上に必要なリソースを作成する<a class="headerlink" href="#1-2-oci" title="Permanent link">&para;</a></h3>
+<p>OCIのサービス・コンソールを操作して、Compartment等の必要なリソースを作成していきます。</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>この節で行う作業は、最初にOKEを使い始めるときだけ必要な作業です。すでに実施済みの場合は、「2. OKEでKubernetesクラスターをプロビジョニングする」に進んでください。</p>
+</div>
+<h4 id="1-2-1-compartment">1-2-1. Compartmentを作成する<a class="headerlink" href="#1-2-1-compartment" title="Permanent link">&para;</a></h4>
+<p>CompartmentはOCIのテナントの内部を仕切る区画で、その中に各種リソースを配置したり、CompartmentにPolicyを割り当てることを通じてアカウントの権限を管理したりすることができます。<br>
+ここでは、Kubernetesクラスターとそれを構成するための各種リソースを配置するCompartmentを作成します。</p>
+<p>はじめに、OCIのサービス・コンソールの左上のメニューを展開し、"Identity"をクリックします。</p>
+<p><img alt="" src="../images/02.png" /></p>
+<p>画面左のメニューで"Compartment"をクリックし、更に"Create Compartment"ボタンをクリックします。</p>
+<p><img alt="" src="../images/03.png" /></p>
+<p>"Create Compartment"ダイアログで以下のように値を設定し、"Create Compartment"ボタンをクリックします。</p>
+<ul>
+<li>NAME: acme-dev-compartment</li>
+<li>DESCRIPTION: acme development environment</li>
+<li>（上記以外はデフォルトのまま）</li>
+</ul>
+<p><img alt="" src="../images/04.png" /></p>
+<p>以上で、Compartmentの作成は完了です。</p>
+<h4 id="1-2-2-oke">1-2-2. OKEクラスター用のネットワークリソースを作成する<a class="headerlink" href="#1-2-2-oke" title="Permanent link">&para;</a></h4>
+<p>ここでは、Kubernetesクラスターを構築するための、Virtual Cloud Network(VCN)や、Subnetなどのネットワークリソースを作成していきます。</p>
+<p>まずはVCNの作成です。はじめにOCIのサービス・コンソールの左上のメニューを展開し
+、"Networking"をクリックします。</p>
+<p><img alt="" src="../images/05.png" /></p>
+<p>画面左のメニューで"Virtual Cloud Networks"をクリックし、"List Scope"以下のプルダウンで、先に作成した"acme-dev-compartment"を選択します。<br>
+更に"Create Compartment"ボタンをクリックして、VCNの作成を開始します。</p>
+<p><img alt="" src="../images/06.png" /></p>
+<p>"Create Virtual Cloud Network"ダイアログで以下のように値を設定し、"Create Virtual Cloud Network"ボタンをクリックします。</p>
+<ul>
+<li>CREATE IN COMPARTMENT: acme-dev-compartment</li>
+<li>NAME: acme-dev-vcn</li>
+<li>CREATE VIRTUAL CLOUD NETWORK ONLY: ON</li>
+<li>CIDR BLOCK: 10.0.0.0/16</li>
+<li>（上記以外はデフォルトのまま）</li>
+</ul>
+<p><img alt="" src="../images/07.png" /></p>
+<p>これでVCNの作成は完了です。続いて、VCNの中にインターネットとのアクセスの口になる、Internet Gatewayを作成します。</p>
+<p>VCN作成後の画面で、画面左のメニューの"Internet Gateways"をクリックします。"List Scope"以下のプルダウンで"acme-dev-compartment"が選択されていることを確認した上で、"Create Internet Gateway"ボタンをクリックします。</p>
+<p><img alt="" src="../images/08.png" /></p>
+<p>"Create Internet Gateway"ダイアログで以下のように値を設定し、"Create Internet Gateway"ボタンをクリックします。</p>
+<ul>
+<li>CREATE IN COMPARTMENT: acme-dev-compartment</li>
+<li>NAME: gateway-0</li>
+<li>（上記以外はデフォルトのまま）</li>
+</ul>
+<p><img alt="" src="../images/09.png" /></p>
+<p>次に、このGatewayにトラフィックを流すためのRoute Ruleを作成します。</p>
+<p>Internet Gateway作成後の画面で、画面左のメニューの"Route Tables"をクリックします。"List Scope"以下のプルダウンで"acme-dev-compartment"が選択されていることを確認した上で、"Create Route Table"ボタンをクリックします。</p>
+<p><img alt="" src="../images/10.png" /></p>
+<p>"Create Route Table"ダイアログで以下のように値を設定し、"Create Route Table"ボタンをクリックします。</p>
+<ul>
+<li>CREATE IN COMPARTMENT: acme-dev-compartment</li>
+<li>NAME: routetable-0</li>
+<li>Route Rules（以下のエントリを追加）: <ul>
+<li>TARGET TYPE: Internet Gateway</li>
+<li>DESTINATION CIDR BLOCK: 0.0.0.0/0</li>
+<li>COMPARTMENT: acme-dev-compartment</li>
+<li>TARGET INTERNET GATEWAY: gateway-0</li>
+</ul>
+</li>
+</ul>
+<p><img alt="" src="../images/11.png" /></p>
+<p>Kubernetesクラスターとインターネットとは、OCIのロードバランサーを介してトラフィックをやり取りします。ここで、ロードバランサーにトラフィックを流す際に、それを許可する条件を定義するRoute Ruleを作成します。</p>
+<p>Route Table作成後の画面で、画面左のメニューの"Security Lists"をクリックします。"List Scope"以下のプルダウンで"acme-dev-compartment"が選択されていることを確認した上で、"Create Security List"ボタンをクリックします。</p>
+<p><img alt="" src="../images/12.png" /></p>
+<p>"Create Security List"ダイアログで以下のように値を設定し、"Create Security List"ボタンをクリックします。</p>
+<ul>
+<li>CREATE IN COMPARTMENT: acme-dev-compartment</li>
+<li>NAME: loadbarancers</li>
+<li>Allow Rules for Ingress（以下のエントリを追加）: <ul>
+<li>Internet Gatewayから流入するトラフィック: <ul>
+<li>STATELESS: [ON]</li>
+<li>SOURCE CIDR: 0.0.0.0/0</li>
+<li>IP PROTOCOL: TCP</li>
+<li>SOURCE PORT RANGE: All</li>
+<li>DESTINATION PORT RANGE: All</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Allow Rules for Egress（以下のエントリを追加）: <ul>
+<li>Internet Gatewayに搬出するトラフィック: <ul>
+<li>STATELESS: [ON]</li>
+<li>DESTINATION CIDR: 0.0.0.0/0</li>
+<li>IP PROTOCOL: TCP</li>
+<li>SOURCE PORT RANGE: All</li>
+<li>DESTINATION PORT RANGE: All</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><img alt="" src="../images/13.png" /></p>
+<p>続けて、KubernetesのWorker Nodeにトラフィックを流す際に、それを許可する条件を定義するRoute Ruleを作成します。</p>
+<p>前述のRoute Rule作成後の画面で、再度"Create Security List"ボタンをクリックします。</p>
+<p>"Create Security List"ダイアログで以下のように値を設定し、"Create Security List"ボタンをクリックします。</p>
+<ul>
+<li>CREATE IN COMPARTMENT: acme-dev-compartment</li>
+<li>NAME: workers</li>
+<li>Allow Rules for Ingress（以下の6つのエントリを追加）: <ul>
+<li>AD1のSubnetから排出するトラフィック: <ul>
+<li>STATELESS: [ON]</li>
+<li>SOURCE CIDR: 10.0.10.0/24</li>
+<li>IP PROTOCOL: All Protocals</li>
+</ul>
+</li>
+<li>AD2のSubnetから排出するトラフィック: <ul>
+<li>STATELESS: [ON]</li>
+<li>SOURCE CIDR: 10.0.11.0/24</li>
+<li>IP PROTOCOL: All Protocals</li>
+</ul>
+</li>
+<li>AD3のSubnetから排出するトラフィック: <ul>
+<li>STATELESS: [ON]</li>
+<li>SOURCE CIDR: 10.0.12.0/24</li>
+<li>IP PROTOCOL: All Protocals</li>
+</ul>
+</li>
+<li>Path MTU Discoveryのフラグメンテーション・メッセージ用: <ul>
+<li>STATELESS: [OFF]</li>
+<li>SOURCE CIDR: 0.0.0.0/0</li>
+<li>IP PROTOCOL: ICMP</li>
+<li>TYPE AND CODE: 3, 4</li>
+</ul>
+</li>
+<li>OKEのサービスからWorker Nodeを管理するためのSSH接続用: <ul>
+<li>STATELESS: [OFF]</li>
+<li>SOURCE CIDR: 130.35.0.0/16</li>
+<li>IP PROTOCOL: TCP</li>
+<li>SOURCE PORT RANGE: All</li>
+<li>DESTINATION PORT RANGE: 22</li>
+</ul>
+</li>
+<li>OKEのサービスからWorker Nodeを管理するためのSSH接続用: <ul>
+<li>STATELESS: [OFF]</li>
+<li>SOURCE CIDR: 138.1.0.0/17</li>
+<li>IP PROTOCOL: TCP</li>
+<li>SOURCE PORT RANGE: All</li>
+<li>DESTINATION PORT RANGE: 22</li>
+</ul>
+</li>
+<li>ユーザーからWorker NodeへのSSH接続用（オプション）: <ul>
+<li>STATELESS: [OFF]</li>
+<li>SOURCE CIDR: 0.0.0.0/0</li>
+<li>IP PROTOCOL: TCP</li>
+<li>SOURCE PORT RANGE: All</li>
+<li>DESTINATION PORT RANGE: 22</li>
+</ul>
+</li>
+<li>NodePortタイプのServiceによる、Nodeへの直接の通信用（オプション）: <ul>
+<li>STATELESS: [OFF]</li>
+<li>SOURCE CIDR: 0.0.0.0/0</li>
+<li>IP PROTOCOL: TCP</li>
+<li>SOURCE PORT RANGE: All</li>
+<li>DESTINATION PORT RANGE: 30000-32767</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Allow Rules for Egress（以下の4つのエントリを追加）: <ul>
+<li>AD1のSubnet宛のトラフィック: <ul>
+<li>STATELESS: [ON]</li>
+<li>DESTINATION CIDR: 10.0.10.0/24</li>
+<li>IP PROTOCOL: All Protocals</li>
+</ul>
+</li>
+<li>AD2のSubnet宛のトラフィック: <ul>
+<li>STATELESS: [ON]</li>
+<li>DESTINATION CIDR: 10.0.11.0/24</li>
+<li>IP PROTOCOL: All Protocals</li>
+</ul>
+</li>
+<li>AD3のSubnet宛のトラフィック: <ul>
+<li>STATELESS: [ON]</li>
+<li>DESTINATION CIDR: 10.0.12.0/24</li>
+<li>IP PROTOCOL: All Protocals</li>
+</ul>
+</li>
+<li>Internetに出るトラフィック: <ul>
+<li>STATELESS: [OFF]</li>
+<li>DESTINATION CIDR: 0.0.0.0/0</li>
+<li>IP PROTOCOL: All Protocals</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>（上記以外はデフォルトのまま）</li>
+</ul>
+<p><img alt="" src="../images/14.png" /></p>
+<p>次に、VCN内にロードバランサーを配置するためのSubnetを作成します。OCIのロードバランサーは2つのADに冗長構成で作成されます。AD毎にひとつずつSubnetを用意するため、計2つのSubnetを構成します。</p>
+<p>Route Role作成後の画面で、画面左のメニューの"Subnets"をクリックします。"List Scope"以下のプルダウンで"acme-dev-compartment"が選択されていることを確認した上で、"Create Subnet"ボタンをクリックします。</p>
+<p><img alt="" src="../images/15.png" /></p>
+<p>"Create Subnet"ダイアログでSubnetを作成する作業を繰り返して、2つのSubnetを構成します。それぞれのSubnetは、以下の設定値を入力します。</p>
+<ul>
+<li>AD1用<ul>
+<li>NAME: loadbalancers-1</li>
+<li>AVAILABILITY DOMAIN: [末尾が"AD-1"の項目を選択]</li>
+<li>CIDR BLOCK: 10.0.20.0/24</li>
+<li>ROUTE TABLE: routetable-0</li>
+<li>SUBNET ACCESS: PUBLIC SUBNET</li>
+<li>DNS RESOLUTION: [ON]</li>
+<li>DHCP OPTIONS: Default DHCP Options for acme-dev-vcn</li>
+<li>Security Lists (以下の項目を追加）:<ul>
+<li>loadbalancers</li>
+</ul>
+</li>
+<li>（上記以外はデフォルトのまま）</li>
+</ul>
+</li>
+<li>AD2用<ul>
+<li>NAME: loadbalancers-2</li>
+<li>AVAILABILITY DOMAIN: [末尾が"AD-2"の項目を選択]</li>
+<li>CIDR BLOCK: 10.0.21.0/24</li>
+<li>ROUTE TABLE: routetable-0</li>
+<li>SUBNET ACCESS: PUBLIC SUBNET</li>
+<li>DNS RESOLUTION: [ON]</li>
+<li>DHCP OPTIONS: Default DHCP Options for acme-dev-vcn</li>
+<li>Security Lists (以下の項目を追加）:<ul>
+<li>loadbalancers</li>
+</ul>
+</li>
+<li>（上記以外はデフォルトのまま）</li>
+</ul>
+</li>
+</ul>
+<p>以下の画像は、AD1用の設定例です。</p>
+<p><img alt="" src="../images/16.png" /></p>
+<p>続けて、Worker Nodeを配置するためのSubnetを作成します。Worker Nodeを3つのADに分散配置するには、AD毎にSubnetを用意するため、計3つのSubnetを構成する必要があります。</p>
+<p>前述のSubnet作成後の画面で、"Create Subnet"ボタンをクリックします。</p>
+<p>"Create Subnet"ダイアログでSubnetを作成する作業を繰り返して、3つのSubnetを構成します。それぞれのSubnetは、以下の設定値を入力します。</p>
+<ul>
+<li>AD1用<ul>
+<li>NAME: workers-1</li>
+<li>AVAILABILITY DOMAIN: [末尾が"AD-1"の項目を選択]</li>
+<li>CIDR BLOCK: 10.0.10.0/24</li>
+<li>ROUTE TABLE: routetable-0</li>
+<li>SUBNET ACCESS: PUBLIC SUBNET</li>
+<li>DNS RESOLUTION: [ON]</li>
+<li>DHCP OPTIONS: Default DHCP Options for acme-dev-vcn</li>
+<li>Security Lists (以下の項目を追加）:<ul>
+<li>workers</li>
+</ul>
+</li>
+<li>（上記以外はデフォルトのまま）</li>
+</ul>
+</li>
+<li>AD2用<ul>
+<li>NAME: workers-2</li>
+<li>AVAILABILITY DOMAIN: [末尾が"AD-2"の項目を選択]</li>
+<li>CIDR BLOCK: 10.0.11.0/24</li>
+<li>ROUTE TABLE: routetable-0</li>
+<li>SUBNET ACCESS: PUBLIC SUBNET</li>
+<li>DNS RESOLUTION: [ON]</li>
+<li>DHCP OPTIONS: Default DHCP Options for acme-dev-vcn</li>
+<li>Security Lists (以下の項目を追加）:<ul>
+<li>workers</li>
+</ul>
+</li>
+<li>（上記以外はデフォルトのまま）</li>
+</ul>
+</li>
+<li>AD3用<ul>
+<li>NAME: workers-3</li>
+<li>AVAILABILITY DOMAIN: [末尾が"AD-3"の項目を選択]</li>
+<li>CIDR BLOCK: 10.0.12.0/24</li>
+<li>ROUTE TABLE: routetable-0</li>
+<li>SUBNET ACCESS: PUBLIC SUBNET</li>
+<li>DNS RESOLUTION: [ON]</li>
+<li>DHCP OPTIONS: Default DHCP Options for acme-dev-vcn</li>
+<li>Security Lists (以下の項目を追加）:<ul>
+<li>workers</li>
+</ul>
+</li>
+<li>（上記以外はデフォルトのまま）</li>
+</ul>
+</li>
+</ul>
+<p>以下の画像は、AD1用の設定例です。</p>
+<p><img alt="" src="../images/17.png" /></p>
+<p>以上で、ネットワークリソースの作成は完了です。</p>
+<h4 id="1-2-3-okeusergrouppolicy">1-2-3. OKEを操作するためのUser/Group/Policyの構成を行う<a class="headerlink" href="#1-2-3-okeusergrouppolicy" title="Permanent link">&para;</a></h4>
+<p>OKEを利用するには、OKEのサービス自体にOCIのリソースを操作する権限(Policy)を設定するとともに、OKEの機能を利用するためのUser、Groupを作成して適切にPolicyを割り当てる必要があります。</p>
+<p>ここではそれらUser/Group/Policyの構成を行います。</p>
+<p>まず、OCIのサービス・コンソールの右上のタブで、"Identity"をクリックします。</p>
+<p><img alt="" src="../images/18.png" /></p>
+<p>はじめに、OKEのサービス自体に設定するPolicyを構成します。画面左のメニューの"Policies"をクリックし、"List Scope"以下のプルダウンで"&lt;テナント名&gt; (root)"が選択します。続けて"Create Policy"ボタンをクリックします。</p>
+<p><img alt="" src="../images/19.png" /></p>
+<p>"Create Policy"ダイアログで以下のように値を設定し、"Create"ボタンをクリックします。</p>
+<ul>
+<li>NAME: oke-service</li>
+<li>DESCRIPTION: Allow service OKE to manage all-resources in tenancy</li>
+<li>Policy Versioning: KEEP POLICY CURRENT</li>
+<li>Policy Statements（以下のStatement設定（文字列を入力））:<ul>
+<li>allow service OKE to manage all-resources in tenancy</li>
+</ul>
+</li>
+</ul>
+<p><img alt="" src="../images/20.png" /></p>
+<p>次に、OKEを操作するための権限を割り当てるGroupを作成します。画面左のメニューの"Groups"をクリックし、"Create Group"ボタンをクリックします。</p>
+<p><img alt="" src="../images/21.png" /></p>
+<p>"Create Group"ダイアログでGroupを作成する作業を繰り返して、以下の4つのGroupを作成してください。</p>
+<ul>
+<li>クラスターの管理者:<ul>
+<li>NAME: acme-dev-team</li>
+<li>DESCRIPTION: acme dev team</li>
+</ul>
+</li>
+<li>一般の開発者（クラスターの参照権あり）:<ul>
+<li>NAME: acme-dev-team-cluster-viewers</li>
+<li>DESCRIPTION: acme dev team cluster viewers</li>
+</ul>
+</li>
+<li>一般の開発者（Node Poolの管理権あり）:<ul>
+<li>NAME: acme-dev-team-pool-admins</li>
+<li>DESCRIPTION: acme dev team pool admins</li>
+</ul>
+</li>
+<li>監査者（クラスターに対する操作履歴の参照権あり）:<ul>
+<li>NAME: acme-dev-team-auditors</li>
+<li>DESCRIPTION: acme dev team auditors</li>
+</ul>
+</li>
+</ul>
+<p>以下の画像は、acme-dev-team作成時の設定例です。</p>
+<p><img alt="" src="../images/22.png" /></p>
+<p>Groupに対する権限の設定（Policyの構成）を行います。画面左のメニューの"Policies"をクリックします。続けて、"List Scope"以下のプルダウンで"&lt;テナント名&gt; (root)"が選択されていることを確認した上で、"Create Policy"ボタンをクリックします。</p>
+<p><img alt="" src="../images/23.png" /></p>
+<p>"Create Policy"ダイアログで以下のように値を設定し、"Create"ボタンをクリックします。</p>
+<ul>
+<li>NAME: acme-dev-team-oke-policy</li>
+<li>DESCRIPTION: acme dev team oke policy</li>
+<li>Policy Versioning: KEEP POLICY CURRENT</li>
+<li>Policy Statements（以下のStatement設定（文字列を入力））:<ul>
+<li>allow group acme-dev-team to manage cluster-family in tenancy</li>
+<li>allow group acme-dev-team to inspect vcns in tenancy</li>
+<li>allow group acme-dev-team to inspect subnets in tenancy</li>
+<li>allow group acme-dev-team-cluster-viewers to inspect clusters in tenancy</li>
+<li>allow group acme-dev-team-pool-admins to use cluster-node-pools in tenancy</li>
+<li>allow group acme-dev-team-auditors to read cluster-work-requests in tenancy</li>
+</ul>
+</li>
+</ul>
+<p><img alt="" src="../images/24.png" /></p>
+<p>クラスターを操作するためのUserを作成します。ここでは、簡単のため、管理者を想定したUserを作成し、クラスターに対する全ての権限を割り当てます。</p>
+<p>画面左のメニューの"Users"をクリックし、続けて"Create User"ボタンをクリックします。</p>
+<p><img alt="" src="../images/25.png" /></p>
+<p>"Create User"ダイアログで以下のように値を設定し、"Create"ボタンをクリックします。</p>
+<ul>
+<li>NAME: acme-dev-admin</li>
+<li>DESCRIPTION: acme development team administrator</li>
+</ul>
+<p><img alt="" src="../images/26.png" /></p>
+<p>Userの一覧が表示されたら、acme-dev-adminに相当する行のユーザー名をクリックします。</p>
+<p><img alt="" src="../images/27.png" /></p>
+<p>Userの詳細画面の左側にあるメニューで、"Groups"をクリックし、続けて "Add User to Group"ボタンをクリックします。</p>
+<p><img alt="" src="../images/28.png" /></p>
+<p>"Add User To Group"ダイアログで、Userを先に作成した4つのグループに追加します。1回のダイアログの操作では1Groupにしか追加できないので、この操作を繰り返す必要があります。</p>
+<p>以下は、acme-dev-teamにUserを追加するときの画面例です。</p>
+<p><img alt="" src="../images/29.png" /></p>
+<p>Groupへの追加が完了したら、このacme-dev-adminアカウントにPasswordを設定し、このUserでログインし直します。</p>
+<p>まず、acme-dev-adminの詳細画面で、"Create/Reset Password"ボタンをクリックします。</p>
+<p><img alt="" src="../images/30.png" /></p>
+<p>”Create/Reset Password”ダイアログで、"Create/Reset Password"ボタンをクリックします。</p>
+<p><img alt="" src="../images/31.png" /></p>
+<p>新たなPasswordが表示されたら"Copy"をクリックします。これでPasswordがクリップボードにコピーされます。
+続けて"Close"ボタンをクリックしてダイアログを閉じます。</p>
+<p><img alt="" src="../images/32.png" /></p>
+<p>画面右上の、人型のアイコンが表示されている箇所をクリックし、さらに、展開されたメニューの"Sign Out"をクリックします。</p>
+<p><img alt="" src="../images/33.png" /></p>
+<p>OCIのコンソールのログイン画面が表示されるので、右側にあるUSER NAMEとPASSWORDのフォームを使ってログインします。それぞれ、入力値は以下のとおりです。</p>
+<ul>
+<li>USER NAME: acme-dev-admin</li>
+<li>PASSWORD: [先の手順で作成したPassword（クリップボードからペースト）]</li>
+</ul>
+<p><img alt="" src="../images/34.png" /></p>
+<p>初期パスワードの変更を求められるので、現在のパスワードと新たに設定するパスワードを入力します。</p>
+<p><img alt="" src="../images/35.png" /></p>
+<p>この画面の操作を完了すると、acme-dev-adminでOCIの管理コンソールにログインした状態になります。</p>
+<p>以上で、準備作業は完了です。</p>
+<h2 id="2-okekubernetes">2 . OKEでKubernetesクラスターをプロビジョニングする<a class="headerlink" href="#2-okekubernetes" title="Permanent link">&para;</a></h2>
+<p>ここでは、OKEでKubernetesクラスターをプロビジョニングしていきます。</p>
+<p>はじめに、OCIのサービス・コンソールの左上のメニューを展開し、"Developer Services"をクリックします。</p>
+<p><img alt="" src="../images/36.png" /></p>
+<p>画面左のメニューで"Clusters"をクリックし、List Scpesのメニューで"acme-dev-compartment"を選択します。続けて、"Create Cluster"ボタンをクリックします。</p>
+<p><img alt="" src="../images/37.png" /></p>
+<p>"Create Cluster"ダイアログで以下のように値を設定し、"Add a Node Pool"ボタンをクリックします。</p>
+<ul>
+<li>NAME: my-first-cluster</li>
+<li>VERION: （任意のバージョンを選択）</li>
+<li>VCN: amce-dev-vcn</li>
+<li>KUBERNETES SERVICE LB SUBNETS: loadbalancers-1, Loadbalancers-2</li>
+<li>（上記以外はデフォルトのまま）</li>
+</ul>
+<p><img alt="" src="../images/38.png" /></p>
+<p>"Node Pool"の設定値の入力フォームが展開されたら、以下のように値を設定し、"Create"ボタンをクリックします。</p>
+<ul>
+<li>NAME: my-first-node-pool</li>
+<li>VERION: （任意のバージョンを選択）</li>
+<li>IMAGE: （任意のバージョンを選択）</li>
+<li>SHAPE: VM.Standard1.1</li>
+<li>SUBNETS: worker-1, worker-2, worker-3</li>
+<li>QUANTITY PER SUBNET: 1</li>
+</ul>
+<p>この設定値は、3つの各ADに1つのWorker Nodeを構成しています。</p>
+<p><img alt="" src="../images/39.png" /></p>
+<p>クラスターの一覧画面に、my-first-clusterが表示されます。StatusがRunningになったら、プロビジョニングは完了です（おおむね数分程度で完了します）。</p>
+<p><img alt="" src="../images/40.png" /></p>
+<h2 id="3-kubernetesclikubectl">3 . Kubernetesの管理用CLI(kubectl)をセットアップする<a class="headerlink" href="#3-kubernetesclikubectl" title="Permanent link">&para;</a></h2>
+<p>ここまでの手順でプロビジョニングしたKubernetesクラスターに対して、Kubernetesの管理用CLI(kubectl)を使ってアクセスしてみます。</p>
+<p>OKEクラスターへのアクセスに必要なkubectlの設定情報を得るには、予めOCIのCLIをインストールしておく必要があります。また、OCI CLIをインストールするために、Pythonの2.7.5以上 または 3.5以上が必要です。</p>
+<p>ここでは、kubectl, Python, OCI CLIをインストールした後、kubectlでOKEクラスターにアクセスするまでの手順を記します。</p>
+<h3 id="3-1-kubectlpython">3-1. kubectlとPythonのインストール<a class="headerlink" href="#3-1-kubectlpython" title="Permanent link">&para;</a></h3>
+<h4 id="3-1-1-kubectl">3-1-1. kubectlのインストール<a class="headerlink" href="#3-1-1-kubectl" title="Permanent link">&para;</a></h4>
+<p><a href="https://kubernetes.io/docs/tasks/tools/install-kubectl/">Kubernetesの公式ドキュメントの手順</a>に従って、kubectlをインストールしておきます。</p>
+<h4 id="3-1-2-python">3-1-2. Pythonのインストール<a class="headerlink" href="#3-1-2-python" title="Permanent link">&para;</a></h4>
+<p>OKEクラスターへのアクセスに必要なkubectlの設定情報を得るには、予めOCI CLIをインストールしておく必要があります。</p>
+<p>OCI CLIをインストールするには、Pythonの2.7.5以上 または 3.5以上がインストールされている必要があります。Pythonのバージョンを確認するには、ターミナルで以下のコマンドを実行します。</p>
+<p>Python 2.x 系の場合</p>
+<div class="codehilite"><pre><span></span>python --version
+</pre></div>
+
+
+<p>Python 3.x 系の場合</p>
+<div class="codehilite"><pre><span></span>python3 --version
+</pre></div>
+
+
+<p>もし上述の条件を満たしていない場合は、ここでPythonのインストール／アップデートを行ってください。</p>
+<h3 id="3-2-oracle-cloud-infrastructurecli">3-2. Oracle Cloud InfrastructureのCLIをセットアップする<a class="headerlink" href="#3-2-oracle-cloud-infrastructurecli" title="Permanent link">&para;</a></h3>
+<p>ここでは、OCI CLIのインストールを行います。</p>
+<h4 id="3-2-1-ocid">3-2-1. OCIDの確認<a class="headerlink" href="#3-2-1-ocid" title="Permanent link">&para;</a></h4>
+<p>acme-dev-adminアカウントでOCIのコンソールにログインし、画面右上の人型のアイコンをクリックします。さらに、展開されたメニューの"User Settings"をクリックします。</p>
+<p><img alt="" src="../images/41.png" /></p>
+<p>ユーザーの詳細情報の画面で”User Information"タブ内にユーザーのOCIDが表示されている箇所があります。OCIDの値の右にある"Copy"をクリックすると、クリップボードにOCIDがコピーされるので、これを手元のテキストエディタなどにペーストしておきます。</p>
+<p><img alt="" src="../images/42.png" /></p>
+<p>次に、同じく画面右上の人型のアイコンをクリックし、展開されたメニューにあるTenant名をクリックします。</p>
+<p><img alt="" src="../images/43.png" /></p>
+<p>Tenantの詳細情報の画面で”Tenancy Information"タブ内にOCIDが表示されている箇所があります。OCIDの値の右にある"Copy"をクリックすると、クリップボードにOCIDがコピーされるので、これを手元のテキストエディタなどにペーストしておきます。</p>
+<p><img alt="" src="../images/44.png" /></p>
+<h4 id="3-2-2-oci-cli">3-2-2. OCI CLIのセットアップ<a class="headerlink" href="#3-2-2-oci-cli" title="Permanent link">&para;</a></h4>
+<p>OCI CLIをインストールするには、以下のコマンドを実行します。</p>
+<div class="codehilite"><pre><span></span>bash -c &quot;$(curl -L https://raw.githubusercontent.com/oracle/oci-cli/master/scripts/install/install.sh)&quot;
+</pre></div>
+
+
+<p>CLIのバイナリの配置先などを設定するインタラクションがあります。自身の環境に合わせて、好みの設定を行ってください（全てデフォルトのままで進めても問題ありません）。</p>
+<p>インストールが完了したら、OCI CLIの初期セットアップを行います。以下のコマンドを実行してください。</p>
+<div class="codehilite"><pre><span></span>oci setup config
+</pre></div>
+
+
+<p>ここでも設定をおこなうためのインタラクションがあります。ここでは、以下のように入力してください。この例では、インタラクションの途中でAPIキーを生成しますが、もし別途用意していあるAPIキーを使用する場合は Do you want to generate a new RSA key pair? という質問にNと答えてください。</p>
+<ul>
+<li>Enter a location for your config [/home/&lt;ユーザー名>/.oci/config]: 入力なしでENTERキーを押す</li>
+<li>Enter a user OCID: - 先の手順で確認したユーザーのOCIDを入力</li>
+<li>Enter a tenancy OCID: - 先の手順で確認したテナントのOCIDを入力</li>
+<li>Enter a region (e.g. eu-frankfurt-1, us-ashburn-1, us-phoenix-1): アクセスしたいリージョンを例に従って入力</li>
+<li>Do you want to generate a new RSA key pair? (If you decline you will be asked to supply the path to an existing key.) [Y/n]: - Y</li>
+<li>Enter a directory for your keys to be created [/home/&lt;ユーザー名>/.oci]: - 入力なしでENTERキーを押す</li>
+<li>Enter a name for your key [oci_api_key]: - 入力なしでENTERキーを押す</li>
+<li>Enter a passphrase for your private key (empty for no passphrase): - 任意のパスフレーズを入力</li>
+</ul>
+<p>CLIからOCIに対してアクセスを行う際には、OCIのAPIの認証が行われます。このため予め認証をパスするのに必要なAPIキーを、ユーザー毎にOCIにアップロードしておく必要があります。</p>
+<p>OCI CLIの初期セットアップの際に作成した鍵ペアのうち、公開鍵の方を、管理コンソールからアップロードします。</p>
+<p>まず、以下のターミナルで以下のコマンドを実行し、公開鍵を表示しておきます。</p>
+<div class="codehilite"><pre><span></span>cat ~/.oci/oci_api_key_public.pem
+</pre></div>
+
+
+<p>続いてOCIのコンソールに移り、画面右上の現在ログイン中のユーザー名が表示されている箇所をクリックします。さらに、展開されたメニューの"User Settings"をクリックします。</p>
+<p>ユーザーの詳細画面の左側のメニューで、"API Keys"をクリックし、さらに"Add Public Key"ボタンをクリックします。</p>
+<p><img alt="" src="../images/45.png" /></p>
+<p>”Add Public Key"ダイアログの入力欄に、先ほとターミナルに表示した公開鍵をペーストし、"Add"ボタンをクリックします（"-----BEGIN PUBLIC KEY-----"と"-----END PUBLIC KEY-----"の行も含めてペーストします）。</p>
+<p><img alt="" src="../images/46.png" /></p>
+<p>以上でOCI CLIのセットアップは完了です。</p>
+<h3 id="3-3-kubectl">3-3. kubectlの設定を行って、クラスターにアクセスする<a class="headerlink" href="#3-3-kubectl" title="Permanent link">&para;</a></h3>
+<p>最後にkubectlの設定ファイルを取得し、kubectlで実際にクラスターにアクセスしてみます。
+OCIのコンソールで、画面右上のタブから"Developer Services"をクリックします。</p>
+<p><img alt="" src="../images/36.png" /></p>
+<p>先の手順で作成しておいた"my-first-cluster"の名前をクリックします。</p>
+<p><img alt="" src="../images/47.png" /></p>
+<p>クラスターの詳細画面で、"Access Kubeconfig"をクリックします。</p>
+<p><img alt="" src="../images/48.png" /></p>
+<p>”How to Access Kubeconfig"ダイアログに、kubetctlの設定ファイルを取得するためのコマンドが表示されますので、これらを順次実行していきます。</p>
+<p><img alt="" src="../images/49.png" /></p>
+<p>1つ目のコマンドは、設定ファイルを格納するためのディレクトリの作成です。</p>
+<div class="codehilite"><pre><span></span>mkdir -p $HOME/.kube
+</pre></div>
+
+
+<p>2つ目のコマンドは、OCI CLIの設定ファイル取得用のコマンドを実行しています（実際のコマンドはダイアログからコピーしてください）。</p>
+<div class="codehilite"><pre><span></span>oci ce cluster create-kubeconfig --cluster-id ocid1.cluster.oc1.iad.xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx --file $HOME/.kube/config
+</pre></div>
+
+
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>kubectlコマンドはデフォルトで<code>$HOME/.kube/config</code>というパスのファイルを読み込む仕様になっています。設定ファイルの名前や配置先を変更したい場合には、上記2つのコマンドのオプションを変更した上で、kubectlが指定のパスのファイルを読み込むように設定する必要があります。<br>
+詳細は、<a href="https://kubernetes.io/docs/tasks/access-application-cluster/configure-access-multiple-clusters/#set-the-kubeconfig-environment-variable">公式ドキュメントの記載</a>を”参照ください</p>
+</div>
+<p>最後に、以下のコマンドを実行して、kubectlの動作確認をしてみます。</p>
+<div class="codehilite"><pre><span></span>kubectl get nodes
+</pre></div>
+
+
+<p>以下のような実行結果になれば、正常にクラスターにアクセスできています。</p>
+<div class="codehilite"><pre><span></span>NAME              STATUS    ROLES     AGE       VERSION
+129.213.100.157   Ready     node      3d        v1.9.7
+129.213.118.118   Ready     node      3d        v1.9.7
+129.213.95.69     Ready     node      3d        v1.9.7
+</pre></div>
+
+
+<p>以上で、OKEでKubernetesクラスターをプロビジョニングし、利用を開始するまでの手順は完了です。</p>
+                
+                  
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../../../README/" title="コンテナのホーム" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  前
+                </span>
+                コンテナのホーム
+              </span>
+            </div>
+          </a>
+        
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright &copy; 2018 Oracle Corporation Japan
+          </div>
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+        
+  <div class="md-footer-social">
+    <link rel="stylesheet" href="../../../../../assets/fonts/font-awesome.css">
+    
+      <a href="https://github.com/oracle-japan" class="md-footer-social__link fa fa-github"></a>
+    
+  </div>
+
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../../../../assets/javascripts/application.30f6b8b1.js"></script>
+      
+        
+        
+          
+          <script src="../../../../../assets/javascripts/lunr/lunr.stemmer.support.js"></script>
+          
+            
+          
+            
+              
+                <script src="../../../../../assets/javascripts/lunr/tinyseg.js"></script>
+              
+              
+                <script src="../../../../../assets/javascripts/lunr/lunr.jp.js"></script>
+              
+            
+          
+          
+            <script src="../../../../../assets/javascripts/lunr/lunr.multi.js"></script>
+          
+        
+      
+      <script>app.initialize({version:"0.17.5",url:{base:"../../../../.."}})</script>
+      
+    
+    
+      
+    
+  </body>
+</html>
