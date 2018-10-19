@@ -1029,14 +1029,14 @@
 
 
 <p>アプリケーションの起動処理が完了したら、新たにコンソールを立ち上げて以下のコマンドを実行します。</p>
-<div class="codehilite"><pre><span></span>curl &quot;http://localhost:8080/cowsay/say?message=Hello%20cowweb&quot;
+<div class="codehilite"><pre><span></span>curl &quot;http://localhost:8080/cowsay/say&quot;
 </pre></div>
 
 
 <p>以下のようなアスキーアートが表示されれば、アプリケーションが正常に動作しています。</p>
-<div class="codehilite"><pre><span></span> ______________
-&lt; Hello cowweb &gt;
- --------------
+<div class="codehilite"><pre><span></span> ______
+&lt; Moo! &gt;
+ ------
         \   ^__^
          \  (oo)\_______
             (__)\       )\/\
@@ -1045,10 +1045,9 @@
 </pre></div>
 
 
-<p>ここまでで、アプリケーションのローカルでのビルドと動作確認が完了しました。
-以降の手順では、このアプリケーションが動作するDockerのコンテナイメージを作成して、OKEクラスター上にデプロイしていきます。</p>
-<!-- TODO ここでアプリを止めておく -->
-
+<p>ここまでで、アプリケーションのローカルでのビルドと動作確認が完了しました。</p>
+<p>新たに立ち上げたコンソールは<code>exit</code>を実行して終了しておきます。また、サンプルアプリケーションを実行しているコンソールで<code>[Ctrl] + C</code>を入力して、アプリを停止しておきます。</p>
+<p>以降の手順では、このアプリケーションが動作するDockerのコンテナイメージを作成して、OKEクラスター上にデプロイしていきます。</p>
 <h2 id="3-ociroke">3 . OCIRへのプッシュとOKEへのデプロイ<a class="headerlink" href="#3-ociroke" title="Permanent link">&para;</a></h2>
 <p>ここでは、サンプルアプリケーションが動作するコンテナイメージを作成し、OCIR（コンテナレジストリ）へのプッシュとOKEクラスターへのデプロイを行います。</p>
 <h3 id="31">3.1. コンテナイメージを作る<a class="headerlink" href="#31" title="Permanent link">&para;</a></h3>
@@ -1363,15 +1362,21 @@ kubernetes   ClusterIP      10.96.0.1      &lt;none&gt;            443/TCP      
 
 
 <p>このときのEXTERNAL-IPの値は次の手順で利用するため、テキストエディタ等にペーストするなどして控えておいてください。</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>OKEでは、デフォルト設定でLoadBlancerタイプのServiceを作成すると、100Mbpsのシェイプのロードバランサーが利用されます。このとき、お使いの環境で100MbpsシェイプのLB数がリミットに達していると、IPが<code>&lt;pending&gt;</code>となったまま払い出されない状況になります。</p>
+<p>このような状況に遭遇した場合は、シェイプを変更してServiceの作成を行ってみてください。具体的には以下のようなコマンドを実行します。</p>
+<p><code>kubectl apply -f ./kubernetes/cowweb-service-oci400m.yaml</code></p>
+</div>
 <p>これでクラスターへのデプロイは完了しましたので、実際に動作確認してみます。以下のコマンドを実行してください。</p>
-<div class="codehilite"><pre><span></span>curl &quot;http://[EXTERNAL-IPの値]/cowsay/say?message=Hello%20cowweb&quot;
+<div class="codehilite"><pre><span></span>curl &quot;http://[EXTERNAL-IPの値]/cowsay/say&quot;
 </pre></div>
 
 
 <p>ローカルで動作確認したときと同様、以下のようなアスキーアートが表示されれば、アプリケーションが正常に動作しています。</p>
-<div class="codehilite"><pre><span></span> ______________
-&lt; Hello cowweb &gt;
- --------------
+<div class="codehilite"><pre><span></span> ______
+&lt; Moo! &gt;
+ ------
         \   ^__^
          \  (oo)\_______
             (__)\       )\/\
@@ -1616,13 +1621,13 @@ kubernetes   ClusterIP      10.96.0.1      &lt;none&gt;            443/TCP      
 <p>これでWerckerのワークフローを使って、アプリーケーションをデプロイすることができました。</p>
 <h3 id="52">5.2. アプリケーションの動作確認<a class="headerlink" href="#52" title="Permanent link">&para;</a></h3>
 <p>以下のコマンドを実行すると 3.4. で手動でデプロししたときと同じ結果が返されます。</p>
-<div class="codehilite"><pre><span></span>curl &quot;http://[上記手順で確認したIPアドレス]/cowsay/say?message=Hello%20cowweb&quot;
+<div class="codehilite"><pre><span></span>curl &quot;http://[上記手順で確認したIPアドレス]/cowsay/say&quot;
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span> ______________
-&lt; Hello cowweb &gt;
- --------------
+<div class="codehilite"><pre><span></span> ______
+&lt; Moo! &gt;
+ ------
         \   ^__^
          \  (oo)\_______
             (__)\       )\/\
@@ -1661,7 +1666,7 @@ kubernetes   ClusterIP      10.96.0.1      &lt;none&gt;            443/TCP      
 <p>ワークフローが終了したら、先の手順と同じようにIPアドレスを確認してください。</p>
 <p><img alt="" src="../images/8.5.PNG" /></p>
 <p>最後に、以下のコマンドを実行して、アプリケーションにアクセスしてみます。</p>
-<div class="codehilite"><pre><span></span>curl &quot;http://[上記手順で確認したIPアドレス]/cowsay/say?message=Hello%20cowweb&quot;
+<div class="codehilite"><pre><span></span>curl &quot;http://[上記手順で確認したIPアドレス]/cowsay/say&quot;
 </pre></div>
 
 

@@ -766,7 +766,7 @@
                   <a href="https://github.com/oracle-japan/paasdocs/edit/master/docs/documents/containers/oke/getting-started/README.md" title="編集" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
-                <h1 id="okekubernetes">OKEによるKubernetesクラスターの作成<a class="headerlink" href="#okekubernetes" title="Permanent link">&para;</a></h1>
+                <h1 id="okekubernetes">OKEによるKubernetesクラスターの利用<a class="headerlink" href="#okekubernetes" title="Permanent link">&para;</a></h1>
 <p>Oracle Container Engine for Kubernetes（以下OKE）は、OracleのマネージドKubernetesサービスです。このエントリーでは、OKEを使ってKubernetesクラスターをプロビジョニングするまでの手順を記します。</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
@@ -1246,22 +1246,62 @@
 
 
 <p>CLIのバイナリの配置先などを設定するインタラクションがあります。自身の環境に合わせて、好みの設定を行ってください（全てデフォルトのままで進めても問題ありません）。</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>OCI CLIのインストールは、全てデフォルトの設定のまま進めても問題ありません。その場合、以下のようにインタラクションに応答してください</p>
+<ul>
+<li><code>(Y/n):</code>で終わる質問にはすべて<code>Y + [Return]</code></li>
+<li>上記以外の質問にはなにも入力せず<code>[Return]</code></li>
+</ul>
+</div>
 <p>インストールが完了したら、OCI CLIの初期セットアップを行います。以下のコマンドを実行してください。</p>
 <div class="codehilite"><pre><span></span>oci setup config
 </pre></div>
 
 
-<p>ここでも設定をおこなうためのインタラクションがあります。ここでは、以下のように入力してください。この例では、インタラクションの途中でAPIキーを生成しますが、もし別途用意していあるAPIキーを使用する場合は Do you want to generate a new RSA key pair? という質問にNと答えてください。</p>
-<ul>
-<li>Enter a location for your config [/home/&lt;ユーザー名>/.oci/config]: 入力なしでENTERキーを押す</li>
-<li>Enter a user OCID: - 先の手順で確認したユーザーのOCIDを入力</li>
-<li>Enter a tenancy OCID: - 先の手順で確認したテナントのOCIDを入力</li>
-<li>Enter a region (e.g. eu-frankfurt-1, us-ashburn-1, us-phoenix-1): アクセスしたいリージョンを例に従って入力</li>
-<li>Do you want to generate a new RSA key pair? (If you decline you will be asked to supply the path to an existing key.) [Y/n]: - Y</li>
-<li>Enter a directory for your keys to be created [/home/&lt;ユーザー名>/.oci]: - 入力なしでENTERキーを押す</li>
-<li>Enter a name for your key [oci_api_key]: - 入力なしでENTERキーを押す</li>
-<li>Enter a passphrase for your private key (empty for no passphrase): - 任意のパスフレーズを入力</li>
-</ul>
+<p>ここでも設定をおこなうためのインタラクションがあります。ここでは、下表のように入力してください。この例では、インタラクションの途中でAPIキーを生成しますが、もし別途用意していあるAPIキーを使用する場合は"Do you want to generate a new RSA key pair?"という質問に<code>N + [Return]</code>と答えてください。</p>
+<table>
+<thead>
+<tr>
+<th>質問</th>
+<th>応答操作</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Enter a location for your config [/home/&lt;ユーザー名>/.oci/config]</td>
+<td>なにも入力せず<code>[Return]</code></td>
+</tr>
+<tr>
+<td>Enter a user OCID</td>
+<td>先の手順で確認したユーザーのOCIDを入力</td>
+</tr>
+<tr>
+<td>Enter a tenancy OCID</td>
+<td>先の手順で確認したテナントのOCIDを入力</td>
+</tr>
+<tr>
+<td>Enter a region (e.g. eu-frankfurt-1, us-ashburn-1, us-phoenix-1)</td>
+<td>アクセスしたいリージョンを例に従って入力</td>
+</tr>
+<tr>
+<td>Do you want to generate a new RSA key pair? (If you decline you will be asked to supply the path to an existing key.) [Y/n]</td>
+<td><code>Y + [Return]</code></td>
+</tr>
+<tr>
+<td>Enter a directory for your keys to be created [/home/&lt;ユーザー名>/.oci]</td>
+<td>なにも入力せず<code>[Return]</code></td>
+</tr>
+<tr>
+<td>Enter a name for your key [oci_api_key]</td>
+<td>なにも入力せず<code>[Return]</code></td>
+</tr>
+<tr>
+<td>Enter a passphrase for your private key (empty for no passphrase)</td>
+<td>なにも入力せず<code>[Return]</code></td>
+</tr>
+</tbody>
+</table>
 <p>CLIからOCIに対してアクセスを行う際には、OCIのAPIの認証が行われます。このため予め認証をパスするのに必要なAPIキーを、ユーザー毎にOCIにアップロードしておく必要があります。</p>
 <p>OCI CLIの初期セットアップの際に作成した鍵ペアのうち、公開鍵の方を、管理コンソールからアップロードします。</p>
 <p>まず、以下のターミナルで以下のコマンドを実行し、公開鍵を表示しておきます。</p>
