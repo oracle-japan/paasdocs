@@ -568,8 +568,8 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#51" title="5.1. ワークフローの実行" class="md-nav__link">
-    5.1. ワークフローの実行
+  <a href="#51-werckeryml" title="5.1. wercker.ymlを更新とワークフローの実行" class="md-nav__link">
+    5.1. wercker.ymlを更新とワークフローの実行
   </a>
   
 </li>
@@ -841,8 +841,8 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#51" title="5.1. ワークフローの実行" class="md-nav__link">
-    5.1. ワークフローの実行
+  <a href="#51-werckeryml" title="5.1. wercker.ymlを更新とワークフローの実行" class="md-nav__link">
+    5.1. wercker.ymlを更新とワークフローの実行
   </a>
   
 </li>
@@ -933,18 +933,8 @@
                 
                 
                 <h1 id="okewerckercicd">OKEとWerckerによるCI/CD<a class="headerlink" href="#okewerckercicd" title="Permanent link">&para;</a></h1>
-<p>このエントリーは、OKEとWerckerを利用したコンテナベースのCI/CD(Continus Integration/Delivery)を体験する、ハンズオンチュートリアルです。</p>
-<p>このチュートリアルでは、簡単なサンプルアプリケーションを題材に、Kubernetesでアプリケーションを動作させる使用感や、Werckerと組み合わせたコンテナのビルド、テスト、デプロイ自動化を体験することができます。</p>
-<ul>
-<li>Oracle Container Engine for Kubernetes（以下OKE）:<ul>
-<li>OracleのマネージドKubernetesサービスです。</li>
-</ul>
-</li>
-<li>Oracle Container Pipelines Service（以下Wercker）:<ul>
-<li>アプリケーションのビルド、テスト、デプロイの自動化をコンテナベースで実現する、CI/CDサービスです。</li>
-</ul>
-</li>
-</ul>
+<p>このエントリーは、OKEとWerckerを利用したコンテナベースのCI/CD(Continous Integration/Delivery)を体験する、ハンズオンチュートリアルです。</p>
+<p>このチュートリアルでは、簡単なサンプルアプリケーションを題材にKubernetesでアプリケーションを動作させる使用感や、Werckerと組み合わせたコンテナのビルド、テスト、デプロイ自動化を体験することができます。</p>
 <h2 id="_1">このチュートリアルを実施するために必要な要件<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
 <ul>
 <li>各種サービスアカウント<ul>
@@ -953,7 +943,7 @@
 </ul>
 </li>
 <li>クライアントPCの環境<ul>
-<li>Ubuntu 16.04（Linux/Unix互換のシェルが利用できる環境が必要です。）</li>
+<li>Linux/Unix互換のシェルが利用できるコンソール</li>
 <li>OCI CLIがインストール済みであること</li>
 </ul>
 </li>
@@ -969,7 +959,7 @@
 <li>新バージョンの自動デプロイ</li>
 </ol>
 <h2 id="1-oke">1 . OKEクラスターの作成と動作確認<a class="headerlink" href="#1-oke" title="Permanent link">&para;</a></h2>
-<p>OKEクラスターの作成と動作確認の手順は、<a href="https://qiita.com/hhiroshell/items/5e812a4cccbdbb16a3fb">「OKEの始め方」</a>を参照してください。このハンズオンは、左記エントリーに従って作成したOKEクラスターを利用するものとして、手順を記載します。</p>
+<p>OKEクラスターの作成と動作確認の手順は、<a href="https://oracle-japan.github.io/paasdocs/documents/containers/oke/getting-started/README/">OKEによるKubernetesクラスターの利用</a>を参照してください。このハンズオンは、左記エントリーに従って作成したOKEクラスターを利用するものとして、手順を記載します。</p>
 <h2 id="2">2 . アプリケーションのローカルビルドとローカルでの動作確認<a class="headerlink" href="#2" title="Permanent link">&para;</a></h2>
 <p>ここでは、このハンズオンで利用するサンプルアプリケーションの準備を行います。あらかじめ用意したコードをご自身のアカウントにForkして頂いた上で、そのコードを使ってアプリケーションの動作確認までを行います。</p>
 <h3 id="21-fork">2.1. アプリーケーションのリポジトリをForkする<a class="headerlink" href="#21-fork" title="Permanent link">&para;</a></h3>
@@ -995,7 +985,7 @@
 
 
 <h3 id="23">2.3. アプリケーションをビルドする<a class="headerlink" href="#23" title="Permanent link">&para;</a></h3>
-<p>このサンプルアプリケーションは、gradleをビルドツールとして利用する、Javaのアプリケーションです。以下のコマンドを実行すると、アプリケーションをビルドすることができます。</p>
+<p>このサンプルアプリケーションは、gradleをビルドツールとして利用するJavaのアプリケーションです。以下のコマンドを実行すると、アプリケーションをビルドすることができます。</p>
 <div class="codehilite"><pre><span></span>chmod +x ./gradlew
 </pre></div>
 
@@ -1191,23 +1181,24 @@ java                8-jre-alpine        fdc893b19a14        19 months ago       
 
 
 <p>続いて、OCIRの形式に合わせてコンテナイメージのタグを更新します。以下のコマンドを実行してくさい。</p>
-<div class="codehilite"><pre><span></span>docker tag sample/cowweb:v1.0 [リージョンコード].ocir.io/[テナント名]/sample/cowweb:v1.0
+<div class="codehilite"><pre><span></span>docker tag sample/cowweb:v1.0 [リージョンコード].ocir.io/[テナント名]/[リポジトリ名]/cowweb:v1.0
 </pre></div>
 
 
-<p>このコマンドにおいて、[リージョンコード]と[テナント名]は、これまでの手順で指定したものと同じものです。例えば、以下のようなコマンドになります。</p>
-<div class="codehilite"><pre><span></span>docker tag sample/cowweb:v1.0 iad.ocir.io/tenant000123/sample/cowweb:v1.0
+<p>このコマンドにおいて、[リージョンコード]と[テナント名]は、これまでの手順で指定したものと同じものです。リポジトリ名には任意の文字列を指定してください（通常はプロジェクト名やチーム名などを指定します）。</p>
+<p>以上を踏まえると、<code>docker tag</code>コマンドの具体例としては以下のようになります。</p>
+<div class="codehilite"><pre><span></span>docker tag sample/cowweb:v1.0 iad.ocir.io/tenant000123/project000123/cowweb:v1.0
 </pre></div>
 
 
 <p>この操作によって、コンテナイメージにプッシュ先のレジストリを指定する情報を追加しています。これを行わない場合、コンテナイメージはデフォルトのレジストリが指定されたものとみなされ、Docker社が提供するDocker Hubというレジストリが利用されてしまいます。</p>
 <p>これで準備が整いましたので、実際にOCIRにイメージをプッシュします。以下のコマンドを実行してください。</p>
-<div class="codehilite"><pre><span></span>docker push [リージョンコード].ocir.io/[テナント名]/sample/cowweb:v1.0
+<div class="codehilite"><pre><span></span>docker push [リージョンコード].ocir.io/[テナント名]/[リポジトリ名]/cowweb:v1.0
 </pre></div>
 
 
 <p>以下のような実行結果となれば、プッシュが成功しています。</p>
-<div class="codehilite"><pre><span></span>The push refers to repository [iad.ocir.io/tenant000123/sample/cowweb]
+<div class="codehilite"><pre><span></span>The push refers to repository [iad.ocir.io/tenant000123/project000123/cowweb]
 d07a2053e8fb: Pushed
 93ed7a751af8: Pushed
 20dd87a4c2ab: Pushed
@@ -1290,7 +1281,7 @@ v1.0: digest: sha256:5769c194f3861f71c9fd43eb763813676aaba0b41acf453fb6a09a1af75
 </div>
 <p>20行目には、実際にクラスター上で動かすコンテナイメージが指定されています。現在の記述内容は、ご自身環境に合わせた記述にはなっていませんので、この部分を正しい値に修正してください。具体的には、3.3.で<code>docker push</code>コマンドを実行する際に指定した文字列と同じ内容にすればOKです。</p>
 <p>例えば、以下のような文字列となります。</p>
-<div class="codehilite"><pre><span></span>iad.ocir.io/tenant000123/sample/cowweb:v1.0
+<div class="codehilite"><pre><span></span>iad.ocir.io/tenant000123/project000123/cowweb:v1.0
 </pre></div>
 
 
@@ -1395,7 +1386,74 @@ kubernetes   ClusterIP      10.96.0.1      &lt;none&gt;            443/TCP      
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">box</span><span class="p p-Indicator">:</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">box</span><span class="p p-Indicator">:</span>
   <span class="l l-Scalar l-Scalar-Plain">id</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">openjdk:8-jdk</span>
   <span class="l l-Scalar l-Scalar-Plain">ports</span><span class="p p-Indicator">:</span>
     <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">8080</span>
@@ -1422,8 +1480,8 @@ kubernetes   ClusterIP      10.96.0.1      &lt;none&gt;            443/TCP      
     <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">internal/docker-push</span><span class="p p-Indicator">:</span>
         <span class="l l-Scalar l-Scalar-Plain">username</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">$REGISTRY_USERNAME</span>
         <span class="l l-Scalar l-Scalar-Plain">password</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">$REGISTRY_PASSWORD</span>
-        <span class="l l-Scalar l-Scalar-Plain">repository</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">iad.ocir.io/gse00014510/acme-web-app/cowweb</span>
-        <span class="l l-Scalar l-Scalar-Plain">tag</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">v1.0</span>
+<span class="hll">        <span class="l l-Scalar l-Scalar-Plain">repository</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">iad.ocir.io/gse00014510/acme-web-app/cowweb</span>
+</span>        <span class="l l-Scalar l-Scalar-Plain">tag</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">v1.0</span>
         <span class="l l-Scalar l-Scalar-Plain">ports</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">8080</span>
         <span class="l l-Scalar l-Scalar-Plain">cmd</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">java -jar /pipeline/source/build/libs/cowweb-1.0.jar</span>
 
@@ -1464,7 +1522,7 @@ kubernetes   ClusterIP      10.96.0.1      &lt;none&gt;            443/TCP      
         <span class="l l-Scalar l-Scalar-Plain">insecure-skip-tls-verify</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
         <span class="l l-Scalar l-Scalar-Plain">command</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">get service -o jsonpath=&#39;{.items[*].status.loadBalancer.ingress[*].ip}&#39; --namespace=$COWWEB_NAMESPACE</span>
 </pre></div>
-
+</td></tr></table>
 
 <p>ここでは、記述内容の詳細については省略しますが、ポイントとしては以下のような点が挙げられます。</p>
 <ul>
@@ -1608,16 +1666,27 @@ kubernetes   ClusterIP      10.96.0.1      &lt;none&gt;            443/TCP      
 </table>
 <p>これで、CI/CDの処理の定義はすべて完了です。</p>
 <h2 id="5-wercker">5 . Werckerによる初期バージョンのデプロイ<a class="headerlink" href="#5-wercker" title="Permanent link">&para;</a></h2>
-<p>それではWerckerのワークフローを実際に動かしてみます。</p>
-<h3 id="51">5.1. ワークフローの実行<a class="headerlink" href="#51" title="Permanent link">&para;</a></h3>
-<p>[Runs]タブをクリックすると、現在までのワークフローの実行履歴が表示される画面に遷移します。</p>
-<p>この時点ではまだ一度もワークフローを動かしていませんので、履歴は何もありません。画面下方にある[trigger a build now.]という文字列をクリックすると、最初のワークフローが実行されます。</p>
-<p><img alt="" src="../images/39.PNG" /></p>
-<p>このときは、masterブランチに対応するワークフローの処理が行われ、正常に終了すればコンテナのプッシュ、OKEのデプロイまでが行われます。</p>
+<h3 id="51-werckeryml">5.1. wercker.ymlを更新とワークフローの実行<a class="headerlink" href="#51-werckeryml" title="Permanent link">&para;</a></h3>
+<p>この時点のwercker.ymlの記述内容では、3.3. で<code>docker push</code>を実行したときとは異なるレジストリが指定されています。
+ここでwercker.ymlを修正し、ワークフロー内で行われるコンテナのプッシュが、3.3. でのプッシュ先と同じ場所に対して行われるようにしておきます。</p>
+<p>ブラウザでサンプルアプリケーションのGitHubリポジトリにアクセスし、画面中央のファイル／フォルダの一覧から、wercker.ymlを選択してください。</p>
+<p><img alt="" src="../images/5.0.1.png" /></p>
+<p>ファイルの内容が表示されている箇所の右上にある、ペン型アイコンをクリックすると、編集を開始することができます。</p>
+<p><img alt="" src="../images/5.0.2.png" /></p>
+<p>L45に記述されているイメージのプッシュ先を示す文字列を、3.3. で<code>docker push</code>実行時に指定したものと同じ文字列に修正してください。</p>
+<p><img alt="" src="../images/5.0.3.png" /></p>
+<p>画面を最下部までスクロールすると[Commit Changes]フォームがあります。ここで適当なコミットコメントを記入し、[Commit directly to the <code>master</code> branch.]というラジオボタンを選択して[Propose file Change]ボタンをクリックします。</p>
+<p><img alt="" src="../images/5.0.4.png" /></p>
+<p>GitHubの画面はそのままにして、Werckerの画面を表示し、[Runs]タブをクリックしてください。</p>
+<p>ここまでの手順でmasterブランチを更新していますので、Werckerのワークフローが自動で動き出していることが確認できます。正常に終了すればコンテナのプッシュ、OKEのデプロイまでが行われます。</p>
 <p>ワークフローの実行結果から[deploy-to-cluster]をクリックすると、パイプライン内の処理の詳しい結果（標準出力の出力内容）を確認することができます。</p>
 <p><img alt="" src="../images/6.6.PNG" /></p>
-<p>[get LoadBalancer public IP address]をさらにクリックすると、アプリーケーションへのトラフィックを受け付けるIPアドレスを確認することができます（これはwercker.yml内でそのような処理を実行するように記述することで実現しています）。</p>
+<p>[get LoadBalancer public IP address]をさらにクリックすると、アプリーケーションへのトラフィックを受け付けるIPアドレスを確認することができます。</p>
 <p><img alt="" src="../images/6.7.PNG" /></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>IPアドレスの取得は、ワークフロー内で所定の<code>kubectl</code>コマンドを実行するようにwercker.ymlを記述することで実現しています。</p>
+</div>
 <p>これでWerckerのワークフローを使って、アプリーケーションをデプロイすることができました。</p>
 <h3 id="52">5.2. アプリケーションの動作確認<a class="headerlink" href="#52" title="Permanent link">&para;</a></h3>
 <p>以下のコマンドを実行すると 3.4. で手動でデプロししたときと同じ結果が返されます。</p>
@@ -1647,7 +1716,7 @@ kubernetes   ClusterIP      10.96.0.1      &lt;none&gt;            443/TCP      
 <p>適当なコミットコメントを記入し、[Create a new branch...]というラジオボタンを選択して[Propose file Change]ボタンをクリックします。</p>
 <p><img alt="" src="../images/7.3.PNG" /></p>
 <p>[Open a pull request]画面に遷移しますが、この画面はそのままにして、Werckerの画面を表示してください。</p>
-<p>ソースコードの編集を行った時点で新たなブランチを作成してリポジトリを更新していますので、Werckerのワークフローが自動で動き出していることが確認できます。ここでは、master以外に新たにブランチを作成していますので、build &gt; integration-test の流れが実行されています。</p>
+<p>ソースコードの編集を行った時点で新たなブランチを作成しリポジトリを更新していますので、Werckerのワークフローが自動で動き出していることが確認できます。ここでは、master以外に新たにブランチを作成していますので、build &gt; integration-test の流れが実行されています。</p>
 <p><img alt="" src="../images/7.5.PNG" /></p>
 <h3 id="62">6.2. プルリクエストを発行する<a class="headerlink" href="#62" title="Permanent link">&para;</a></h3>
 <p>それではGitHubにもどり[Open a pull request]画面で[Create pull request]ボタンをクリックしてください。</p>
