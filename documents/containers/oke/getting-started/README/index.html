@@ -417,15 +417,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#1-2-2-oke" title="1-2-2. OKEクラスター用のネットワークリソースを作成する" class="md-nav__link">
-    1-2-2. OKEクラスター用のネットワークリソースを作成する
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#1-2-3-okeusergrouppolicy" title="1-2-3. OKEを操作するためのUser/Group/Policyの構成を行う" class="md-nav__link">
-    1-2-3. OKEを操作するためのUser/Group/Policyの構成を行う
+  <a href="#1-2-2-okeusergrouppolicy" title="1-2-2. OKEを操作するためのUser/Group/Policyの構成を行う" class="md-nav__link">
+    1-2-2. OKEを操作するためのUser/Group/Policyの構成を行う
   </a>
   
 </li>
@@ -441,8 +434,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#2-okekubernetes" title="2 . OKEでKubernetesクラスターをプロビジョニングする" class="md-nav__link">
-    2 . OKEでKubernetesクラスターをプロビジョニングする
+  <a href="#2-oke" title="2 . OKEクラスターをプロビジョニングする" class="md-nav__link">
+    2 . OKEクラスターをプロビジョニングする
   </a>
   
 </li>
@@ -643,15 +636,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#1-2-2-oke" title="1-2-2. OKEクラスター用のネットワークリソースを作成する" class="md-nav__link">
-    1-2-2. OKEクラスター用のネットワークリソースを作成する
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#1-2-3-okeusergrouppolicy" title="1-2-3. OKEを操作するためのUser/Group/Policyの構成を行う" class="md-nav__link">
-    1-2-3. OKEを操作するためのUser/Group/Policyの構成を行う
+  <a href="#1-2-2-okeusergrouppolicy" title="1-2-2. OKEを操作するためのUser/Group/Policyの構成を行う" class="md-nav__link">
+    1-2-2. OKEを操作するためのUser/Group/Policyの構成を行う
   </a>
   
 </li>
@@ -667,8 +653,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#2-okekubernetes" title="2 . OKEでKubernetesクラスターをプロビジョニングする" class="md-nav__link">
-    2 . OKEでKubernetesクラスターをプロビジョニングする
+  <a href="#2-oke" title="2 . OKEクラスターをプロビジョニングする" class="md-nav__link">
+    2 . OKEクラスターをプロビジョニングする
   </a>
   
 </li>
@@ -768,14 +754,9 @@
                 
                 <h1 id="okekubernetes">OKEによるKubernetesクラスターの利用<a class="headerlink" href="#okekubernetes" title="Permanent link">&para;</a></h1>
 <p>Oracle Container Engine for Kubernetes（以下OKE）は、OracleのマネージドKubernetesサービスです。このエントリーでは、OKEを使ってKubernetesクラスターをプロビジョニングするまでの手順を記します。</p>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>このエントリーでは、<a href="https://docs.us-phoenix-1.oraclecloud.com/Content/ContEng/Concepts/contengoverview.htm">公式ドキュメント</a>の例にある設置値を使って、各種の設定を行っていきます。
-実際の運用／開発でOKEを使う際には、利用目的に併せた設定値を入力するようご注意ください。</p>
-</div>
 <h2 id="_1">動作確認できている条件<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
 <ul>
-<li>クラウド<ul>
+<li>クラウド環境<ul>
 <li>North America リージョンのDCが有効なOracle Cloudアカウントがあること</li>
 </ul>
 </li>
@@ -784,11 +765,20 @@
 </ul>
 </li>
 </ul>
+<div class="admonition warning">
+<p class="admonition-title">トライアルアカウントをご利用の方へ</p>
+<p>OKEクラスターを作成するには、OCI(Oracle Cloudの第2世代IaaS)のService Limitにおいて、Cluster作成可能数を1以上にする必要があります。トライアルアカウントの初期状態ではこの上限が0に設定されているため、Oracle Cloudのサポート窓口にてLimit拡張申請を行う必要があります。</p>
+<p><a href="https://support.oracle.com/cloud/faces/index">サポート窓口</a>のユーザー名／パスワードは、アカウント作成完了時に送付されるE-mailに記載されています。こちらでログインした後、以下のカテゴリにてSR（サービスリクエスト）を発行してください。</p>
+<ul>
+<li>サービス・タイプ: Oracle Cloud Infrastructure</li>
+<li>問題タイプ: Account issues/Limit increase</li>
+</ul>
+</div>
 <h2 id="_2">全体の流れ<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <p>手順の大まかな流れは以下のとおりです。</p>
 <ol>
 <li>OCI上での準備作業</li>
-<li>OKEでKubernetesクラスターをプロビジョニングする</li>
+<li>OKEクラスターをプロビジョニングする</li>
 <li>Kubernetesの管理用CLI(kubectl)をセットアップする</li>
 </ol>
 <p>OCIはOracleのIaaSで、OKEはOCIの機能群のひとつとして提供されています。</p>
@@ -796,7 +786,7 @@
 <p>まずはじめに、OCI上にKubernetes用の領域(Compartment)や、OKEクラスターの管理アカウント、ネットワーク設定など、必要なリソースを作成していきます。</p>
 <h3 id="1-1-oci">1-1. OCIのサービスコンソールにアクセスする<a class="headerlink" href="#1-1-oci" title="Permanent link">&para;</a></h3>
 <p>Oracle Cloudのダッシューボードにログインし、ダッシューボード画面で、"Compute"パネル右下のメニューアイコン -&gt; "サービス・コンソールを開く"の順にクリックします。</p>
-<p><img alt="" src="../images/01.png" /></p>
+<p><img alt="" src="../images/01-01.png" /></p>
 <p>"Compute"パネルが表示されていない場合は、画面上半分の青い領域にある"ダッシューボードのカスタマイズ"をクリックして、"Compute"パネルの表示を有効にしてください。</p>
 <h3 id="1-2-oci">1-2. OCI上に必要なリソースを作成する<a class="headerlink" href="#1-2-oci" title="Permanent link">&para;</a></h3>
 <p>OCIのサービス・コンソールを操作して、Compartment等の必要なリソースを作成していきます。</p>
@@ -805,288 +795,26 @@
 <p>この節で行う作業は、最初にOKEを使い始めるときだけ必要な作業です。すでに実施済みの場合は、「2. OKEでKubernetesクラスターをプロビジョニングする」に進んでください。</p>
 </div>
 <h4 id="1-2-1-compartment">1-2-1. Compartmentを作成する<a class="headerlink" href="#1-2-1-compartment" title="Permanent link">&para;</a></h4>
-<p>CompartmentはOCIのテナントの内部を仕切る区画で、その中に各種リソースを配置したり、CompartmentにPolicyを割り当てることを通じてアカウントの権限を管理したりすることができます。<br>
-ここでは、Kubernetesクラスターとそれを構成するための各種リソースを配置するCompartmentを作成します。</p>
+<p>CompartmentはOCIのテナントの内部を仕切る区画で、その中に各種リソースを配置したり、CompartmentにPolicyを割り当てることを通じてアカウントの権限を管理したりすることができます。ここでは、Kubernetesクラスターとそれを構成する各種リソースを配置するためのCompartmentを作成します。</p>
 <p>はじめに、OCIのサービス・コンソールの左上のメニューを展開し、"Identity"をクリックします。</p>
-<p><img alt="" src="../images/02.png" /></p>
+<p><img alt="" src="../images/01-02.png" /></p>
 <p>画面左のメニューで"Compartment"をクリックし、更に"Create Compartment"ボタンをクリックします。</p>
-<p><img alt="" src="../images/03.png" /></p>
+<p><img alt="" src="../images/01-03.png" /></p>
 <p>"Create Compartment"ダイアログで以下のように値を設定し、"Create Compartment"ボタンをクリックします。</p>
 <ul>
-<li>NAME: acme-dev-compartment</li>
-<li>DESCRIPTION: acme development environment</li>
+<li>NAME: demo</li>
+<li>DESCRIPTION: demo</li>
 <li>（上記以外はデフォルトのまま）</li>
 </ul>
-<p><img alt="" src="../images/04.png" /></p>
+<p><img alt="" src="../images/01-04.png" /></p>
 <p>以上で、Compartmentの作成は完了です。</p>
-<h4 id="1-2-2-oke">1-2-2. OKEクラスター用のネットワークリソースを作成する<a class="headerlink" href="#1-2-2-oke" title="Permanent link">&para;</a></h4>
-<p>ここでは、Kubernetesクラスターを構築するための、Virtual Cloud Network(VCN)や、Subnetなどのネットワークリソースを作成していきます。</p>
-<p>まずはVCNの作成です。はじめにOCIのサービス・コンソールの左上のメニューを展開し
-、"Networking"をクリックします。</p>
-<p><img alt="" src="../images/05.png" /></p>
-<p>画面左のメニューで"Virtual Cloud Networks"をクリックし、"List Scope"以下のプルダウンで、先に作成した"acme-dev-compartment"を選択します。<br>
-更に"Create Compartment"ボタンをクリックして、VCNの作成を開始します。</p>
-<p><img alt="" src="../images/06.png" /></p>
-<p>"Create Virtual Cloud Network"ダイアログで以下のように値を設定し、"Create Virtual Cloud Network"ボタンをクリックします。</p>
-<ul>
-<li>CREATE IN COMPARTMENT: acme-dev-compartment</li>
-<li>NAME: acme-dev-vcn</li>
-<li>CREATE VIRTUAL CLOUD NETWORK ONLY: ON</li>
-<li>CIDR BLOCK: 10.0.0.0/16</li>
-<li>（上記以外はデフォルトのまま）</li>
-</ul>
-<p><img alt="" src="../images/07.png" /></p>
-<p>これでVCNの作成は完了です。続いて、VCNの中にインターネットとのアクセスの口になる、Internet Gatewayを作成します。</p>
-<p>VCN作成後の画面で、画面左のメニューの"Internet Gateways"をクリックします。"List Scope"以下のプルダウンで"acme-dev-compartment"が選択されていることを確認した上で、"Create Internet Gateway"ボタンをクリックします。</p>
-<p><img alt="" src="../images/08.png" /></p>
-<p>"Create Internet Gateway"ダイアログで以下のように値を設定し、"Create Internet Gateway"ボタンをクリックします。</p>
-<ul>
-<li>CREATE IN COMPARTMENT: acme-dev-compartment</li>
-<li>NAME: gateway-0</li>
-<li>（上記以外はデフォルトのまま）</li>
-</ul>
-<p><img alt="" src="../images/09.png" /></p>
-<p>次に、このGatewayにトラフィックを流すためのRoute Ruleを作成します。</p>
-<p>Internet Gateway作成後の画面で、画面左のメニューの"Route Tables"をクリックします。"List Scope"以下のプルダウンで"acme-dev-compartment"が選択されていることを確認した上で、"Create Route Table"ボタンをクリックします。</p>
-<p><img alt="" src="../images/10.png" /></p>
-<p>"Create Route Table"ダイアログで以下のように値を設定し、"Create Route Table"ボタンをクリックします。</p>
-<ul>
-<li>CREATE IN COMPARTMENT: acme-dev-compartment</li>
-<li>NAME: routetable-0</li>
-<li>Route Rules（以下のエントリを追加）: <ul>
-<li>TARGET TYPE: Internet Gateway</li>
-<li>DESTINATION CIDR BLOCK: 0.0.0.0/0</li>
-<li>COMPARTMENT: acme-dev-compartment</li>
-<li>TARGET INTERNET GATEWAY: gateway-0</li>
-</ul>
-</li>
-</ul>
-<p><img alt="" src="../images/11.png" /></p>
-<p>Kubernetesクラスターとインターネットとは、OCIのロードバランサーを介してトラフィックをやり取りします。ここで、ロードバランサーにトラフィックを流す際に、それを許可する条件を定義するRoute Ruleを作成します。</p>
-<p>Route Table作成後の画面で、画面左のメニューの"Security Lists"をクリックします。"List Scope"以下のプルダウンで"acme-dev-compartment"が選択されていることを確認した上で、"Create Security List"ボタンをクリックします。</p>
-<p><img alt="" src="../images/12.png" /></p>
-<p>"Create Security List"ダイアログで以下のように値を設定し、"Create Security List"ボタンをクリックします。</p>
-<ul>
-<li>CREATE IN COMPARTMENT: acme-dev-compartment</li>
-<li>NAME: loadbarancers</li>
-<li>Allow Rules for Ingress（以下のエントリを追加）: <ul>
-<li>Internet Gatewayから流入するトラフィック: <ul>
-<li>STATELESS: [ON]</li>
-<li>SOURCE CIDR: 0.0.0.0/0</li>
-<li>IP PROTOCOL: TCP</li>
-<li>SOURCE PORT RANGE: All</li>
-<li>DESTINATION PORT RANGE: All</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>Allow Rules for Egress（以下のエントリを追加）: <ul>
-<li>Internet Gatewayに搬出するトラフィック: <ul>
-<li>STATELESS: [ON]</li>
-<li>DESTINATION CIDR: 0.0.0.0/0</li>
-<li>IP PROTOCOL: TCP</li>
-<li>SOURCE PORT RANGE: All</li>
-<li>DESTINATION PORT RANGE: All</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<p><img alt="" src="../images/13.png" /></p>
-<p>続けて、KubernetesのWorker Nodeにトラフィックを流す際に、それを許可する条件を定義するRoute Ruleを作成します。</p>
-<p>前述のRoute Rule作成後の画面で、再度"Create Security List"ボタンをクリックします。</p>
-<p>"Create Security List"ダイアログで以下のように値を設定し、"Create Security List"ボタンをクリックします。</p>
-<ul>
-<li>CREATE IN COMPARTMENT: acme-dev-compartment</li>
-<li>NAME: workers</li>
-<li>Allow Rules for Ingress（以下の6つのエントリを追加）: <ul>
-<li>AD1のSubnetから排出するトラフィック: <ul>
-<li>STATELESS: [ON]</li>
-<li>SOURCE CIDR: 10.0.10.0/24</li>
-<li>IP PROTOCOL: All Protocals</li>
-</ul>
-</li>
-<li>AD2のSubnetから排出するトラフィック: <ul>
-<li>STATELESS: [ON]</li>
-<li>SOURCE CIDR: 10.0.11.0/24</li>
-<li>IP PROTOCOL: All Protocals</li>
-</ul>
-</li>
-<li>AD3のSubnetから排出するトラフィック: <ul>
-<li>STATELESS: [ON]</li>
-<li>SOURCE CIDR: 10.0.12.0/24</li>
-<li>IP PROTOCOL: All Protocals</li>
-</ul>
-</li>
-<li>Path MTU Discoveryのフラグメンテーション・メッセージ用: <ul>
-<li>STATELESS: [OFF]</li>
-<li>SOURCE CIDR: 0.0.0.0/0</li>
-<li>IP PROTOCOL: ICMP</li>
-<li>TYPE AND CODE: 3, 4</li>
-</ul>
-</li>
-<li>OKEのサービスからWorker Nodeを管理するためのSSH接続用: <ul>
-<li>STATELESS: [OFF]</li>
-<li>SOURCE CIDR: 130.35.0.0/16</li>
-<li>IP PROTOCOL: TCP</li>
-<li>SOURCE PORT RANGE: All</li>
-<li>DESTINATION PORT RANGE: 22</li>
-</ul>
-</li>
-<li>OKEのサービスからWorker Nodeを管理するためのSSH接続用: <ul>
-<li>STATELESS: [OFF]</li>
-<li>SOURCE CIDR: 138.1.0.0/17</li>
-<li>IP PROTOCOL: TCP</li>
-<li>SOURCE PORT RANGE: All</li>
-<li>DESTINATION PORT RANGE: 22</li>
-</ul>
-</li>
-<li>ユーザーからWorker NodeへのSSH接続用（オプション）: <ul>
-<li>STATELESS: [OFF]</li>
-<li>SOURCE CIDR: 0.0.0.0/0</li>
-<li>IP PROTOCOL: TCP</li>
-<li>SOURCE PORT RANGE: All</li>
-<li>DESTINATION PORT RANGE: 22</li>
-</ul>
-</li>
-<li>NodePortタイプのServiceによる、Nodeへの直接の通信用（オプション）: <ul>
-<li>STATELESS: [OFF]</li>
-<li>SOURCE CIDR: 0.0.0.0/0</li>
-<li>IP PROTOCOL: TCP</li>
-<li>SOURCE PORT RANGE: All</li>
-<li>DESTINATION PORT RANGE: 30000-32767</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>Allow Rules for Egress（以下の4つのエントリを追加）: <ul>
-<li>AD1のSubnet宛のトラフィック: <ul>
-<li>STATELESS: [ON]</li>
-<li>DESTINATION CIDR: 10.0.10.0/24</li>
-<li>IP PROTOCOL: All Protocals</li>
-</ul>
-</li>
-<li>AD2のSubnet宛のトラフィック: <ul>
-<li>STATELESS: [ON]</li>
-<li>DESTINATION CIDR: 10.0.11.0/24</li>
-<li>IP PROTOCOL: All Protocals</li>
-</ul>
-</li>
-<li>AD3のSubnet宛のトラフィック: <ul>
-<li>STATELESS: [ON]</li>
-<li>DESTINATION CIDR: 10.0.12.0/24</li>
-<li>IP PROTOCOL: All Protocals</li>
-</ul>
-</li>
-<li>Internetに出るトラフィック: <ul>
-<li>STATELESS: [OFF]</li>
-<li>DESTINATION CIDR: 0.0.0.0/0</li>
-<li>IP PROTOCOL: All Protocals</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>（上記以外はデフォルトのまま）</li>
-</ul>
-<p><img alt="" src="../images/14.png" /></p>
-<p>次に、VCN内にロードバランサーを配置するためのSubnetを作成します。OCIのロードバランサーは2つのADに冗長構成で作成されます。AD毎にひとつずつSubnetを用意するため、計2つのSubnetを構成します。</p>
-<p>Route Role作成後の画面で、画面左のメニューの"Subnets"をクリックします。"List Scope"以下のプルダウンで"acme-dev-compartment"が選択されていることを確認した上で、"Create Subnet"ボタンをクリックします。</p>
-<p><img alt="" src="../images/15.png" /></p>
-<p>"Create Subnet"ダイアログでSubnetを作成する作業を繰り返して、2つのSubnetを構成します。それぞれのSubnetは、以下の設定値を入力します。</p>
-<ul>
-<li>AD1用<ul>
-<li>NAME: loadbalancers-1</li>
-<li>AVAILABILITY DOMAIN: [末尾が"AD-1"の項目を選択]</li>
-<li>CIDR BLOCK: 10.0.20.0/24</li>
-<li>ROUTE TABLE: routetable-0</li>
-<li>SUBNET ACCESS: PUBLIC SUBNET</li>
-<li>DNS RESOLUTION: [ON]</li>
-<li>DHCP OPTIONS: Default DHCP Options for acme-dev-vcn</li>
-<li>Security Lists (以下の項目を追加）:<ul>
-<li>loadbalancers</li>
-</ul>
-</li>
-<li>（上記以外はデフォルトのまま）</li>
-</ul>
-</li>
-<li>AD2用<ul>
-<li>NAME: loadbalancers-2</li>
-<li>AVAILABILITY DOMAIN: [末尾が"AD-2"の項目を選択]</li>
-<li>CIDR BLOCK: 10.0.21.0/24</li>
-<li>ROUTE TABLE: routetable-0</li>
-<li>SUBNET ACCESS: PUBLIC SUBNET</li>
-<li>DNS RESOLUTION: [ON]</li>
-<li>DHCP OPTIONS: Default DHCP Options for acme-dev-vcn</li>
-<li>Security Lists (以下の項目を追加）:<ul>
-<li>loadbalancers</li>
-</ul>
-</li>
-<li>（上記以外はデフォルトのまま）</li>
-</ul>
-</li>
-</ul>
-<p>以下の画像は、AD1用の設定例です。</p>
-<p><img alt="" src="../images/16.png" /></p>
-<p>続けて、Worker Nodeを配置するためのSubnetを作成します。Worker Nodeを3つのADに分散配置するには、AD毎にSubnetを用意するため、計3つのSubnetを構成する必要があります。</p>
-<p>前述のSubnet作成後の画面で、"Create Subnet"ボタンをクリックします。</p>
-<p>"Create Subnet"ダイアログでSubnetを作成する作業を繰り返して、3つのSubnetを構成します。それぞれのSubnetは、以下の設定値を入力します。</p>
-<ul>
-<li>AD1用<ul>
-<li>NAME: workers-1</li>
-<li>AVAILABILITY DOMAIN: [末尾が"AD-1"の項目を選択]</li>
-<li>CIDR BLOCK: 10.0.10.0/24</li>
-<li>ROUTE TABLE: routetable-0</li>
-<li>SUBNET ACCESS: PUBLIC SUBNET</li>
-<li>DNS RESOLUTION: [ON]</li>
-<li>DHCP OPTIONS: Default DHCP Options for acme-dev-vcn</li>
-<li>Security Lists (以下の項目を追加）:<ul>
-<li>workers</li>
-</ul>
-</li>
-<li>（上記以外はデフォルトのまま）</li>
-</ul>
-</li>
-<li>AD2用<ul>
-<li>NAME: workers-2</li>
-<li>AVAILABILITY DOMAIN: [末尾が"AD-2"の項目を選択]</li>
-<li>CIDR BLOCK: 10.0.11.0/24</li>
-<li>ROUTE TABLE: routetable-0</li>
-<li>SUBNET ACCESS: PUBLIC SUBNET</li>
-<li>DNS RESOLUTION: [ON]</li>
-<li>DHCP OPTIONS: Default DHCP Options for acme-dev-vcn</li>
-<li>Security Lists (以下の項目を追加）:<ul>
-<li>workers</li>
-</ul>
-</li>
-<li>（上記以外はデフォルトのまま）</li>
-</ul>
-</li>
-<li>AD3用<ul>
-<li>NAME: workers-3</li>
-<li>AVAILABILITY DOMAIN: [末尾が"AD-3"の項目を選択]</li>
-<li>CIDR BLOCK: 10.0.12.0/24</li>
-<li>ROUTE TABLE: routetable-0</li>
-<li>SUBNET ACCESS: PUBLIC SUBNET</li>
-<li>DNS RESOLUTION: [ON]</li>
-<li>DHCP OPTIONS: Default DHCP Options for acme-dev-vcn</li>
-<li>Security Lists (以下の項目を追加）:<ul>
-<li>workers</li>
-</ul>
-</li>
-<li>（上記以外はデフォルトのまま）</li>
-</ul>
-</li>
-</ul>
-<p>以下の画像は、AD1用の設定例です。</p>
-<p><img alt="" src="../images/17.png" /></p>
-<p>以上で、ネットワークリソースの作成は完了です。</p>
-<h4 id="1-2-3-okeusergrouppolicy">1-2-3. OKEを操作するためのUser/Group/Policyの構成を行う<a class="headerlink" href="#1-2-3-okeusergrouppolicy" title="Permanent link">&para;</a></h4>
+<h4 id="1-2-2-okeusergrouppolicy">1-2-2. OKEを操作するためのUser/Group/Policyの構成を行う<a class="headerlink" href="#1-2-2-okeusergrouppolicy" title="Permanent link">&para;</a></h4>
 <p>OKEを利用するには、OKEのサービス自体にOCIのリソースを操作する権限(Policy)を設定するとともに、OKEの機能を利用するためのUser、Groupを作成して適切にPolicyを割り当てる必要があります。</p>
 <p>ここではそれらUser/Group/Policyの構成を行います。</p>
 <p>まず、OCIのサービス・コンソールの右上のタブで、"Identity"をクリックします。</p>
-<p><img alt="" src="../images/18.png" /></p>
+<p><img alt="" src="../images/01-05.png" /></p>
 <p>はじめに、OKEのサービス自体に設定するPolicyを構成します。画面左のメニューの"Policies"をクリックし、"List Scope"以下のプルダウンで"&lt;テナント名&gt; (root)"が選択します。続けて"Create Policy"ボタンをクリックします。</p>
-<p><img alt="" src="../images/19.png" /></p>
+<p><img alt="" src="../images/01-06.png" /></p>
 <p>"Create Policy"ダイアログで以下のように値を設定し、"Create"ボタンをクリックします。</p>
 <ul>
 <li>NAME: oke-service</li>
@@ -1097,116 +825,80 @@
 </ul>
 </li>
 </ul>
-<p><img alt="" src="../images/20.png" /></p>
+<p><img alt="" src="../images/01-07.png" /></p>
 <p>次に、OKEを操作するための権限を割り当てるGroupを作成します。画面左のメニューの"Groups"をクリックし、"Create Group"ボタンをクリックします。</p>
-<p><img alt="" src="../images/21.png" /></p>
+<p><img alt="" src="../images/01-08.png" /></p>
 <p>"Create Group"ダイアログでGroupを作成する作業を繰り返して、以下の4つのGroupを作成してください。</p>
 <ul>
-<li>クラスターの管理者:<ul>
-<li>NAME: acme-dev-team</li>
-<li>DESCRIPTION: acme dev team</li>
-</ul>
-</li>
-<li>一般の開発者（クラスターの参照権あり）:<ul>
-<li>NAME: acme-dev-team-cluster-viewers</li>
-<li>DESCRIPTION: acme dev team cluster viewers</li>
-</ul>
-</li>
-<li>一般の開発者（Node Poolの管理権あり）:<ul>
-<li>NAME: acme-dev-team-pool-admins</li>
-<li>DESCRIPTION: acme dev team pool admins</li>
-</ul>
-</li>
-<li>監査者（クラスターに対する操作履歴の参照権あり）:<ul>
-<li>NAME: acme-dev-team-auditors</li>
-<li>DESCRIPTION: acme dev team auditors</li>
-</ul>
-</li>
+<li>NAME: demo-admin</li>
+<li>DESCRIPTION: Administrators for the demo compartment</li>
 </ul>
 <p>以下の画像は、acme-dev-team作成時の設定例です。</p>
-<p><img alt="" src="../images/22.png" /></p>
+<p><img alt="" src="../images/01-09.png" /></p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>このチュートリアルでは、簡単のために、Compartment内のリソースに対する全権限を持つGroupを作成していきます。
+実際の運用でOKEを使う際には、利用目的に応じた権限の設定をするようにしてください。</p>
+</div>
 <p>Groupに対する権限の設定（Policyの構成）を行います。画面左のメニューの"Policies"をクリックします。続けて、"List Scope"以下のプルダウンで"&lt;テナント名&gt; (root)"が選択されていることを確認した上で、"Create Policy"ボタンをクリックします。</p>
-<p><img alt="" src="../images/23.png" /></p>
+<p><img alt="" src="../images/01-10.png" /></p>
 <p>"Create Policy"ダイアログで以下のように値を設定し、"Create"ボタンをクリックします。</p>
 <ul>
-<li>NAME: acme-dev-team-oke-policy</li>
-<li>DESCRIPTION: acme dev team oke policy</li>
+<li>NAME: demo-admin-policy</li>
+<li>DESCRIPTION: Grants users full permissions on the demo compartment</li>
 <li>Policy Versioning: KEEP POLICY CURRENT</li>
 <li>Policy Statements（以下のStatement設定（文字列を入力））:<ul>
-<li>allow group acme-dev-team to manage cluster-family in tenancy</li>
-<li>allow group acme-dev-team to inspect vcns in tenancy</li>
-<li>allow group acme-dev-team to inspect subnets in tenancy</li>
-<li>allow group acme-dev-team-cluster-viewers to inspect clusters in tenancy</li>
-<li>allow group acme-dev-team-pool-admins to use cluster-node-pools in tenancy</li>
-<li>allow group acme-dev-team-auditors to read cluster-work-requests in tenancy</li>
+<li>Allow group demo-admin to manage all-resources in compartment demo</li>
 </ul>
 </li>
 </ul>
-<p><img alt="" src="../images/24.png" /></p>
-<p>クラスターを操作するためのUserを作成します。ここでは、簡単のため、管理者を想定したUserを作成し、クラスターに対する全ての権限を割り当てます。</p>
-<p>画面左のメニューの"Users"をクリックし、続けて"Create User"ボタンをクリックします。</p>
-<p><img alt="" src="../images/25.png" /></p>
+<p><img alt="" src="../images/01-11.png" /></p>
+<p>クラスターを操作するためのUserを作成し、先に作成したGroupに所属させます。画面左のメニューの"Users"をクリックし、続けて"Create User"ボタンをクリックします。</p>
+<p><img alt="" src="../images/01-12.png" /></p>
 <p>"Create User"ダイアログで以下のように値を設定し、"Create"ボタンをクリックします。</p>
 <ul>
-<li>NAME: acme-dev-admin</li>
-<li>DESCRIPTION: acme development team administrator</li>
+<li>NAME: demo-admin</li>
+<li>DESCRIPTION: demo admin</li>
 </ul>
-<p><img alt="" src="../images/26.png" /></p>
-<p>Userの一覧が表示されたら、acme-dev-adminに相当する行のユーザー名をクリックします。</p>
-<p><img alt="" src="../images/27.png" /></p>
+<p><img alt="" src="../images/01-13.png" /></p>
+<p>Userの一覧が表示されたら、demo-adminに相当する行のユーザー名をクリックします。</p>
+<p><img alt="" src="../images/01-14.png" /></p>
 <p>Userの詳細画面の左側にあるメニューで、"Groups"をクリックし、続けて "Add User to Group"ボタンをクリックします。</p>
-<p><img alt="" src="../images/28.png" /></p>
-<p>"Add User To Group"ダイアログで、Userを先に作成した4つのグループに追加します。1回のダイアログの操作では1Groupにしか追加できないので、この操作を繰り返す必要があります。</p>
-<p>以下は、acme-dev-teamにUserを追加するときの画面例です。</p>
-<p><img alt="" src="../images/29.png" /></p>
+<p><img alt="" src="../images/01-15.png" /></p>
+<p>"Add User To Group"ダイアログで、Userを先に作成したグループに追加します。</p>
+<p><img alt="" src="../images/01-16.png" /></p>
 <p>Groupへの追加が完了したら、このacme-dev-adminアカウントにPasswordを設定し、このUserでログインし直します。</p>
-<p>まず、acme-dev-adminの詳細画面で、"Create/Reset Password"ボタンをクリックします。</p>
-<p><img alt="" src="../images/30.png" /></p>
+<p>まず、demo-adminの詳細画面で、"Create/Reset Password"ボタンをクリックします。</p>
+<p><img alt="" src="../images/01-17.png" /></p>
 <p>”Create/Reset Password”ダイアログで、"Create/Reset Password"ボタンをクリックします。</p>
-<p><img alt="" src="../images/31.png" /></p>
+<p><img alt="" src="../images/01-18.png" /></p>
 <p>新たなPasswordが表示されたら"Copy"をクリックします。これでPasswordがクリップボードにコピーされます。
 続けて"Close"ボタンをクリックしてダイアログを閉じます。</p>
-<p><img alt="" src="../images/32.png" /></p>
+<p><img alt="" src="../images/01-19.png" /></p>
 <p>画面右上の、人型のアイコンが表示されている箇所をクリックし、さらに、展開されたメニューの"Sign Out"をクリックします。</p>
-<p><img alt="" src="../images/33.png" /></p>
+<p><img alt="" src="../images/01-20.png" /></p>
 <p>OCIのコンソールのログイン画面が表示されるので、右側にあるUSER NAMEとPASSWORDのフォームを使ってログインします。それぞれ、入力値は以下のとおりです。</p>
 <ul>
-<li>USER NAME: acme-dev-admin</li>
+<li>USER NAME: demo-admin</li>
 <li>PASSWORD: [先の手順で作成したPassword（クリップボードからペースト）]</li>
 </ul>
-<p><img alt="" src="../images/34.png" /></p>
+<p><img alt="" src="../images/01-21.png" /></p>
 <p>初期パスワードの変更を求められるので、現在のパスワードと新たに設定するパスワードを入力します。</p>
-<p><img alt="" src="../images/35.png" /></p>
+<p><img alt="" src="../images/01-22.png" /></p>
 <p>この画面の操作を完了すると、acme-dev-adminでOCIの管理コンソールにログインした状態になります。</p>
 <p>以上で、準備作業は完了です。</p>
-<h2 id="2-okekubernetes">2 . OKEでKubernetesクラスターをプロビジョニングする<a class="headerlink" href="#2-okekubernetes" title="Permanent link">&para;</a></h2>
-<p>ここでは、OKEでKubernetesクラスターをプロビジョニングしていきます。</p>
+<h2 id="2-oke">2 . OKEクラスターをプロビジョニングする<a class="headerlink" href="#2-oke" title="Permanent link">&para;</a></h2>
+<p>ここでは、OKEクラスターをプロビジョニングしていきます。</p>
 <p>はじめに、OCIのサービス・コンソールの左上のメニューを展開し、"Developer Services"をクリックします。</p>
-<p><img alt="" src="../images/36.png" /></p>
-<p>画面左のメニューで"Clusters"をクリックし、List Scpesのメニューで"acme-dev-compartment"を選択します。続けて、"Create Cluster"ボタンをクリックします。</p>
-<p><img alt="" src="../images/37.png" /></p>
-<p>"Create Cluster"ダイアログで以下のように値を設定し、"Add a Node Pool"ボタンをクリックします。</p>
-<ul>
-<li>NAME: my-first-cluster</li>
-<li>VERION: （任意のバージョンを選択）</li>
-<li>VCN: amce-dev-vcn</li>
-<li>KUBERNETES SERVICE LB SUBNETS: loadbalancers-1, Loadbalancers-2</li>
-<li>（上記以外はデフォルトのまま）</li>
-</ul>
-<p><img alt="" src="../images/38.png" /></p>
-<p>"Node Pool"の設定値の入力フォームが展開されたら、以下のように値を設定し、"Create"ボタンをクリックします。</p>
-<ul>
-<li>NAME: my-first-node-pool</li>
-<li>VERION: （任意のバージョンを選択）</li>
-<li>IMAGE: （任意のバージョンを選択）</li>
-<li>SHAPE: VM.Standard1.1</li>
-<li>SUBNETS: worker-1, worker-2, worker-3</li>
-<li>QUANTITY PER SUBNET: 1</li>
-</ul>
-<p>この設定値は、3つの各ADに1つのWorker Nodeを構成しています。</p>
-<p><img alt="" src="../images/39.png" /></p>
-<p>クラスターの一覧画面に、my-first-clusterが表示されます。StatusがRunningになったら、プロビジョニングは完了です（おおむね数分程度で完了します）。</p>
-<p><img alt="" src="../images/40.png" /></p>
+<p><img alt="" src="../images/02-01.png" /></p>
+<p>画面左のメニューで"Clusters"をクリックし、List Scpesのメニューで"demo"を選択します。続けて、"Create Cluster"ボタンをクリックします。</p>
+<p><img alt="" src="../images/02-02.png" /></p>
+<p>"Create Cluster"ダイアログで、全てデフォルトの設定のまま"Create"ボタンをクリックします。</p>
+<p><img alt="" src="../images/02-03.png" /></p>
+<p>デフォルトでは、クラスターが必要とするネットワークリソース等も自動的に構成されます。途中経過がダイアログに表示されますので、"Cluster and associated network resources created."というメッセージが表示されるまで待った後、"Close"ボタンをクリックします。</p>
+<p><img alt="" src="../images/02-04.png" /></p>
+<p>クラスターの一覧画面に、cluster1が表示されます。StatusがActiveになったら、プロビジョニングは完了です（おおむね数分程度で完了します）。</p>
+<p><img alt="" src="../images/02-05.png" /></p>
 <h2 id="3-kubernetesclikubectl">3 . Kubernetesの管理用CLI(kubectl)をセットアップする<a class="headerlink" href="#3-kubernetesclikubectl" title="Permanent link">&para;</a></h2>
 <p>ここまでの手順でプロビジョニングしたKubernetesクラスターに対して、Kubernetesの管理用CLI(kubectl)を使ってアクセスしてみます。</p>
 <p>OKEクラスターへのアクセスに必要なkubectlの設定情報を得るには、予めOCIのCLIをインストールしておく必要があります。また、OCI CLIをインストールするために、Pythonの2.7.5以上 または 3.5以上が必要です。</p>
@@ -1232,13 +924,13 @@
 <p>ここでは、OCI CLIのインストールを行います。</p>
 <h4 id="3-2-1-ocid">3-2-1. OCIDの確認<a class="headerlink" href="#3-2-1-ocid" title="Permanent link">&para;</a></h4>
 <p>acme-dev-adminアカウントでOCIのコンソールにログインし、画面右上の人型のアイコンをクリックします。さらに、展開されたメニューの"User Settings"をクリックします。</p>
-<p><img alt="" src="../images/41.png" /></p>
+<p><img alt="" src="../images/03-01.png" /></p>
 <p>ユーザーの詳細情報の画面で”User Information"タブ内にユーザーのOCIDが表示されている箇所があります。OCIDの値の右にある"Copy"をクリックすると、クリップボードにOCIDがコピーされるので、これを手元のテキストエディタなどにペーストしておきます。</p>
-<p><img alt="" src="../images/42.png" /></p>
+<p><img alt="" src="../images/03-02.png" /></p>
 <p>次に、同じく画面右上の人型のアイコンをクリックし、展開されたメニューにあるTenant名をクリックします。</p>
-<p><img alt="" src="../images/43.png" /></p>
+<p><img alt="" src="../images/03-03.png" /></p>
 <p>Tenantの詳細情報の画面で”Tenancy Information"タブ内にOCIDが表示されている箇所があります。OCIDの値の右にある"Copy"をクリックすると、クリップボードにOCIDがコピーされるので、これを手元のテキストエディタなどにペーストしておきます。</p>
-<p><img alt="" src="../images/44.png" /></p>
+<p><img alt="" src="../images/03-04.png" /></p>
 <h4 id="3-2-2-oci-cli">3-2-2. OCI CLIのセットアップ<a class="headerlink" href="#3-2-2-oci-cli" title="Permanent link">&para;</a></h4>
 <p>OCI CLIをインストールするには、以下のコマンドを実行します。</p>
 <div class="codehilite"><pre><span></span>bash -c &quot;$(curl -L https://raw.githubusercontent.com/oracle/oci-cli/master/scripts/install/install.sh)&quot;
@@ -1310,21 +1002,22 @@
 
 
 <p>続いてOCIのコンソールに移り、画面右上の現在ログイン中のユーザー名が表示されている箇所をクリックします。さらに、展開されたメニューの"User Settings"をクリックします。</p>
+<p><img alt="" src="../images/03-05.png" /></p>
 <p>ユーザーの詳細画面の左側のメニューで、"API Keys"をクリックし、さらに"Add Public Key"ボタンをクリックします。</p>
-<p><img alt="" src="../images/45.png" /></p>
+<p><img alt="" src="../images/03-06.png" /></p>
 <p>”Add Public Key"ダイアログの入力欄に、先ほとターミナルに表示した公開鍵をペーストし、"Add"ボタンをクリックします（"-----BEGIN PUBLIC KEY-----"と"-----END PUBLIC KEY-----"の行も含めてペーストします）。</p>
-<p><img alt="" src="../images/46.png" /></p>
+<p><img alt="" src="../images/03-07.png" /></p>
 <p>以上でOCI CLIのセットアップは完了です。</p>
 <h3 id="3-3-kubectl">3-3. kubectlの設定を行って、クラスターにアクセスする<a class="headerlink" href="#3-3-kubectl" title="Permanent link">&para;</a></h3>
 <p>最後にkubectlの設定ファイルを取得し、kubectlで実際にクラスターにアクセスしてみます。
 OCIのコンソールで、画面右上のタブから"Developer Services"をクリックします。</p>
-<p><img alt="" src="../images/36.png" /></p>
+<p><img alt="" src="../images/03-08.png" /></p>
 <p>先の手順で作成しておいた"my-first-cluster"の名前をクリックします。</p>
-<p><img alt="" src="../images/47.png" /></p>
+<p><img alt="" src="../images/03-09.png" /></p>
 <p>クラスターの詳細画面で、"Access Kubeconfig"をクリックします。</p>
-<p><img alt="" src="../images/48.png" /></p>
+<p><img alt="" src="../images/03-10.png" /></p>
 <p>”How to Access Kubeconfig"ダイアログに、kubetctlの設定ファイルを取得するためのコマンドが表示されますので、これらを順次実行していきます。</p>
-<p><img alt="" src="../images/49.png" /></p>
+<p><img alt="" src="../images/03-11.png" /></p>
 <p>1つ目のコマンドは、設定ファイルを格納するためのディレクトリの作成です。</p>
 <div class="codehilite"><pre><span></span>mkdir -p $HOME/.kube
 </pre></div>
@@ -1347,9 +1040,9 @@ OCIのコンソールで、画面右上のタブから"Developer Services"をク
 
 <p>以下のような実行結果になれば、正常にクラスターにアクセスできています。</p>
 <div class="codehilite"><pre><span></span>NAME              STATUS    ROLES     AGE       VERSION
-129.213.100.157   Ready     node      3d        v1.9.7
-129.213.118.118   Ready     node      3d        v1.9.7
-129.213.95.69     Ready     node      3d        v1.9.7
+129.213.100.157   Ready     node      3d        v1.11.1
+129.213.118.118   Ready     node      3d        v1.11.1
+129.213.95.69     Ready     node      3d        v1.11.1
 </pre></div>
 
 
