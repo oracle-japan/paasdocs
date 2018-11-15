@@ -16,6 +16,11 @@
      <changefreq>daily</changefreq>
     </url>
     <url>
+     <loc>/documents/containers/wercker/getting-started/README/</loc>
+     <lastmod>2018-11-15</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
      <loc>/documents/containers/handson/integrated-cicd/README/</loc>
      <lastmod>2018-11-15</lastmod>
      <changefreq>daily</changefreq>
