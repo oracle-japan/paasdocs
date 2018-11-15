@@ -828,12 +828,11 @@
 <p><img alt="" src="../images/01-07.png" /></p>
 <p>次に、OKEを操作するための権限を割り当てるGroupを作成します。画面左のメニューの"Groups"をクリックし、"Create Group"ボタンをクリックします。</p>
 <p><img alt="" src="../images/01-08.png" /></p>
-<p>"Create Group"ダイアログでGroupを作成する作業を繰り返して、以下の4つのGroupを作成してください。</p>
+<p>"Create Group"ダイアログで以下の値を設定し、"Create Compartment"ボタンを作成してください。</p>
 <ul>
 <li>NAME: demo-admin</li>
 <li>DESCRIPTION: Administrators for the demo compartment</li>
 </ul>
-<p>以下の画像は、acme-dev-team作成時の設定例です。</p>
 <p><img alt="" src="../images/01-09.png" /></p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
@@ -867,7 +866,7 @@
 <p><img alt="" src="../images/01-15.png" /></p>
 <p>"Add User To Group"ダイアログで、Userを先に作成したグループに追加します。</p>
 <p><img alt="" src="../images/01-16.png" /></p>
-<p>Groupへの追加が完了したら、このacme-dev-adminアカウントにPasswordを設定し、このUserでログインし直します。</p>
+<p>Groupへの追加が完了したら、このdemo-adminアカウントにPasswordを設定し、このUserでログインし直します。</p>
 <p>まず、demo-adminの詳細画面で、"Create/Reset Password"ボタンをクリックします。</p>
 <p><img alt="" src="../images/01-17.png" /></p>
 <p>”Create/Reset Password”ダイアログで、"Create/Reset Password"ボタンをクリックします。</p>
@@ -885,7 +884,7 @@
 <p><img alt="" src="../images/01-21.png" /></p>
 <p>初期パスワードの変更を求められるので、現在のパスワードと新たに設定するパスワードを入力します。</p>
 <p><img alt="" src="../images/01-22.png" /></p>
-<p>この画面の操作を完了すると、acme-dev-adminでOCIの管理コンソールにログインした状態になります。</p>
+<p>この画面の操作を完了すると、demo-adminでOCIの管理コンソールにログインした状態になります。</p>
 <p>以上で、準備作業は完了です。</p>
 <h2 id="2-oke">2 . OKEクラスターをプロビジョニングする<a class="headerlink" href="#2-oke" title="Permanent link">&para;</a></h2>
 <p>ここでは、OKEクラスターをプロビジョニングしていきます。</p>
