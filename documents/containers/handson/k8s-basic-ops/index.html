@@ -1,0 +1,1056 @@
+
+
+
+
+<!doctype html>
+<html lang="ja" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+      
+      
+      
+        <meta name="lang:clipboard.copy" content="クリップボードへコピー">
+      
+        <meta name="lang:clipboard.copied" content="コピーしました">
+      
+        <meta name="lang:search.language" content="en, jp">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="何も見つかりませんでした">
+      
+        <meta name="lang:search.result.one" content="1件見つかりました">
+      
+        <meta name="lang:search.result.other" content="#件見つかりました">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-　、。，．]+">
+      
+      <link rel="shortcut icon" href="../../../../assets/images/cloud_46@2x.png">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-3.3.0">
+    
+    
+      
+        <title>Kubernetesの基本的な操作を体験しよう - Oracle Cloud - PaaS ドキュメント</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/application.572ca0f0.css">
+      
+        <link rel="stylesheet" href="../../../../assets/stylesheets/application-palette.22915126.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="#03a9f4">
+      
+    
+    
+      <script src="../../../../assets/javascripts/modernizr.962652e9.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../../../../assets/fonts/material-icons.css">
+    
+    
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+    
+      <link rel="stylesheet" href="../../../../stylesheets/extra.css">
+    
+    
+      
+    
+    
+  </head>
+  
+    
+    
+    <body dir="ltr" data-md-color-primary="light-blue" data-md-color-accent="light-blue">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448"
+    viewBox="0 0 416 448" id="__github">
+  <path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19-18.125
+        8.5-18.125-8.5-10.75-19-3.125-20.5 3.125-20.5 10.75-19 18.125-8.5
+        18.125 8.5 10.75 19 3.125 20.5zM320 304q0 10-3.125 20.5t-10.75
+        19-18.125 8.5-18.125-8.5-10.75-19-3.125-20.5 3.125-20.5 10.75-19
+        18.125-8.5 18.125 8.5 10.75 19 3.125 20.5zM360
+        304q0-30-17.25-51t-46.75-21q-10.25 0-48.75 5.25-17.75 2.75-39.25
+        2.75t-39.25-2.75q-38-5.25-48.75-5.25-29.5 0-46.75 21t-17.25 51q0 22 8
+        38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0
+        37.25-1.75t35-7.375 30.5-15 20.25-25.75 8-38.375zM416 260q0 51.75-15.25
+        82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5-41.75
+        1.125q-19.5 0-35.5-0.75t-36.875-3.125-38.125-7.5-34.25-12.875-30.25-20.25-21.5-28.75q-15.5-30.75-15.5-82.75
+        0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25
+        30.875q36.75-8.75 77.25-8.75 37 0 70 8 26.25-20.5
+        46.75-30.25t47.25-9.75q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34
+        99.5z" />
+</svg>
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#kubernetes" tabindex="1" class="md-skip">
+        Skip to content
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="../../../.." title="Oracle Cloud - PaaS ドキュメント" class="md-header-nav__button md-logo">
+          
+            <img src="../../../../assets/images/cloud_w_46@2x.png" width="24" height="24">
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            
+              <span class="md-header-nav__topic">
+                Oracle Cloud - PaaS ドキュメント
+              </span>
+              <span class="md-header-nav__topic">
+                Kubernetesの基本的な操作を体験しよう
+              </span>
+            
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          
+            <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+            
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="検索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            検索キーワードを入力してください
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+          
+        
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            
+
+
+  
+
+
+  <a href="https://github.com/oracle-japan/paasdocs/" title="リポジトリへ" class="md-source" data-md-source="github">
+    
+      <div class="md-source__icon">
+        <svg viewBox="0 0 24 24" width="24" height="24">
+          <use xlink:href="#__github" width="24" height="24"></use>
+        </svg>
+      </div>
+    
+    <div class="md-source__repository">
+      oracle-japan/paasdocs
+    </div>
+  </a>
+
+          </div>
+        </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+        
+
+  
+
+<nav class="md-tabs md-tabs--active" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  <li class="md-tabs__item">
+    
+      <a href="../../../.." title="Home" class="md-tabs__link">
+        Home
+      </a>
+    
+  </li>
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../" title="コンテナ" class="md-tabs__link md-tabs__link--active">
+          コンテナ
+        </a>
+      
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+      
+      <main class="md-main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="../../../.." title="Oracle Cloud - PaaS ドキュメント" class="md-nav__button md-logo">
+      
+        <img src="../../../../assets/images/cloud_w_46@2x.png" width="48" height="48">
+      
+    </a>
+    Oracle Cloud - PaaS ドキュメント
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+
+  <a href="https://github.com/oracle-japan/paasdocs/" title="リポジトリへ" class="md-source" data-md-source="github">
+    
+      <div class="md-source__icon">
+        <svg viewBox="0 0 24 24" width="24" height="24">
+          <use xlink:href="#__github" width="24" height="24"></use>
+        </svg>
+      </div>
+    
+    <div class="md-source__repository">
+      oracle-japan/paasdocs
+    </div>
+  </a>
+
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../../.." title="Home" class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" checked>
+    
+    <label class="md-nav__link" for="nav-2">
+      コンテナ
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        コンテナ
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../" title="コンテナのホーム" class="md-nav__link">
+      コンテナのホーム
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-2" type="checkbox" id="nav-2-2" checked>
+    
+    <label class="md-nav__link" for="nav-2-2">
+      ビギナー向けチュートリアル
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-2-2">
+        ビギナー向けチュートリアル
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../getting-started/" title="OKEでKubernetesを始めてみよう" class="md-nav__link">
+      OKEでKubernetesを始めてみよう
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../k8s-walkthrough/" title="OKEでアプリケーションを動かしてみよう" class="md-nav__link">
+      OKEでアプリケーションを動かしてみよう
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Kubernetesの基本的な操作を体験しよう
+      </label>
+    
+    <a href="./" title="Kubernetesの基本的な操作を体験しよう" class="md-nav__link md-nav__link--active">
+      Kubernetesの基本的な操作を体験しよう
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">目次</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" title="このチュートリアルを実施するために必要な要件" class="md-nav__link">
+    このチュートリアルを実施するために必要な要件
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" title="全体の流れ" class="md-nav__link">
+    全体の流れ
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1" title="1 . サンプルアプリケーションの動作確認" class="md-nav__link">
+    1 . サンプルアプリケーションの動作確認
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-deployment" title="2. Deploymentオブジェクトの確認" class="md-nav__link">
+    2. Deploymentオブジェクトの確認
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-pod" title="3. Podの状態の確認" class="md-nav__link">
+    3. Podの状態の確認
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-pod" title="3.1. Podの標準出力の表示" class="md-nav__link">
+    3.1. Podの標準出力の表示
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-pod" title="3.2. Podの環境変数の確認" class="md-nav__link">
+    3.2. Podの環境変数の確認
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4" title="4. アプリケーションのスケーリング" class="md-nav__link">
+    4. アプリケーションのスケーリング
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41" title="4.1. スケールアウト" class="md-nav__link">
+    4.1. スケールアウト
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-service" title="4.2. Serviceによるルーティングの様子の確認" class="md-nav__link">
+    4.2. Serviceによるルーティングの様子の確認
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43" title="4.3. スケールイン" class="md-nav__link">
+    4.3. スケールイン
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-pod" title="5. Podの自動復旧" class="md-nav__link">
+    5. Podの自動復旧
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../integrated-cicd/" title="OKEとWerckerによるCI/CD" class="md-nav__link">
+      OKEとWerckerによるCI/CD
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-3" type="checkbox" id="nav-2-3">
+    
+    <label class="md-nav__link" for="nav-2-3">
+      いろいろなコンテナ系サービスの使い方
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-2-3">
+        いろいろなコンテナ系サービスの使い方
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../wercker/getting-started/" title="Werckerを使ってみよう" class="md-nav__link">
+      Werckerを使ってみよう
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">目次</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" title="このチュートリアルを実施するために必要な要件" class="md-nav__link">
+    このチュートリアルを実施するために必要な要件
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" title="全体の流れ" class="md-nav__link">
+    全体の流れ
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1" title="1 . サンプルアプリケーションの動作確認" class="md-nav__link">
+    1 . サンプルアプリケーションの動作確認
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-deployment" title="2. Deploymentオブジェクトの確認" class="md-nav__link">
+    2. Deploymentオブジェクトの確認
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-pod" title="3. Podの状態の確認" class="md-nav__link">
+    3. Podの状態の確認
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-pod" title="3.1. Podの標準出力の表示" class="md-nav__link">
+    3.1. Podの標準出力の表示
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-pod" title="3.2. Podの環境変数の確認" class="md-nav__link">
+    3.2. Podの環境変数の確認
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4" title="4. アプリケーションのスケーリング" class="md-nav__link">
+    4. アプリケーションのスケーリング
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41" title="4.1. スケールアウト" class="md-nav__link">
+    4.1. スケールアウト
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-service" title="4.2. Serviceによるルーティングの様子の確認" class="md-nav__link">
+    4.2. Serviceによるルーティングの様子の確認
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43" title="4.3. スケールイン" class="md-nav__link">
+    4.3. スケールイン
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-pod" title="5. Podの自動復旧" class="md-nav__link">
+    5. Podの自動復旧
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/oracle-japan/paasdocs/edit/master/docs/documents/containers/handson/k8s-basic-ops/README.md" title="編集" class="md-icon md-content__icon">&#xE3C9;</a>
+                
+                
+                <h1 id="kubernetes">Kubernetesの基本的な操作を体験しよう<a class="headerlink" href="#kubernetes" title="Permanent link">&para;</a></h1>
+<p>このチュートリアルでは、簡単なサンプルアプリケーションを使って、Kubernetes上でコンテナを管理する基本的な操作を体験します。</p>
+<h2 id="_1">このチュートリアルを実施するために必要な要件<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<ul>
+<li>事前作業<ul>
+<li>前ページのチュートリアル「<a href="../k8s-walkthrough/">OKEでアプリケーションを動かしてみよう</a>」が実施済みであること</li>
+</ul>
+</li>
+</ul>
+<h2 id="_2">全体の流れ<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<ol>
+<li>サンプルアプリケーションの動作確認</li>
+<li>Deploymentオブジェクトの確認</li>
+<li>Podの状態の確認</li>
+<li>アプリケーションのスケーリング</li>
+<li>Podの自動復旧</li>
+</ol>
+<h2 id="1">1 . サンプルアプリケーションの動作確認<a class="headerlink" href="#1" title="Permanent link">&para;</a></h2>
+<p>チュートリアルの内容に入る前に、サンプルアプリケーションが正常に動作しているか確認します。</p>
+<p>以下のコマンドを実行すると、クラスターに作成済みのPod、Serviceを一覧することができます。</p>
+<div class="codehilite"><pre><span></span>kubectl get pod,service
+</pre></div>
+
+
+<p><a href="../k8s-walkthrough/">前ページのチュートリアル</a>が完了していれば、以下のようにリソースが一覧表示されます。</p>
+<div class="codehilite"><pre><span></span>NAME                          READY   STATUS    RESTARTS   AGE
+pod/cowweb-695c65b665-sgcdk   1/1     Running   0          17s
+pod/cowweb-695c65b665-vh825   1/1     Running   0          17s
+
+NAME             TYPE       CLUSTER-IP     EXTERNAL-IP   PORT(S)          AGE
+service/cowweb   NodePort   10.96.103.77   &lt;none&gt;        8080:30609/TCP   1m
+</pre></div>
+
+
+<p>すべてのPodのSTATUSがRunnigであることと、cowwebという名前のServiceがあることが確認してください。</p>
+<p>上の例では、クラスターを構成するマシンの30609番ポートにリクエストを送信すると、アプリケーションにアクセスできることを意味しています。このポート番号（通常30000番台が割り当てられます）をテキストエディタ等に控えておいてください。</p>
+<p>クラスターを構成するマシンのIPアドレスは、以下のコマンドで確認することができます。</p>
+<div class="codehilite"><pre><span></span>kubectl get nodes
+</pre></div>
+
+
+<p>複数のマシンがリストされますが、いずれのIPアドレスでもOKです。どれか一つをテキストエディタ等に控えておいてください。</p>
+<p>実際に動作確認してみます。以下のコマンドを実行してください。</p>
+<div class="codehilite"><pre><span></span>curl &quot;http://[マシンのIP]:[ServceのPort]/cowsay/say&quot;
+</pre></div>
+
+
+<p>正常に応答が返ってくれば（牛のアスキーアートが表示されれば）、動作確認は完了です。</p>
+<h2 id="2-deployment">2. Deploymentオブジェクトの確認<a class="headerlink" href="#2-deployment" title="Permanent link">&para;</a></h2>
+<p>Deploymentは、Podのレプリカ数（冗長構成でのPodの数）や、Podが内包するコンテナの指定など、動作させたいコンテナに関連する構成情報を定義するオブジェクトです。ここまでの手順で、Deploymentオブジェクトをクラスター上に作成済みであり、その事によって、サンプルアプリケーションがクラスタで動作しています。</p>
+<p>では、Deploymentオブジェクトの情報を確認してみましょう。クラスターに存在するDeploymentの一覧を取得するには以下のコマンドを実行します。</p>
+<div class="codehilite"><pre><span></span>kubectl get deployments
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span>NAME     DESIRED   CURRENT   UP-TO-DATE   AVAILABLE   AGE
+cowweb   2         2         2            2           20m
+</pre></div>
+
+
+<p>先に作成したcowwebという名前のDeploymentがあることがわかります。DESISRED, CURRENTなどの値が2となっているのは、2つのPodを動かすように指定しており、その指定通りにPodが可動していることを表しています。</p>
+<p>このDeploymentの情報をもっと詳しく調べるには、以下のコマンドを実行します。</p>
+<div class="codehilite"><pre><span></span>kubectl describe deployments/cowweb
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="n">Name</span><span class="p">:</span>               <span class="n">cowweb</span>
+<span class="n">Namespace</span><span class="p">:</span>          <span class="n">handson</span><span class="o">-</span><span class="mi">030</span>
+<span class="n">CreationTimestamp</span><span class="p">:</span>  <span class="n">Thu</span><span class="p">,</span> <span class="mi">31</span> <span class="n">Jan</span> <span class="mi">2019</span> <span class="mi">17</span><span class="p">:</span><span class="mi">34</span><span class="p">:</span><span class="mi">44</span> <span class="o">+</span><span class="mi">0000</span>
+<span class="n">Labels</span><span class="p">:</span>             <span class="o">&lt;</span><span class="n">none</span><span class="o">&gt;</span>
+<span class="n">Annotations</span><span class="p">:</span>        <span class="n">deployment</span><span class="p">.</span><span class="n">kubernetes</span><span class="p">.</span><span class="n">io</span><span class="o">/</span><span class="n">revision</span><span class="p">:</span> <span class="mi">1</span>
+<span class="p">...</span><span class="err">（中略）</span><span class="p">...</span>
+<span class="n">NewReplicaSet</span><span class="p">:</span>   <span class="n">cowweb</span><span class="o">-</span><span class="mi">57885</span><span class="n">b669c</span> <span class="p">(</span><span class="mi">2</span><span class="o">/</span><span class="mi">2</span> <span class="n">replicas</span> <span class="n">created</span>
+<span class="n">Events</span><span class="p">:</span>
+  <span class="n">Type</span>    <span class="n">Reason</span>             <span class="n">Age</span>   <span class="n">From</span>                   <span class="n">Messag</span>
+  <span class="o">----</span>    <span class="o">------</span>             <span class="o">----</span>  <span class="o">----</span>                   <span class="o">------</span>
+  <span class="n">Normal</span>  <span class="n">ScalingReplicaSet</span>  <span class="mi">23</span><span class="n">m</span>   <span class="n">deployment</span><span class="o">-</span><span class="n">controller</span>  <span class="n">Scaled</span> <span class="n">up</span> <span class="n">replica</span> <span class="k">set</span> <span class="n">cowweb</span><span class="o">-</span><span class="mi">57885</span><span class="n">b669c</span> <span class="k">to</span> <span class="mi">2</span>
+</pre></div>
+
+
+<p>このDeploymentに関する様々な情報が表示されますが、特によく参照するのは、最後のEvents以下に表示される内容です。</p>
+<p>これは、このPodにまつわって発生した過去のイベントが記録されているもので、Podが正常に起動しなかったときなど、特にトラブルシュートの場面で手がかりとなる情報を得るのに役立ちます。</p>
+<h2 id="3-pod">3. Podの状態の確認<a class="headerlink" href="#3-pod" title="Permanent link">&para;</a></h2>
+<p>ここでは、クラスター上で動作しているcowwebの動作状況を、Podの標準出力を表示するなどして確認してみます。</p>
+<h3 id="31-pod">3.1. Podの標準出力の表示<a class="headerlink" href="#31-pod" title="Permanent link">&para;</a></h3>
+<p>Kubernetes上で動作するアプリケーションの動作状況を確認する上で最もシンプルな方法は、Podの標準出力確認することです。Podの標準出力を表示するには、以下のコマンドを実行します。</p>
+<div class="codehilite"><pre><span></span>kubectl logs [Pod名]
+</pre></div>
+
+
+<p>ここで指定するPod名は、Podの一覧を表示して表示される2つのPodのうちのどちらかを指定してください。</p>
+<div class="codehilite"><pre><span></span>kubectl get pod
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span>NAME                      READY   STATUS    RESTARTS   AGE
+cowweb-57885b669c-9dzg4   1/1     Running   0          43m
+cowweb-57885b669c-r7l4g   1/1     Running   0          43m
+</pre></div>
+
+
+<p>この場合、例えば以下のようなコマンドとなります。</p>
+<div class="codehilite"><pre><span></span>kubectl logs cowweb-57885b669c-9dzg4
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span>...（中略）...
+2019-01-31 18:18:34.547  INFO 1 --- [nio-8080-exec-5] c.oracle.jp.cowweb.AccessLogInterceptor  : version: v1.0
+I&#39;m working...
+2019-01-31 18:18:36.581  INFO 1 --- [nio-8080-exec-6] c.oracle.jp.cowweb.AccessLogInterceptor  : version: v1.0
+I&#39;m working...
+2019-01-31 18:18:46.580  INFO 1 --- [nio-8080-exec-7] c.oracle.jp.cowweb.AccessLogInterceptor  : version: v1.0
+I&#39;m working...
+</pre></div>
+
+
+<p>これが、Podの標準出力の内容を表示した結果です。Kubernetesはクラスター内で動作するコンテナに対して、定期的に死活確認を行っています。このサンプルアプリケーションでは、死活監視のリクエストが来たときに上記のようなログを出力するように実装してあります。</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>コンテナの死活監視の機能はlivenessProbeと呼ばれます。死活確認の手段としては、1) 特定のエンドポイントにHTTP GETリクエストを送信する 2)所定のコマンドを実行する 3)TCP Socketのコネクションの生成をおこなう、の3通りの方法がサポートされています。</p>
+<p>また、Podの起動時にも、コンテナの起動状態をチェックするために同様の確認が行われます。サポートされるチェックの手段はlivenessProbeと同じですが、こちらはreadinessProbeと呼ばれます。</p>
+</div>
+<h3 id="32-pod">3.2. Podの環境変数の確認<a class="headerlink" href="#32-pod" title="Permanent link">&para;</a></h3>
+<p>Podに設定されている環境変数を確認するには、Pod内にアクセスして<code>env</code>コマンドを実行する必要があります。</p>
+<p>まず、Pod内から任意のコマンドを実行するには<code>kubectl exec</code>コマンドを用います。</p>
+<div class="codehilite"><pre><span></span>kubectl exec [Pod名] [実行したいコマンド]
+</pre></div>
+
+
+<p>[実行したいコマンド]に<code>env</code>を当てはめて実行すると、指定したPod内でそれが呼び出され、環境変数を出力することができます。</p>
+<div class="codehilite"><pre><span></span>kubectl exec [Pod名] env
+</pre></div>
+
+
+<p><code>kubectl exec</code>を利用すると、Podのシェルに入ることも可能です。</p>
+<div class="codehilite"><pre><span></span>kubectl exec -it [Pod名] /bin/sh
+</pre></div>
+
+
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><code>kubectl exec</code>を利用すると、任意のコンテナをクラスター内に立ち上げて、そのコンテナのシェルを利用することができます。このテクニックはトラブルシューティングの場面で有用です。</p>
+<p>例えば、クラスターで動作するアプリに期待通りにアクセス出来ないような状況において、クラスター内からcurlを実行して疎通確認を行うことで、問題の切り分けに役立てるといったことが可能です。</p>
+</div>
+<h2 id="4">4. アプリケーションのスケーリング<a class="headerlink" href="#4" title="Permanent link">&para;</a></h2>
+<p>ここでは、Deploymentに対してレプリカの数を指定することによって、Podのスケールアウト/インを試してみます。</p>
+<h3 id="41">4.1. スケールアウト<a class="headerlink" href="#41" title="Permanent link">&para;</a></h3>
+<p>Deploymentに対してレプリカの数を指定することによって、そのDeploymentが管理するPodの数を増減することができます。</p>
+<p>レプリカの数を変更するには、<code>kubectl scale</code>コマンドを使用します。以下のように実行することで、cowwebのPodを管理するDeploymentに対して、レプリカ数を4にするよう指示します。</p>
+<div class="codehilite"><pre><span></span>kubectl scale deployments/cowweb --replicas=4
+</pre></div>
+
+
+<p>Podの一覧を表示してみます。</p>
+<div class="codehilite"><pre><span></span>kubectl get pods
+</pre></div>
+
+
+<p>すると、4つのPodが構成されていることがわかります。</p>
+<div class="codehilite"><pre><span></span>NAME                      READY   STATUS    RESTARTS   AGE
+cowweb-57885b669c-4h5l4   0/1     Running   0          7s
+cowweb-57885b669c-9dzg4   1/1     Running   0          1h
+cowweb-57885b669c-hxvpz   0/1     Running   0          7s
+cowweb-57885b669c-r7l4g   1/1     Running   0          1h
+</pre></div>
+
+
+<p>上の例では、一部のPodは起動中の状態です。少し時間が経過すると全てのPodのSTATUSがRunningになります。</p>
+<h3 id="42-service">4.2. Serviceによるルーティングの様子の確認<a class="headerlink" href="#42-service" title="Permanent link">&para;</a></h3>
+<p>この時点で、クラスターには4つのcowwebのPodがデプロイされている状態です。この状態で、Podに対するアクセスが負荷分散される様子を確認してみましょう。</p>
+<p>cowwebには、環境変数の変数名を指定することで、その値を答えてくれる仕掛けがしてあります。これを利用してPodのホスト名を応答させることで、負荷分散の動きを見てみます。</p>
+<p>動作確認で実行したcurlコマンドのURLに<code>?say=HOSTNAME</code>というクエリを追加して、以下のようなコマンドを実行してみてください。</p>
+<div class="codehilite"><pre><span></span>curl &quot;http://[マシンのIP]:[ServceのPort]/cowsay/say?say=HOSTNAME&quot;
+</pre></div>
+
+
+<p>このコマンドを何度か繰り返すと、その度に異なるホスト名が返ってくることがわかります。</p>
+<div class="codehilite"><pre><span></span> _________________________
+&lt; cowweb-57885b669c-r7l4g &gt;
+ -------------------------
+        \   ^__^
+         \  (oo)\_______
+            (__)\       )\/\
+                ||----w |
+                ||     ||
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span> _________________________
+&lt; cowweb-57885b669c-hxvpz &gt;
+ -------------------------
+        \   ^__^
+         \  (oo)\_______
+            (__)\       )\/\
+                ||----w |
+                ||     ||
+</pre></div>
+
+
+<h3 id="43">4.3. スケールイン<a class="headerlink" href="#43" title="Permanent link">&para;</a></h3>
+<p>Pod数を縮小することも当然ながら可能です。スケールアウトで行ったように、<code>kubectl scale</code>コマンドでレプリカ数を指定して減らすことが可能です。</p>
+<p>他の方法として、Deploymentのmanifestファイルで現在より少ないreplica数を記述しておき、そのmanifestをクラスターに適用することで同様のことが可能になります。</p>
+<p>最初にサンプルアプリケーションをデプロイしたときに利用したmanifestファイルには、レプリカ数に2を指定してありますので、これを適用することで4-&gt;2にスケールインしてみます。</p>
+<div class="codehilite"><pre><span></span>kubectl apply -f ./kubernetes/cowweb.yaml
+</pre></div>
+
+
+<p>Podの一覧を表示すると、2個に減っていることがわかります。</p>
+<div class="codehilite"><pre><span></span>kubectl get pods
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span>NAME                      READY   STATUS    RESTARTS   AGE
+cowweb-57885b669c-9dzg4   1/1     Running   0          1h
+cowweb-57885b669c-r7l4g   1/1     Running   0          1h
+</pre></div>
+
+
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>現実の場面では、スケールアウト・インのような運用操作は、全てmanifestを編集してそれを適用するオペレーションとすることをおすすめします。manifestをソースコード管理システムで管理することによって、クラスターの構成変更をコードとして追跡可能になるためです。</p>
+</div>
+<h2 id="5-pod">5. Podの自動復旧<a class="headerlink" href="#5-pod" title="Permanent link">&para;</a></h2>
+<p>Kubernetesには、障害が発生してPodがダウンしたときに、自動的に新たなPodを立ち上げ直す機能が備わっています。</p>
+<p>Podを削除することによって障害に相当する状況を作り、自動復旧される様子を確認してみましょう。</p>
+<p>Podを削除するには、以下のコマンドを実行します。</p>
+<div class="codehilite"><pre><span></span>kubectl delete [Pod名]
+</pre></div>
+
+
+<p>例えばこのようなコマンドとなります（実際のPod名は、<code>kubectl get pods</code>コマンドで確認してください）。</p>
+<div class="codehilite"><pre><span></span>kubectl delete pod cowweb-57885b669c-9dzg4
+</pre></div>
+
+
+<p>この後すぐにPodの一覧を表示すると、削除したPodのPod名はなく、新しい名前のPodが起動していることがわかります。</p>
+<div class="codehilite"><pre><span></span><span class="n">NAME</span>                      <span class="n">READY</span>   <span class="n">STATUS</span>    <span class="n">RESTARTS</span>   <span class="n">AGE</span>
+<span class="n">cowweb</span><span class="m">-57885</span><span class="n">b669c</span><span class="m">-5</span><span class="n">mgrb</span>   <span class="m">0</span><span class="o">/</span><span class="m">1</span>     <span class="n">Running</span>   <span class="m">0</span>          <span class="m">7</span><span class="n">s</span>    <span class="o">&lt;-</span> 新たに起動した<span class="n">Pod</span>
+<span class="n">cowweb</span><span class="m">-57885</span><span class="n">b669c</span><span class="o">-</span><span class="n">r7l4g</span>   <span class="m">1</span><span class="o">/</span><span class="m">1</span>     <span class="n">Running</span>   <span class="m">0</span>          <span class="m">1</span><span class="n">h</span>
+</pre></div>
+
+
+<p>DeploymentオブジェクトによってPod数を2個に指定されています。Podが削除されて1つになると、Kubernnetesは指定された数との差分を検知して自動的にPodを立ち上げてくれます。</p>
+<p>以上で本チュートリアルは終了です。</p>
+                
+                  
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../k8s-walkthrough/" title="OKEでアプリケーションを動かしてみよう" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  前
+                </span>
+                OKEでアプリケーションを動かしてみよう
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../integrated-cicd/" title="OKEとWerckerによるCI/CD" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  次
+                </span>
+                OKEとWerckerによるCI/CD
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright &copy; 2018 Oracle Corporation Japan
+          </div>
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+        
+  <div class="md-footer-social">
+    <link rel="stylesheet" href="../../../../assets/fonts/font-awesome.css">
+    
+      <a href="https://github.com/oracle-japan" class="md-footer-social__link fa fa-github"></a>
+    
+  </div>
+
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../../../assets/javascripts/application.a353778b.js"></script>
+      
+        
+        
+          
+          <script src="../../../../assets/javascripts/lunr/lunr.stemmer.support.js"></script>
+          
+            
+          
+            
+              
+                <script src="../../../../assets/javascripts/lunr/tinyseg.js"></script>
+              
+              
+                <script src="../../../../assets/javascripts/lunr/lunr.jp.js"></script>
+              
+            
+          
+          
+            <script src="../../../../assets/javascripts/lunr/lunr.multi.js"></script>
+          
+        
+      
+      <script>app.initialize({version:"1.0.4",url:{base:"../../../.."}})</script>
+      
+    
+  </body>
+</html>
