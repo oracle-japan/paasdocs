@@ -1202,8 +1202,8 @@ service/cowweb   NodePort   10.96.103.77   &lt;none&gt;        8080:30609/TCP   
 
 
 <p>上の例では、クラスターを構成するマシンの30609番ポートにリクエストを送信すると、アプリケーションにアクセスできることを意味しています。このポート番号（通常30000番台が割り当てられます）をテキストエディタ等に控えておいてください。</p>
-<p>クラスターを構成するマシンのIPアドレスは、以下のコマンドで確認することができます。</p>
-<div class="codehilite"><pre><span></span>kubectl get nodes
+<p>クラスターを構成するマシンのIPアドレスは、以下のコマンドで表示されるEXTERNAL-IPで確認することができます。</p>
+<div class="codehilite"><pre><span></span>kubectl get nodes -o wide
 </pre></div>
 
 
