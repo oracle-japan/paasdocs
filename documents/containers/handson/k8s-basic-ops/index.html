@@ -729,8 +729,8 @@
 pod/cowweb-695c65b665-sgcdk   1/1     Running   0          17s
 pod/cowweb-695c65b665-vh825   1/1     Running   0          17s
 
-NAME                 TYPE           CLUSTER-IP      EXTERNAL-IP    PORT(S)        AGE
-service/cowweb       LoadBalancer   10.96.229.191   130.61.97.82   80:30975/TCP   40h
+NAME             TYPE       CLUSTER-IP     EXTERNAL-IP   PORT(S)          AGE
+service/cowweb   NodePort   10.96.103.77   &lt;none&gt;        8080:30609/TCP   1m
 </pre></div>
 
 
@@ -743,7 +743,7 @@ service/cowweb       LoadBalancer   10.96.229.191   130.61.97.82   80:30975/TCP 
 
 <p>複数のマシンがリストされますが、いずれのIPアドレスでもOKです。どれか一つをテキストエディタ等に控えておいてください。</p>
 <p>実際に動作確認してみます。以下のコマンドを実行してください。</p>
-<div class="codehilite"><pre><span></span>curl &quot;http://[ロードバランサーのIP]/cowsay/say&quot;
+<div class="codehilite"><pre><span></span>curl &quot;http://[マシンのIP]:[ServceのPort]/cowsay/say&quot;
 </pre></div>
 
 
@@ -872,7 +872,7 @@ cowweb-57885b669c-r7l4g   1/1     Running   0          1h
 <p>この時点で、クラスターには4つのcowwebのPodがデプロイされている状態です。この状態で、Podに対するアクセスが負荷分散される様子を確認してみましょう。</p>
 <p>cowwebには、環境変数の変数名を指定することで、その値を答えてくれる仕掛けがしてあります。これを利用してPodのホスト名を応答させることで、負荷分散の動きを見てみます。</p>
 <p>動作確認で実行したcurlコマンドのURLに<code>?say=HOSTNAME</code>というクエリを追加して、以下のようなコマンドを実行してみてください。</p>
-<div class="codehilite"><pre><span></span>curl &quot;http://[ロードバランサーのIP]/cowsay/say?say=HOSTNAME&quot;
+<div class="codehilite"><pre><span></span>curl &quot;http://[マシンのIP]:[ServceのPort]/cowsay/say?say=HOSTNAME&quot;
 </pre></div>
 
 
