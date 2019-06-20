@@ -1133,8 +1133,8 @@ git config --global user.name &quot;Your Name&quot;
 
 
 <p><code>git push</code>を実行するとGitHubのユーザー名とパスワードの入力を求められます。ここでは、お持ちのGitHubアカウントの情報を入力してください。</p>
-<p>次に、cowweb-service-nodeport.yamlというmanifestファイルの内容を確認してみます。</p>
-<div class="codehilite"><pre><span></span>cat kubernetes/cowweb-service-nodeport.yaml
+<p>次に、cowweb-service.yamlというmanifestファイルの内容を確認してみます。</p>
+<div class="codehilite"><pre><span></span>cat kubernetes/cowweb-service.yaml
 </pre></div>
 
 
@@ -1148,25 +1148,23 @@ git config --global user.name &quot;Your Name&quot;
  8
  9
 10
-11</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="nt">apiVersion</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">v1</span>
+11
+12</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="nt">apiVersion</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">v1</span>
 <span class="nt">kind</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Service</span>
 <span class="nt">metadata</span><span class="p">:</span>
   <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">cowweb</span>
 <span class="nt">spec</span><span class="p">:</span>
   <span class="nt">ports</span><span class="p">:</span>
   <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">http</span>
-    <span class="nt">port</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">8080</span>
+    <span class="nt">port</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">80</span>
+    <span class="nt">targetPort</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">8080</span>
   <span class="nt">selector</span><span class="p">:</span>
-    <span class="nt">app</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">cowweb</span>
-<span class="hll">  <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">NodePort</span>
-</span></pre></div>
+<span class="hll">    <span class="nt">app</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">cowweb</span>
+</span>  <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">LoadBalancer</span>
+</pre></div>
 </td></tr></table>
 
-<p>このmanifestファイルは、クラスターに対するリクエストのトラフィックを受け付ける際のルールを定義しています。<code>type: NodePort</code>という記述は、クラスターが可動しているマシン（ここではOracle CloudのVMインスタンス）の特定のPortを公開し、そこに来たトラフィックをコンテナに届けるという意味です。</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>この他に、クラウド環境のロードバランサーを自動でプロビジョニングして、そこからのトラフィックをコンテナに届ける方式（<code>type: LoadBalancer</code>）などにも対応しています。</p>
-</div>
+<p>このmanifestファイルは、クラスターに対するリクエストのトラフィックを受け付ける際のルールを定義しています。<code>type: LoadBalancer</code>という記述は、クラスターがホストされているクラウドサービスのロードバランサーを自動プロビジョニングし、そのLBに来たトラフィックをコンテナに届けるという意味です。</p>
 <p>それでは、Kubernetes上でサンプルアプリケーションのコンテナを動かしてみます。まずは、クラスターを区画に分けて管理するための領域である、namespaceを作成します。以下のコマンドで、namespace名は任意の文字列を指定できます。</p>
 <div class="codehilite"><pre><span></span>kubectl create namespace [namespace名]
 </pre></div>
@@ -1182,7 +1180,7 @@ git config --global user.name &quot;Your Name&quot;
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span>kubectl apply -f ./kubernetes/cowweb-service-nodeport.yaml
+<div class="codehilite"><pre><span></span>kubectl apply -f ./kubernetes/cowweb-service.yaml
 </pre></div>
 
 
@@ -1191,25 +1189,32 @@ git config --global user.name &quot;Your Name&quot;
 </pre></div>
 
 
-<p>すべてのPodのSTATUSがRunnigであることと、cowwebという名前のServiceがあることが確認できれば、リソースの作成は完了です。</p>
+<p>すべてのPodのSTATUSがRunnigであることと、cowwebという名前のServiceがあることが確認できれば、リソースの作成は完了です（ServiceのEXTERNAL-IPは、ロードバランサーが実際に作成されるまで表示されません。その場合は少し時間を置いて上記コマンドを再実行してください）。</p>
 <div class="codehilite"><pre><span></span>NAME                          READY   STATUS    RESTARTS   AGE
 pod/cowweb-695c65b665-sgcdk   1/1     Running   0          17s
 pod/cowweb-695c65b665-vh825   1/1     Running   0          17s
 
-NAME             TYPE       CLUSTER-IP     EXTERNAL-IP   PORT(S)          AGE
-service/cowweb   NodePort   10.96.103.77   &lt;none&gt;        8080:30609/TCP   1m
+NAME                 TYPE           CLUSTER-IP      EXTERNAL-IP    PORT(S)        AGE
+service/cowweb       LoadBalancer   10.96.229.191   130.61.97.82   80:30975/TCP   1m
 </pre></div>
 
 
-<p>上の例では、クラスターを構成するマシンの30609番ポートにリクエストを送信すると、アプリケーションにアクセスできることを意味しています。このポート番号（通常30000番台が割り当てられます）をテキストエディタ等に控えておいてください。</p>
-<p>クラスターを構成するマシンのIPアドレスは、以下のコマンドで表示されるEXTERNAL-IPで確認することができます。</p>
-<div class="codehilite"><pre><span></span>kubectl get nodes -o wide
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>集合ハンズオンなどで、一つのクラウド環境を複数のユーザーで共有している場合、利用可能なロードバランサー数の上限に達して正常にServiceが作成できない場合があります。そのような場合は、ロードバランサーのシェイプ（対応可能なトラフィック量）を変更して、サービスの作成を行ってみてください。</p>
+<p>具体的には以下のコマンドを実行します。</p>
+<div class="codehilite"><pre><span></span># 作ってしまったServiceを削除
+kubectl delete -f ./kubernetes/cowweb-service.yaml
+
+# シェイプの異なるServiceを作成
+kubectl apply -f ./kubernetes/cowweb-service-oci400m.yaml
 </pre></div>
 
 
-<p>複数のマシンがリストされますが、いずれのIPアドレスでもOKです。どれか一つをテキストエディタ等に控えておいてください。</p>
+</div>
+<p>上の例では、IPアドレス130.61.97.82の80番ポートでロードバランサーが公開されておりここにリクエストを送信すると、アプリケーションにアクセスできることを意味しています。このIPアドレスをテキストエディタ等に控えておいてください。</p>
 <p>これでクラスターへのデプロイは完了しましたので、実際に動作確認してみます。以下のコマンドを実行してください。</p>
-<div class="codehilite"><pre><span></span>curl &quot;http://[マシンのIP]:[ServceのPort]/cowsay/say&quot;
+<div class="codehilite"><pre><span></span>curl &quot;http://[ロードバランサーのIP]/cowsay/say&quot;
 </pre></div>
 
 
