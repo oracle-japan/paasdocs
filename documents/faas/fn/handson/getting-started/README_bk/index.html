@@ -1,0 +1,967 @@
+
+
+
+
+<!doctype html>
+<html lang="ja" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+      
+      
+      
+        <meta name="lang:clipboard.copy" content="クリップボードへコピー">
+      
+        <meta name="lang:clipboard.copied" content="コピーしました">
+      
+        <meta name="lang:search.language" content="en, jp">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="何も見つかりませんでした">
+      
+        <meta name="lang:search.result.one" content="1件見つかりました">
+      
+        <meta name="lang:search.result.other" content="#件見つかりました">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-　、。，．]+">
+      
+      <link rel="shortcut icon" href="../../../../../../assets/images/cloud_46@2x.png">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.4.0">
+    
+    
+      
+        <title>Fn Project handson - Oracle Cloud - PaaS ドキュメント</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../../../assets/stylesheets/application.0284f74d.css">
+      
+        <link rel="stylesheet" href="../../../../../../assets/stylesheets/application-palette.01803549.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="#03a9f4">
+      
+    
+    
+      <script src="../../../../../../assets/javascripts/modernizr.74668098.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../../../../../../assets/fonts/material-icons.css">
+    
+    
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+    
+      <link rel="stylesheet" href="../../../../../../stylesheets/extra.css">
+    
+    
+      
+    
+    
+  </head>
+  
+    
+    
+    <body dir="ltr" data-md-color-primary="light-blue" data-md-color-accent="light-blue">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448" viewBox="0 0 416 448" id="__github"><path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19T128 352t-18.125-8.5-10.75-19T96 304t3.125-20.5 10.75-19T128 256t18.125 8.5 10.75 19T160 304zm160 0q0 10-3.125 20.5t-10.75 19T288 352t-18.125-8.5-10.75-19T256 304t3.125-20.5 10.75-19T288 256t18.125 8.5 10.75 19T320 304zm40 0q0-30-17.25-51T296 232q-10.25 0-48.75 5.25Q229.5 240 208 240t-39.25-2.75Q130.75 232 120 232q-29.5 0-46.75 21T56 304q0 22 8 38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0 37.25-1.75t35-7.375 30.5-15 20.25-25.75T360 304zm56-44q0 51.75-15.25 82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5T212 416q-19.5 0-35.5-.75t-36.875-3.125-38.125-7.5-34.25-12.875T37 371.5t-21.5-28.75Q0 312 0 260q0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25 30.875Q171.5 96 212 96q37 0 70 8 26.25-20.5 46.75-30.25T376 64q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34 99.5z"/></svg>
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#fn-project-handson" tabindex="1" class="md-skip">
+        Skip to content
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="../../../../../.." title="Oracle Cloud - PaaS ドキュメント" class="md-header-nav__button md-logo">
+          
+            <img src="../../../../../../assets/images/cloud_w_46@2x.png" width="24" height="24">
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+              Oracle Cloud - PaaS ドキュメント
+            </span>
+            <span class="md-header-nav__topic">
+              
+                Fn Project handson
+              
+            </span>
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="検索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            検索キーワードを入力してください
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            
+
+
+  
+
+<a href="https://github.com/oracle-japan/paasdocs/" title="リポジトリへ" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    oracle-japan/paasdocs
+  </div>
+</a>
+          </div>
+        </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+        
+
+<nav class="md-tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  <li class="md-tabs__item">
+    
+      <a href="../../../../../.." title="Home" class="md-tabs__link md-tabs__link--active">
+        Home
+      </a>
+    
+  </li>
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../../../../containers/" title="コンテナ" class="md-tabs__link">
+          コンテナ
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../../../" title="FaaS" class="md-tabs__link">
+          FaaS
+        </a>
+      
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+      
+      <main class="md-main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="../../../../../.." title="Oracle Cloud - PaaS ドキュメント" class="md-nav__button md-logo">
+      
+        <img src="../../../../../../assets/images/cloud_w_46@2x.png" width="48" height="48">
+      
+    </a>
+    Oracle Cloud - PaaS ドキュメント
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+<a href="https://github.com/oracle-japan/paasdocs/" title="リポジトリへ" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    oracle-japan/paasdocs
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../../../../.." title="Home" class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+    
+    <label class="md-nav__link" for="nav-2">
+      コンテナ
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        コンテナ
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../../containers/" title="コンテナのホーム" class="md-nav__link">
+      コンテナのホーム
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-2" type="checkbox" id="nav-2-2">
+    
+    <label class="md-nav__link" for="nav-2-2">
+      ビギナー向けチュートリアル
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-2-2">
+        ビギナー向けチュートリアル
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../../containers/handson/getting-started/" title="OKEでKubernetesを始めてみよう" class="md-nav__link">
+      OKEでKubernetesを始めてみよう
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../../containers/handson/k8s-walkthrough/" title="OKEでアプリケーションを動かしてみよう" class="md-nav__link">
+      OKEでアプリケーションを動かしてみよう
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../../containers/handson/k8s-basic-ops/" title="Kubernetesの基本的な操作を体験しよう" class="md-nav__link">
+      Kubernetesの基本的な操作を体験しよう
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../../containers/handson/integrated-cicd/" title="OKEとWerckerによるCI/CD" class="md-nav__link">
+      OKEとWerckerによるCI/CD
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-3" type="checkbox" id="nav-2-3">
+    
+    <label class="md-nav__link" for="nav-2-3">
+      いろいろなコンテナ系サービスの使い方
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-2-3">
+        いろいろなコンテナ系サービスの使い方
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../../containers/wercker/getting-started/" title="Werckerを使ってみよう" class="md-nav__link">
+      Werckerを使ってみよう
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-4" type="checkbox" id="nav-2-4">
+    
+    <label class="md-nav__link" for="nav-2-4">
+      【Modern Cloud Day特設】
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-2-4">
+        【Modern Cloud Day特設】
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../../containers/handson/quick-start/" title="OKE Quick Start 45分" class="md-nav__link">
+      OKE Quick Start 45分
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+    
+    <label class="md-nav__link" for="nav-3">
+      FaaS
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        FaaS
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../" title="FaaSのホーム" class="md-nav__link">
+      FaaSのホーム
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-2" type="checkbox" id="nav-3-2">
+    
+    <label class="md-nav__link" for="nav-3-2">
+      ビギナー向けチュートリアル
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-2">
+        ビギナー向けチュートリアル
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../" title="Fn Projectことはじめ" class="md-nav__link">
+      Fn Projectことはじめ
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../oraclefunctions/handson/getting-started/" title="Oracle Functionsことはじめ" class="md-nav__link">
+      Oracle Functionsことはじめ
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">目次</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#fn-projectswindows" title="Fn ProjectsをWindowsのみで動かす" class="md-nav__link">
+    Fn ProjectsをWindowsのみで動かす
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" title="動作条件" class="md-nav__link">
+    動作条件
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" title="全体の流れ" class="md-nav__link">
+    全体の流れ
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fn" title="Fnのセットアップ" class="md-nav__link">
+    Fnのセットアップ
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fn-cli" title="Fn Cliのセットアップ" class="md-nav__link">
+    Fn Cliのセットアップ
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fn-server" title="Fn Serverのセットアップ" class="md-nav__link">
+    Fn Serverのセットアップ
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" title="セットアップの確認" class="md-nav__link">
+    セットアップの確認
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#context" title="contextの設定" class="md-nav__link">
+    contextの設定
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#java-fdkhello-world" title="Java FDKでHello world" class="md-nav__link">
+    Java FDKでHello world
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#function" title="Function作成" class="md-nav__link">
+    Function作成
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function_1" title="Functionのデプロイ" class="md-nav__link">
+    Functionのデプロイ
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function_2" title="Functionの実行" class="md-nav__link">
+    Functionの実行
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/oracle-japan/paasdocs/edit/master/docs/documents/faas/fn/handson/getting-started/README_bk.md" title="編集" class="md-icon md-content__icon">&#xE3C9;</a>
+                
+                
+                <h1 id="fn-project-handson">Fn Project handson<a class="headerlink" href="#fn-project-handson" title="Permanent link">&para;</a></h1>
+<h2 id="fn-projectswindows">Fn ProjectsをWindowsのみで動かす<a class="headerlink" href="#fn-projectswindows" title="Permanent link">&para;</a></h2>
+<p>Windowsのみを用いて、Fn Projects上でHello worldできるようにします</p>
+<h3 id="_1">動作条件<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Windows10 Pro</li>
+<li>Docker for Windowsがインストール済み</li>
+</ul>
+<h3 id="_2">全体の流れ<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
+<p>大まかには、やることは以下の2つだけです
+1. Fnのセットアップ(Client,Server)
+1. Functionのデプロイ</p>
+<h3 id="fn">Fnのセットアップ<a class="headerlink" href="#fn" title="Permanent link">&para;</a></h3>
+<h4 id="fn-cli">Fn Cliのセットアップ<a class="headerlink" href="#fn-cli" title="Permanent link">&para;</a></h4>
+<ol>
+<li>以下のURIよりexeを取得します<br />
+https://github.com/fnproject/cli/releases/download/0.5.82/fn.exe</li>
+<li>exeを任意の場所(例：C:\fn\fn.exe)に配置し、PATHを通す</li>
+<li>コマンドプロンプト起動</li>
+<li><code>fn --version</code>で結果が返ってきたら、準備完了です</li>
+</ol>
+<h4 id="fn-server">Fn Serverのセットアップ<a class="headerlink" href="#fn-server" title="Permanent link">&para;</a></h4>
+<p>Fn Projectsでは、Docker上のコンテナでコードを実行します<br />
+- Windows環境では、以下のコマンドを実行しDocker上にFn Serverを起動します。  </p>
+<div class="codehilite"><pre><span></span><span class="n">docker</span> <span class="n">run</span> <span class="c1">--rm -i --name functions -v /var/run/docker.sock:/var/run/docker.sock -p 8080:8080 -v /mnt/docker/data:/app/data -v /mnt/docker/iofs:/iofs -e FN_IOFS_DOCKER_PATH=/mnt/docker/iofs -e FN_IOFS_PATH=/iofs fnproject/functions`</span>
+</pre></div>
+
+
+<p>※linux環境では<code>fn start</code>のみでServerの起動ができます</p>
+<h4 id="_3">セットアップの確認<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h4>
+<ul>
+<li>
+<p>別のコマンドプロンプトを開き、<code>fn version</code>で以下のような結果が返ってきた場合、<br />
+Cli, Server共にセットアップが正常に完了しています</p>
+<p>C:\fn&gt;fn version
+Client version is latest version: 0.5.82
+Server version:  0.3.702</p>
+</li>
+</ul>
+<h4 id="context">contextの設定<a class="headerlink" href="#context" title="Permanent link">&para;</a></h4>
+<p>Fn Clientは、複数のコンテナに向けて利用されることを想定しているため、<br />
+「どのコンテナに向けるか」の設定を保持しており、それを「context」と呼びます<br />
+初回セットアップ後は、defaultのcontextを選択する必要があります</p>
+<ol>
+<li><code>fn use context default</code> で「default」という名前のcontextを選択</li>
+<li><code>fn update context registry fnuser</code> でregistryの変更<br />
+※<code>fnuser</code>の部分はなんでも構いません</li>
+<li>
+<p><code>fn list contexts</code>でcontextの確認をすると、以下のようになります</p>
+<p>C:\fn&gt;fn list contexts
+CURRENT NAME            PROVIDER        API URL                 REGISTRY
+*       default         default         http://localhost:8080   fnuser</p>
+</li>
+</ol>
+<h3 id="java-fdkhello-world">Java FDKでHello world<a class="headerlink" href="#java-fdkhello-world" title="Permanent link">&para;</a></h3>
+<p>Fn Projectsでは、コマンド1つでテンプレートのFunction/アプリケーションの作成ができます</p>
+<h4 id="function">Function作成<a class="headerlink" href="#function" title="Permanent link">&para;</a></h4>
+<ol>
+<li>
+<p>以下のコマンドを実行し、/javafnをhttpサーブレットのトリガーとする、Javaのテンプレートfunctionを作成します<br />
+<code>fn init --runtime java --trigger http javafn</code></p>
+</li>
+<li>
+<p><code>cd javafn</code>⇒<code>tree</code>でテンプレートFunctionの階層が確認できます</p>
+<p>C:.
+└─src
+    ├─main
+    │  └─java
+    │      └─com
+    │          └─example
+    │              └─fn
+    └─test
+        └─java
+            └─com
+                └─example
+                    └─fn</p>
+</li>
+<li>
+<p>また、<code>type func.yaml</code>でテンプレートFunctionの設定ファイルが確認できます</p>
+<p>C:\fn\javafn&gt;type func.yaml
+schema_version: 20180708
+name: javafn
+version: 0.0.3
+runtime: java
+build_image: fnproject/fn-java-fdk-build:jdk11-1.0.98
+run_image: fnproject/fn-java-fdk:jre11-1.0.98
+cmd: com.example.fn.HelloFunction::handleRequest
+triggers:
+- name: javafn
+type: http
+source: /javafn</p>
+</li>
+</ol>
+<h4 id="function_1">Functionのデプロイ<a class="headerlink" href="#function_1" title="Permanent link">&para;</a></h4>
+<ul>
+<li>
+<p><code>fn create app java-app</code> で「java-app」という名前のアプリケーションを作成します</p>
+<p>C:\fn\javafn&gt;fn create app java-app
+Successfully created app:  java-app</p>
+</li>
+<li>
+<p><code>fn --verbose deploy --app java-app --local</code> でMavenビルドが開始し、そのままデプロイされます</p>
+<p>C:\fn\javafn&gt;fn --verbose deploy --app java-app --local
+Deploying javafn to app: java-app
+Bumped to version 0.0.7
+Building image fnuser/javafn:0.0.7
+FN_REGISTRY:  fnuser
+Current Context:  default
+Sending build context to Docker daemon  16.74MB
+Step 1/11 : FROM fnproject/fn-java-fdk-build:jdk11-1.0.98 as build-stage
+---&gt; d490a89232cf
+Step 2/11 : WORKDIR /function
+---&gt; Using cache
+---&gt; 09c171bb7dd6
+Step 3/11 : ENV MAVEN_OPTS -Dhttp.proxyHost= -Dhttp.proxyPort= -Dhttps.proxyHost= -Dhttps.proxyPort= -Dhttp.nonProxyHosts= -Dmaven.repo.local=/usr/share/maven/ref/repository
+---&gt; Using cache
+---&gt; ea8066e8f8bc
+Step 4/11 : ADD pom.xml /function/pom.xml
+---&gt; Using cache
+---&gt; 7f939146d72b
+Step 5/11 : RUN ["mvn", "package", "dependency:copy-dependencies", "-DincludeScope=runtime", "-DskipTests=true", "-Dmdep.prependGroupId=true", "-DoutputDirectory=target", "--fail-never"]
+---&gt; Using cache
+---&gt; 27f55d4b5621
+Step 6/11 : ADD src /function/src
+---&gt; af75d1c2e15b
+Step 7/11 : RUN ["mvn", "package"]
+---&gt; Running in bd0b75ce07dc
+[INFO] Scanning for projects...
+[INFO]
+[INFO] ------------------------&lt; com.example.fn:hello &gt;------------------------
+[INFO] Building hello 1.0.0
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ hello ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /function/src/main/resources
+[INFO]
+[INFO] --- maven-compiler-plugin:3.3:compile (default-compile) @ hello ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 1 source file to /function/target/classes
+[INFO]
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ hello ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /function/src/test/resources
+[INFO]
+[INFO] --- maven-compiler-plugin:3.3:testCompile (default-testCompile) @ hello ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 1 source file to /function/target/test-classes
+[INFO]
+[INFO] --- maven-surefire-plugin:2.22.1:test (default-test) @ hello ---
+[INFO]
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running com.example.fn.HelloFunctionTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.312 s - in com.example.fn.HelloFunctionTest
+[INFO]
+[INFO] Results:
+[INFO]
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
+[INFO]
+[INFO]
+[INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ hello ---
+[INFO] Building jar: /function/target/hello-1.0.0.jar
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  3.598 s
+[INFO] Finished at: 2019-07-11T11:16:59Z
+[INFO] ------------------------------------------------------------------------
+Removing intermediate container bd0b75ce07dc
+---&gt; e375795fca3e
+Step 8/11 : FROM fnproject/fn-java-fdk:jre11-1.0.98
+---&gt; b1ea566de6f5
+Step 9/11 : WORKDIR /function
+---&gt; Using cache
+---&gt; 6dfdb6f2b564
+Step 10/11 : COPY --from=build-stage /function/target/*.jar /function/app/
+---&gt; 219b2f4d833c
+Step 11/11 : CMD ["com.example.fn.HelloFunction::handleRequest"]
+---&gt; Running in 9d285865ab50
+Removing intermediate container 9d285865ab50
+---&gt; 6ea58cac75bd
+Successfully built 6ea58cac75bd
+Successfully tagged fnuser/javafn:0.0.7
+SECURITY WARNING: You are building a Docker image from Windows against a non-Windows Docker host. All files and directories added to build context will have '-rwxr-xr-x' permissions. It is recommended to double check and reset permissions for sensitive files and directories.
+Updating function javafn using image fnuser/javafn:0.0.7...
+Successfully created function: javafn with fnuser/javafn:0.0.7
+Successfully created trigger: javafn
+Trigger Endpoint: http://localhost:8080/t/java-app/javafn</p>
+</li>
+</ul>
+<h4 id="function_2">Functionの実行<a class="headerlink" href="#function_2" title="Permanent link">&para;</a></h4>
+<ul>
+<li><code>curl</code>または<code>fn invoke</code>を利用し、Functionを実行できます  </li>
+</ul>
+<p>curl  </p>
+<div class="codehilite"><pre><span></span><span class="n">curl</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">localhost</span><span class="p">:</span><span class="mi">8080</span><span class="o">/</span><span class="n">t</span><span class="o">/</span><span class="n">java</span><span class="o">-</span><span class="n">app</span><span class="o">/</span><span class="n">javafn</span>
+</pre></div>
+
+
+<p>fn invoke  </p>
+<div class="codehilite"><pre><span></span><span class="n">fn</span> <span class="n">invoke</span> <span class="n">java</span><span class="o">-</span><span class="n">app</span> <span class="n">javafn</span>
+</pre></div>
+
+
+<ul>
+<li>
+<p>引数を与えれば、名前を変えることもできます(Windowsではcurlのみ)<br />
+[INPUT-NAME]の部分を任意のものに変更してください  </p>
+<p>curl -H "Content-Type: application/json" -d [INPUT-NAME] http://localhost:8080/t/java-app/javafn</p>
+</li>
+</ul>
+                
+                  
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright &copy; 2018 - 2019 Oracle Corporation Japan
+          </div>
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+  <div class="md-footer-social">
+    <link rel="stylesheet" href="../../../../../../assets/fonts/font-awesome.css">
+    
+      <a href="https://github.com/oracle-japan" class="md-footer-social__link fa fa-github"></a>
+    
+  </div>
+
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../../../../../assets/javascripts/application.245445c6.js"></script>
+      
+        
+        
+          
+          <script src="../../../../../../assets/javascripts/lunr/lunr.stemmer.support.js"></script>
+          
+            
+          
+            
+              
+              
+            
+          
+          
+            <script src="../../../../../../assets/javascripts/lunr/lunr.multi.js"></script>
+          
+        
+      
+      <script>app.initialize({version:"1.0.4",url:{base:"../../../../../.."}})</script>
+      
+    
+  </body>
+</html>
