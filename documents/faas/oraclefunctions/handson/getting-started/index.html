@@ -573,14 +573,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_3" title="注意事項" class="md-nav__link">
-    注意事項
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_4" title="事前準備" class="md-nav__link">
+  <a href="#_3" title="事前準備" class="md-nav__link">
     事前準備
   </a>
   
@@ -838,14 +831,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_3" title="注意事項" class="md-nav__link">
-    注意事項
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_4" title="事前準備" class="md-nav__link">
+  <a href="#_3" title="事前準備" class="md-nav__link">
     事前準備
   </a>
   
@@ -1086,19 +1072,17 @@
 </ol>
 <p>Fn Projectのハンズオンを既に実施している場合は、1,2の手順をスキップできます。(ただし、事前準備の実施は必要です)<br />
 Oracle Functionsの動作のイメージをより理解するためにFn Projectのハンズオンを先に実施されることをお勧めします。</p>
-<h2 id="_3">注意事項<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
-<ul>
-<li>
-<p>コンパートメントについて<br>
-   Oracle Cloudにはコンパートメントという考え方があります。<br>コンパートメントは、管理者の許可を得た特定のグループのみがアクセスできる関連リソース(インスタンス、仮想クラウド・ネットワーク、ブロック・ボリュームなど)の集合であり、クラウド・リソースへのアクセスをユーザー毎に整理して制御することができる論理的なグループです。また、コンパートメントは、OCIコンソール上で表示しているリソースのフィルタとして機能します。<br>今回は、ルートコンパートメントと呼ばれるすべてのリソースを保持するコンパートメントを利用するので、特に意識する必要がありません。</p>
-</li>
-<li>
-<p>ポリシーについて<br>
-Oracle Cloudでは、各ユーザーから各サービスへのアクセスおよび各サービスから他サービスへアクセスを「ポリシー」を利用して制御します。ポリシーは、各リソースに誰がアクセスできるかを指定することができます。</p>
-</li>
-<li>
-<p>リージョンとリージョンコードについて<br>
-   Oracle Cloudでは、エンドポイントやレジストリにアクセスする際にリージョンおよびリージョンコードを使用する場合があります。<br>以下に各リージョンと対応するリージョンコードを記載します。<br>本ハンズオンでは、OCI CLIのセットアップおよびOCIRのログイン時に使用します。</p>
+<div class="admonition info">
+<p class="admonition-title">注意事項: コンパートメントについて</p>
+<p>Oracle Cloudにはコンパートメントという考え方があります。<br>コンパートメントは、クラウド・リソース(インスタンス、仮想クラウド・ネットワーク、ブロック・ボリュームなど)を分類整理する論理的な区画で、この単位でアクセス制御を行うことができます。また、OCIコンソール上に表示されるリソースのフィルタとしても機能します。<br>今回は、ルートコンパートメントと呼ばれるすべてのリソースを保持するコンパートメントを利用するので、特に意識する必要がありません。</p>
+</div>
+<div class="admonition info">
+<p class="admonition-title">注意事項: ポリシーについて</p>
+<p>Oracle Cloudでは、各ユーザーから各サービスへのアクセスおよび各サービスから他サービスへアクセスを「ポリシー」を利用して制御します。ポリシーは、各リソースに誰がアクセスできるかを指定することができます。</p>
+</div>
+<div class="admonition info">
+<p class="admonition-title">注意事項: リージョンとリージョンコードについて</p>
+<p>Oracle Cloudでは、エンドポイントやレジストリにアクセスする際にリージョンおよびリージョンコードを使用する場合があります。<br>以下に各リージョンと対応するリージョンコードを記載します。<br>本ハンズオンでは、OCI CLIのセットアップおよびOCIRのログイン時に使用します。</p>
 <table>
 <thead>
 <tr>
@@ -1137,9 +1121,8 @@ Oracle Cloudでは、各ユーザーから各サービスへのアクセスお�
 </tr>
 </tbody>
 </table>
-</li>
-</ul>
-<h2 id="_4">事前準備<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+</div>
+<h2 id="_3">事前準備<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
 <p>ここでは、Oracle Functionsのハンズオンを実施するためにOCI(Oracle Cloud Infrastructure)に対してポリシーの設定を行います。</p>
 <p>Oracle Cloudのダッシューボードにログインし、ダッシューボード画面のハンバーガーメニューで"アイデンティティ"=&gt;"ポリシー"をクリックします。
 <img alt="" src="images/00-00.png" /></p>
@@ -1188,7 +1171,7 @@ Oracle Cloudでは、各ユーザーから各サービスへのアクセスお�
 しばらくするとインスタンスが"実行中"になり、インスタンスにログインできるようになります。</p>
 <p>以上で、コンピュートインスタンスの作成は終わりです。</p>
 <h2 id="2-fn-project">2 . Fn Project実行環境の構築<a class="headerlink" href="#2-fn-project" title="Permanent link">&para;</a></h2>
-<p>ここでは、Fn Projectを実行させるための環境構築を行います。  </p>
+<p>ここでは、上の手順で作成したコンピュートインスタンス上に、Fn Projectを実行するための環境構築を行います。  </p>
 <p>Fn Projectを起動させるには、以下が必要です。  </p>
 <ul>
 <li>環境<ul>
@@ -1198,7 +1181,11 @@ Oracle Cloudでは、各ユーザーから各サービスへのアクセスお�
 </ul>
 <p>今回は、"Oracle Cloud Developer Image"を使用しているので、既にDockerはインストールされています。</p>
 <p>そのため、環境構築はFn Projectを動作させるために必要なFn CLIとFn Serverのインストールのみになります。</p>
-<p>インストールは、<a href="https://fnproject.io/tutorials/install/">Fn Projectチュートリアル</a>の手順を参考にします。  </p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Fn Projectの詳しいインストール手順が気になる方は、公式のチュートリアルを参照ください。本ハンズオンはこのチュートリアルを参考に作成されています。</p>
+<p><i class="fa fa-external-link"></i> <a href="https://fnproject.io/tutorials/install/">Fn Projectのチュートリアル</a></p>
+</div>
 <h3 id="2-1">2-1. ログイン<a class="headerlink" href="#2-1" title="Permanent link">&para;</a></h3>
 <p>1-2で作成した環境にログインします。今回はTera Termを利用してログインします。</p>
 <p>ダッシューボード画面のハンバーガーメニューで"コンピュート"の"インスタンス"画面をクリックします。<br />
@@ -1253,7 +1240,7 @@ Oracle Cloudでは、各ユーザーから各サービスへのアクセスお�
 </pre></div>
 
 
-<p>上記が確認出来たら、Ctrl + Cでfn Serverを停止させてください。</p>
+<p>上記が確認出来たら、Ctrl + CでFn Serverを停止させてください。</p>
 <p>以上で、Fn Project実行環境の構築は終わりです。</p>
 <h2 id="3-oracle-functions">3 . Oracle Functions実行環境の構築<a class="headerlink" href="#3-oracle-functions" title="Permanent link">&para;</a></h2>
 <p>ここでは、Oracle Functionsを動作させるための環境を構築します。 </p>

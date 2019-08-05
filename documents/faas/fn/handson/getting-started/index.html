@@ -561,13 +561,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_3" title="注意事項" class="md-nav__link">
-    注意事項
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#1" title="1 . コンピュートインスタンス・ネットワークの作成" class="md-nav__link">
     1 . コンピュートインスタンス・ネットワークの作成
   </a>
@@ -709,13 +702,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_3" title="注意事項" class="md-nav__link">
-    注意事項
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#1" title="1 . コンピュートインスタンス・ネットワークの作成" class="md-nav__link">
     1 . コンピュートインスタンス・ネットワークの作成
   </a>
@@ -825,11 +811,10 @@
 <li>Fn Project実行環境の構築</li>
 <li>Fn Projectのアプリケーションの作成</li>
 </ol>
-<h2 id="_3">注意事項<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
-<ul>
-<li>コンパートメントについて<br>
-   Oracle Cloudにはコンパートメントという考え方があります。<br>コンパートメントは、管理者の許可を得た特定のグループのみがアクセスできる関連リソース(インスタンス、仮想クラウド・ネットワーク、ブロック・ボリュームなど)の集合であり、クラウド・リソースへのアクセスをユーザ毎に整理して制御することができる論理的なグループです。また、コンパートメントは、OCIコンソール上で表示しているリソースのフィルタとして機能します。<br>今回は、ルートコンパートメントと呼ばれるすべてのリソースを保持するコンパートメントを利用するので、特に意識する必要がありません。</li>
-</ul>
+<div class="admonition info">
+<p class="admonition-title">注意事項: コンパートメントについて</p>
+<p>Oracle Cloudにはコンパートメントという考え方があります。<br>コンパートメントは、クラウド・リソース(インスタンス、仮想クラウド・ネットワーク、ブロック・ボリュームなど)を分類整理する論理的な区画で、この単位でアクセス制御を行うことができます。また、OCIコンソール上に表示されるリソースのフィルタとしても機能します。<br>今回は、ルートコンパートメントと呼ばれるすべてのリソースを保持するコンパートメントを利用するので、特に意識する必要がありません。</p>
+</div>
 <h2 id="1">1 . コンピュートインスタンス・ネットワークの作成<a class="headerlink" href="#1" title="Permanent link">&para;</a></h2>
 <p>まずはじめに、OCI(Oracle Cloud Infrastructure)上でFn Projectを実行するための環境構築をしていきます。</p>
 <h3 id="1-1-vcn">1-1. VCN（ネットワーク）の作成<a class="headerlink" href="#1-1-vcn" title="Permanent link">&para;</a></h3>
@@ -865,7 +850,7 @@
 しばらくするとインスタンスが"実行中"になり、インスタンスにログインできるようになります。</p>
 <p>以上で、コンピュートインスタンスの作成は終わりです。</p>
 <h2 id="2-fn-project">2 . Fn Project実行環境の構築<a class="headerlink" href="#2-fn-project" title="Permanent link">&para;</a></h2>
-<p>ここでは、Fn Projectを実行させるための環境構築を行います。  </p>
+<p>ここでは、上の手順で作成したコンピュートインスタンス上に、Fn Projectを実行するための環境構築を行います。  </p>
 <p>Fn Projectを起動させるには、以下が必要です。  </p>
 <ul>
 <li>環境<ul>
@@ -875,7 +860,11 @@
 </ul>
 <p>今回は、"Oracle Cloud Developer Image"を使用しているので、既にDockerはインストールされています。</p>
 <p>そのため、環境構築はFn Projectを動作させるために必要なFn CLIとFn Serverのインストールのみになります。</p>
-<p>インストールは、<a href="https://fnproject.io/tutorials/install/">Fn Projectチュートリアル</a>の手順を参考にします。  </p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Fn Projectの詳しいインストール手順が気になる方は、公式のチュートリアルを参照ください。本ハンズオンはこのチュートリアルを参考に作成されています。</p>
+<p><i class="fa fa-external-link"></i> <a href="https://fnproject.io/tutorials/install/">Fn Projectのチュートリアル</a></p>
+</div>
 <h3 id="2-1">2-1. ログイン<a class="headerlink" href="#2-1" title="Permanent link">&para;</a></h3>
 <p>1-2で作成した環境にログインします。今回はTera Termを利用してログインします。</p>
 <p>ダッシューボード画面のハンバーガメニューで"コンピュート"の"インスタンス"画面をクリックします。<br />
@@ -910,7 +899,7 @@
 </pre></div>
 
 
-<p>fn Serverを起動するために以下のコマンドを実行します。</p>
+<p>Fn Serverを起動するために以下のコマンドを実行します。</p>
 <div class="codehilite"><pre><span></span><span class="n">fn</span> <span class="k">start</span>
 </pre></div>
 
@@ -930,7 +919,7 @@
 </pre></div>
 
 
-<p>これでfn Serverが起動したので、このコンソールはこのままの状態にしておきます。<br />
+<p>これでFn Serverが起動したので、このコンソールはこのままの状態にしておきます。<br />
 以上で、Fn Project実行環境の構築は終わりです。</p>
 <h2 id="3-fn-project">3 . Fn Projectアプリケーションの作成<a class="headerlink" href="#3-fn-project" title="Permanent link">&para;</a></h2>
 <p>ここでは、Fn Projectアプリケーションを作成します。  </p>
