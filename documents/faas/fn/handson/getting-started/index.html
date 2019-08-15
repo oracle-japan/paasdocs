@@ -957,11 +957,12 @@
 <ul>
 <li>fn initコマンド<ul>
 <li>--runtime:使用する言語を指定します。今回はjavaを指定します。</li>
+<li>--trigger:HTTPのエンドポイントを作成するためのオプション</li>
 </ul>
 </li>
 </ul>
 <p>今回は、以下のコマンドを実行して、functionを作成します。  </p>
-<div class="codehilite"><pre><span></span><span class="n">fn</span> <span class="n">init</span> <span class="c1">--runtime java javafn</span>
+<div class="codehilite"><pre><span></span><span class="n">fn</span> <span class="n">init</span> <span class="c1">--runtime java --trigger http javafn</span>
 </pre></div>
 
 
@@ -1013,6 +1014,10 @@
 <span class="n">build_image</span><span class="o">:</span> <span class="n">fnproject</span><span class="o">/</span><span class="n">fn</span><span class="o">-</span><span class="n">java</span><span class="o">-</span><span class="n">fdk</span><span class="o">-</span><span class="n">build</span><span class="o">:</span><span class="n">jdk11</span><span class="o">-</span><span class="mf">1.0</span><span class="o">.</span><span class="mi">98</span>
 <span class="n">run_image</span><span class="o">:</span> <span class="n">fnproject</span><span class="o">/</span><span class="n">fn</span><span class="o">-</span><span class="n">java</span><span class="o">-</span><span class="n">fdk</span><span class="o">:</span><span class="n">jre11</span><span class="o">-</span><span class="mf">1.0</span><span class="o">.</span><span class="mi">98</span>
 <span class="n">cmd</span><span class="o">:</span> <span class="n">com</span><span class="o">.</span><span class="na">example</span><span class="o">.</span><span class="na">fn</span><span class="o">.</span><span class="na">HelloFunction</span><span class="o">::</span><span class="n">handleRequest</span>
+<span class="n">triggers</span><span class="o">:</span>
+<span class="o">-</span> <span class="n">name</span><span class="o">:</span> <span class="n">javafn</span>
+  <span class="n">type</span><span class="o">:</span> <span class="n">http</span>
+  <span class="n">source</span><span class="o">:</span> <span class="o">/</span><span class="n">javafn</span>
 </pre></div>
 
 
@@ -1022,6 +1027,7 @@
 <li>runtime - このfunctionで使用する言語</li>
 <li>build_image - このfunctionイメージをビルドするためのイメージ</li>
 <li>cmd - このfunctionクラスの完全修飾名とこのfunctionの関数が呼び出されたときに呼び出されるメソッド名</li>
+<li>triggers - このfunctionのトリガとなる情報</li>
 </ul>
 </li>
 </ul>
@@ -1039,26 +1045,34 @@
 
 
 <p>以下のように表示されることを確認します。(しばらく時間がかかります)</p>
-<div class="codehilite"><pre><span></span><span class="n">Deploying</span> <span class="n">javafn</span> <span class="k">to</span> <span class="n">app</span><span class="p">:</span> <span class="n">java</span><span class="o">-</span><span class="n">app</span>
-<span class="n">Bumped</span> <span class="k">to</span> <span class="k">version</span> <span class="mi">0</span><span class="p">.</span><span class="mi">0</span><span class="p">.</span><span class="mi">2</span>
-<span class="n">Building</span> <span class="n">image</span> <span class="n">javafn</span><span class="p">:</span><span class="mi">0</span><span class="p">.</span><span class="mi">0</span><span class="p">.</span><span class="mi">2</span>
-<span class="n">FN_REGISTRY</span><span class="p">:</span>  <span class="n">FN_REGISTRY</span> <span class="k">is</span> <span class="k">not</span> <span class="k">set</span><span class="p">.</span>
-<span class="k">Current</span> <span class="n">Context</span><span class="p">:</span>  <span class="k">default</span>
-<span class="n">Sending</span> <span class="n">build</span> <span class="n">context</span> <span class="k">to</span> <span class="n">Docker</span> <span class="n">daemon</span>  <span class="mi">14</span><span class="p">.</span><span class="mi">34</span><span class="n">kB</span>
-<span class="n">Step</span> <span class="mi">1</span><span class="o">/</span><span class="mi">11</span> <span class="p">:</span> <span class="k">FROM</span> <span class="n">fnproject</span><span class="o">/</span><span class="n">fn</span><span class="o">-</span><span class="n">java</span><span class="o">-</span><span class="n">fdk</span><span class="o">-</span><span class="n">build</span><span class="p">:</span><span class="n">jdk11</span><span class="o">-</span><span class="mi">1</span><span class="p">.</span><span class="mi">0</span><span class="p">.</span><span class="mi">98</span> <span class="k">as</span> <span class="n">build</span><span class="o">-</span><span class="n">stage</span>
-<span class="c1">---&gt; d490a89232cf</span>
-<span class="n">Step</span> <span class="mi">2</span><span class="o">/</span><span class="mi">11</span> <span class="p">:</span> <span class="n">WORKDIR</span> <span class="o">/</span><span class="k">function</span>
-<span class="c1">---&gt; Using cache</span>
-<span class="c1">---&gt; 931e8c2e85d5</span>
-<span class="p">(</span><span class="err">中略</span><span class="p">)</span>
-<span class="n">Step</span> <span class="mi">11</span><span class="o">/</span><span class="mi">11</span> <span class="p">:</span> <span class="n">CMD</span> <span class="p">[</span><span class="ss">&quot;com.example.fn.HelloFunction::handleRequest&quot;</span><span class="p">]</span>
-<span class="c1">---&gt; Using cache</span>
-<span class="c1">---&gt; 5970d6bcd334</span>
-<span class="n">Successfully</span> <span class="n">built</span> <span class="mi">5970</span><span class="n">d6bcd334</span>
-<span class="n">Successfully</span> <span class="n">tagged</span> <span class="n">javafn</span><span class="p">:</span><span class="mi">0</span><span class="p">.</span><span class="mi">0</span><span class="p">.</span><span class="mi">2</span>
-
-<span class="n">Updating</span> <span class="k">function</span> <span class="n">javafn</span> <span class="k">using</span> <span class="n">image</span> <span class="n">javafn</span><span class="p">:</span><span class="mi">0</span><span class="p">.</span><span class="mi">0</span><span class="p">.</span><span class="mi">2</span><span class="p">...</span>
-<span class="n">Successfully</span> <span class="n">created</span> <span class="k">function</span><span class="p">:</span> <span class="n">javafn</span> <span class="k">with</span> <span class="n">javafn</span><span class="p">:</span><span class="mi">0</span><span class="p">.</span><span class="mi">0</span><span class="p">.</span><span class="mi">2</span>
+<div class="codehilite"><pre><span></span><span class="nv">Deploying</span> <span class="nv">javafn</span> <span class="nv">to</span> <span class="nv">app</span>: <span class="nv">java</span><span class="o">-</span><span class="nv">app</span>
+<span class="nv">Bumped</span> <span class="nv">to</span> <span class="nv">version</span> <span class="mi">0</span>.<span class="mi">0</span>.<span class="mi">2</span>
+<span class="nv">Building</span> <span class="nv">image</span> <span class="nv">fndemouser</span><span class="o">/</span><span class="nv">javafn</span>:<span class="mi">0</span>.<span class="mi">0</span>.<span class="mi">2</span> 
+<span class="nv">FN_REGISTRY</span>:  <span class="nv">fndemouser</span>
+<span class="nv">Current</span> <span class="nv">Context</span>:  <span class="nv">default</span>
+<span class="nv">Sending</span> <span class="nv">build</span> <span class="nv">context</span> <span class="nv">to</span> <span class="nv">Docker</span> <span class="nv">daemon</span>  <span class="mi">14</span>.<span class="mi">34</span><span class="nv">kB</span>
+<span class="nv">Step</span> <span class="mi">1</span><span class="o">/</span><span class="mi">11</span> : <span class="nv">FROM</span> <span class="nv">fnproject</span><span class="o">/</span><span class="nv">fn</span><span class="o">-</span><span class="nv">java</span><span class="o">-</span><span class="nv">fdk</span><span class="o">-</span><span class="nv">build</span>:<span class="nv">jdk9</span><span class="o">-</span><span class="mi">1</span>.<span class="mi">0</span>.<span class="mi">75</span> <span class="nv">as</span> <span class="nv">build</span><span class="o">-</span><span class="nv">stage</span>
+<span class="nv">jdk9</span><span class="o">-</span><span class="mi">1</span>.<span class="mi">0</span>.<span class="mi">75</span>: <span class="nv">Pulling</span> <span class="nv">from</span> <span class="nv">fnproject</span><span class="o">/</span><span class="nv">fn</span><span class="o">-</span><span class="nv">java</span><span class="o">-</span><span class="nv">fdk</span><span class="o">-</span><span class="nv">build</span>
+<span class="ss">(</span>中略<span class="ss">)</span>
+<span class="nv">Digest</span>: <span class="nv">sha256</span>:<span class="nv">a317732d9dd12ae8f9078591e86bba2ed569c7ec823e4c763ff176c07c8add3f</span>
+<span class="nv">Status</span>: <span class="nv">Downloaded</span> <span class="nv">newer</span> <span class="nv">image</span> <span class="k">for</span> <span class="nv">fnproject</span><span class="o">/</span><span class="nv">fn</span><span class="o">-</span><span class="nv">java</span><span class="o">-</span><span class="nv">fdk</span>:<span class="nv">jdk9</span><span class="o">-</span><span class="mi">1</span>.<span class="mi">0</span>.<span class="mi">75</span>
+<span class="o">---&gt;</span> <span class="mi">5</span><span class="nv">ca9da5945c4</span>
+<span class="nv">Step</span> <span class="mi">9</span><span class="o">/</span><span class="mi">11</span> : <span class="nv">WORKDIR</span> <span class="o">/</span><span class="nv">function</span>
+<span class="o">---&gt;</span> <span class="nv">Running</span> <span class="nv">in</span> <span class="mi">0</span><span class="nv">f94631cd8f9</span>
+<span class="nv">Removing</span> <span class="nv">intermediate</span> <span class="nv">container</span> <span class="mi">0</span><span class="nv">f94631cd8f9</span>
+<span class="o">---&gt;</span> <span class="nv">a6da0230bf05</span>
+<span class="nv">Step</span> <span class="mi">10</span><span class="o">/</span><span class="mi">11</span> : <span class="nv">COPY</span> <span class="o">--</span><span class="nv">from</span><span class="o">=</span><span class="nv">build</span><span class="o">-</span><span class="nv">stage</span> <span class="o">/</span><span class="nv">function</span><span class="o">/</span><span class="nv">target</span><span class="cm">/*.jar /function/app/</span>
+<span class="cm">---&gt; 9fb385022aeb</span>
+<span class="cm">Step 11/11 : CMD [&quot;com.example.fn.HelloFunction::handleRequest&quot;]</span>
+<span class="cm">---&gt; Running in 8b571cbd24af</span>
+<span class="cm">Removing intermediate container 8b571cbd24af</span>
+<span class="cm">---&gt; 0cbe66bb9e2b</span>
+<span class="cm">Successfully built 0cbe66bb9e2b</span>
+<span class="cm">Successfully tagged fndemouser/javafn:0.0.2</span>
+<span class="cm">Updating function javafn using image fndemouser/javafn:0.0.2...</span>
+<span class="cm">Successfully created function: javafn with fndemouser/javafn:0.0.2</span>
+<span class="cm">Successfully created trigger: javafn-trigger</span>
+<span class="cm">Trigger Endpoint: http://localhost:8080/t/java-app/javafn</span>
 </pre></div>
 
 
@@ -1073,8 +1087,15 @@
 </pre></div>
 
 
-<p>以上で、Fn Projectのハンズオンは終了です。<br />
-Fn Projectの開発者エクスペリエンスをご体感頂けたでしょうか。</p>
+<p>また、functionはエンドポイントを利用して呼び出すこともできます。<br />
+curlコマンドを使用して以下のようにURLにアクセスします。</p>
+<div class="codehilite"><pre><span></span><span class="n">curl</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">localhost</span><span class="p">:</span><span class="mi">8080</span><span class="o">/</span><span class="n">t</span><span class="o">/</span><span class="n">java</span><span class="o">-</span><span class="n">app</span><span class="o">/</span><span class="n">javafn</span>
+</pre></div>
+
+
+<p>以下のように表示されれば成功です。</p>
+<div class="codehilite"><pre><span></span><span class="n">Hello</span><span class="p">,</span> <span class="n">World</span><span class="o">!</span>
+</pre></div>
                 
                   
                 
