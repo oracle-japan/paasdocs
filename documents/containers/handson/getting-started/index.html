@@ -32,7 +32,7 @@
         <meta name="lang:search.tokenizer" content="[\s\-　、。，．]+">
       
       <link rel="shortcut icon" href="../../../../assets/images/cloud_46@2x.png">
-      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.4.0">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.4.2">
     
     
       
@@ -40,9 +40,9 @@
       
     
     
-      <link rel="stylesheet" href="../../../../assets/stylesheets/application.0284f74d.css">
+      <link rel="stylesheet" href="../../../../assets/stylesheets/application.30686662.css">
       
-        <link rel="stylesheet" href="../../../../assets/stylesheets/application-palette.01803549.css">
+        <link rel="stylesheet" href="../../../../assets/stylesheets/application-palette.a8b3c06d.css">
       
       
         
@@ -192,7 +192,7 @@
         
   <li class="md-tabs__item">
     
-      <a href="../../../.." title="Home" class="md-tabs__link">
+      <a href="../../../.." class="md-tabs__link">
         Home
       </a>
     
@@ -204,7 +204,7 @@
   
     <li class="md-tabs__item">
       
-        <a href="../../" title="コンテナ" class="md-tabs__link md-tabs__link--active">
+        <a href="../../" class="md-tabs__link md-tabs__link--active">
           コンテナ
         </a>
       
@@ -217,7 +217,7 @@
   
     <li class="md-tabs__item">
       
-        <a href="../../../faas/" title="FaaS" class="md-tabs__link">
+        <a href="../../../faas/" class="md-tabs__link">
           FaaS
         </a>
       
@@ -229,7 +229,7 @@
   </div>
 </nav>
       
-      <main class="md-main">
+      <main class="md-main" role="main">
         <div class="md-main__inner md-grid" data-md-component="container">
           
             
@@ -367,36 +367,36 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_1" title="動作確認できている条件" class="md-nav__link">
-    動作確認できている条件
+  <a href="#_1" class="md-nav__link">
+    前提条件
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_2" title="全体の流れ" class="md-nav__link">
+  <a href="#_2" class="md-nav__link">
     全体の流れ
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#1-oci" title="1 . OCIでの準備作業" class="md-nav__link">
-    1 . OCIでの準備作業
+  <a href="#1-oci" class="md-nav__link">
+    1 . OCI上での準備作業
   </a>
   
     <nav class="md-nav">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#1-1-oci" title="1-1. OCIのサービスコンソールにアクセスする" class="md-nav__link">
+  <a href="#1-1-oci" class="md-nav__link">
     1-1. OCIのサービスコンソールにアクセスする
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#1-2-oci" title="1-2. OCI上に必要なリソースを作成する" class="md-nav__link">
+  <a href="#1-2-oci" class="md-nav__link">
     1-2. OCI上に必要なリソースを作成する
   </a>
   
@@ -404,15 +404,22 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#1-2-1-compartment" title="1-2-1. Compartmentを作成する" class="md-nav__link">
-    1-2-1. Compartmentを作成する
+  <a href="#1-2-1" class="md-nav__link">
+    1-2-1. ポリシーの設定 (必須)
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#1-2-2-okeusergrouppolicy" title="1-2-2. OKEを操作するためのUser/Group/Policyの構成を行う" class="md-nav__link">
-    1-2-2. OKEを操作するためのUser/Group/Policyの構成を行う
+  <a href="#1-2-2" class="md-nav__link">
+    1-2-2. コンパートメントを作成する (任意)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1-2-3-oke" class="md-nav__link">
+    1-2-3. OKEを操作するグループ/ユーザーを作成する (任意)
   </a>
   
 </li>
@@ -428,14 +435,14 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#2-oke" title="2 . OKEクラスターをプロビジョニングする" class="md-nav__link">
+  <a href="#2-oke" class="md-nav__link">
     2 . OKEクラスターをプロビジョニングする
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#3-kubernetesclikubectl" title="3 . Kubernetesの管理用CLI(kubectl)をセットアップする" class="md-nav__link">
+  <a href="#3-kubernetesclikubectl" class="md-nav__link">
     3 . Kubernetesの管理用CLI(kubectl)をセットアップする
   </a>
   
@@ -443,7 +450,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#3-1-kubectlpython" title="3-1. kubectlとPythonのインストール" class="md-nav__link">
+  <a href="#3-1-kubectlpython" class="md-nav__link">
     3-1. kubectlとPythonのインストール
   </a>
   
@@ -451,14 +458,14 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#3-1-1-kubectl" title="3-1-1. kubectlのインストール" class="md-nav__link">
+  <a href="#3-1-1-kubectl" class="md-nav__link">
     3-1-1. kubectlのインストール
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#3-1-2-python" title="3-1-2. Pythonのインストール" class="md-nav__link">
+  <a href="#3-1-2-python" class="md-nav__link">
     3-1-2. Pythonのインストール
   </a>
   
@@ -470,7 +477,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#3-2-oracle-cloud-infrastructurecli" title="3-2. Oracle Cloud InfrastructureのCLIをセットアップする" class="md-nav__link">
+  <a href="#3-2-oracle-cloud-infrastructurecli" class="md-nav__link">
     3-2. Oracle Cloud InfrastructureのCLIをセットアップする
   </a>
   
@@ -478,14 +485,14 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#3-2-1-ocid" title="3-2-1. OCIDの確認" class="md-nav__link">
+  <a href="#3-2-1-ocid" class="md-nav__link">
     3-2-1. OCIDの確認
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#3-2-2-oci-cli" title="3-2-2. OCI CLIのセットアップ" class="md-nav__link">
+  <a href="#3-2-2-oci-cli" class="md-nav__link">
     3-2-2. OCI CLIのセットアップ
   </a>
   
@@ -497,7 +504,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#3-3-kubectl" title="3-3. kubectlの設定を行って、クラスターにアクセスする" class="md-nav__link">
+  <a href="#3-3-kubectl" class="md-nav__link">
     3-3. kubectlの設定を行って、クラスターにアクセスする
   </a>
   
@@ -742,36 +749,36 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_1" title="動作確認できている条件" class="md-nav__link">
-    動作確認できている条件
+  <a href="#_1" class="md-nav__link">
+    前提条件
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_2" title="全体の流れ" class="md-nav__link">
+  <a href="#_2" class="md-nav__link">
     全体の流れ
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#1-oci" title="1 . OCIでの準備作業" class="md-nav__link">
-    1 . OCIでの準備作業
+  <a href="#1-oci" class="md-nav__link">
+    1 . OCI上での準備作業
   </a>
   
     <nav class="md-nav">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#1-1-oci" title="1-1. OCIのサービスコンソールにアクセスする" class="md-nav__link">
+  <a href="#1-1-oci" class="md-nav__link">
     1-1. OCIのサービスコンソールにアクセスする
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#1-2-oci" title="1-2. OCI上に必要なリソースを作成する" class="md-nav__link">
+  <a href="#1-2-oci" class="md-nav__link">
     1-2. OCI上に必要なリソースを作成する
   </a>
   
@@ -779,15 +786,22 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#1-2-1-compartment" title="1-2-1. Compartmentを作成する" class="md-nav__link">
-    1-2-1. Compartmentを作成する
+  <a href="#1-2-1" class="md-nav__link">
+    1-2-1. ポリシーの設定 (必須)
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#1-2-2-okeusergrouppolicy" title="1-2-2. OKEを操作するためのUser/Group/Policyの構成を行う" class="md-nav__link">
-    1-2-2. OKEを操作するためのUser/Group/Policyの構成を行う
+  <a href="#1-2-2" class="md-nav__link">
+    1-2-2. コンパートメントを作成する (任意)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1-2-3-oke" class="md-nav__link">
+    1-2-3. OKEを操作するグループ/ユーザーを作成する (任意)
   </a>
   
 </li>
@@ -803,14 +817,14 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#2-oke" title="2 . OKEクラスターをプロビジョニングする" class="md-nav__link">
+  <a href="#2-oke" class="md-nav__link">
     2 . OKEクラスターをプロビジョニングする
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#3-kubernetesclikubectl" title="3 . Kubernetesの管理用CLI(kubectl)をセットアップする" class="md-nav__link">
+  <a href="#3-kubernetesclikubectl" class="md-nav__link">
     3 . Kubernetesの管理用CLI(kubectl)をセットアップする
   </a>
   
@@ -818,7 +832,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#3-1-kubectlpython" title="3-1. kubectlとPythonのインストール" class="md-nav__link">
+  <a href="#3-1-kubectlpython" class="md-nav__link">
     3-1. kubectlとPythonのインストール
   </a>
   
@@ -826,14 +840,14 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#3-1-1-kubectl" title="3-1-1. kubectlのインストール" class="md-nav__link">
+  <a href="#3-1-1-kubectl" class="md-nav__link">
     3-1-1. kubectlのインストール
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#3-1-2-python" title="3-1-2. Pythonのインストール" class="md-nav__link">
+  <a href="#3-1-2-python" class="md-nav__link">
     3-1-2. Pythonのインストール
   </a>
   
@@ -845,7 +859,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#3-2-oracle-cloud-infrastructurecli" title="3-2. Oracle Cloud InfrastructureのCLIをセットアップする" class="md-nav__link">
+  <a href="#3-2-oracle-cloud-infrastructurecli" class="md-nav__link">
     3-2. Oracle Cloud InfrastructureのCLIをセットアップする
   </a>
   
@@ -853,14 +867,14 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#3-2-1-ocid" title="3-2-1. OCIDの確認" class="md-nav__link">
+  <a href="#3-2-1-ocid" class="md-nav__link">
     3-2-1. OCIDの確認
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#3-2-2-oci-cli" title="3-2-2. OCI CLIのセットアップ" class="md-nav__link">
+  <a href="#3-2-2-oci-cli" class="md-nav__link">
     3-2-2. OCI CLIのセットアップ
   </a>
   
@@ -872,7 +886,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#3-3-kubectl" title="3-3. kubectlの設定を行って、クラスターにアクセスする" class="md-nav__link">
+  <a href="#3-3-kubectl" class="md-nav__link">
     3-3. kubectlの設定を行って、クラスターにアクセスする
   </a>
   
@@ -904,10 +918,10 @@
                 
                 <h1 id="okekubernetes">OKEでKubernetesを始めてみよう<a class="headerlink" href="#okekubernetes" title="Permanent link">&para;</a></h1>
 <p>Oracle Container Engine for Kubernetes（以下OKE）は、OracleのマネージドKubernetesサービスです。このエントリーでは、OKEを使ってKubernetesクラスターをプロビジョニングするまでの手順を記します。</p>
-<h2 id="_1">動作確認できている条件<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<h2 id="_1">前提条件<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
 <ul>
 <li>クラウド環境<ul>
-<li>North America リージョンのDCが有効なOracle Cloudアカウントがあること</li>
+<li>Oracle Cloudのアカウントを取得済みであること</li>
 </ul>
 </li>
 <li>ローカルPC<ul>
@@ -918,113 +932,120 @@
 <h2 id="_2">全体の流れ<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <p>手順の大まかな流れは以下のとおりです。</p>
 <ol>
-<li>OCI上での準備作業</li>
+<li>Oracle Cloud Infrastructure(以下、OCI)上での準備作業</li>
 <li>OKEクラスターをプロビジョニングする</li>
 <li>Kubernetesの管理用CLI(kubectl)をセットアップする</li>
 </ol>
-<p>OCIはOracleのIaaSで、OKEはOCIの機能群のひとつとして提供されています。</p>
-<h2 id="1-oci">1 . OCIでの準備作業<a class="headerlink" href="#1-oci" title="Permanent link">&para;</a></h2>
-<p>まずはじめに、OCI上にKubernetes用の領域(Compartment)や、OKEクラスターの管理アカウント、ネットワーク設定など、必要なリソースを作成していきます。</p>
+<h2 id="1-oci">1 . OCI上での準備作業<a class="headerlink" href="#1-oci" title="Permanent link">&para;</a></h2>
+<p>まずはじめに、OCI上にKubernetes用の領域(コンパートメント)や、OKEクラスターの管理アカウント、ネットワーク設定など、必要なリソースを作成していきます。</p>
 <h3 id="1-1-oci">1-1. OCIのサービスコンソールにアクセスする<a class="headerlink" href="#1-1-oci" title="Permanent link">&para;</a></h3>
-<p>Oracle Cloudのダッシューボードにログインし、ダッシューボード画面で、"Compute"パネル右下のメニューアイコン -&gt; "サービス・コンソールを開く"の順にクリックします。</p>
-<p><img alt="" src="images/01-01.png" /></p>
-<p>"Compute"パネルが表示されていない場合は、画面上半分の青い領域にある"ダッシューボードのカスタマイズ"をクリックして、"Compute"パネルの表示を有効にしてください。</p>
+<p>OCIのダッシューボードに<a href="https://console.us-ashburn-1.oraclecloud.com/">ログイン</a>します。
+Oracle Cloud Infrastructureのテナント名を入力し次へ進みます。</p>
+<p><img alt="" src="images/01-01-1.png" /></p>
+<p>Sigle Sign-On(SSO)またはOCIで作成したアカウントでログインします。
+管理者による初期ログインの場合はSSOでログインをします。</p>
+<p><img alt="" src="images/01-01-2.png" /></p>
 <h3 id="1-2-oci">1-2. OCI上に必要なリソースを作成する<a class="headerlink" href="#1-2-oci" title="Permanent link">&para;</a></h3>
-<p>OCIのサービス・コンソールを操作して、Compartment等の必要なリソースを作成していきます。</p>
+<p>OCIのサービス・コンソールを操作して、コンパートメント等の必要なリソースを作成していきます。</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>この節で行う作業は、最初にOKEを使い始めるときだけ必要な作業です。すでに実施済みの場合は、「2. OKEでKubernetesクラスターをプロビジョニングする」に進んでください。</p>
 </div>
-<h4 id="1-2-1-compartment">1-2-1. Compartmentを作成する<a class="headerlink" href="#1-2-1-compartment" title="Permanent link">&para;</a></h4>
-<p>CompartmentはOCIのテナントの内部を仕切る区画で、その中に各種リソースを配置したり、CompartmentにPolicyを割り当てることを通じてアカウントの権限を管理したりすることができます。ここでは、Kubernetesクラスターとそれを構成する各種リソースを配置するためのCompartmentを作成します。</p>
-<p>はじめに、OCIのサービス・コンソールの左上のメニューを展開し、"Identity"をクリックします。</p>
-<p><img alt="" src="images/01-02.png" /></p>
-<p>画面左のメニューで"Compartment"をクリックし、更に"Create Compartment"ボタンをクリックします。</p>
-<p><img alt="" src="images/01-03.png" /></p>
-<p>"Create Compartment"ダイアログで以下のように値を設定し、"Create Compartment"ボタンをクリックします。</p>
+<h4 id="1-2-1">1-2-1. ポリシーの設定 (必須)<a class="headerlink" href="#1-2-1" title="Permanent link">&para;</a></h4>
+<p>OKEを利用するには、OKEのサービス自体にOCIのリソースを操作する権限(ポリシー)を設定する必要があります。</p>
+<p>まず、OCIのサービス・コンソールの左上のハンバーガーメニューを展開し、"アイデンティティ"をクリックし、"ポリシー"をクリックします。</p>
+<p><img alt="" src="images/01-05-1.png" /></p>
+<p>"リスト範囲"以下のプルダウンで"&lt;テナント名&gt; (root)"を選択します。続けて"ポリシーの作成"ボタンをクリックします。</p>
+<p><img alt="" src="images/01-06-1.png" /></p>
+<p>"ポリシーの作成"ダイアログで以下のように値を設定し、"作成"ボタンをクリックします。</p>
 <ul>
-<li>NAME: demo</li>
-<li>DESCRIPTION: demo</li>
-<li>（上記以外はデフォルトのまま）</li>
-</ul>
-<p><img alt="" src="images/01-04.png" /></p>
-<p>以上で、Compartmentの作成は完了です。</p>
-<h4 id="1-2-2-okeusergrouppolicy">1-2-2. OKEを操作するためのUser/Group/Policyの構成を行う<a class="headerlink" href="#1-2-2-okeusergrouppolicy" title="Permanent link">&para;</a></h4>
-<p>OKEを利用するには、OKEのサービス自体にOCIのリソースを操作する権限(Policy)を設定するとともに、OKEの機能を利用するためのUser、Groupを作成して適切にPolicyを割り当てる必要があります。</p>
-<p>ここではそれらUser/Group/Policyの構成を行います。</p>
-<p>まず、OCIのサービス・コンソールの右上のタブで、"Identity"をクリックします。</p>
-<p><img alt="" src="images/01-05.png" /></p>
-<p>はじめに、OKEのサービス自体に設定するPolicyを構成します。画面左のメニューの"Policies"をクリックし、"List Scope"以下のプルダウンで"&lt;テナント名&gt; (root)"が選択します。続けて"Create Policy"ボタンをクリックします。</p>
-<p><img alt="" src="images/01-06.png" /></p>
-<p>"Create Policy"ダイアログで以下のように値を設定し、"Create"ボタンをクリックします。</p>
-<ul>
-<li>NAME: oke-service</li>
-<li>DESCRIPTION: Allow service OKE to manage all-resources in tenancy</li>
-<li>Policy Versioning: KEEP POLICY CURRENT</li>
-<li>Policy Statements（以下のStatement設定（文字列を入力））:<ul>
+<li>名前: oke-service</li>
+<li>説明: Allow service OKE to manage all-resources in tenancy</li>
+<li>ポリシーのバージョニング: ポリシーを最新のバージョンに維持 (デフォルトのまま)</li>
+<li>ポリシー・ステートメント（以下のステートメントを設定（文字列を入力））:<ul>
 <li>allow service OKE to manage all-resources in tenancy</li>
 </ul>
 </li>
 </ul>
-<p><img alt="" src="images/01-07.png" /></p>
-<p>次に、OKEを操作するための権限を割り当てるGroupを作成します。画面左のメニューの"Groups"をクリックし、"Create Group"ボタンをクリックします。</p>
-<p><img alt="" src="images/01-08.png" /></p>
-<p>"Create Group"ダイアログで以下の値を設定し、"Submit"ボタンを作成してください。</p>
-<ul>
-<li>NAME: demo-admin</li>
-<li>DESCRIPTION: Administrators for the demo compartment</li>
-</ul>
-<p><img alt="" src="images/01-09.png" /></p>
+<p><img alt="" src="images/01-07-1.png" /></p>
+<h4 id="1-2-2">1-2-2. コンパートメントを作成する (任意)<a class="headerlink" href="#1-2-2" title="Permanent link">&para;</a></h4>
+<p>コンパートメントはOCIのテナントの内部を仕切る区画で、その中に各種リソースを配置したり、コンパートメントにポリシーを割り当てることを通じてアカウントの権限を管理したりすることができます。ここでは、Kubernetesクラスターとそれを構成する各種リソースを配置するためのコンパートメントを作成します。</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>このチュートリアルでは、簡単のために、Compartment内のリソースに対する全権限を持つGroupを作成していきます。
+<p>rootコンパートメントを使用する場合、この手順はスキップすることができます。
+このチュートリアルでは、コンパートメント内のリソースに対する全権限を持つグループを作成していきます。
+実際の運用で使用する際には、利用目的に応じた権限の設定をするようにしてください。</p>
+</div>
+<p>はじめに、OCIのサービス・コンソールの左上のハンバーガーメニューを展開し、"アイデンティティ"をクリックし、"コンパートメント"をクリックします。</p>
+<p><img alt="" src="images/01-02-1.png" /></p>
+<p>"コンパートメントの作成"をクリックし、ダイアログで以下のように値を設定し、"コンパートメントの作成"ボタンをクリックします。</p>
+<ul>
+<li>名前: demo</li>
+<li>説明: demo</li>
+<li>（上記以外はデフォルトのまま）</li>
+</ul>
+<p><img alt="" src="images/01-03-1.png" /></p>
+<p><img alt="" src="images/01-04-1.png" /></p>
+<p>以上で、コンパートメントの作成は完了です。</p>
+<h4 id="1-2-3-oke">1-2-3. OKEを操作するグループ/ユーザーを作成する (任意)<a class="headerlink" href="#1-2-3-oke" title="Permanent link">&para;</a></h4>
+<p>次に、OKEを操作するための権限を割り当てるグループを作成します。画面左のメニューの"グループ"をクリック"をクリックし、"グループの作成"ボタンをクリックします。</p>
+<p><img alt="" src="images/01-08-1.png" /></p>
+<p>"グループの作成"ダイアログで以下の値を設定し、"作成"ボタンを作成してください。</p>
+<ul>
+<li>名前: demo-admin</li>
+<li>説明: Administrators for the demo compartment</li>
+</ul>
+<p><img alt="" src="images/01-09-1.png" /></p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>このチュートリアルでは、簡単のために、コンパートメント内のリソースに対する全権限を持つグループを作成していきます。
 実際の運用でOKEを使う際には、利用目的に応じた権限の設定をするようにしてください。</p>
 </div>
-<p>Groupに対する権限の設定（Policyの構成）を行います。画面左のメニューの"Policies"をクリックします。続けて、"List Scope"以下のプルダウンで"&lt;テナント名&gt; (root)"が選択されていることを確認した上で、"Create Policy"ボタンをクリックします。</p>
-<p><img alt="" src="images/01-10.png" /></p>
-<p>"Create Policy"ダイアログで以下のように値を設定し、"Create"ボタンをクリックします。</p>
+<p>グループに対する権限の設定（ポリシーの構成）を行います。画面左のメニューの"ポリシー"をクリックします。続けて、"リスト範囲"以下のプルダウンで"demo"（前の手順のコンパートメントの作成を行っていない場合は"&lt;テナント名&gt; (root)"）が選択されていることを確認した上で、"ポリシーの作成"ボタンをクリックします。</p>
+<p><img alt="" src="images/01-10-1.png" /></p>
+<p>"ポリシーの作成"ダイアログで以下のように値を設定し、"作成"ボタンをクリックします。</p>
 <ul>
-<li>NAME: demo-admin-policy</li>
-<li>DESCRIPTION: Grants users full permissions on the demo compartment</li>
-<li>Policy Versioning: KEEP POLICY CURRENT</li>
-<li>Policy Statements（以下のStatement設定（文字列を入力））:<ul>
+<li>名前: demo-admin-policy</li>
+<li>説明: Grants users full permissions on the demo compartment</li>
+<li>ポリシーのバージョニング: ポリシーを最新のバージョンに維持 (デフォルトのまま)</li>
+<li>ポリシー・ステートメント（以下のステートメント設定（文字列を入力））:<ul>
 <li>Allow group demo-admin to manage all-resources in compartment demo</li>
 </ul>
 </li>
 </ul>
-<p><img alt="" src="images/01-11.png" /></p>
-<p>クラスターを操作するためのUserを作成し、先に作成したGroupに所属させます。画面左のメニューの"Users"をクリックし、続けて"Create User"ボタンをクリックします。</p>
-<p><img alt="" src="images/01-12.png" /></p>
-<p>"Create User"ダイアログで以下のように値を設定し、"Create"ボタンをクリックします。</p>
+<p><img alt="" src="images/01-11-1.png" /></p>
+<p>クラスターを操作するためのUserを作成し、先に作成したグループに所属させます。画面左のメニューの"ユーザー"をクリックし、続けて"ユーザーの作成"ボタンをクリックします。</p>
+<p><img alt="" src="images/01-12-1.png" /></p>
+<p>"ユーザーの作成"ダイアログで以下のように値を設定し、"作成"ボタンをクリックします。</p>
 <ul>
-<li>NAME: demo-admin</li>
-<li>DESCRIPTION: demo admin</li>
+<li>名前: demo-admin</li>
+<li>説明: demo admin</li>
 </ul>
-<p><img alt="" src="images/01-13.png" /></p>
-<p>Userの一覧が表示されたら、demo-adminに相当する行のユーザー名をクリックします。</p>
-<p><img alt="" src="images/01-14.png" /></p>
-<p>Userの詳細画面の左側にあるメニューで、"Groups"をクリックし、続けて "Add User to Group"ボタンをクリックします。</p>
-<p><img alt="" src="images/01-15.png" /></p>
-<p>"Add User To Group"ダイアログで、Userを先に作成したグループに追加します。</p>
-<p><img alt="" src="images/01-16.png" /></p>
-<p>Groupへの追加が完了したら、このdemo-adminアカウントにPasswordを設定し、このUserでログインし直します。</p>
-<p>まず、demo-adminの詳細画面で、"Create/Reset Password"ボタンをクリックします。</p>
-<p><img alt="" src="images/01-17.png" /></p>
-<p>”Create/Reset Password”ダイアログで、"Create/Reset Password"ボタンをクリックします。</p>
-<p><img alt="" src="images/01-18.png" /></p>
-<p>新たなPasswordが表示されたら"Copy"をクリックします。これでPasswordがクリップボードにコピーされます。
-続けて"Close"ボタンをクリックしてダイアログを閉じます。</p>
-<p><img alt="" src="images/01-19.png" /></p>
+<p><img alt="" src="images/01-13-1.png" /></p>
+<p>ユーザーの一覧が表示されたら、demo-adminに相当する行のユーザー名をクリックします。</p>
+<p><img alt="" src="images/01-14-1.png" /></p>
+<p>ユーザーの詳細画面の左側にあるメニューで、"グループ"をクリックし、続けて "ユーザーをグループに追加"ボタンをクリックします。</p>
+<p><img alt="" src="images/01-15-1.png" /></p>
+<p>"ユーザーをグループに追加"ダイアログで、ユーザーを先に作成したグループに追加します。</p>
+<p><img alt="" src="images/01-16-1.png" /></p>
+<p>グループへの追加が完了したら、このdemo-adminアカウントにパスワードを設定し、このユーザーでログインし直します。</p>
+<p>まず、demo-adminの詳細画面で、"パスワード作成/リセット"ボタンをクリックします。</p>
+<p><img alt="" src="images/01-17-1.png" /></p>
+<p>"パスワード作成/リセット"ダイアログで、"パスワード作成/リセット"ボタンをクリックします。</p>
+<p><img alt="" src="images/01-18-1.png" /></p>
+<p>新たなパスワードが表示されたら"コピー"をクリックします。これでパスワードがクリップボードにコピーされます。
+続けて"閉じる"ボタンをクリックしてダイアログを閉じます。</p>
+<p><img alt="" src="images/01-19-1.png" /></p>
 <p>画面右上の、人型のアイコンが表示されている箇所をクリックし、さらに、展開されたメニューの"Sign Out"をクリックします。</p>
-<p><img alt="" src="images/01-20.png" /></p>
+<p><img alt="" src="images/01-20-1.png" /></p>
 <p>OCIのコンソールのログイン画面が表示されるので、右側にあるUSER NAMEとPASSWORDのフォームを使ってログインします。それぞれ、入力値は以下のとおりです。</p>
 <ul>
 <li>USER NAME: demo-admin</li>
-<li>PASSWORD: [先の手順で作成したPassword（クリップボードからペースト）]</li>
+<li>PASSWORD: [先の手順で作成したパスワード（クリップボードからペースト）]</li>
 </ul>
-<p><img alt="" src="images/01-21.png" /></p>
+<p><img alt="" src="images/01-21-1.png" /></p>
 <p>初期パスワードの変更を求められるので、現在のパスワードと新たに設定するパスワードを入力します。</p>
-<p><img alt="" src="images/01-22.png" /></p>
+<p><img alt="" src="images/01-22-1.png" /></p>
 <p>この画面の操作を完了すると、demo-adminでOCIの管理コンソールにログインした状態になります。</p>
 <p>以上で、準備作業は完了です。</p>
 <h2 id="2-oke">2 . OKEクラスターをプロビジョニングする<a class="headerlink" href="#2-oke" title="Permanent link">&para;</a></h2>
@@ -1267,7 +1288,7 @@ OCIのコンソールで、画面右上のタブから"Developer Services"をク
       
     </div>
     
-      <script src="../../../../assets/javascripts/application.245445c6.js"></script>
+      <script src="../../../../assets/javascripts/application.c648116f.js"></script>
       
         
         
