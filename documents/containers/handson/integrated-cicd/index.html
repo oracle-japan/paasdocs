@@ -340,6 +340,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../getting-started-automated/" title="OKEでKubernetesを始めてみよう (ハンズオンはこちらから)" class="md-nav__link">
+      OKEでKubernetesを始めてみよう (ハンズオンはこちらから)
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../getting-started/" title="OKEでKubernetesを始めてみよう" class="md-nav__link">
       OKEでKubernetesを始めてみよう
     </a>
@@ -1028,7 +1040,7 @@
     <span class="p p-Indicator">-</span> <span class="nt">internal/docker-push</span><span class="p">:</span>
         <span class="nt">username</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">$REGISTRY_USERNAME</span>
         <span class="nt">password</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">$REGISTRY_PASSWORD</span>
-<span class="hll">        <span class="nt">repository</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">iad.ocir.io/gse00014510/acme-web-app/cowweb</span>
+<span class="hll">        <span class="nt">repository</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">${region-code}.ocir.io/${tenancy-name}/${repository}/cowsay</span>
 </span>        <span class="nt">tag</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">v1.0</span>
         <span class="nt">ports</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">8080</span>
         <span class="nt">cmd</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">java -jar /pipeline/source/build/libs/cowweb-1.0.jar</span>
@@ -1200,9 +1212,9 @@
 </tr>
 <tr>
 <td>REGISTRY_USERNAME</td>
-<td>OCIRへのプッシュの際に指定したユーザー名</td>
+<td>OCIRへのプッシュの際に指定したユーザー名([オブジェクト・ストレージ・ネームスペース]/[ユーザー名])</td>
 <td>OFF</td>
-<td>tenant000123/userA</td>
+<td>nrzftilbveen/userA</td>
 </tr>
 <tr>
 <td>REGISTRY_PASSWORD</td>
