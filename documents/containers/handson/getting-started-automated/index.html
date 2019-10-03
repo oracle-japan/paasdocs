@@ -962,7 +962,7 @@
 <p>OCIのサービスダッシュボードにブラウザからアクセスします。お持ちのクラウドアカウントを使って<a href="https://cloud.oracle.com/ja_JP/home">サインイン</a>します。</p>
 <p><img alt="" src="images/01-01-1.png" /></p>
 <ul>
-<li>1．Sign In to Cloudをクリックします</li>
+<li>1．Sign Inをクリックします</li>
 <li>2．クラウドアカウント名（テナント名）を入力します</li>
 <li>3．「Next」をクリックします</li>
 <li>4．クラウドユーザー名とパスワードを入力して「サイン・イン」をクリックします</li>
@@ -1070,6 +1070,12 @@
 <p><img alt="" src="images/02-03.png" /></p>
 <p>「クラスタの作成」ダイアログで、任意の名前を入力し、バージョンを選択します。ここではデフォルトのまま進めていきます。</p>
 <p>"クイック作成（デフォルト）"であることを確認し、"ノード・プールの作成"で"シェイプ"<code>VM.Standard2.1</code>を選択します。そして、ダイアログの下まで移動し<code>作成</code>をクリックします。</p>
+<p>ノードの数はワーカーノードの数を指定します。デフォルトで「3」が指定されていますが、本ハンズオンでは最小構成である「1」に変更してください。 </p>
+<div class="admonition note">
+<p class="admonition-title">ノード数について</p>
+<p>ノードはリージョン内の可用性ドメイン全体（または、東京リージョンなど単一可用性ドメインの場合、その可用性ドメイン内の障害ドメイン全体）に可能な限り均等に分散されます。
+実運用の際は可用性を考慮し、適切なノード数を指定してください。</p>
+</div>
 <p><img alt="" src="images/02-03-1.png" /></p>
 <p><img alt="" src="images/02-04.png" /></p>
 <p>デフォルトの設定では、クラスタが必要とするネットワークリソース等の構成が自動的に行われます。途中経過がダイアログに表示されますので、「クラスタと関連ネットワーク・リソースが作成されました」というメッセージが表示されるまで待った後、<code>Close</code>ボタンをクリックします。</p>
@@ -1104,14 +1110,14 @@
 <h3 id="3-1-oci-cli">3-1. OCI CLIをセットアップする<a class="headerlink" href="#3-1-oci-cli" title="Permanent link">&para;</a></h3>
 <p>ここでは、OCI CLIのセットアップを行います。</p>
 <h4 id="3-1-1-ocid">3-1-1. テナンシのOCIDの確認<a class="headerlink" href="#3-1-1-ocid" title="Permanent link">&para;</a></h4>
-<p>OCI CLIのセットアップでは、CLIをどのテナンシのユーザーアカウントとして実行するかを設定するために、テナンシ、ユーザーのOCID（識別子）が必要になります。はじめに、このユーザーのOCIDを取得しておきます。</p>
+<p>OCI CLIのセットアップでは、CLIをどのテナンシのユーザーアカウントとして実行するかを設定するために、テナンシ、ユーザーのOCID（識別子）が必要になります。はじめに、このテナンシのOCIDを取得しておきます。</p>
 <p>OCIのサービスダッシュボード画面右上の人型のアイコンをクリックし、展開したプロファイルから<code>テナンシ:&lt;テナンシ名&gt;</code>をクリックします。</p>
 <p><img alt="" src="images/03-01-1.png" /></p>
 <p>テナンシ情報<code>OCID</code>の右側にある<code>コピー</code>をクリックすると、OCIDがクリップボードにコピーされます。</p>
 <p>この値は後の手順で利用しますので、テキストエディタにペーストするなどして控えておいてください。</p>
 <p><img alt="" src="images/03-01-2.png" /></p>
 <h4 id="3-1-2-ocid">3-1-2. ユーザーのOCIDの確認<a class="headerlink" href="#3-1-2-ocid" title="Permanent link">&para;</a></h4>
-<p>次にテナンシのOCIDを取得しておきます。
+<p>次にユーザーのOCIDを取得しておきます。
 OCIのサービスダッシュボード画面左上のハンバーガーメニューを展開し、<code>アイデンティティ</code>を選択します。</p>
 <p><img alt="" src="images/03-02.png" /></p>
 <p>登録されているユーザーアカウントの一覧が表示されますので、ログイン中のアカウントに当たるエントリーを見つけてください。該当するエントリーの<code>OCID</code>の右側にある<code>コピー</code>をクリックすると、OCIDがクリップボードにコピーされます。</p>
@@ -1217,17 +1223,9 @@ OCIのサービスダッシュボード画面左上のハンバーガーメニ�
 <p>以下のような実行結果になれば、正常にクラスターにアクセスできています。</p>
 <div class="codehilite"><pre><span></span><span class="n">NAME</span>        <span class="n">STATUS</span>   <span class="n">ROLES</span>   <span class="n">AGE</span>   <span class="k">VERSION</span>
 <span class="mi">10</span><span class="p">.</span><span class="mi">0</span><span class="p">.</span><span class="mi">10</span><span class="p">.</span><span class="mi">2</span>   <span class="n">Ready</span>    <span class="n">node</span>    <span class="mi">20</span><span class="n">s</span>   <span class="n">v1</span><span class="p">.</span><span class="mi">13</span><span class="p">.</span><span class="mi">5</span>
-<span class="mi">10</span><span class="p">.</span><span class="mi">0</span><span class="p">.</span><span class="mi">11</span><span class="p">.</span><span class="mi">2</span>   <span class="n">Ready</span>    <span class="n">node</span>    <span class="mi">47</span><span class="n">s</span>   <span class="n">v1</span><span class="p">.</span><span class="mi">13</span><span class="p">.</span><span class="mi">5</span>
-<span class="mi">10</span><span class="p">.</span><span class="mi">0</span><span class="p">.</span><span class="mi">12</span><span class="p">.</span><span class="mi">2</span>   <span class="n">Ready</span>    <span class="n">node</span>    <span class="mi">47</span><span class="n">s</span>   <span class="n">v1</span><span class="p">.</span><span class="mi">13</span><span class="p">.</span><span class="mi">5</span>
 </pre></div>
 
 
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>東京リージョンなどシングル・アベイラビリティ・ドメインのデータセンターでは、以下のような結果となります。デフォルトではアベイラビリティ・ドメイン毎に1つのWorkerノードが作成されます。</p>
-<p>NAME        STATUS   ROLES   AGE   VERSION
-10.0.10.2   Ready    node    20s   v1.13.5</p>
-</div>
 <p>以上で、OKEでKubernetesクラスターをプロビジョニングし、利用を開始するまでの手順は完了です。お疲れ様でした！</p>
 <p>続いて、<a href="../k8s-walkthrough">OKEでアプリケーションを動かしてみよう</a>に進んでください。</p>
                 
