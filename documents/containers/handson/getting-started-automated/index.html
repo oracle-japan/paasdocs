@@ -32,7 +32,7 @@
         <meta name="lang:search.tokenizer" content="[\s\-　、。，．]+">
       
       <link rel="shortcut icon" href="../../../../assets/images/cloud_46@2x.png">
-      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.4.2">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.4.3">
     
     
       
@@ -157,7 +157,7 @@
 
   
 
-<a href="https://github.com/oracle-japan/paasdocs/" title="リポジトリへ" class="md-source" data-md-source="github">
+<a href="https://github.com/oracle-japan/paasdocs" title="リポジトリへ" class="md-source" data-md-source="github">
   
     <div class="md-source__icon">
       <svg viewBox="0 0 24 24" width="24" height="24">
@@ -252,7 +252,7 @@
 
   
 
-<a href="https://github.com/oracle-japan/paasdocs/" title="リポジトリへ" class="md-source" data-md-source="github">
+<a href="https://github.com/oracle-japan/paasdocs" title="リポジトリへ" class="md-source" data-md-source="github">
   
     <div class="md-source__icon">
       <svg viewBox="0 0 24 24" width="24" height="24">
@@ -397,7 +397,7 @@
         
           <li class="md-nav__item">
   <a href="#1-1-oci" class="md-nav__link">
-    1-1. OCIのサービスダッシュボードにアクセスする
+    1-1. OCIコンソールにアクセスする
   </a>
   
 </li>
@@ -431,7 +431,7 @@
         
           <li class="md-nav__item">
   <a href="#1-3-cli" class="md-nav__link">
-    1-3. CLIツール実行環境にログインする
+    1-3. CLI実行環境にログインする
   </a>
   
 </li>
@@ -449,8 +449,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#3" class="md-nav__link">
-    3 . コマンドラインツールのセットアップ
+  <a href="#3-cli" class="md-nav__link">
+    3 . CLIのセットアップ
   </a>
   
     <nav class="md-nav">
@@ -778,7 +778,7 @@
         
           <li class="md-nav__item">
   <a href="#1-1-oci" class="md-nav__link">
-    1-1. OCIのサービスダッシュボードにアクセスする
+    1-1. OCIコンソールにアクセスする
   </a>
   
 </li>
@@ -812,7 +812,7 @@
         
           <li class="md-nav__item">
   <a href="#1-3-cli" class="md-nav__link">
-    1-3. CLIツール実行環境にログインする
+    1-3. CLI実行環境にログインする
   </a>
   
 </li>
@@ -830,8 +830,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#3" class="md-nav__link">
-    3 . コマンドラインツールのセットアップ
+  <a href="#3-cli" class="md-nav__link">
+    3 . CLIのセットアップ
   </a>
   
     <nav class="md-nav">
@@ -899,11 +899,9 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/oracle-japan/paasdocs/edit/master/docs/documents/containers/handson/getting-started-automated/README.md" title="編集" class="md-icon md-content__icon">&#xE3C9;</a>
-                
                 
                 <h1 id="okekubernetes">OKEでKubernetesを始めてみよう（ハンズオンはこちらから）<a class="headerlink" href="#okekubernetes" title="Permanent link">&para;</a></h1>
-<p>Oracle Container Engine for Kubernetes（以下OKE）は、OracleのマネージドKubernetesサービスです。このエントリーでは、OCIやOKEを操作するためCLIツール実行環境の構築（Resource Managerを使用）と、OKEを使ってKubernetesクラスターをプロビジョニングするまでの手順を記します。</p>
+<p>Oracle Container Engine for Kubernetes（以下OKE）は、OracleのマネージドKubernetesサービスです。このエントリーでは、OCIやOKEを操作するためCLI実行環境の構築（Resource Managerを使用）と、OKEを使ってKubernetesクラスターをプロビジョニングするまでの手順を記します。</p>
 <h2 id="_1">前提条件<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
 <ul>
 <li>クラウド環境<ul>
@@ -924,7 +922,7 @@
 <ol>
 <li>Oracle Cloud Infrastructure(以下、OCI)上での準備作業</li>
 <li>OKEクラスターのプロビジョニング</li>
-<li>コマンドラインツールのセットアップ</li>
+<li>コマンド・ライン・インタフェース（以下、CLI）のセットアップ</li>
 </ol>
 <h2 id="0">0 . ゴールを確認する<a class="headerlink" href="#0" title="Permanent link">&para;</a></h2>
 <p>はじめに、手順を最後まで実施したときにどのような環境が作られるか確認して、ゴールの全体像を掴んでおきましょう。手順を最後まで行うと、下図のような環境が構成されます。</p>
@@ -946,7 +944,7 @@
 <td>KubernetesのMaster Nodeに相当するマネージドサービスです。OKEをプロビジョニングすると利用するクラスター専用のコントロールプレーンが払い出されます。クラスターに対する管理操作はコントロールプレーンを経由して実行します。</td>
 </tr>
 <tr>
-<td>CLIツール実行環境</td>
+<td>CLI実行環境</td>
 <td>OCIやKunernetesを操作するためのクライアント環境です。Oracle Cloud上にVMインスタンスをプロビジョニングし、ここからクラスターを操作する等の各種手順を実行いただきます。</td>
 </tr>
 <tr>
@@ -956,10 +954,10 @@
 </tbody>
 </table>
 <h2 id="1-oci">1 . OCI上での準備作業<a class="headerlink" href="#1-oci" title="Permanent link">&para;</a></h2>
-<p>ここでは、OKEを利用する上で前提となるクラウド環境の各種設定と、CLIツール実行環境のセットアップを行っていきます。</p>
+<p>ここでは、OKEを利用する上で前提となるクラウド環境の各種設定と、CLI実行環境のセットアップを行っていきます。</p>
 <p><img alt="" src="images/01-01.png" /></p>
-<h3 id="1-1-oci">1-1. OCIのサービスダッシュボードにアクセスする<a class="headerlink" href="#1-1-oci" title="Permanent link">&para;</a></h3>
-<p>OCIのサービスダッシュボードにブラウザからアクセスします。お持ちのクラウドアカウントを使って<a href="https://cloud.oracle.com/ja_JP/home">サインイン</a>します。</p>
+<h3 id="1-1-oci">1-1. OCIコンソールにアクセスする<a class="headerlink" href="#1-1-oci" title="Permanent link">&para;</a></h3>
+<p>OCIコンソールにブラウザからアクセスします。お持ちのクラウドアカウントを使って<a href="https://cloud.oracle.com/ja_JP/home">サインイン</a>します。</p>
 <p><img alt="" src="images/01-01-1.png" /></p>
 <ul>
 <li>1．Sign Inをクリックします</li>
@@ -968,7 +966,7 @@
 <li>4．クラウドユーザー名とパスワードを入力して「サイン・イン」をクリックします</li>
 </ul>
 <h3 id="1-2-resource-manager">1-2. Resource Managerを利用して環境を構築する<a class="headerlink" href="#1-2-resource-manager" title="Permanent link">&para;</a></h3>
-<p>本節での作業は、OCIのResource Managerと呼ばれるサービスを使って実施します。手作業でVMインスタンスの作成、CLIツールのインストール、ポリシーの設定などを行うこともできますが、Resource Managerを利用することでこれらの手順を自動化・省力化することが可能です。</p>
+<p>本節での作業は、OCIのResource Managerと呼ばれるサービスを使って実施します。手作業でVMインスタンスの作成、CLIのインストール、ポリシーの設定などを行うこともできますが、Resource Managerを利用することでこれらの手順を自動化・省力化することが可能です。</p>
 <div class="admonition note">
 <p class="admonition-title">Resource Managerとは</p>
 <p>Resource Managerは、テキストで記述した構成情報に基づいて、Oracle Cloud上の複数のリソースをまとめて作成/変更/削除することができる、構成管理サービスです。Resource ManagerではTerraformの形式で構成情報を記述します。</p>
@@ -1007,10 +1005,10 @@
 <p><img alt="" src="images/01-13.png" /></p>
 <p>ジョブの状態が「成功」になったら、正常にジョブが完了しています。</p>
 <p><img alt="" src="images/01-14.png" /></p>
-<h3 id="1-3-cli">1-3. CLIツール実行環境にログインする<a class="headerlink" href="#1-3-cli" title="Permanent link">&para;</a></h3>
-<p>ジョブの実行が完了したら、実際にCLIツールの実行環境に接続してみましょう。画面左下にある<code>出力</code>をクリックしてください。</p>
+<h3 id="1-3-cli">1-3. CLI実行環境にログインする<a class="headerlink" href="#1-3-cli" title="Permanent link">&para;</a></h3>
+<p>ジョブの実行が完了したら、実際にCLIの実行環境に接続してみましょう。画面左下にある<code>出力</code>をクリックしてください。</p>
 <p><img alt="" src="images/01-15.png" /></p>
-<p>ここでは、ジョブを実行した結果作られたリソースに関連する情報を、確認することができます。ここまで正常に完了していれば、<code>oke-client</code>と<code>private_key_pem</code>という情報が表示されているはずです。これらは、それぞれCLIツール実行環境のIPアドレスとSSH秘密鍵です。</p>
+<p>ここでは、ジョブを実行した結果作られたリソースに関連する情報を、確認することができます。ここまで正常に完了していれば、<code>oke-client</code>と<code>private_key_pem</code>という情報が表示されているはずです。これらは、それぞれCLI実行環境のIPアドレスとSSH秘密鍵です。</p>
 <p><img alt="" src="images/01-16.png" /></p>
 <p><code>oke-client</code>は、値をテキストファイルにコピー＆ペーストするなどして控えておいてください。</p>
 <p><code>private_key_pem</code>の値は、<code>コピー</code>という部分をクリックするとクリップボードに値が保存されます。こちらは、新たにテキストエディタを起動してペーストし、「privatekey.pem」というファイル名で保存しておいてください。</p>
@@ -1043,13 +1041,13 @@
 </tbody>
 </table>
 <p><img alt="" src="images/01-20.png" /></p>
-<p>CLIツール実行環境への接続が成功すると、以下のようなコンソール出力が表示されます。</p>
+<p>CLI実行環境への接続が成功すると、以下のようなコンソール出力が表示されます。</p>
 <div class="codehilite"><pre><span></span><span class="k">Last</span><span class="w"> </span><span class="nl">login</span><span class="p">:</span><span class="w"> </span><span class="n">Fri</span><span class="w"> </span><span class="n">Aug</span><span class="w">  </span><span class="mi">2</span><span class="w"> </span><span class="mi">04</span><span class="err">:</span><span class="mi">21</span><span class="err">:</span><span class="mi">15</span><span class="w"> </span><span class="mi">2019</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="mf">156.151.8.3</span><span class="w"></span>
 <span class="o">[</span><span class="n">opc@oke-client ~</span><span class="o">]</span><span class="err">$</span><span class="w"></span>
 </pre></div>
 
 
-<p>必要なCLIツールはこの時点でインストール済みですので、例えば以下のようなコマンドを実行することが可能です。</p>
+<p>必要なCLIはこの時点でインストール済みですので、例えば以下のようなコマンドを実行することが可能です。</p>
 <div class="codehilite"><pre><span></span><span class="n">kubectl</span> <span class="k">version</span> <span class="c1">--client --short</span>
 </pre></div>
 
@@ -1064,7 +1062,7 @@
 <h2 id="2-oke">2 . OKEクラスターのプロビジョニング<a class="headerlink" href="#2-oke" title="Permanent link">&para;</a></h2>
 <p>ここでは、OKEクラスターのプロビジョニングを行います。ここでの手順を実施することにより、OKEのコントロールプレーンとKubernetesクラスターの構築が同時に行われます。</p>
 <p><img alt="" src="images/02-01.png" /></p>
-<p>はじめに、OCIのサービスダッシュボード画面左上のハンバーガーメニューを展開し、<code>開発者サービス</code>を選択します。</p>
+<p>はじめに、OCIコンソール画面左上のハンバーガーメニューを展開し、<code>開発者サービス</code>を選択します。</p>
 <p><img alt="" src="images/02-02.png" /></p>
 <p>クラスタ一覧画面で、<code>クラスタの作成</code>をクリックします。</p>
 <p><img alt="" src="images/02-03.png" /></p>
@@ -1083,10 +1081,10 @@
 <p>クラスタの詳細画面表示されたら、<code>クラスタ・ステータス</code>に表示される内容を確認してください。この時点では<code>作成中</code>と表示されますが、プロビジョニングが完了すると<code>アクティブ</code>となります（完了までにはおおよそ5～10分程度かかります）。</p>
 <div class="admonition info">
 <p class="admonition-title">受講者の方へ</p>
-<p>クラスタが完成するまでの間に次章「3. コマンドラインツールのセットアップ - 3-1-2. OCI CLIのセットアップ」までの手順を進めてください。</p>
+<p>クラスタが完成するまでの間に次章「3. CLIのセットアップ - 3-1-2. OCI CLIのセットアップ」までの手順を進めてください。</p>
 </div>
-<h2 id="3">3 . コマンドラインツールのセットアップ<a class="headerlink" href="#3" title="Permanent link">&para;</a></h2>
-<p>OKEクラスターを利用するには、以下の2つのコマンドラインツールを、ご自身の環境に接続できるようにセットアップしておく必要があります。</p>
+<h2 id="3-cli">3 . CLIのセットアップ<a class="headerlink" href="#3-cli" title="Permanent link">&para;</a></h2>
+<p>OKEクラスターを利用するには、以下の2つのCLIを、ご自身の環境に接続できるようにセットアップしておく必要があります。</p>
 <table>
 <thead>
 <tr>
@@ -1097,34 +1095,34 @@
 <tbody>
 <tr>
 <td>OCI CLI</td>
-<td>Oracle Cloud InfrastructureのCLIツールです。ここでは、OKEクラスタとの接続情報を取得するために利用します</td>
+<td>Oracle Cloud InfrastructureのCLIです。ここでは、OKEクラスタとの接続情報を取得するために利用します</td>
 </tr>
 <tr>
 <td>kubectl</td>
-<td>Kubernetesの各種管理操作を行うためのCLIツールです。OKEはオープンソースのKubernetesクラスターがそのまま動作しますので、一般的なCLIツールをそのまま利用することができます。</td>
+<td>Kubernetesの各種管理操作を行うためのCLIです。OKEはオープンソースのKubernetesクラスターがそのまま動作しますので、一般的なCLIをそのまま利用することができます。</td>
 </tr>
 </tbody>
 </table>
 <p><img alt="" src="images/03-01.png" /></p>
-<p>以下、2つのCLIツールのセットアップを順次行っていきます。</p>
+<p>以下、2つのCLIのセットアップを順次行っていきます。</p>
 <h3 id="3-1-oci-cli">3-1. OCI CLIをセットアップする<a class="headerlink" href="#3-1-oci-cli" title="Permanent link">&para;</a></h3>
 <p>ここでは、OCI CLIのセットアップを行います。</p>
 <h4 id="3-1-1-ocid">3-1-1. テナンシのOCIDの確認<a class="headerlink" href="#3-1-1-ocid" title="Permanent link">&para;</a></h4>
 <p>OCI CLIのセットアップでは、CLIをどのテナンシのユーザーアカウントとして実行するかを設定するために、テナンシ、ユーザーのOCID（識別子）が必要になります。はじめに、このテナンシのOCIDを取得しておきます。</p>
-<p>OCIのサービスダッシュボード画面右上の人型のアイコンをクリックし、展開したプロファイルから<code>テナンシ:&lt;テナンシ名&gt;</code>をクリックします。</p>
+<p>OCIコンソール画面右上の人型のアイコンをクリックし、展開したプロファイルから<code>テナンシ:&lt;テナンシ名&gt;</code>をクリックします。</p>
 <p><img alt="" src="images/03-01-1.png" /></p>
 <p>テナンシ情報<code>OCID</code>の右側にある<code>コピー</code>をクリックすると、OCIDがクリップボードにコピーされます。</p>
 <p>この値は後の手順で利用しますので、テキストエディタにペーストするなどして控えておいてください。</p>
 <p><img alt="" src="images/03-01-2.png" /></p>
 <h4 id="3-1-2-ocid">3-1-2. ユーザーのOCIDの確認<a class="headerlink" href="#3-1-2-ocid" title="Permanent link">&para;</a></h4>
-<p>次にユーザーのOCIDを取得しておきます。
-OCIのサービスダッシュボード画面左上のハンバーガーメニューを展開し、<code>アイデンティティ</code>を選択します。</p>
+<p>次にテナンシのOCIDを取得しておきます。
+OCIコンソール画面左上のハンバーガーメニューを展開し、<code>アイデンティティ</code>を選択します。</p>
 <p><img alt="" src="images/03-02.png" /></p>
 <p>登録されているユーザーアカウントの一覧が表示されますので、ログイン中のアカウントに当たるエントリーを見つけてください。該当するエントリーの<code>OCID</code>の右側にある<code>コピー</code>をクリックすると、OCIDがクリップボードにコピーされます。</p>
 <p><img alt="" src="images/03-03.png" /></p>
 <p>この値は後の手順で利用しますので、テキストエディタにペーストするなどして控えておいてください。</p>
 <h4 id="3-1-3-oci-cli">3-1-3. OCI CLIのセットアップ<a class="headerlink" href="#3-1-3-oci-cli" title="Permanent link">&para;</a></h4>
-<p>それでは、OCI CLIのセットアップを行います。Tera TermでCLIツール実行環境にログインし、以下のコマンドを実行してください。</p>
+<p>それでは、OCI CLIのセットアップを行います。Tera TermでCLI実行環境にログインし、以下のコマンドを実行してください。</p>
 <div class="codehilite"><pre><span></span><span class="n">oci</span> <span class="n">setup</span> <span class="n">config</span>
 </pre></div>
 
@@ -1152,7 +1150,7 @@ OCIのサービスダッシュボード画面左上のハンバーガーメニ�
 </tr>
 <tr>
 <td>Enter a region (e.g. ap-mumbai-1, ap-seoul-1, ap-tokyo-1, ca-toronto-1, eu-frankfurt-1, uk-london-1, us-ashburn-1, us-gov-ashburn-1, us-gov-chicago-1, us-gov-phoenix-1, us-langley-1, us-luke-1, us-phoenix-1)</td>
-<td>CLIツール実行環境の作成時に指定したリージョンを入力</td>
+<td>CLI実行環境の作成時に指定したリージョンを入力</td>
 </tr>
 <tr>
 <td>Do you want to generate a new RSA key pair? (If you decline you will be asked to supply the path to an existing key.) [Y/n]</td>
@@ -1188,7 +1186,7 @@ OCIのサービスダッシュボード画面左上のハンバーガーメニ�
 <p>以上でOCI CLIのセットアップは完了です。</p>
 <h3 id="3-2-kubectl">3-2. kubectlをセットアップする<a class="headerlink" href="#3-2-kubectl" title="Permanent link">&para;</a></h3>
 <p>次に、kubectlのセットアップを行って実際にクラスターにアクセスしてみます。</p>
-<p>OCIのサービスダッシュボード画面左上のハンバーガーメニューを展開し、<code>開発者サービス</code>を選択します。</p>
+<p>OCIコンソール画面左上のハンバーガーメニューを展開し、<code>開発者サービス</code>を選択します。</p>
 <p><img alt="" src="images/03-07.png" /></p>
 <p>先の手順で作成しておいた<code>cluster1</code>の名前をクリックします。</p>
 <p><img alt="" src="images/03-08.png" /></p>
@@ -1308,7 +1306,7 @@ OCIのサービスダッシュボード画面左上のハンバーガーメニ�
       
     </div>
     
-      <script src="../../../../assets/javascripts/application.c648116f.js"></script>
+      <script src="../../../../assets/javascripts/application.ac79c3b0.js"></script>
       
         
         
