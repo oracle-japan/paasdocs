@@ -1038,7 +1038,7 @@
     <span class="p p-Indicator">-</span> <span class="nt">internal/docker-push</span><span class="p">:</span>
         <span class="nt">username</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">$REGISTRY_USERNAME</span>
         <span class="nt">password</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">$REGISTRY_PASSWORD</span>
-<span class="hll">        <span class="nt">repository</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">${region-code}.ocir.io/${tenancy-name}/${repository}/cowsay</span>
+<span class="hll">        <span class="nt">repository</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">${region-code}.ocir.io/${tenancy-name}/${repository}/cowweb</span>
 </span>        <span class="nt">tag</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">v1.0</span>
         <span class="nt">ports</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">8080</span>
         <span class="nt">cmd</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">java -jar /pipeline/source/build/libs/cowweb-1.0.jar</span>
@@ -1204,7 +1204,7 @@
 </tr>
 <tr>
 <td>COWWEB_NAMESPACE</td>
-<td>「3.4. OKEへのデプロイ」で指定したnamespace名</td>
+<td>「OKEでアプリケーションを動かしてみよう－2.3. OKEへのデプロイ」で指定したnamespace名</td>
 <td>OFF</td>
 <td>-</td>
 </tr>
