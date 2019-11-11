@@ -1,0 +1,786 @@
+
+
+
+
+<!doctype html>
+<html lang="ja" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+      
+      
+      
+        <meta name="lang:clipboard.copy" content="クリップボードへコピー">
+      
+        <meta name="lang:clipboard.copied" content="コピーしました">
+      
+        <meta name="lang:search.language" content="en, jp">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="何も見つかりませんでした">
+      
+        <meta name="lang:search.result.one" content="1件見つかりました">
+      
+        <meta name="lang:search.result.other" content="#件見つかりました">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-　、。，．]+">
+      
+      <link rel="shortcut icon" href="../../../../assets/images/cloud_46@2x.png">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.4.3">
+    
+    
+      
+        <title>Oracle WebLogic Operator チュートリアル # - Oracle Cloud - PaaS ドキュメント</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/application.30686662.css">
+      
+        <link rel="stylesheet" href="../../../../assets/stylesheets/application-palette.a8b3c06d.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="#03a9f4">
+      
+    
+    
+      <script src="../../../../assets/javascripts/modernizr.74668098.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../../../../assets/fonts/material-icons.css">
+    
+    
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+    
+      <link rel="stylesheet" href="../../../../stylesheets/extra.css">
+    
+    
+      
+    
+    
+  </head>
+  
+    
+    
+    <body dir="ltr" data-md-color-primary="light-blue" data-md-color-accent="light-blue">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448" viewBox="0 0 416 448" id="__github"><path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19T128 352t-18.125-8.5-10.75-19T96 304t3.125-20.5 10.75-19T128 256t18.125 8.5 10.75 19T160 304zm160 0q0 10-3.125 20.5t-10.75 19T288 352t-18.125-8.5-10.75-19T256 304t3.125-20.5 10.75-19T288 256t18.125 8.5 10.75 19T320 304zm40 0q0-30-17.25-51T296 232q-10.25 0-48.75 5.25Q229.5 240 208 240t-39.25-2.75Q130.75 232 120 232q-29.5 0-46.75 21T56 304q0 22 8 38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0 37.25-1.75t35-7.375 30.5-15 20.25-25.75T360 304zm56-44q0 51.75-15.25 82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5T212 416q-19.5 0-35.5-.75t-36.875-3.125-38.125-7.5-34.25-12.875T37 371.5t-21.5-28.75Q0 312 0 260q0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25 30.875Q171.5 96 212 96q37 0 70 8 26.25-20.5 46.75-30.25T376 64q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34 99.5z"/></svg>
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#oracle-weblogic-operator" tabindex="1" class="md-skip">
+        Skip to content
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="../../../.." title="Oracle Cloud - PaaS ドキュメント" class="md-header-nav__button md-logo">
+          
+            <img src="../../../../assets/images/cloud_w_46@2x.png" width="24" height="24">
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+              Oracle Cloud - PaaS ドキュメント
+            </span>
+            <span class="md-header-nav__topic">
+              
+                Oracle WebLogic Operator チュートリアル #
+              
+            </span>
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="検索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            検索キーワードを入力してください
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            
+
+
+  
+
+<a href="https://github.com/oracle-japan/paasdocs" title="リポジトリへ" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    oracle-japan/paasdocs
+  </div>
+</a>
+          </div>
+        </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+        
+
+<nav class="md-tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  <li class="md-tabs__item">
+    
+      <a href="../../../.." class="md-tabs__link md-tabs__link--active">
+        Home
+      </a>
+    
+  </li>
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../../containers/" class="md-tabs__link">
+          コンテナ
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../../faas/" class="md-tabs__link">
+          FaaS
+        </a>
+      
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+      
+      <main class="md-main" role="main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="../../../.." title="Oracle Cloud - PaaS ドキュメント" class="md-nav__button md-logo">
+      
+        <img src="../../../../assets/images/cloud_w_46@2x.png" width="48" height="48">
+      
+    </a>
+    Oracle Cloud - PaaS ドキュメント
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+<a href="https://github.com/oracle-japan/paasdocs" title="リポジトリへ" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    oracle-japan/paasdocs
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../../.." title="Home" class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+    
+    <label class="md-nav__link" for="nav-2">
+      コンテナ
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        コンテナ
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../containers/" title="コンテナのホーム" class="md-nav__link">
+      コンテナのホーム
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-2" type="checkbox" id="nav-2-2">
+    
+    <label class="md-nav__link" for="nav-2-2">
+      ビギナー向けチュートリアル
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-2-2">
+        ビギナー向けチュートリアル
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../containers/handson/getting-started-automated/" title="OKEでKubernetesを始めてみよう (ハンズオンはこちらから)" class="md-nav__link">
+      OKEでKubernetesを始めてみよう (ハンズオンはこちらから)
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../containers/handson/getting-started/" title="OKEでKubernetesを始めてみよう" class="md-nav__link">
+      OKEでKubernetesを始めてみよう
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../containers/handson/k8s-walkthrough/" title="OKEでアプリケーションを動かしてみよう" class="md-nav__link">
+      OKEでアプリケーションを動かしてみよう
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../containers/handson/k8s-basic-ops/" title="Kubernetesの基本的な操作を体験しよう" class="md-nav__link">
+      Kubernetesの基本的な操作を体験しよう
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../containers/handson/integrated-cicd/" title="OKEとWerckerによるCI/CD" class="md-nav__link">
+      OKEとWerckerによるCI/CD
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-3" type="checkbox" id="nav-2-3">
+    
+    <label class="md-nav__link" for="nav-2-3">
+      いろいろなコンテナ系サービスの使い方
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-2-3">
+        いろいろなコンテナ系サービスの使い方
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../containers/wercker/getting-started/" title="Werckerを使ってみよう" class="md-nav__link">
+      Werckerを使ってみよう
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-4" type="checkbox" id="nav-2-4">
+    
+    <label class="md-nav__link" for="nav-2-4">
+      【Modern Cloud Day特設】
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-2-4">
+        【Modern Cloud Day特設】
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../containers/handson/quick-start/" title="OKE Quick Start 30分" class="md-nav__link">
+      OKE Quick Start 30分
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+    
+    <label class="md-nav__link" for="nav-3">
+      FaaS
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        FaaS
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../faas/" title="FaaSのホーム" class="md-nav__link">
+      FaaSのホーム
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-2" type="checkbox" id="nav-3-2">
+    
+    <label class="md-nav__link" for="nav-3-2">
+      ビギナー向けチュートリアル
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-2">
+        ビギナー向けチュートリアル
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../faas/fn/handson/getting-started/" title="Fn Projectことはじめ" class="md-nav__link">
+      Fn Projectことはじめ
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../faas/oraclefunctions/handson/getting-started/" title="Oracle Functionsことはじめ" class="md-nav__link">
+      Oracle Functionsことはじめ
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">目次</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#weblogicpod" class="md-nav__link">
+    ライセンス対象のノードに対するWebLogicのPodの配置
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#weblogicpod_1" class="md-nav__link">
+    ライセンスされたノードに対するWebLogicサーバのPodのアサイン
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    ラベルの設定
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    ドメイン・リソース定義の変更
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#domainyaml-nodeselector" class="md-nav__link">
+    ラベルと domain.yaml 内の nodeSelector エントリの削除
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="oracle-weblogic-operator">Oracle WebLogic Operator チュートリアル<a class="headerlink" href="#oracle-weblogic-operator" title="Permanent link">&para;</a></h1>
+<h3 id="weblogicpod">ライセンス対象のノードに対するWebLogicのPodの配置<a class="headerlink" href="#weblogicpod" title="Permanent link">&para;</a></h3>
+<p>このユースケースはThis use case similar  <a href="../node.selector/">ノードに対するWebLogicのPodの割り当てのLab.</a> に記述された、個々のサーバ/Podを特定のノードに配置するケースに似ています。ここではライセンス適用範囲のユースケースにフォーカスします。</p>
+<p>Kubernetesはバージョン v1.13から5,000ノード以上のクラスタに対応しました。しかし、WebLogicのような特定のソフトウェアはライセンスを必要とします。<code>nodeSelector</code> の機能を利用してWebLogicのPodをライセンスされたワーカーノードに配置します。</p>
+<p>このLab.では、WebLogicドメイン内の全てのWebLogicのPodを特定のノードにアサインする方法を学びます。</p>
+<h4 id="weblogicpod_1">ライセンスされたノードに対するWebLogicサーバのPodのアサイン<a class="headerlink" href="#weblogicpod_1" title="Permanent link">&para;</a></h4>
+<p>ノードにPodをアサインするために、カスタム・タグを利用して希望するノードにラベルを付与する必要があります。ドメイン・リソース定義に <code>nodeSelector</code> プロパティを定義し、ノードに適用したラベルの値を設定します。最後にドメイン設定の変更を適用します。</p>
+<p>最初に <code>kubectl get node</code> を使用してノード名を取得します。</p>
+<div class="codehilite"><pre><span></span>$ kubectl get node
+NAME             STATUS    ROLES     AGE       VERSION
+<span class="m">130</span>.61.110.174   Ready     node      11d       v1.11.5
+<span class="m">130</span>.61.52.240    Ready     node      11d       v1.11.5
+<span class="m">130</span>.61.84.41     Ready     node      11d       v1.11.5
+</pre></div>
+
+
+<p>OKEの場合、ノード名はパブリックIPアドレスやサブネットのCIDRブロックの最初のIPアドレスになることがあります。但し、明確にはノードを特定するユニークな文字列です。</p>
+<p><code>kubectl get pod -n sample-domain1-ns -o wide</code> を使い、Pod情報の詳細から現在のPodの配置をチェックします。</p>
+<div class="codehilite"><pre><span></span>$ kubectl get pod -n sample-domain1-ns -o wide
+NAME                             READY     STATUS    RESTARTS   AGE       IP            NODE             NOMINATED NODE
+sample-domain1-admin-server      <span class="m">1</span>/1       Running   <span class="m">0</span>          2m        <span class="m">10</span>.244.2.33   <span class="m">130</span>.61.84.41     &lt;none&gt;
+sample-domain1-managed-server1   <span class="m">1</span>/1       Running   <span class="m">0</span>          1m        <span class="m">10</span>.244.1.8    <span class="m">130</span>.61.52.240    &lt;none&gt;
+sample-domain1-managed-server2   <span class="m">1</span>/1       Running   <span class="m">0</span>          1m        <span class="m">10</span>.244.0.10   <span class="m">130</span>.61.110.174   &lt;none&gt;
+sample-domain1-managed-server3   <span class="m">1</span>/1       Running   <span class="m">0</span>          1m        <span class="m">10</span>.244.2.34   <span class="m">130</span>.61.84.41     &lt;none&gt;
+</pre></div>
+
+
+<p>Kubernetesの結果から3つの管理対象サーバが3つのワーカー・ノードに均等に配置されていることが確認できます。このシナリオではすべてのPodを移動する1つのノードを選択します。</p>
+<h6 id="_1">ラベルの設定<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h6>
+<p>この例ではライセンスされたノードは <code>130.61.84.41</code> です。</p>
+<p>このノードにラベルを設定します。任意のラベル名をしていできますが、ここでは <code>licensed-for-weblogic</code> を使用します。ノード名を正しく設定し <code>kubectl label nodes &lt;nodename&gt; &lt;labelname&gt;=true</code> コマンドを実行してください。</p>
+<div class="codehilite"><pre><span></span>$ <span class="nv">kubectl</span> <span class="nv">label</span> <span class="nv">nodes</span> <span class="mi">130</span>.<span class="mi">61</span>.<span class="mi">84</span>.<span class="mi">41</span> <span class="nv">licensed</span><span class="o">-</span><span class="k">for</span><span class="o">-</span><span class="nv">weblogic</span><span class="o">=</span><span class="nv">true</span>
+<span class="nv">node</span><span class="o">/</span><span class="mi">130</span>.<span class="mi">61</span>.<span class="mi">84</span>.<span class="mi">41</span> <span class="nv">labeled</span>
+</pre></div>
+
+
+<h6 id="_2">ドメイン・リソース定義の変更<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h6>
+<p><code>domain.yaml</code> ファイルをテキストエディタで開き <code>serverPod:</code> エントリを見つけ、中に新しいプロパティを追加します。</p>
+<div class="codehilite"><pre><span></span><span class="nv">serverPod</span>:
+  <span class="nv">env</span>:
+  [...]
+  <span class="nv">nodeSelector</span>:
+    <span class="nv">licensed</span><span class="o">-</span><span class="k">for</span><span class="o">-</span><span class="nv">weblogic</span>: <span class="nv">true</span>
+</pre></div>
+
+
+<p>インデントに注意してください。文法についてはサンプル <a href="https://github.com/nagypeter/weblogic-operator-tutorial/blob/master/k8s/domain.yaml">domain.yaml</a> の同じ部分のコメント内の記述でダブルチェックできます。</p>
+<p>変更を保存して新しいドメイン・リソース定義を適用します。</p>
+<div class="codehilite"><pre><span></span>$ kubectl apply -f ~/git.repos/@nagypeter/weblogic-operator-tutorial/k8s/domain.yaml
+domain.weblogic.oracle/sample-domain1 configured
+</pre></div>
+
+
+<p>Operatorは変更に従ってサーバの再配置を開始します。繰り返し情報を更新して期待した結果が表示されるまで待ってください。</p>
+<div class="codehilite"><pre><span></span>$ kubectl get po -n sample-domain1-ns -o wide
+NAME                             READY     STATUS    RESTARTS   AGE       IP            NODE           NOMINATED NODE
+sample-domain1-admin-server      <span class="m">1</span>/1       Running   <span class="m">0</span>          4h        <span class="m">10</span>.244.2.40   <span class="m">130</span>.61.84.41   &lt;none&gt;
+sample-domain1-managed-server1   <span class="m">1</span>/1       Running   <span class="m">0</span>          4h        <span class="m">10</span>.244.2.43   <span class="m">130</span>.61.84.41   &lt;none&gt;
+sample-domain1-managed-server2   <span class="m">1</span>/1       Running   <span class="m">0</span>          4h        <span class="m">10</span>.244.2.42   <span class="m">130</span>.61.84.41   &lt;none&gt;
+sample-domain1-managed-server3   <span class="m">1</span>/1       Running   <span class="m">0</span>          4h        <span class="m">10</span>.244.2.41   <span class="m">130</span>.61.84.41   &lt;none&gt;
+</pre></div>
+
+
+<h5 id="domainyaml-nodeselector">ラベルと <code>domain.yaml</code> 内の <code>nodeSelector</code> エントリの削除<a class="headerlink" href="#domainyaml-nodeselector" title="Permanent link">&para;</a></h5>
+<p>ノード配置を削除するために、ノード名を適切に指定して各ノードのラベルを <code>kubectl label node &lt;nodename&gt; &lt;labelname&gt;-</code> コマンドを使って削除してください。</p>
+<div class="codehilite"><pre><span></span>$ <span class="nv">kubectl</span> <span class="nv">label</span> <span class="nv">nodes</span> <span class="mi">130</span>.<span class="mi">61</span>.<span class="mi">84</span>.<span class="mi">41</span> <span class="nv">licensed</span><span class="o">-</span><span class="k">for</span><span class="o">-</span><span class="nv">weblogic</span><span class="o">-</span>
+<span class="nv">node</span><span class="o">/</span><span class="mi">130</span>.<span class="mi">61</span>.<span class="mi">84</span>.<span class="mi">41</span> <span class="nv">labeled</span>
+</pre></div>
+
+
+<p><code>domain.yaml</code> 内のノード配置の記述を削除、またはコメントアウトして適用してください。</p>
+<div class="codehilite"><pre><span></span>$ kubectl apply -f /u01/domain.yaml
+domain.weblogic.oracle/sample-domain1 configured
+</pre></div>
+
+
+<p>Podはスケジューラの決定に基づいて再配置/再起動されます。</p>
+                
+                  
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright &copy; 2018 - 2019 Oracle Corporation Japan
+          </div>
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+  <div class="md-footer-social">
+    <link rel="stylesheet" href="../../../../assets/fonts/font-awesome.css">
+    
+      <a href="https://github.com/oracle-japan" class="md-footer-social__link fa fa-github"></a>
+    
+  </div>
+
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../../../assets/javascripts/application.ac79c3b0.js"></script>
+      
+        
+        
+          
+          <script src="../../../../assets/javascripts/lunr/lunr.stemmer.support.js"></script>
+          
+            
+          
+            
+              
+              
+            
+          
+          
+            <script src="../../../../assets/javascripts/lunr/lunr.multi.js"></script>
+          
+        
+      
+      <script>app.initialize({version:"1.0.4",url:{base:"../../../.."}})</script>
+      
+    
+  </body>
+</html>
