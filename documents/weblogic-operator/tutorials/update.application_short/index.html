@@ -32,7 +32,7 @@
         <meta name="lang:search.tokenizer" content="[\s\-　、。，．]+">
       
       <link rel="shortcut icon" href="../../../../assets/images/cloud_46@2x.png">
-      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.4.3">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.5.0">
     
     
       
@@ -40,7 +40,7 @@
       
     
     
-      <link rel="stylesheet" href="../../../../assets/stylesheets/application.30686662.css">
+      <link rel="stylesheet" href="../../../../assets/stylesheets/application.1b62728e.css">
       
         <link rel="stylesheet" href="../../../../assets/stylesheets/application-palette.a8b3c06d.css">
       
@@ -51,7 +51,7 @@
       
     
     
-      <script src="../../../../assets/javascripts/modernizr.74668098.js"></script>
+      <script src="../../../../assets/javascripts/modernizr.268332fc.js"></script>
     
     
       
@@ -217,6 +217,19 @@
       
         <a href="../../../faas/" class="md-tabs__link">
           FaaS
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../" class="md-tabs__link">
+          WebLogic Operator
         </a>
       
     </li>
@@ -554,6 +567,54 @@
   </li>
 
     
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+    
+    <label class="md-nav__link" for="nav-4">
+      WebLogic Operator
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        WebLogic Operator
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../" title="WebLogic Operatorのホーム" class="md-nav__link">
+      WebLogic Operatorのホーム
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../domain.home.in.image_short/" title="ビギナー向けチュートリアル" class="md-nav__link">
+      ビギナー向けチュートリアル
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
   </ul>
 </nav>
                   </div>
@@ -576,7 +637,7 @@
       
         <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
-    アプリケーションのライフサイクル管理
+    ローリングアップデートによるデプロイ済みアプリケーションの更新
   </a>
   
     <nav class="md-nav">
@@ -612,18 +673,19 @@
                 
                 
                 <h1 id="oracle-weblogic-operator">Oracle WebLogic Operator チュートリアル<a class="headerlink" href="#oracle-weblogic-operator" title="Permanent link">&para;</a></h1>
-<h3 id="_1">アプリケーションのライフサイクル管理<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
-<p>このチュートリアルではWebLogicドメインを含むDockerイメージを作成します。これはアプリケーションやドメインに関連するファイル群を含む全てのアーティファクトがDockerイメージに格納されることを意味します。そのため、アプリケーションを更新する度に新規のWebLogic Dockerイメージが作成されます。この広く採用されるアプローチでは、DockerイメージはWeb/Enterpriseアーカイブ ("war", "ear")に代わるパッケージ・ユニットになります。</p>
-<p>このLab.のために私たちは、ドメインと更新されたバージョンのアプリケーション(メインページが緑色のタイトル)を含むイメージを作成しました。このイメージは iad.ocir.io/weblogick8s/weblogic-operator-tutorial-store:2.0 から取得可能です。</p>
+<h3 id="_1">ローリングアップデートによるデプロイ済みアプリケーションの更新<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
+<p>このチュートリアルではWebLogicドメインを含むDockerイメージを作成します。これはアプリケーションやドメインに関連するファイル群を含む全てのアーティファクトがDockerイメージに格納されることを意味します。そのため、アプリケーションを更新する度に新規のWebLogic Dockerイメージが作成されます。この広く採用されるアプローチでは、DockerイメージはWeb/Enterpriseアーカイブ ("war", "ear")に代わるパッケージ・ユニットになります。  </p>
+<p>今回のハンズオンでは、ドメインと更新されたバージョンのアプリケーション(メインページが緑色のタイトル)を含むイメージを事前に作成しておきました。このイメージは iad.ocir.io/weblogick8s/weblogic-operator-tutorial-store:2.0 から取得可能です。</p>
+<p><img alt="" src="../images/image_7.png" /></p>
 <h4 id="domainyaml">domain.yaml の修正<a class="headerlink" href="#domainyaml" title="Permanent link">&para;</a></h4>
 <p>ドメイン・リソースの定義ファイル(<em>domain.yaml</em>) を編集し、イメージの場所を修正してください。修正する行は以下の通りです。</p>
-<div class="codehilite"><pre><span></span>  <span class="n">image</span><span class="p">:</span> <span class="ss">&quot;iad.ocir.io/weblogick8s/weblogic-operator-tutorial-store:2.0&quot;</span>
+<div class="codehilite"><pre><span></span><span class="err">  image: &quot;iad.ocir.io/weblogick8s/weblogic-operator-tutorial-store:2.0&quot;</span>
 </pre></div>
 
 
 <p>インデントのスペースを忘れないように注意してください。</p>
 <p>ドメイン・リソースの変更を反映します。</p>
-<div class="codehilite"><pre><span></span><span class="n">kubectl</span> <span class="n">apply</span> <span class="o">-</span><span class="n">f</span> <span class="o">/</span><span class="n">u01</span><span class="o">/</span><span class="k">domain</span><span class="p">.</span><span class="n">yaml</span>
+<div class="codehilite"><pre><span></span><span class="err">kubectl apply -f /u01/domain.yaml</span>
 </pre></div>
 
 
@@ -641,6 +703,7 @@ sample-domain1-managed-server3   <span class="m">1</span>/1       Running       
 <p>ローリングによる再起動の間、Webアプリケーションを定期的にチェックしてください。応答しているサーバが既に再起動されている場合、アプリケーションに対する変更(緑色のタイトル)が反映されていることを確認してください。サーバが再起動されていない場合は古いバージョンのアプリケーションのままになっています。</p>
 <p><code>http://EXTERNAL-IP/opdemo/?dsname=testDatasource</code></p>
 <p><img alt="" src="../images/update.application/004.check.changes.png" /></p>
+<p>続いて、<a href="../node.selector/">ノードに対するWebLogicのPodの割り当て</a>に進んでください。</p>
                 
                   
                 
@@ -686,7 +749,7 @@ sample-domain1-managed-server3   <span class="m">1</span>/1       Running       
       
     </div>
     
-      <script src="../../../../assets/javascripts/application.ac79c3b0.js"></script>
+      <script src="../../../../assets/javascripts/application.a8b5e56f.js"></script>
       
         
         

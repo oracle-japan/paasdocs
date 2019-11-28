@@ -32,7 +32,7 @@
         <meta name="lang:search.tokenizer" content="[\s\-　、。，．]+">
       
       <link rel="shortcut icon" href="../../../../assets/images/cloud_46@2x.png">
-      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.4.3">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.5.0">
     
     
       
@@ -40,7 +40,7 @@
       
     
     
-      <link rel="stylesheet" href="../../../../assets/stylesheets/application.30686662.css">
+      <link rel="stylesheet" href="../../../../assets/stylesheets/application.1b62728e.css">
       
         <link rel="stylesheet" href="../../../../assets/stylesheets/application-palette.a8b3c06d.css">
       
@@ -51,7 +51,7 @@
       
     
     
-      <script src="../../../../assets/javascripts/modernizr.74668098.js"></script>
+      <script src="../../../../assets/javascripts/modernizr.268332fc.js"></script>
     
     
       
@@ -217,6 +217,19 @@
       
         <a href="../../../faas/" class="md-tabs__link">
           FaaS
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../" class="md-tabs__link">
+          WebLogic Operator
         </a>
       
     </li>
@@ -554,6 +567,54 @@
   </li>
 
     
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+    
+    <label class="md-nav__link" for="nav-4">
+      WebLogic Operator
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        WebLogic Operator
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../" title="WebLogic Operatorのホーム" class="md-nav__link">
+      WebLogic Operatorのホーム
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../domain.home.in.image_short/" title="ビギナー向けチュートリアル" class="md-nav__link">
+      ビギナー向けチュートリアル
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
   </ul>
 </nav>
                   </div>
@@ -640,9 +701,10 @@
                 
                 <h1 id="oracle-weblogic-operator">Oracle WebLogic Operator チュートリアル<a class="headerlink" href="#oracle-weblogic-operator" title="Permanent link">&para;</a></h1>
 <h3 id="weblogicpod">ライセンス対象のノードに対するWebLogicのPodの配置<a class="headerlink" href="#weblogicpod" title="Permanent link">&para;</a></h3>
-<p>このユースケースはThis use case similar  <a href="../node.selector/">ノードに対するWebLogicのPodの割り当てのLab.</a> に記述された、個々のサーバ/Podを特定のノードに配置するケースに似ています。ここではライセンス適用範囲のユースケースにフォーカスします。</p>
+<p>このユースケースは<a href="../node.selector/">ノードに対するWebLogicのPodの割り当て</a> で実施した個々のサーバ/Podを特定のノードに配置するケースに似ています。ここではライセンス適用範囲のユースケースにフォーカスします。</p>
 <p>Kubernetesはバージョン v1.13から5,000ノード以上のクラスタに対応しました。しかし、WebLogicのような特定のソフトウェアはライセンスを必要とします。<code>nodeSelector</code> の機能を利用してWebLogicのPodをライセンスされたワーカーノードに配置します。</p>
-<p>このLab.では、WebLogicドメイン内の全てのWebLogicのPodを特定のノードにアサインする方法を学びます。</p>
+<p>今回のハンズオンでは、WebLogicドメイン内の全てのWebLogicのPodを特定のノードにアサインする方法を学びます。</p>
+<p><img alt="" src="../images/image_9.png" /></p>
 <h4 id="weblogicpod_1">ライセンスされたノードに対するWebLogicサーバのPodのアサイン<a class="headerlink" href="#weblogicpod_1" title="Permanent link">&para;</a></h4>
 <p>ノードにPodをアサインするために、カスタム・タグを利用して希望するノードにラベルを付与する必要があります。ドメイン・リソース定義に <code>nodeSelector</code> プロパティを定義し、ノードに適用したラベルの値を設定します。最後にドメイン設定の変更を適用します。</p>
 <p>最初に <code>kubectl get node</code> を使用してノード名を取得します。</p>
@@ -650,7 +712,6 @@
 NAME             STATUS    ROLES     AGE       VERSION
 <span class="m">130</span>.61.110.174   Ready     node      11d       v1.11.5
 <span class="m">130</span>.61.52.240    Ready     node      11d       v1.11.5
-<span class="m">130</span>.61.84.41     Ready     node      11d       v1.11.5
 </pre></div>
 
 
@@ -658,53 +719,64 @@ NAME             STATUS    ROLES     AGE       VERSION
 <p><code>kubectl get pod -n sample-domain1-ns -o wide</code> を使い、Pod情報の詳細から現在のPodの配置をチェックします。</p>
 <div class="codehilite"><pre><span></span>$ kubectl get pod -n sample-domain1-ns -o wide
 NAME                             READY     STATUS    RESTARTS   AGE       IP            NODE             NOMINATED NODE
-sample-domain1-admin-server      <span class="m">1</span>/1       Running   <span class="m">0</span>          2m        <span class="m">10</span>.244.2.33   <span class="m">130</span>.61.84.41     &lt;none&gt;
+sample-domain1-admin-server      <span class="m">1</span>/1       Running   <span class="m">0</span>          2m        <span class="m">10</span>.244.2.33   <span class="m">130</span>.61.110.174     &lt;none&gt;
 sample-domain1-managed-server1   <span class="m">1</span>/1       Running   <span class="m">0</span>          1m        <span class="m">10</span>.244.1.8    <span class="m">130</span>.61.52.240    &lt;none&gt;
 sample-domain1-managed-server2   <span class="m">1</span>/1       Running   <span class="m">0</span>          1m        <span class="m">10</span>.244.0.10   <span class="m">130</span>.61.110.174   &lt;none&gt;
-sample-domain1-managed-server3   <span class="m">1</span>/1       Running   <span class="m">0</span>          1m        <span class="m">10</span>.244.2.34   <span class="m">130</span>.61.84.41     &lt;none&gt;
+sample-domain1-managed-server3   <span class="m">1</span>/1       Running   <span class="m">0</span>          1m        <span class="m">10</span>.244.2.34   <span class="m">130</span>.61.52.240     &lt;none&gt;
 </pre></div>
 
 
-<p>Kubernetesの結果から3つの管理対象サーバが3つのワーカー・ノードに均等に配置されていることが確認できます。このシナリオではすべてのPodを移動する1つのノードを選択します。</p>
+<p>Kubernetesの結果から3つの管理対象サーバが2つのワーカー・ノードに配置されていることが確認できます。このシナリオではすべてのPodを移動する1つのノードを選択します。</p>
 <h6 id="_1">ラベルの設定<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h6>
-<p>この例ではライセンスされたノードは <code>130.61.84.41</code> です。</p>
-<p>このノードにラベルを設定します。任意のラベル名をしていできますが、ここでは <code>licensed-for-weblogic</code> を使用します。ノード名を正しく設定し <code>kubectl label nodes &lt;nodename&gt; &lt;labelname&gt;=true</code> コマンドを実行してください。</p>
-<div class="codehilite"><pre><span></span>$ <span class="nv">kubectl</span> <span class="nv">label</span> <span class="nv">nodes</span> <span class="mi">130</span>.<span class="mi">61</span>.<span class="mi">84</span>.<span class="mi">41</span> <span class="nv">licensed</span><span class="o">-</span><span class="k">for</span><span class="o">-</span><span class="nv">weblogic</span><span class="o">=</span><span class="nv">true</span>
-<span class="nv">node</span><span class="o">/</span><span class="mi">130</span>.<span class="mi">61</span>.<span class="mi">84</span>.<span class="mi">41</span> <span class="nv">labeled</span>
+<p>今回はライセンスされたノードを <code>130.61.110.174</code> とします。</p>
+<p>このノードにラベルを設定します。任意のラベル名を指定できますが、ここでは <code>licensed-for-weblogic</code> を使用します。ノード名を正しく設定し <code>kubectl label nodes &lt;nodename&gt; &lt;labelname&gt;=true</code> コマンドを実行してください。</p>
+<div class="codehilite"><pre><span></span>$ kubectl label nodes <span class="m">130</span>.61.110.174 licensed-for-weblogic<span class="o">=</span><span class="nb">true</span>
+node/130.61.110.174 labeled
 </pre></div>
 
 
 <h6 id="_2">ドメイン・リソース定義の変更<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h6>
+<p>定義を変更する前に、一度ドメイン・リソース定義を削除します。
+以下のコマンドを実行してください。</p>
+<div class="codehilite"><pre><span></span>$ kubectl delete -f /u01/domain.yaml
+</pre></div>
+
+
+<p>podが完全に削除されるまで待機します。以下のような出力が得られればpodが削除されています。</p>
+<div class="codehilite"><pre><span></span>$ kubectl get po -n sample-domain1-ns -o wide
+No resources found in sample-domain1-ns namespace.
+</pre></div>
+
+
 <p><code>domain.yaml</code> ファイルをテキストエディタで開き <code>serverPod:</code> エントリを見つけ、中に新しいプロパティを追加します。</p>
-<div class="codehilite"><pre><span></span><span class="nv">serverPod</span>:
-  <span class="nv">env</span>:
-  [...]
-  <span class="nv">nodeSelector</span>:
-    <span class="nv">licensed</span><span class="o">-</span><span class="k">for</span><span class="o">-</span><span class="nv">weblogic</span>: <span class="nv">true</span>
+<div class="codehilite"><pre><span></span><span class="n">serverPod</span><span class="o">:</span>
+  <span class="n">env</span><span class="o">:</span>
+  <span class="o">[...]</span>
+  <span class="n">nodeSelector</span><span class="o">:</span>
+    <span class="n">licensed</span><span class="o">-</span><span class="k">for</span><span class="o">-</span><span class="n">weblogic</span><span class="o">:</span> <span class="kc">true</span>
 </pre></div>
 
 
 <p>インデントに注意してください。文法についてはサンプル <a href="https://github.com/nagypeter/weblogic-operator-tutorial/blob/master/k8s/domain.yaml">domain.yaml</a> の同じ部分のコメント内の記述でダブルチェックできます。</p>
-<p>変更を保存して新しいドメイン・リソース定義を適用します。</p>
-<div class="codehilite"><pre><span></span>$ kubectl apply -f ~/git.repos/@nagypeter/weblogic-operator-tutorial/k8s/domain.yaml
-domain.weblogic.oracle/sample-domain1 configured
+<p>設定を変更したら、ドメイン・リソース定義を適用します。</p>
+<div class="codehilite"><pre><span></span>$ kubectl apply -f /u01/domain.yaml
 </pre></div>
 
 
 <p>Operatorは変更に従ってサーバの再配置を開始します。繰り返し情報を更新して期待した結果が表示されるまで待ってください。</p>
 <div class="codehilite"><pre><span></span>$ kubectl get po -n sample-domain1-ns -o wide
 NAME                             READY     STATUS    RESTARTS   AGE       IP            NODE           NOMINATED NODE
-sample-domain1-admin-server      <span class="m">1</span>/1       Running   <span class="m">0</span>          4h        <span class="m">10</span>.244.2.40   <span class="m">130</span>.61.84.41   &lt;none&gt;
-sample-domain1-managed-server1   <span class="m">1</span>/1       Running   <span class="m">0</span>          4h        <span class="m">10</span>.244.2.43   <span class="m">130</span>.61.84.41   &lt;none&gt;
-sample-domain1-managed-server2   <span class="m">1</span>/1       Running   <span class="m">0</span>          4h        <span class="m">10</span>.244.2.42   <span class="m">130</span>.61.84.41   &lt;none&gt;
-sample-domain1-managed-server3   <span class="m">1</span>/1       Running   <span class="m">0</span>          4h        <span class="m">10</span>.244.2.41   <span class="m">130</span>.61.84.41   &lt;none&gt;
+sample-domain1-admin-server      <span class="m">1</span>/1       Running   <span class="m">0</span>          4h        <span class="m">10</span>.244.2.40   <span class="m">130</span>.61.110.174   &lt;none&gt;
+sample-domain1-managed-server1   <span class="m">1</span>/1       Running   <span class="m">0</span>          4h        <span class="m">10</span>.244.2.43   <span class="m">130</span>.61.110.174   &lt;none&gt;
+sample-domain1-managed-server2   <span class="m">1</span>/1       Running   <span class="m">0</span>          4h        <span class="m">10</span>.244.2.42   <span class="m">130</span>.61.110.174   &lt;none&gt;
+sample-domain1-managed-server3   <span class="m">1</span>/1       Running   <span class="m">0</span>          4h        <span class="m">10</span>.244.2.41   <span class="m">130</span>.61.110.174   &lt;none&gt;
 </pre></div>
 
 
 <h5 id="domainyaml-nodeselector">ラベルと <code>domain.yaml</code> 内の <code>nodeSelector</code> エントリの削除<a class="headerlink" href="#domainyaml-nodeselector" title="Permanent link">&para;</a></h5>
 <p>ノード配置を削除するために、ノード名を適切に指定して各ノードのラベルを <code>kubectl label node &lt;nodename&gt; &lt;labelname&gt;-</code> コマンドを使って削除してください。</p>
-<div class="codehilite"><pre><span></span>$ <span class="nv">kubectl</span> <span class="nv">label</span> <span class="nv">nodes</span> <span class="mi">130</span>.<span class="mi">61</span>.<span class="mi">84</span>.<span class="mi">41</span> <span class="nv">licensed</span><span class="o">-</span><span class="k">for</span><span class="o">-</span><span class="nv">weblogic</span><span class="o">-</span>
-<span class="nv">node</span><span class="o">/</span><span class="mi">130</span>.<span class="mi">61</span>.<span class="mi">84</span>.<span class="mi">41</span> <span class="nv">labeled</span>
+<div class="codehilite"><pre><span></span>$ kubectl label nodes <span class="m">130</span>.61.110.174 licensed-for-weblogic-
+node/130.61.110.174 labeled
 </pre></div>
 
 
@@ -715,6 +787,7 @@ domain.weblogic.oracle/sample-domain1 configured
 
 
 <p>Podはスケジューラの決定に基づいて再配置/再起動されます。</p>
+<p>以上で、WebLogic Operatorのハンズオンは終わりです。お疲れ様でした。</p>
                 
                   
                 
@@ -760,7 +833,7 @@ domain.weblogic.oracle/sample-domain1 configured
       
     </div>
     
-      <script src="../../../../assets/javascripts/application.ac79c3b0.js"></script>
+      <script src="../../../../assets/javascripts/application.a8b5e56f.js"></script>
       
         
         

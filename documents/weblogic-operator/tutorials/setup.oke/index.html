@@ -32,15 +32,15 @@
         <meta name="lang:search.tokenizer" content="[\s\-　、。，．]+">
       
       <link rel="shortcut icon" href="../../../../assets/images/cloud_46@2x.png">
-      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.4.3">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.5.0">
     
     
       
-        <title>Oracle Cloud Infrastructure(OCI) 上でのCreate Oracle Container Engine for Kubernetes (OKE) の構築 # - Oracle Cloud - PaaS ドキュメント</title>
+        <title>OCIでOKEインスタンスを設定 # - Oracle Cloud - PaaS ドキュメント</title>
       
     
     
-      <link rel="stylesheet" href="../../../../assets/stylesheets/application.30686662.css">
+      <link rel="stylesheet" href="../../../../assets/stylesheets/application.1b62728e.css">
       
         <link rel="stylesheet" href="../../../../assets/stylesheets/application-palette.a8b3c06d.css">
       
@@ -51,7 +51,7 @@
       
     
     
-      <script src="../../../../assets/javascripts/modernizr.74668098.js"></script>
+      <script src="../../../../assets/javascripts/modernizr.268332fc.js"></script>
     
     
       
@@ -89,7 +89,7 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     
-      <a href="#oracle-cloud-infrastructureoci-create-oracle-container-engine-for-kubernetes-oke" tabindex="1" class="md-skip">
+      <a href="#ocioke" tabindex="1" class="md-skip">
         Skip to content
       </a>
     
@@ -115,7 +115,7 @@
             </span>
             <span class="md-header-nav__topic">
               
-                Oracle Cloud Infrastructure(OCI) 上でのCreate Oracle Container Engine for Kubernetes (OKE) の構築 #
+                OCIでOKEインスタンスを設定 #
               
             </span>
           
@@ -217,6 +217,19 @@
       
         <a href="../../../faas/" class="md-tabs__link">
           FaaS
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../" class="md-tabs__link">
+          WebLogic Operator
         </a>
       
     </li>
@@ -554,6 +567,54 @@
   </li>
 
     
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+    
+    <label class="md-nav__link" for="nav-4">
+      WebLogic Operator
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        WebLogic Operator
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../" title="WebLogic Operatorのホーム" class="md-nav__link">
+      WebLogic Operatorのホーム
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../domain.home.in.image_short/" title="ビギナー向けチュートリアル" class="md-nav__link">
+      ビギナー向けチュートリアル
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
   </ul>
 </nav>
                   </div>
@@ -666,10 +727,11 @@
               
                 
                 
-                <h1 id="oracle-cloud-infrastructureoci-create-oracle-container-engine-for-kubernetes-oke">Oracle Cloud Infrastructure(OCI) 上でのCreate Oracle Container Engine for Kubernetes (OKE) の構築<a class="headerlink" href="#oracle-cloud-infrastructureoci-create-oracle-container-engine-for-kubernetes-oke" title="Permanent link">&para;</a></h1>
+                <h1 id="ocioke">OCIでOKEインスタンスを設定<a class="headerlink" href="#ocioke" title="Permanent link">&para;</a></h1>
 <p>Oracle Cloud Infrastructure Container Engine for Kubernetesは、クラウド上にコンテナ化されたアプリケーションをデプロイできるフルマネージド、スケーラブル、高可用性なサービスです。開発チームがクラウドネイティブアプリケーションを確実に構築、デプロイ、管理したい場合は、Oracle Container Engine for Kubernetes (OKEと略します)を使用します。ユーザがアプリケーションに必要なコンピュートリソースを指定すると、Oracle Container Engine for Kubernetesが既存のOCIのテナント上に必要なリソースをプロビジョニングします。</p>
+<p><img alt="" src="../images/image_1.png" /></p>
 <h3 id="_1">はじめに<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
-<p>このチュートリアルでは、有効な<a href="https://cloud.oracle.com/en_US/cloud-infrastructure">Oracle Cloud Infrastructure</a>のアカウントが必要です。</p>
+<p>このチュートリアルでは、有効な<a href="https://cloud.oracle.com/en_US/cloud-infrastructure">Oracle Cloud Infrastructure</a>(OCIと略します)のアカウントが必要です。</p>
 <p>Oracle Container Engine for Kubernetes (OKE) を構築するために以下の手順を完了させる必要があります。</p>
 <ul>
 <li>ネットワークの作成(VCN、サブネット、セキュリティリストなど)</li>
@@ -680,46 +742,60 @@
 高可用性を保証するために、全てのノードはそれぞれ異なる可用性ドメイン(Availability Domains)上にプロビジョニングされます。</p>
 <p>OKEに関する詳細および手動でのクラスタ構築については、以下をご確認ください。</p>
 <ul>
-<li><a href="https://docs.cloud.oracle.com/iaas/Content/ContEng/Concepts/contengoverview.htm">Oracle Container Engine documentation</a></li>
+<li><a href="https://docs.cloud.oracle.com/iaas/Content/ContEng/Concepts/contengoverview.htm">Oracle Container Engine for Kubernetes documentation</a></li>
 </ul>
+<div class="admonition info">
+<p class="admonition-title">注意事項: コンパートメントについて</p>
+<p>Oracle Cloudにはコンパートメントという考え方があります。<br>コンパートメントは、クラウド・リソース(インスタンス、仮想クラウド・ネットワーク、ブロック・ボリュームなど)を分類整理する論理的な区画で、この単位でアクセス制御を行うことができます。また、OCIコンソール上に表示されるリソースのフィルタとしても機能します。<br>今回は、ルートコンパートメントと呼ばれるすべてのリソースを保持するコンパートメントを利用するので、特に意識する必要がありません。</p>
+</div>
+<div class="admonition info">
+<p class="admonition-title">注意事項: ポリシーについて</p>
+<p>Oracle Cloudでは、各ユーザーから各サービスへのアクセスおよび各サービスから他サービスへアクセスを「ポリシー」を利用して制御します。ポリシーは、各リソースに誰がアクセスできるかを指定することができます。</p>
+</div>
 <h4 id="oci">OCIコンソールの表示<a class="headerlink" href="#oci" title="Permanent link">&para;</a></h4>
-<p>Oracle Cloud Infrastructureの登録手順の中で受信したメール内のクラウドサービスアクセスするリンクを利用してサインインを行います。(初回ログインの場合は初期パスワードの変更を行う必要があります)</p>
-<p><img alt="alt text" src="../images/oke/001.cloud.link.email.png" /></p>
-<p>メールに記載しているユーザ名と登録時に設定したパスワードを入力して<strong>サイン・イン</strong>をクリックしてください。</p>
-<p><img alt="alt text" src="../images/oke/002.login.png" /></p>
-<p>表示された画面上部の<strong>インフラストラクチャ</strong>をクリックします。</p>
-<p><img alt="alt text" src="../images/oke/003.compute.console.png" /></p>
+<p>Oracle Cloud Infrastructureへのサインインを行います。<a href="https://www.oracle.com/cloud/sign-in.html">Oracle Cloud Sign in</a>のリンクからサインインしてください。
+ご自身の端末でハンズオンを実施する場合は、登録手順の中で受信したメール内のクラウドサービスにアクセスするリンクを利用してサインインを行うこともできます。<br />
+アカウント登録時に登録したクラウドアカウント名を入力し、<strong>NEXT</strong>をクリックしてください。</p>
+<p><img alt="alt text" src="../images/oke/01.sign.up.oci.png" /></p>
+<p>アカウント登録時に登録した電子メールアドレスとパスワードを入力してください。<br />
+<strong>サイン・イン</strong>をクリックします。</p>
+<p><img alt="alt text" src="../images/oke/02.login.png" /></p>
+<p>サインインが完了すると、以下のようにOCIコンソール画面が表示されます。</p>
+<p><img alt="alt text" src="../images/oke/03.oci.console.png" /></p>
 <p>OCIコンソール画面が表示されます。</p>
 <h4 id="_2">ポリシーの作成<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h4>
-<p>サービスポリシーは、コンピュートをはじめとしたテナント内のリソース作成を許可する役割があります。また、OKEのリソースポリシーは、ユーザのテナント内のグループがOKEのAPIを利用して何を実行できるかを制御できます。</p>
+<p>ポリシーの作成を行います。<br />
+ポリシーは、コンピュートをはじめとしたテナント内のリソース作成を許可する役割があります。この手順で作成するポリシーは、ユーザのテナント内のグループがOKEのAPIを利用して何を実行できるかを制御できます。</p>
 <p>さらに、あるグループがOKEにおける無関係なリソースにアクセスするのを規制したい場合についてもポリシーの追加によって実現することができます。</p>
-<p>ナビゲーションメニューを開き、<strong>アイデンティティ</strong>の<strong>ポリシー</strong>をクリックします。</p>
-<p><img alt="alt text" src="../images/oke/004.oci.console.png" /></p>
-<p>左側にある"ルート"コンパートメントを選択すると、表示されているコンパートメントのポリシー一覧が確認できます。もし、"ルート"コンパートメント以外のコンパートメントに対してポリシーを追加したい場合は、リストの中から適切なコンパートメントを選択します。<strong>ポリシーの作成</strong>をクリックします。</p>
-<p><img alt="alt text" src="../images/oke/005.policies.png" /></p>
+<p>OCIコンソール画面左上のハンバーガーメニューを開き、<strong>アイデンティティ</strong>の<strong>ポリシー</strong>をクリックします。</p>
+<p><img alt="alt text" src="../images/oke/04.policy.png" /></p>
+<p>左側にある"ルート"コンパートメントを選択すると、表示されているコンパートメントのポリシー一覧が確認できます。もし、"ルート"コンパートメント以外のコンパートメントに対してポリシーを追加したい場合は、左下のコンパートメントリストの中から適切なコンパートメントを選択します。<strong>ポリシーの作成</strong>をクリックします。</p>
+<p><img alt="alt text" src="../images/oke/05.create.policy.botton.png" /></p>
 <p>以下のように入力します。</p>
 <ul>
-<li><strong>名前</strong>:ポリシー名。テナント内の全てのポリシーでユニークでなければなりません。後からの変更はできません。</li>
-<li><strong>説明</strong>:ポリシーの分かりやすい説明。</li>
-<li><strong>ポリシーのバージョニング</strong>:<strong>ポリシーを最新の状態に保持</strong>を選択。これは、将来的なサービスの動詞やリソースの定義に関する変更に合わせてポリシーが最新の状態に保たれることを保証します。</li>
-<li><strong>ポリシー・ステートメント</strong>:ポリシーのステートメント。<code>allow service OKE to manage all-resources in tenancy</code>と入力してください。</li>
-<li><strong>タグ:</strong>:何も入力しないでください。</li>
+<li><strong>名前</strong>:ポリシー名を指定します。テナント内の全てのポリシーでユニークでなければなりません。後からの変更はできません。今回のハンズオンでは、<code>Policy_for_OKE</code>と入力してください。</li>
+<li><strong>説明</strong>:ポリシーの分かりやすい説明を入力します。今回のハンズオンでは、<code>allow service OKE to manage all-resources in tenancy</code>と入力してください。</li>
+<li><strong>ポリシーのバージョニング</strong>:<strong>ポリシーを最新の状態に保持</strong>を選択します。これは、将来的なサービスの動詞やリソースの定義に関する変更に合わせてポリシーが最新の状態に保たれることを保証します。</li>
+<li><strong>ポリシー・ステートメント</strong>:ポリシーのステートメントを入力します。<code>allow service OKE to manage all-resources in tenancy</code>と入力してください。</li>
+<li><strong>タグ</strong>:何も入力しないでください。</li>
 </ul>
 <p><strong>作成</strong>をクリックします。</p>
-<p><img alt="alt text" src="../images/oke/006.create.oke.policy.png" /></p>
+<p><img alt="alt text" src="../images/oke/06.create.policy.png" /></p>
 <h4 id="oke-oracle-container-engine-for-kubernetes">OKE (Oracle Container Engine for Kubernetes)クラスタの作成<a class="headerlink" href="#oke-oracle-container-engine-for-kubernetes" title="Permanent link">&para;</a></h4>
-<p><em>クイック作成</em>機能は、必須となるネットワークとクラスタの作成をデフォルトの設定で構築を行います。このアプローチは新規でクラスタを作成するための最速の方法です。全ての設定がデフォルトで問題なければ、数回のクリックだけで新規でクラスタを作成できます。クラスタが利用するネットワーク、ノードプールおよび3つのワーカーノードが自動的に作成されます。</p>
-<p>コンソールで、ナビゲーションメニューを開きます。<strong>開発者サービス</strong>=&gt;<strong>コンテナ・クラスタ(OKE)</strong>をクリックします。</p>
-<p><img alt="alt text" src="../images/oke/007.clusters.png" /></p>
+<p>OKEクラスタの作成を行います。<br />
+今回は<em>クイック作成</em>機能を使用してOKEクラスタを作成します。<br />
+<em>クイック作成</em>機能は、必須となるネットワークとクラスタの作成をデフォルトの設定で構築することができる機能です。このアプローチは新規でクラスタを作成するための最速の方法です。全ての設定がデフォルトで問題なければ、数回のクリックだけで新規でクラスタを作成できます。クラスタが利用するネットワーク、ノードプールおよび2つのワーカーノードが自動的に作成されます。</p>
+<p>OCIコンソール画面左上のハンバーガーメニューを開き、<strong>開発者サービス</strong>=&gt;<strong>コンテナ・クラスタ(OKE)</strong>をクリックします。</p>
+<p><img alt="alt text" src="../images/oke/07.open.oke.menu.png" /></p>
 <p>クラスタ一覧のページで、<strong>クラスタの作成</strong>をクリックします。</p>
-<p><img alt="alt text" src="../images/oke/008.create.cluster.png" /></p>
+<p><img alt="alt text" src="../images/oke/08.create.cluster.botton.png" /></p>
 <p>以下の設定を行います。</p>
 <ul>
-<li><strong>名前</strong>:クラスタの名前を入力します。例えば、デフォルトでは<em>cluster1</em>という名前になります。</li>
+<li><strong>名前</strong>:クラスタの名前を入力します。例えば、デフォルトでは<em>cluster1</em>という名前になります。今回のハンズオンではそのままにします。</li>
 <li><strong>KUBERNETESバージョン</strong>:マスターノードおよびワーカーノードのKubernetesのバージョンを指定します。最新バージョンを選択してください。</li>
-<li>デフォルトの設定で、ネットワークおよび新規のクラスタを作成するために<strong>クイック作成</strong>を選択してください。
-クラスタの作成画面内の<em>仮想クラウド・ネットワークの作成</em>では、VCNと呼ばれるネットワーク、ロードバランサーサブネット、3つのワーカーノードが利用するサブネットがデフォルトで作成されることが確認できます。<br />
-クラスタの作成画面内の<em>ノード・プールの作成</em>では、作成される最初のノードプールの固定プロパティを確認できます。<ul>
+<li>デフォルトの設定で、ネットワークおよび新規のクラスタを作成するために<strong>クイック作成</strong>を選択してください。</li>
+<li><strong>仮想クラウドネットワーク</strong>:クラスタの作成画面内の<em>仮想クラウド・ネットワークの作成</em>では、VCNと呼ばれるネットワーク、ロードバランサーサブネット、2つのワーカーノードが利用するサブネットがデフォルトで作成されることが確認できます。 今回のハンズオンでは、<strong>プライベート</strong>で作成します。</li>
+<li><strong>ノードプールの作成</strong>:作成される最初のノードプールの固定プロパティを確認できます。<ul>
 <li>ノードプールの名前(pool1で固定)</li>
 <li>作成されるノードプールの名前。(新規で作成されるネットワークと同じコンパートメントで固定)</li>
 <li>ノードプール内のそれぞれのワーカーノードにおけるKubernetesバージョン(<strong>Kubernetesバージョン</strong>で選択したバージョンで固定)<ul>
@@ -729,17 +805,18 @@
 </ul>
 </li>
 </ul>
-<p><em>ノード・プールの作成</em>では、ユーザが変更可能な設定もいくつか含まれます。
-- <strong>シェイプ</strong>: ノードプール内のそれぞれのワーカーノードのシェイプ。シェイプは、それぞれのノードに割り当てられるメモリサイズとCPU数で決定される。リスト内には、ユーザのテナントで利用可能、かつOracle Container Engine for Kubernetesがサポートするシェイプのみが表示されます。<em>VM.Standard2.1</em>を選択してください。
-- <strong>ノードの数</strong>: ノードプール内のそれぞれのサブネットに作成するワーカーノードの数。 <em>2</em>を入力してください。
-- <strong>SSH公開キー</strong>: 空欄のままにしてください。
-- <strong>KUBERNETESダッシュボード有効</strong>: チェックをつけたままにしてください。
-- <strong>Tiller(Helm)有効</strong>: チェックをつけたままにしてください。</p>
+<p><em>ノード・プールの作成</em>では、ユーザが変更可能な設定もいくつか含まれます。</p>
+<ul>
+<li><strong>シェイプ</strong>: ノードプール内のそれぞれのワーカーノードのシェイプを指定します。シェイプは、それぞれのノードに割り当てられるメモリサイズとCPU数で決定されます。リスト内には、ユーザのテナントで利用可能、かつOracle Container Engine for Kubernetesがサポートするシェイプのみが表示されます。今回のハンズオンでは、<em>VM.Standard.E2.1</em>を選択してください。</li>
+<li><strong>ノードの数</strong>: ノードプール内のそれぞれのサブネットに作成するワーカーノードの数です。 今回のハンズオンでは、<em>2</em>を入力してください。</li>
+<li><strong>SSH公開キー</strong>: 空欄のままにしてください。</li>
+<li><strong>KUBERNETESダッシュボード有効</strong>: チェックをつけたままにしてください。</li>
+<li><strong>Tiller(Helm)有効</strong>: チェックをつけたままにしてください。</li>
+</ul>
 <p><strong>作成</strong>をクリックしてください。</p>
-<p><img alt="alt text" src="../images/oke/009.quick.part.1.png" />
-<img alt="alt text" src="../images/oke/009.quick.part.2.png" />
-<img alt="alt text" src="../images/oke/009.quick.part.3.png" /></p>
-<p><strong>閉じる</strong>をクリックし、コンソールに戻ってください。</p>
+<p><img alt="alt text" src="../images/oke/09.create.cluster.1.png" />
+<img alt="alt text" src="../images/oke/09.create.cluster.2.png" /></p>
+<p><strong>Close</strong>をクリックし、コンソールに戻ってください。</p>
 <h4 id="kubernetesoci-cli">Kubernetes設定ファイルをダウンロードするためのOCI CLIの準備<a class="headerlink" href="#kubernetesoci-cli" title="Permanent link">&para;</a></h4>
 <p>クラスタの作成ができたら、Kubernetes設定ファイル(通常は<code>kubeconfig</code>となります)をダウンロードします。Kubernetes設定ファイルをダウンロードするためには、OCI API署名キーを追加し、ワークステーション(Virtualbox環境)でOCI CLIを構成する必要があります。</p>
 <h5 id="oci-cli">OCI CLIの設定<a class="headerlink" href="#oci-cli" title="Permanent link">&para;</a></h5>
@@ -751,116 +828,132 @@
 <li>Region</li>
 </ul>
 <p>OCIコンソールの右上の人型マークをクリックし、ユーザ名をクリックします。ユーザ情報ページにある<em>user OCID</em>を確認し、<strong>コピー</strong>をクリックします。クリップボードにコピーされた情報をテキストエディタなどに保持しておきます。</p>
-<p><img alt="alt text" src="../images/oke/010.user.ocid.png" /></p>
+<p><img alt="alt text" src="../images/oke/10.show.user.ocid.1.png" />
+<img alt="alt text" src="../images/oke/10.show.user.ocid.2.png" /></p>
 <p>同じように、OCIコンソールの右上の人型マークをクリックし、テナンシ名をクリックします。テナンシ情報ページにある<em>tenancy OCID</em>を確認し、<strong>コピー</strong>をクリックします。クリップボードにコピーされた情報をテキストエディタなどに保持しておきます。</p>
-<p><img alt="alt text" src="../images/oke/011.tenancy.ocid.png" /></p>
+<p><img alt="alt text" src="../images/oke/11.show.tenancy.ocid.1.png" />
+<img alt="alt text" src="../images/oke/11.show.tenancy.ocid.2.png" /></p>
 <p>CLIセットアップ中についてもコンソールを開いたままにしてください。上記で用意したUser OCIDとTenancy OCIDは、テキストエディタからコピーして使用します。<br />
 CLIセットアップ時にデフォルト値(角括弧内の値)でも問題ない場合は、そのままEnterを押してください。</p>
-<hr />
-<p>Note: OCI CLIについての詳細は<a href="https://docs.cloud.oracle.com/iaas/Content/API/SDKDocs/cliinstall.htm">documentation</a>をご確認ください。</p>
-<hr />
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>OCI CLIについての詳細は<a href="https://docs.cloud.oracle.com/iaas/Content/API/SDKDocs/cliinstall.htm">documentation</a>をご確認ください。</p>
+</div>
 <p>CLIをセットアップするために<code>oci setup config</code>コマンドを実行してください。</p>
-<div class="codehilite"><pre><span></span>$ <span class="nv">oci</span> <span class="nv">setup</span> <span class="nv">config</span>
-    <span class="nv">This</span> <span class="nv">command</span> <span class="nv">provides</span> <span class="nv">a</span> <span class="nv">walkthrough</span> <span class="nv">of</span> <span class="nv">creating</span> <span class="nv">a</span> <span class="nv">valid</span> <span class="nv">CLI</span> <span class="nv">config</span> <span class="nv">file</span>.
+<div class="codehilite"><pre><span></span><span class="o">[</span><span class="n">opc@oke-client .oci</span><span class="o">]</span><span class="err">$</span><span class="w"> </span><span class="n">oci</span><span class="w"> </span><span class="n">setup</span><span class="w"> </span><span class="n">config</span><span class="w"></span>
+<span class="w">    </span><span class="n">This</span><span class="w"> </span><span class="n">command</span><span class="w"> </span><span class="n">provides</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">walkthrough</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="n">creating</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">valid</span><span class="w"> </span><span class="n">CLI</span><span class="w"> </span><span class="n">config</span><span class="w"> </span><span class="k">file</span><span class="p">.</span><span class="w"></span>
 
-    <span class="nv">The</span> <span class="nv">following</span> <span class="nv">links</span> <span class="nv">explain</span> <span class="nv">where</span> <span class="nv">to</span> <span class="nv">find</span> <span class="nv">the</span> <span class="nv">information</span> <span class="nv">required</span> <span class="nv">by</span> <span class="nv">this</span>
-    <span class="nv">script</span>:
+<span class="w">    </span><span class="n">The</span><span class="w"> </span><span class="n">following</span><span class="w"> </span><span class="n">links</span><span class="w"> </span><span class="n">explain</span><span class="w"> </span><span class="k">where</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="n">find</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">information</span><span class="w"> </span><span class="n">required</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">this</span><span class="w"></span>
+<span class="w">    </span><span class="nl">script</span><span class="p">:</span><span class="w"></span>
 
-    <span class="nv">User</span> <span class="nv">OCID</span> <span class="nv">and</span> <span class="nv">Tenancy</span> <span class="nv">OCID</span>:
+<span class="w">    </span><span class="k">User</span><span class="w"> </span><span class="n">OCID</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">Tenancy</span><span class="w"> </span><span class="nl">OCID</span><span class="p">:</span><span class="w"></span>
 
-        <span class="nv">https</span>:<span class="o">//</span><span class="nv">docs</span>.<span class="nv">us</span><span class="o">-</span><span class="nv">phoenix</span><span class="o">-</span><span class="mi">1</span>.<span class="nv">oraclecloud</span>.<span class="nv">com</span><span class="o">/</span><span class="nv">Content</span><span class="o">/</span><span class="nv">API</span><span class="o">/</span><span class="nv">Concepts</span><span class="o">/</span><span class="nv">apisigningkey</span>.<span class="nv">htm</span>#<span class="nv">Other</span>
+<span class="w">        </span><span class="nl">https</span><span class="p">:</span><span class="o">//</span><span class="n">docs</span><span class="p">.</span><span class="n">cloud</span><span class="p">.</span><span class="n">oracle</span><span class="p">.</span><span class="n">com</span><span class="o">/</span><span class="n">Content</span><span class="o">/</span><span class="n">API</span><span class="o">/</span><span class="n">Concepts</span><span class="o">/</span><span class="n">apisigningkey</span><span class="p">.</span><span class="n">htm#Other</span><span class="w"></span>
 
-    <span class="nv">Region</span>:
+<span class="w">    </span><span class="nl">Region</span><span class="p">:</span><span class="w"></span>
 
-        <span class="nv">https</span>:<span class="o">//</span><span class="nv">docs</span>.<span class="nv">us</span><span class="o">-</span><span class="nv">phoenix</span><span class="o">-</span><span class="mi">1</span>.<span class="nv">oraclecloud</span>.<span class="nv">com</span><span class="o">/</span><span class="nv">Content</span><span class="o">/</span><span class="nv">General</span><span class="o">/</span><span class="nv">Concepts</span><span class="o">/</span><span class="nv">regions</span>.<span class="nv">htm</span>
+<span class="w">        </span><span class="nl">https</span><span class="p">:</span><span class="o">//</span><span class="n">docs</span><span class="p">.</span><span class="n">cloud</span><span class="p">.</span><span class="n">oracle</span><span class="p">.</span><span class="n">com</span><span class="o">/</span><span class="n">Content</span><span class="o">/</span><span class="k">General</span><span class="o">/</span><span class="n">Concepts</span><span class="o">/</span><span class="n">regions</span><span class="p">.</span><span class="n">htm</span><span class="w"></span>
 
-    <span class="nv">General</span> <span class="nv">config</span> <span class="nv">documentation</span>:
+<span class="w">    </span><span class="k">General</span><span class="w"> </span><span class="n">config</span><span class="w"> </span><span class="nl">documentation</span><span class="p">:</span><span class="w"></span>
 
-        <span class="nv">https</span>:<span class="o">//</span><span class="nv">docs</span>.<span class="nv">us</span><span class="o">-</span><span class="nv">phoenix</span><span class="o">-</span><span class="mi">1</span>.<span class="nv">oraclecloud</span>.<span class="nv">com</span><span class="o">/</span><span class="nv">Content</span><span class="o">/</span><span class="nv">API</span><span class="o">/</span><span class="nv">Concepts</span><span class="o">/</span><span class="nv">sdkconfig</span>.<span class="nv">htm</span>
+<span class="w">        </span><span class="nl">https</span><span class="p">:</span><span class="o">//</span><span class="n">docs</span><span class="p">.</span><span class="n">cloud</span><span class="p">.</span><span class="n">oracle</span><span class="p">.</span><span class="n">com</span><span class="o">/</span><span class="n">Content</span><span class="o">/</span><span class="n">API</span><span class="o">/</span><span class="n">Concepts</span><span class="o">/</span><span class="n">sdkconfig</span><span class="p">.</span><span class="n">htm</span><span class="w"></span>
 
 
-<span class="nv">Enter</span> <span class="nv">a</span> <span class="nv">location</span> <span class="k">for</span> <span class="nv">your</span> <span class="nv">config</span> [<span class="o">/</span><span class="nv">home</span><span class="o">/</span><span class="nv">oracle</span><span class="o">/</span>.<span class="nv">oci</span><span class="o">/</span><span class="nv">config</span>]:
+<span class="n">Enter</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">location</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">your</span><span class="w"> </span><span class="n">config</span><span class="w"> </span><span class="o">[</span><span class="n">/home/opc/.oci/config</span><span class="o">]</span><span class="err">:</span><span class="w"></span>
 </pre></div>
 
 
 <p>設定ファイルの場所についてはデフォルト値を利用するので、そのままEnterを押してください。User OCIDとTenancy OCIDを入力してください。</p>
-<div class="codehilite"><pre><span></span><span class="n">Enter</span> <span class="n">a</span> <span class="k">user</span> <span class="n">OCID</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">YOUR_USER_OCID</span><span class="o">&gt;</span>
-<span class="n">Enter</span> <span class="n">a</span> <span class="n">tenancy</span> <span class="n">OCID</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">YOUR_TENANCY_OCID</span><span class="o">&gt;</span>
+<div class="codehilite"><pre><span></span><span class="err">Enter a user OCID: &lt;YOUR_USER_OCID&gt;</span>
+<span class="err">Enter a tenancy OCID: &lt;YOUR_TENANCY_OCID&gt;</span>
 </pre></div>
 
 
 <p>利用しているリージョンを入力してください。リージョンは、OCIコンソールの右上で確認できます。何も入力しない場合は、<em>eu-frankfurt-1</em>になります。</p>
-<div class="codehilite"><pre><span></span><span class="n">Enter</span> <span class="n">a</span> <span class="n">region</span> <span class="p">(</span><span class="n">e</span><span class="p">.</span><span class="k">g</span><span class="p">.</span> <span class="n">eu</span><span class="o">-</span><span class="n">frankfurt</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">uk</span><span class="o">-</span><span class="n">london</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">us</span><span class="o">-</span><span class="n">ashburn</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">us</span><span class="o">-</span><span class="n">phoenix</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span> <span class="o">&lt;</span><span class="n">YOUR_REGION</span><span class="o">&gt;</span>
+<div class="codehilite"><pre><span></span><span class="err">Enter a region (e.g. ap-mumbai-1, ap-seoul-1, ap-sydney-1, ap-tokyo-1, ca-toronto-1, eu-frankfurt-1, eu-zurich-1, sa-saopaulo-1, uk-london-1, us-ashburn-1, us-gov-ashburn-1, us-gov-chicago-1, us-gov-phoenix-1, us-langley-1, us-luke-1, us-phoenix-1):  &lt;YOUR_REGION&gt;</span>
 </pre></div>
 
 
 <p>API署名キーを作成します。デフォルト値を利用するので、そのままEnterを押してください。秘密鍵のpassphraseは入力しないでください。</p>
-<div class="codehilite"><pre><span></span><span class="k">Do</span> <span class="nv">you</span> <span class="nv">want</span> <span class="nv">to</span> <span class="nv">generate</span> <span class="nv">a</span> <span class="nv">new</span> <span class="nv">RSA</span> <span class="nv">key</span> <span class="nv">pair</span>? <span class="ss">(</span><span class="k">If</span> <span class="nv">you</span> <span class="nv">decline</span> <span class="nv">you</span> <span class="nv">will</span> <span class="nv">be</span> <span class="nv">asked</span> <span class="nv">to</span> <span class="nv">supply</span> <span class="nv">the</span> <span class="nv">path</span> <span class="nv">to</span> <span class="nv">an</span> <span class="nv">existing</span> <span class="nv">key</span>.<span class="ss">)</span> [<span class="nv">Y</span><span class="o">/</span><span class="nv">N</span>]: <span class="nv">Y</span>
+<div class="codehilite"><pre><span></span><span class="n">Do</span><span class="w"> </span><span class="n">you</span><span class="w"> </span><span class="n">want</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="n">generate</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">RSA</span><span class="w"> </span><span class="k">key</span><span class="w"> </span><span class="n">pair</span><span class="vm">?</span><span class="w"> </span><span class="p">(</span><span class="k">If</span><span class="w"> </span><span class="n">you</span><span class="w"> </span><span class="n">decline</span><span class="w"> </span><span class="n">you</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">asked</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="n">supply</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="k">path</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="n">existing</span><span class="w"> </span><span class="k">key</span><span class="p">.)</span><span class="w"> </span><span class="o">[</span><span class="n">Y/n</span><span class="o">]</span><span class="err">:</span><span class="w"> </span><span class="n">Y</span><span class="w"></span>
+<span class="n">Enter</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">directory</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">your</span><span class="w"> </span><span class="n">keys</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">created</span><span class="w"> </span><span class="o">[</span><span class="n">/home/opc/.oci</span><span class="o">]</span><span class="err">:</span><span class="w"> </span>
+<span class="n">Enter</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">your</span><span class="w"> </span><span class="k">key</span><span class="w"> </span><span class="o">[</span><span class="n">oci_api_key</span><span class="o">]</span><span class="err">:</span><span class="w"> </span>
+<span class="k">Public</span><span class="w"> </span><span class="k">key</span><span class="w"> </span><span class="n">written</span><span class="w"> </span><span class="k">to</span><span class="err">:</span><span class="w"> </span><span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">opc</span><span class="o">/</span><span class="p">.</span><span class="n">oci</span><span class="o">/</span><span class="n">oci_api_key_public</span><span class="p">.</span><span class="n">pem</span><span class="w"></span>
+<span class="n">Enter</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">passphrase</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">your</span><span class="w"> </span><span class="n">private</span><span class="w"> </span><span class="k">key</span><span class="w"> </span><span class="p">(</span><span class="n">empty</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="k">no</span><span class="w"> </span><span class="n">passphrase</span><span class="p">)</span><span class="err">:</span><span class="w"> </span>
+<span class="n">Private</span><span class="w"> </span><span class="k">key</span><span class="w"> </span><span class="n">written</span><span class="w"> </span><span class="k">to</span><span class="err">:</span><span class="w"> </span><span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">opc</span><span class="o">/</span><span class="p">.</span><span class="n">oci</span><span class="o">/</span><span class="n">oci_api_key</span><span class="p">.</span><span class="n">pem</span><span class="w"></span>
+<span class="nl">Fingerprint</span><span class="p">:</span><span class="w"> </span><span class="mi">72</span><span class="err">:</span><span class="mi">0</span><span class="nl">c</span><span class="p">:</span><span class="nl">c4</span><span class="p">:</span><span class="mi">6</span><span class="nl">f</span><span class="p">:</span><span class="nl">e3</span><span class="p">:</span><span class="nl">c9</span><span class="p">:</span><span class="mi">32</span><span class="err">:</span><span class="mi">04</span><span class="err">:</span><span class="nl">cc</span><span class="p">:</span><span class="mi">55</span><span class="err">:</span><span class="mi">12</span><span class="err">:</span><span class="nl">ca</span><span class="p">:</span><span class="nl">f9</span><span class="p">:</span><span class="mi">17</span><span class="err">:</span><span class="mi">07</span><span class="err">:</span><span class="mi">52</span><span class="w"></span>
+<span class="n">Config</span><span class="w"> </span><span class="n">written</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">opc</span><span class="o">/</span><span class="p">.</span><span class="n">oci</span><span class="o">/</span><span class="n">config</span><span class="w"></span>
 
-<span class="nv">Enter</span> <span class="nv">a</span> <span class="nv">directory</span> <span class="k">for</span> <span class="nv">your</span> <span class="nv">keys</span> <span class="nv">to</span> <span class="nv">be</span> <span class="nv">created</span> [<span class="o">/</span><span class="nv">home</span><span class="o">/</span><span class="nv">oracle</span><span class="o">/</span>.<span class="nv">oci</span>]:
-<span class="nv">Enter</span> <span class="nv">a</span> <span class="nv">name</span> <span class="k">for</span> <span class="nv">your</span> <span class="nv">key</span> [<span class="nv">oci_api_key</span>]:
-<span class="nv">Public</span> <span class="nv">key</span> <span class="nv">written</span> <span class="nv">to</span>: <span class="o">/</span><span class="nv">home</span><span class="o">/</span><span class="nv">oracle</span><span class="o">/</span>.<span class="nv">oci</span><span class="o">/</span><span class="nv">oci_api_key_public</span>.<span class="nv">pem</span>
-<span class="nv">Enter</span> <span class="nv">a</span> <span class="nv">passphrase</span> <span class="k">for</span> <span class="nv">your</span> <span class="nv">private</span> <span class="nv">key</span> <span class="ss">(</span><span class="nv">empty</span> <span class="k">for</span> <span class="nv">no</span> <span class="nv">passphrase</span><span class="ss">)</span>:
-<span class="nv">Private</span> <span class="nv">key</span> <span class="nv">written</span> <span class="nv">to</span>: <span class="o">/</span><span class="nv">home</span><span class="o">/</span><span class="nv">oracle</span><span class="o">/</span>.<span class="nv">oci</span><span class="o">/</span><span class="nv">oci_api_key</span>.<span class="nv">pem</span>
-<span class="nv">Fingerprint</span>: <span class="mi">41</span>:<span class="nv">ea</span>:<span class="nv">cf</span>:<span class="mi">23</span>:<span class="mi">01</span>:<span class="nv">a2</span>:<span class="nv">bb</span>:<span class="nv">fb</span>:<span class="mi">84</span>:<span class="mi">79</span>:<span class="mi">34</span>:<span class="mi">8</span><span class="nv">e</span>:<span class="nv">fe</span>:<span class="nv">bc</span>:<span class="mi">18</span>:<span class="mi">4</span><span class="nv">f</span>
-<span class="nv">Config</span> <span class="nv">written</span> <span class="nv">to</span> <span class="o">/</span><span class="nv">home</span><span class="o">/</span><span class="nv">oracle</span><span class="o">/</span>.<span class="nv">oci</span><span class="o">/</span><span class="nv">config</span>
+
+<span class="w">    </span><span class="k">If</span><span class="w"> </span><span class="n">you</span><span class="w"> </span><span class="n">haven</span><span class="s1">&#39;t already uploaded your public key through the console,</span>
+<span class="s1">    follow the instructions on the page linked below in the section &#39;</span><span class="n">How</span><span class="w"> </span><span class="k">to</span><span class="w"></span>
+<span class="w">    </span><span class="n">upload</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="k">key</span><span class="err">&#39;:</span><span class="w"></span>
+
+<span class="w">        </span><span class="nl">https</span><span class="p">:</span><span class="o">//</span><span class="n">docs</span><span class="p">.</span><span class="n">cloud</span><span class="p">.</span><span class="n">oracle</span><span class="p">.</span><span class="n">com</span><span class="o">/</span><span class="n">Content</span><span class="o">/</span><span class="n">API</span><span class="o">/</span><span class="n">Concepts</span><span class="o">/</span><span class="n">apisigningkey</span><span class="p">.</span><span class="n">htm#How2</span><span class="w"></span>
 </pre></div>
 
 
 <h5 id="api">API署名キーペアの公開鍵のアップロード<a class="headerlink" href="#api" title="Permanent link">&para;</a></h5>
 <p>OCI CLIセットアップの最後の手順は、先ほど作成した公開鍵のアップロードになります。公開鍵は、(デフォルトから変更していなければ)OCI CLIセットアップ時に<code>/home/oracle/.oci/</code>ディレクトリの<code>oci_api_key_public.pem</code>という名前で作成されています。好みの方法で、公開鍵の内容をクリックボードにコピーしてください。<br />
 OCIコンソールの右上の人型マークをクリックし、ユーザ情報をクリックします。<strong>公開キーの追加</strong>をクリックします。</p>
-<p><img alt="alt text" src="../images/oke/012.user.settings.png" /></p>
+<p><img alt="alt text" src="../images/oke/10.show.user.ocid.1.png" />
+<img alt="alt text" src="../images/oke/12.upload.api.key.1.png" /></p>
 <p>先ほどコピーした<code>oci_api_key_public.pem</code>の内容を<em>公開キー</em>テキストエリアに張り付け、<strong>追加</strong>をクリックします。</p>
-<p><img alt="alt text" src="../images/oke/013.pem.public.png" /></p>
+<p><img alt="alt text" src="../images/oke/12.upload.api.key.2.png" /></p>
 <p>公開鍵がアップロードされ、そのフィンガープリントがリスト上に表示されます。</p>
 <h5 id="kubectl">kubectlの設定<a class="headerlink" href="#kubectl" title="Permanent link">&para;</a></h5>
-<hr />
-<p>Note: kubectlをインストールする必要がある場合は、<a href="https://kubernetes.io/docs/tasks/tools/install-kubectl/">documentation</a>を参照してください。</p>
-<hr />
-<p>CLIセットアップは以上で完了です。続いて<code>kubectl</code>の設定を行うために<strong>開発者サービス</strong>=&gt;<strong>コンテナ・クラスタ(OKE)</strong>をクリックします。<br />
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>kubectlをインストールする必要がある場合は、<a href="https://kubernetes.io/docs/tasks/tools/install-kubectl/">documentation</a>を参照してください。</p>
+</div>
+<p>CLIセットアップは以上で完了です。<br />
+続いて<code>kubectl</code>の設定を行うために<strong>開発者サービス</strong>=&gt;<strong>コンテナ・クラスタ(OKE)</strong>をクリックします。<br />
 作成したクラスタを選択し、クラスタの詳細ページに遷移します。</p>
-<p><img alt="alt text" src="../images/oke/014.back.to.cluster.details.png" /></p>
+<p><img alt="alt text" src="../images/oke/07.open.oke.menu.png" /></p>
 <p><strong>Access Kubenetes Dashboard</strong>をクリックし、<strong>kubeconfigへのアクセス</strong>をクリックします。</p>
-<p><img alt="alt text" src="../images/oke/015.access.kubeconfig.png" /></p>
+<p><img alt="alt text" src="../images/oke/13.cluster.detail.png" /></p>
 <p>Kubernetes設定ファイルを作成するためのCLIコマンドを含んだダイアログポップアップが表示されます。</p>
-<p><img alt="alt text" src="../images/oke/016.oci.cluster.download.script.png" /></p>
-<p>Kubernetes設定ファイルを作成するためのCLIコマンドをコピーし、実行します。以下に例を示します。</p>
+<p><img alt="alt text" src="../images/oke/14.access.kubeconfig.png" /></p>
+<p>Kubernetes設定ファイルを作成するためのCLIコマンド(上の画像の赤枠部分)をコピーし、実行します。以下に例を示します。</p>
 <div class="codehilite"><pre><span></span>$ mkdir -p <span class="nv">$HOME</span>/.kube
 $ oci ce cluster create-kubeconfig --cluster-id ocid1.cluster.oc1.eu-frankfurt-1.aaaaaaaaaezwenlfgm4gkmzxha2tamtcgjqwmoldmu3tcnlfgc2tcyzzmrqw --file <span class="nv">$HOME</span>/.kube/config --region eu-frankfurt-1
 </pre></div>
 
 
-<p>Note! <code>kubectl</code>はデフォルトで<code>$HOME/.kube/config</code>で設定ファイルを読み込もうとします。異なるディレクトリでKubernetes設定ファイルを設定したい場合は、環境変数<code>KUBECOINFIG</code>を設定することを忘れないでください。以下に例を示します。</p>
-<div class="codehilite"><pre><span></span><span class="n">export</span> <span class="n">KUBECONFIG</span><span class="o">=</span><span class="n">another_folder_path</span><span class="o">/</span><span class="n">kubernetes_config_file_name</span>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><code>kubectl</code>はデフォルトで<code>$HOME/.kube/config</code>で設定ファイルを読み込もうとします。異なるディレクトリでKubernetes設定ファイルを設定したい場合は、環境変数<code>KUBECOINFIG</code>を設定することを忘れないでください。<br />
+以下に例を示します。</p>
+<div class="codehilite"><pre><span></span><span class="err">export KUBECONFIG=another_folder_path/kubernetes_config_file_name</span>
 </pre></div>
 
 
+</div>
 <p><code>kubectl</code>が動作することを確認しましょう。例として、今回は<code>get node</code>コマンドを使用します。</p>
 <div class="codehilite"><pre><span></span>$ kubectl get node
 NAME            STATUS    ROLES     AGE       VERSION
 <span class="m">130</span>.61.58.206   Ready     node      16m       v1.11.5
 <span class="m">130</span>.61.60.127   Ready     node      16m       v1.11.5
-<span class="m">130</span>.61.72.48    Ready     node      16m       v1.11.5
 </pre></div>
 
 
-<p>nodeの情報が確認できたら、成功です。NAMEカラムにはルーティング不可のIPアドレスが含まれます。</p>
+<p>nodeの情報が確認できたら、成功です。NAMEカラムにはCluster内でのみ利用可能なIPアドレス(Cluster IP)が表示されます。</p>
 <h5 id="okerbac">OKEクラスタへのRBACポリシーの作成<a class="headerlink" href="#okerbac" title="Permanent link">&para;</a></h5>
 <p>Kubernetes clusterへのアクセスを許可するためにOracle Container Engine for Kubernetes上のクラスタ管理者としてのOCIアカウントを認可する必要があります。
 これには、OCI CLIセットアップ時に使用したuser OCIDが必要になります。(OCIコンソールの右上にある人型マークをクリックし、ユーザ名をクリックすると表示されるユーザ情報で確認できます)</p>
-<p>user OCIDを利用してrole bindingコマンドを実行します。</p>
-<div class="codehilite"><pre><span></span><span class="n">kubectl</span> <span class="k">create</span> <span class="n">clusterrolebinding</span> <span class="n">my</span><span class="o">-</span><span class="k">cluster</span><span class="o">-</span><span class="k">admin</span><span class="o">-</span><span class="n">binding</span> <span class="c1">--clusterrole=cluster-admin --user=&lt;YOUR_USER_OCID&gt;</span>
+<p>user OCIDを利用してcluster role bindingコマンドを実行します。</p>
+<div class="codehilite"><pre><span></span><span class="err">kubectl create clusterrolebinding my-cluster-admin-binding --clusterrole=cluster-admin --user=&lt;YOUR_USER_OCID&gt;</span>
 </pre></div>
 
 
-<p>以下に例を示します。:</p>
+<p>以下のように表示されます。:</p>
 <div class="codehilite"><pre><span></span>$ kubectl create clusterrolebinding my-cluster-admin-binding --clusterrole<span class="o">=</span>cluster-admin --user<span class="o">=</span>ocid1.user.oc1..aaaaaaaa724gophmrcxxrzg3utunh3rg5ieeyyrwuqfetixdb3mhzesxmdbq
 clusterrolebinding <span class="s2">&quot;my-cluster-admin-binding&quot;</span> created
 </pre></div>
 
 
-<p>おめでとうございます。これで、WebLogicドメインをデプロイするためのOKE環境の準備が整いました。</p>
+<p>以上で、WebLogicドメインをデプロイするためのOKE環境の準備が整いました。</p>
+<p>続いて、<a href="../install.operator/">WebLogic Operatorのインストール</a>に進んでください。</p>
                 
                   
                 
@@ -906,7 +999,7 @@ clusterrolebinding <span class="s2">&quot;my-cluster-admin-binding&quot;</span> 
       
     </div>
     
-      <script src="../../../../assets/javascripts/application.ac79c3b0.js"></script>
+      <script src="../../../../assets/javascripts/application.a8b5e56f.js"></script>
       
         
         

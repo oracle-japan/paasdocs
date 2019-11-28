@@ -32,7 +32,7 @@
         <meta name="lang:search.tokenizer" content="[\s\-　、。，．]+">
       
       <link rel="shortcut icon" href="../../../../assets/images/cloud_46@2x.png">
-      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.4.3">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.5.0">
     
     
       
@@ -40,7 +40,7 @@
       
     
     
-      <link rel="stylesheet" href="../../../../assets/stylesheets/application.30686662.css">
+      <link rel="stylesheet" href="../../../../assets/stylesheets/application.1b62728e.css">
       
         <link rel="stylesheet" href="../../../../assets/stylesheets/application-palette.a8b3c06d.css">
       
@@ -51,7 +51,7 @@
       
     
     
-      <script src="../../../../assets/javascripts/modernizr.74668098.js"></script>
+      <script src="../../../../assets/javascripts/modernizr.268332fc.js"></script>
     
     
       
@@ -217,6 +217,19 @@
       
         <a href="../../../faas/" class="md-tabs__link">
           FaaS
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../" class="md-tabs__link">
+          WebLogic Operator
         </a>
       
     </li>
@@ -554,6 +567,54 @@
   </li>
 
     
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+    
+    <label class="md-nav__link" for="nav-4">
+      WebLogic Operator
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        WebLogic Operator
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../" title="WebLogic Operatorのホーム" class="md-nav__link">
+      WebLogic Operatorのホーム
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../domain.home.in.image_short/" title="ビギナー向けチュートリアル" class="md-nav__link">
+      ビギナー向けチュートリアル
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
   </ul>
 </nav>
                   </div>
@@ -575,8 +636,8 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    ドメイン設定を上書きする
+  <a href="#jdbc-datasource-parameters" class="md-nav__link">
+    JDBC Datasource parametersのオーバーライド
   </a>
   
     <nav class="md-nav">
@@ -619,7 +680,7 @@
                 
                 
                 <h1 id="oracle-weblogic-operator">Oracle WebLogic Operator チュートリアル<a class="headerlink" href="#oracle-weblogic-operator" title="Permanent link">&para;</a></h1>
-<h3 id="_1">ドメイン設定を上書きする<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
+<h3 id="jdbc-datasource-parameters">JDBC Datasource parametersのオーバーライド<a class="headerlink" href="#jdbc-datasource-parameters" title="Permanent link">&para;</a></h3>
 <p>ドメインリソースをデプロイする前に、「永続ボリュームのドメイン」オプションと「イメージのドメイン」オプションの両方のWebLogicドメイン構成を変更できます:</p>
 <ul>
 <li>ドメインが永続ボリュームにある場合、WLSTまたはWDTを使用して構成を変更できます。</li>
@@ -629,11 +690,12 @@
 <p>オーバーライドを使用してドメインをカスタマイズできます。例えば、QAから実稼働に移動したり、異なるサイトに展開したり、同じサイトに複数回展開したりすることができます。</p>
 <p>オーバーライドは、「構成のオーバーライド」と呼ばれる組み込みのWebLogic機能を活用します。これは、「状況構成」と呼ばれることがよくあります。状況構成は、WebLogicのconfig.xmlおよびシステムリソースモジュールのXMLファイルの構造によく似たXML形式のファイルで構成されます。さらに、これらのファイルの属性フィールドには、動詞の追加、置換、削除を埋め込んで、フィールドに必要なオーバーライドアクションを指定できます。</p>
 <p>詳細については<a href="https://github.com/oracle/weblogic-kubernetes-operator/blob/2.0/site/config-overrides.md">こちら</a>をご確認ください。</p>
+<p><img alt="" src="../images/image_6.png" /></p>
 <h4 id="jdbc">JDBCオーバーライドの準備<a class="headerlink" href="#jdbc" title="Permanent link">&para;</a></h4>
 <p>オペレーターは、オーバーライドテンプレート用に別のファイル名でなければなりません。JDBCの場合、<code>jdbc-MODULENAME.xml</code>である必要があります。 MODULENAMEは、元の<code>config.xml</code>ファイルで定義されたシステムリソースのMBean名に対応する必要があります。</p>
 <p>Oracle Pipelinesを使用して作成したカスタムWebLogicイメージには、<em>testDatasource</em>というJDBCデータソースがあります。したがって、<em>jdbc-testDatasource.xml</em>という名前のテンプレートを作成する必要があります。
 必要なファイルを作成する前に、まず、状況対応のJDBC設定テンプレートと <code>version.txt</code>ファイルのみを含むディレクトリを作成します。</p>
-<div class="codehilite"><pre><span></span><span class="n">mkdir</span> <span class="o">-</span><span class="n">p</span> <span class="o">/</span><span class="n">u01</span><span class="o">/</span><span class="n">override</span>
+<div class="codehilite"><pre><span></span><span class="err">mkdir -p /u01/override</span>
 </pre></div>
 
 
@@ -658,17 +720,20 @@ EOF
 </pre></div>
 
 
-<p>注意! このテンプレートには、JDBCユーザー名とURLパラメーターをオーバーライドするマクロが含まれています。この値はKubernetesシークレットから参照されたものです。</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>このテンプレートには、JDBCユーザー名とURLパラメーターをオーバーライドするマクロが含まれています。この値はKubernetesシークレットから参照されたものです。</p>
+</div>
 <p>次に、演算子のバージョンを反映する<em>version.txt</em>を作成します。</p>
-<div class="codehilite"><pre><span></span><span class="n">cat</span> <span class="o">&gt;</span> <span class="o">/</span><span class="n">u01</span><span class="o">/</span><span class="n">override</span><span class="o">/</span><span class="k">version</span><span class="p">.</span><span class="n">txt</span> <span class="o">&lt;&lt;</span><span class="n">EOF</span>
-<span class="mi">2</span><span class="p">.</span><span class="mi">0</span>
-<span class="n">EOF</span>
+<div class="codehilite"><pre><span></span><span class="err">cat &gt; /u01/override/version.txt &lt;&lt;EOF</span>
+<span class="err">2.0</span>
+<span class="err">EOF</span>
 </pre></div>
 
 
 <p>次にテンプレートとバージョンファイルのディレクトリからKubernetes構成マップ（<em>jdbccm</em>）を作成します。</p>
-<div class="codehilite"><pre><span></span><span class="n">kubectl</span> <span class="o">-</span><span class="n">n</span> <span class="n">sample</span><span class="o">-</span><span class="n">domain1</span><span class="o">-</span><span class="n">ns</span> <span class="k">create</span> <span class="n">cm</span> <span class="n">jdbccm</span> <span class="c1">--from-file /u01/override</span>
-<span class="n">kubectl</span> <span class="o">-</span><span class="n">n</span> <span class="n">sample</span><span class="o">-</span><span class="n">domain1</span><span class="o">-</span><span class="n">ns</span> <span class="n">label</span> <span class="n">cm</span> <span class="n">jdbccm</span> <span class="n">weblogic</span><span class="p">.</span><span class="n">domainUID</span><span class="o">=</span><span class="n">sample</span><span class="o">-</span><span class="n">domain1</span>
+<div class="codehilite"><pre><span></span><span class="err">kubectl -n sample-domain1-ns create cm jdbccm --from-file /u01/override</span>
+<span class="err">kubectl -n sample-domain1-ns label cm jdbccm weblogic.domainUID=sample-domain1</span>
 </pre></div>
 
 
@@ -710,8 +775,8 @@ Events:  <span class="nt">&lt;none&gt;</span>
 
 <p>最後に、JDBCユーザー名とURLパラメーターの値を含むシークレットを作成する必要があります。
 シークレットを作成するには、次の<code>kubectl</code>コマンドを実行します:</p>
-<div class="codehilite"><pre><span></span><span class="n">kubectl</span><span class="w"> </span><span class="o">-</span><span class="n">n</span><span class="w"> </span><span class="n">sample</span><span class="o">-</span><span class="n">domain1</span><span class="o">-</span><span class="n">ns</span><span class="w"> </span><span class="k">create</span><span class="w"> </span><span class="n">secret</span><span class="w"> </span><span class="n">generic</span><span class="w"> </span><span class="n">dbsecret</span><span class="w"> </span><span class="c1">--from-literal=username=scott2 --from-literal=url=jdbc:oracle:thin:@test.db.example.com:1521/ORCLCDB</span>
-<span class="n">kubectl</span><span class="w"> </span><span class="o">-</span><span class="n">n</span><span class="w"> </span><span class="n">sample</span><span class="o">-</span><span class="n">domain1</span><span class="o">-</span><span class="n">ns</span><span class="w"> </span><span class="n">label</span><span class="w"> </span><span class="n">secret</span><span class="w"> </span><span class="n">dbsecret</span><span class="w"> </span><span class="n">weblogic</span><span class="p">.</span><span class="n">domainUID</span><span class="o">=</span><span class="n">sample</span><span class="o">-</span><span class="n">domain1</span><span class="w"></span>
+<div class="codehilite"><pre><span></span><span class="err">kubectl -n sample-domain1-ns create secret generic dbsecret --from-literal=username=scott2 --from-literal=url=jdbc:oracle:thin:@test.db.example.com:1521/ORCLCDB</span>
+<span class="err">kubectl -n sample-domain1-ns label secret dbsecret weblogic.domainUID=sample-domain1</span>
 </pre></div>
 
 
@@ -741,7 +806,7 @@ Events:  <span class="nt">&lt;none&gt;</span>
 <p>変更を適用します:</p>
 </li>
 </ol>
-<div class="codehilite"><pre><span></span><span class="n">kubectl</span> <span class="n">apply</span> <span class="o">-</span><span class="n">f</span> <span class="o">/</span><span class="n">u01</span><span class="o">/</span><span class="k">domain</span><span class="p">.</span><span class="n">yaml</span>
+<div class="codehilite"><pre><span></span><span class="err">kubectl apply -f /u01/domain.yaml</span>
 </pre></div>
 
 
@@ -764,7 +829,7 @@ No resources found.
 <p>変更を適用します:</p>
 </li>
 </ol>
-<div class="codehilite"><pre><span></span><span class="n">kubectl</span> <span class="n">apply</span> <span class="o">-</span><span class="n">f</span> <span class="o">/</span><span class="n">u01</span><span class="o">/</span><span class="k">domain</span><span class="p">.</span><span class="n">yaml</span>
+<div class="codehilite"><pre><span></span><span class="err">kubectl apply -f /u01/domain.yaml</span>
 </pre></div>
 
 
@@ -779,9 +844,12 @@ sample-domain1-managed-server1   <span class="m">1</span>/1       Running   <spa
 <p>デモWebアプリケーションを使用して、JDBCデータソースを再度確認します:</p>
 <p><code>http://EXTERNAL-IP/opdemo/?dsname=testDatasource</code></p>
 <p><img alt="" src="../images/override/updated.jdbc.properties.png" /></p>
-<p>次の変更を確認することができます:
-- <strong>Database User</strong>: scott2
-- <strong>Database URL</strong>: jdbc:oracle:thin:@test.db.example.com:1521/ORCLCDB</p>
+<p>次の変更を確認することができます:</p>
+<ul>
+<li><strong>Database User</strong>: scott2</li>
+<li><strong>Database URL</strong>: jdbc:oracle:thin:@test.db.example.com:1521/ORCLCDB</li>
+</ul>
+<p>続いて、<a href="../update.application_short/">ローリングアップデートによるデプロイ済みアプリケーションの更新</a>に進んでください。</p>
                 
                   
                 
@@ -827,7 +895,7 @@ sample-domain1-managed-server1   <span class="m">1</span>/1       Running   <spa
       
     </div>
     
-      <script src="../../../../assets/javascripts/application.ac79c3b0.js"></script>
+      <script src="../../../../assets/javascripts/application.a8b5e56f.js"></script>
       
         
         

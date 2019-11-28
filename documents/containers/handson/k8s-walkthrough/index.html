@@ -32,7 +32,7 @@
         <meta name="lang:search.tokenizer" content="[\s\-　、。，．]+">
       
       <link rel="shortcut icon" href="../../../../assets/images/cloud_46@2x.png">
-      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.4.3">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.5.0">
     
     
       
@@ -40,7 +40,7 @@
       
     
     
-      <link rel="stylesheet" href="../../../../assets/stylesheets/application.30686662.css">
+      <link rel="stylesheet" href="../../../../assets/stylesheets/application.1b62728e.css">
       
         <link rel="stylesheet" href="../../../../assets/stylesheets/application-palette.a8b3c06d.css">
       
@@ -51,7 +51,7 @@
       
     
     
-      <script src="../../../../assets/javascripts/modernizr.74668098.js"></script>
+      <script src="../../../../assets/javascripts/modernizr.268332fc.js"></script>
     
     
       
@@ -219,6 +219,19 @@
       
         <a href="../../../faas/" class="md-tabs__link">
           FaaS
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../../weblogic-operator/" class="md-tabs__link">
+          WebLogic Operator
         </a>
       
     </li>
@@ -673,6 +686,54 @@
   </li>
 
     
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+    
+    <label class="md-nav__link" for="nav-4">
+      WebLogic Operator
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        WebLogic Operator
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../weblogic-operator/" title="WebLogic Operatorのホーム" class="md-nav__link">
+      WebLogic Operatorのホーム
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../weblogic-operator/tutorials/domain.home.in.image_short/" title="ビギナー向けチュートリアル" class="md-nav__link">
+      ビギナー向けチュートリアル
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
   </ul>
 </nav>
                   </div>
@@ -833,30 +894,30 @@
 <p>これにより、クリップボードにURLがコピーされます。</p>
 <p><img alt="" src="images/2.3.PNG" /></p>
 <p>Linuxのコンソールから、以下のコマンドを実行してソースコードをCloneします。</p>
-<div class="codehilite"><pre><span></span><span class="n">git</span> <span class="n">clone</span> <span class="p">[</span><span class="err">コピーしたリポジトリの</span><span class="n">URL</span><span class="p">]</span>
+<div class="codehilite"><pre><span></span><span class="err">git clone [コピーしたリポジトリのURL]</span>
 </pre></div>
 
 
 <p>続いて、Cloneしてできたディレクトリをカレントディレクトリにしておきます。</p>
-<div class="codehilite"><pre><span></span><span class="nv">cd</span> <span class="nv">cowweb</span><span class="o">-</span><span class="k">for</span><span class="o">-</span><span class="nv">wercker</span><span class="o">-</span><span class="nv">demo</span>
+<div class="codehilite"><pre><span></span><span class="err">cd cowweb-for-wercker-demo</span>
 </pre></div>
 
 
 <h3 id="13">1.3. コンテナイメージを作る<a class="headerlink" href="#13" title="Permanent link">&para;</a></h3>
 <p>コンテナイメージは、Dockerfileと呼ばれるコンテナの構成を記述したファイルによって、その内容が定義されます。</p>
 <p>サンプルアプリケーションのコードには作成済みのDockerfileが含まれていますので、その内容を確認してみます。以下のコマンドを実行してください。</p>
-<div class="codehilite"><pre><span></span><span class="n">cat</span> <span class="n">Dockerfile</span>
+<div class="codehilite"><pre><span></span><span class="err">cat Dockerfile</span>
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span><span class="k">FROM</span><span class="s"> gradle:jdk8-alpine as builder</span>
+<div class="codehilite"><pre><span></span><span class="k">FROM</span> <span class="s">gradle:jdk8-alpine</span> <span class="k">as</span> <span class="s">builder</span>
 
 <span class="k">COPY</span> --chown<span class="o">=</span>gradle:gradle ./build.gradle /home/gradle/
 <span class="k">COPY</span> --chown<span class="o">=</span>gradle:gradle ./settings.gradle /home/gradle/
 <span class="k">COPY</span> --chown<span class="o">=</span>gradle:gradle ./src /home/gradle/src
 <span class="k">RUN</span> gradle build -Pbuilddir<span class="o">=</span>build
 
-<span class="k">FROM</span><span class="s"> java:8-jre-alpine</span>
+<span class="k">FROM</span> <span class="s">java:8-jre-alpine</span>
 
 <span class="k">RUN</span> addgroup -S -g <span class="m">1000</span> app <span class="se">\</span>
     <span class="o">&amp;&amp;</span> adduser -D -S -G app -u <span class="m">1000</span> -s /bin/ash app
@@ -870,53 +931,53 @@
 <p>Dockerfileの内容を見ると、FROMで始まる行が2つあることがわかります。最初のFROMから始まる数行は、jdk8がインストールされたコンテナイメージ内にサンプルアプリケーションのコードをコピーし、さらに<code>gradle build</code>を実行してアプリをビルドしています。</p>
 <p>次のFROMから続く一連の処理は、jreがインストールされたイメージを基に、アプリの実行ユーザーの作成、ビルドしてできたjarファイルのコピー、コンテナ起動時に実行するコマンドの設定などを行っています。</p>
 <p>それではこのDockerfileを使ってコンテナイメージを作成します。以下のコマンドを実行してください。</p>
-<div class="codehilite"><pre><span></span><span class="n">docker</span> <span class="n">build</span> <span class="o">-</span><span class="n">t</span> <span class="p">[</span><span class="err">リポジトリ名</span><span class="p">]</span><span class="o">/</span><span class="n">cowweb</span><span class="p">:</span><span class="n">v1</span><span class="p">.</span><span class="mi">0</span> <span class="p">.</span>
+<div class="codehilite"><pre><span></span><span class="err">docker build -t [リポジトリ名]/cowweb:v1.0 .</span>
 </pre></div>
 
 
 <p>このコマンドにおいて<code>リポジトリ名</code>には任意の文字列を指定できますが、通常はプロジェクト名やユーザー名などを小文字にしたものを指定します。例えば、以下のようなコマンドになります。</p>
-<div class="codehilite"><pre><span></span><span class="n">docker</span> <span class="n">build</span> <span class="o">-</span><span class="n">t</span> <span class="n">handson</span><span class="o">-</span><span class="mi">001</span><span class="o">/</span><span class="n">cowweb</span><span class="p">:</span><span class="n">v1</span><span class="p">.</span><span class="mi">0</span> <span class="p">.</span>
+<div class="codehilite"><pre><span></span><span class="err">docker build -t handson-001/cowweb:v1.0 .</span>
 </pre></div>
 
 
 <p>以下のように、<code>Successfully tagged</code>のメッセージで処理が終了していれば、イメージのビルドは完了です。</p>
-<div class="codehilite"><pre><span></span><span class="nv">Step</span> <span class="mi">1</span><span class="o">/</span><span class="mi">11</span> : <span class="nv">FROM</span> <span class="nv">gradle</span>:<span class="nv">jdk8</span><span class="o">-</span><span class="nv">alpine</span> <span class="nv">as</span> <span class="nv">builder</span>
-<span class="nv">jdk8</span><span class="o">-</span><span class="nv">alpine</span>: <span class="nv">Pulling</span> <span class="nv">from</span> <span class="nv">library</span><span class="o">/</span><span class="nv">gradle</span>
-<span class="mi">4</span><span class="nv">fe2ade4980c</span>: <span class="nv">Pull</span> <span class="nv">complete</span>
-<span class="mi">6</span><span class="nv">fc58a8d4ae4</span>: <span class="nv">Pull</span> <span class="nv">complete</span>
-<span class="nv">fe815adf554b</span>: <span class="nv">Pull</span> <span class="nv">complete</span>
-<span class="mi">56691</span><span class="nv">be5f8bb</span>: <span class="nv">Pull</span> <span class="nv">complete</span>
-<span class="nv">e7261ab32035</span>: <span class="nv">Pull</span> <span class="nv">complete</span>
-<span class="nv">Digest</span>: <span class="nv">sha256</span>:<span class="mi">478</span><span class="nv">f17890f1ac719c37d9e1aa20d22b9cc45ae5b8ae0604f32cf1437a1cdfcca</span>
-<span class="nv">Status</span>: <span class="nv">Downloaded</span> <span class="nv">newer</span> <span class="nv">image</span> <span class="k">for</span> <span class="nv">gradle</span>:<span class="nv">jdk8</span><span class="o">-</span><span class="nv">alpine</span>
- <span class="o">---&gt;</span> <span class="mi">45</span><span class="nv">b2b256d130</span>
-<span class="nv">Step</span> <span class="mi">2</span><span class="o">/</span><span class="mi">11</span> : <span class="nv">COPY</span> <span class="o">--</span><span class="nv">chown</span><span class="o">=</span><span class="nv">gradle</span>:<span class="nv">gradle</span> .<span class="o">/</span><span class="nv">build</span>.<span class="nv">gradle</span> <span class="o">/</span><span class="nv">home</span><span class="o">/</span><span class="nv">gradle</span><span class="o">/</span>
- <span class="o">---&gt;</span> <span class="mi">4</span><span class="nv">c633cdbbb40</span>
+<div class="codehilite"><pre><span></span><span class="n">Step</span> <span class="mi">1</span><span class="o">/</span><span class="mi">11</span> <span class="p">:</span> <span class="k">FROM</span> <span class="n">gradle</span><span class="p">:</span><span class="n">jdk8</span><span class="o">-</span><span class="n">alpine</span> <span class="k">as</span> <span class="n">builder</span>
+<span class="n">jdk8</span><span class="o">-</span><span class="n">alpine</span><span class="p">:</span> <span class="n">Pulling</span> <span class="k">from</span> <span class="n">library</span><span class="o">/</span><span class="n">gradle</span>
+<span class="mi">4</span><span class="n">fe2ade4980c</span><span class="p">:</span> <span class="n">Pull</span> <span class="n">complete</span>
+<span class="mi">6</span><span class="n">fc58a8d4ae4</span><span class="p">:</span> <span class="n">Pull</span> <span class="n">complete</span>
+<span class="n">fe815adf554b</span><span class="p">:</span> <span class="n">Pull</span> <span class="n">complete</span>
+<span class="mi">56691</span><span class="n">be5f8bb</span><span class="p">:</span> <span class="n">Pull</span> <span class="n">complete</span>
+<span class="n">e7261ab32035</span><span class="p">:</span> <span class="n">Pull</span> <span class="n">complete</span>
+<span class="n">Digest</span><span class="p">:</span> <span class="n">sha256</span><span class="p">:</span><span class="mi">478</span><span class="n">f17890f1ac719c37d9e1aa20d22b9cc45ae5b8ae0604f32cf1437a1cdfcca</span>
+<span class="n">Status</span><span class="p">:</span> <span class="n">Downloaded</span> <span class="n">newer</span> <span class="n">image</span> <span class="k">for</span> <span class="n">gradle</span><span class="p">:</span><span class="n">jdk8</span><span class="o">-</span><span class="n">alpine</span>
+ <span class="c1">---&gt; 45b2b256d130</span>
+<span class="n">Step</span> <span class="mi">2</span><span class="o">/</span><span class="mi">11</span> <span class="p">:</span> <span class="k">COPY</span> <span class="c1">--chown=gradle:gradle ./build.gradle /home/gradle/</span>
+ <span class="c1">---&gt; 4c633cdbbb40</span>
 
-...（中略）...
+<span class="p">...</span><span class="err">（中略）</span><span class="p">...</span>
 
-<span class="nv">Step</span> <span class="mi">10</span><span class="o">/</span><span class="mi">11</span> : <span class="nv">COPY</span> <span class="o">--</span><span class="nv">from</span><span class="o">=</span><span class="nv">builder</span> <span class="o">--</span><span class="nv">chown</span><span class="o">=</span><span class="nv">app</span>:<span class="nv">app</span> <span class="o">/</span><span class="nv">home</span><span class="o">/</span><span class="nv">gradle</span><span class="o">/</span><span class="nv">build</span><span class="o">/</span><span class="nv">libs</span><span class="o">/</span><span class="nv">cowweb</span><span class="o">-</span><span class="mi">0</span>.<span class="mi">1</span>.<span class="nv">jar</span> .
- <span class="o">---&gt;</span> <span class="nv">fc5c4137a0e7</span>
-<span class="nv">Step</span> <span class="mi">11</span><span class="o">/</span><span class="mi">11</span> : <span class="nv">CMD</span> [<span class="s2">&quot;</span><span class="s">java</span><span class="s2">&quot;</span>, <span class="s2">&quot;</span><span class="s">-jar</span><span class="s2">&quot;</span>, <span class="s2">&quot;</span><span class="s">/home/app/cowweb-1.0.jar</span><span class="s2">&quot;</span>]
- <span class="o">---&gt;</span> <span class="nv">Running</span> <span class="nv">in</span> <span class="nv">aed12b404339</span>
-<span class="nv">Removing</span> <span class="nv">intermediate</span> <span class="nv">container</span> <span class="nv">aed12b404339</span>
- <span class="o">---&gt;</span> <span class="nv">fe2f2527b8d4</span>
-<span class="nv">Successfully</span> <span class="nv">built</span> <span class="nv">fe2f2527b8d4</span>
-<span class="nv">Successfully</span> <span class="nv">tagged</span> <span class="nv">handson</span><span class="o">-</span><span class="mi">001</span><span class="o">/</span><span class="nv">cowweb</span>:<span class="nv">v1</span>.<span class="mi">0</span>
+<span class="n">Step</span> <span class="mi">10</span><span class="o">/</span><span class="mi">11</span> <span class="p">:</span> <span class="k">COPY</span> <span class="c1">--from=builder --chown=app:app /home/gradle/build/libs/cowweb-0.1.jar .</span>
+ <span class="c1">---&gt; fc5c4137a0e7</span>
+<span class="n">Step</span> <span class="mi">11</span><span class="o">/</span><span class="mi">11</span> <span class="p">:</span> <span class="n">CMD</span> <span class="p">[</span><span class="ss">&quot;java&quot;</span><span class="p">,</span> <span class="ss">&quot;-jar&quot;</span><span class="p">,</span> <span class="ss">&quot;/home/app/cowweb-1.0.jar&quot;</span><span class="p">]</span>
+ <span class="c1">---&gt; Running in aed12b404339</span>
+<span class="n">Removing</span> <span class="n">intermediate</span> <span class="n">container</span> <span class="n">aed12b404339</span>
+ <span class="c1">---&gt; fe2f2527b8d4</span>
+<span class="n">Successfully</span> <span class="n">built</span> <span class="n">fe2f2527b8d4</span>
+<span class="n">Successfully</span> <span class="n">tagged</span> <span class="n">handson</span><span class="o">-</span><span class="mi">001</span><span class="o">/</span><span class="n">cowweb</span><span class="p">:</span><span class="n">v1</span><span class="p">.</span><span class="mi">0</span>
 </pre></div>
 
 
 <p>実際にビルドされたイメージは、<code>docker image ls</code>コマンドで確認することができます。</p>
-<div class="codehilite"><pre><span></span><span class="n">docker</span> <span class="n">image</span> <span class="n">ls</span>
+<div class="codehilite"><pre><span></span><span class="err">docker image ls</span>
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span><span class="n">REPOSITORY</span>          <span class="n">TAG</span>                 <span class="n">IMAGE</span> <span class="n">ID</span>            <span class="n">CREATED</span>             <span class="k">SIZE</span>
-<span class="n">handson</span><span class="o">-</span><span class="mi">001</span><span class="o">/</span><span class="n">cowweb</span>  <span class="n">v1</span><span class="p">.</span><span class="mi">0</span>                <span class="n">fe2f2527b8d4</span>        <span class="mi">2</span> <span class="n">minutes</span> <span class="n">ago</span>       <span class="mi">128</span><span class="n">MB</span>
-<span class="o">&lt;</span><span class="k">none</span><span class="o">&gt;</span>              <span class="o">&lt;</span><span class="k">none</span><span class="o">&gt;</span>              <span class="mi">088473</span><span class="n">d4c42c</span>        <span class="mi">2</span> <span class="n">minutes</span> <span class="n">ago</span>       <span class="mi">212</span><span class="n">MB</span>
-<span class="n">gradle</span>              <span class="n">jdk8</span><span class="o">-</span><span class="n">alpine</span>         <span class="mi">45</span><span class="n">b2b256d130</span>        <span class="mi">3</span> <span class="n">weeks</span> <span class="n">ago</span>         <span class="mi">191</span><span class="n">MB</span>
-<span class="n">hello</span><span class="o">-</span><span class="n">world</span>         <span class="n">latest</span>              <span class="mi">4</span><span class="n">ab4c602aa5e</span>        <span class="mi">5</span> <span class="n">weeks</span> <span class="n">ago</span>         <span class="mi">1</span><span class="p">.</span><span class="mi">84</span><span class="n">kB</span>
-<span class="n">java</span>                <span class="mi">8</span><span class="o">-</span><span class="n">jre</span><span class="o">-</span><span class="n">alpine</span>        <span class="n">fdc893b19a14</span>        <span class="mi">19</span> <span class="n">months</span> <span class="n">ago</span>       <span class="mi">108</span><span class="n">MB</span>
+<div class="codehilite"><pre><span></span><span class="err">REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE</span>
+<span class="err">handson-001/cowweb  v1.0                fe2f2527b8d4        2 minutes ago       128MB</span>
+<span class="err">&lt;none&gt;              &lt;none&gt;              088473d4c42c        2 minutes ago       212MB</span>
+<span class="err">gradle              jdk8-alpine         45b2b256d130        3 weeks ago         191MB</span>
+<span class="err">hello-world         latest              4ab4c602aa5e        5 weeks ago         1.84kB</span>
+<span class="err">java                8-jre-alpine        fdc893b19a14        19 months ago       108MB</span>
 </pre></div>
 
 
@@ -1004,12 +1065,12 @@
 <p>!! note
     オブジェクト・ストレージ・ネームスペースはテナントに対し1つ割り当てられます。リージョン内のすべてのコンパートメントにまたがり使用されます。任意の文字列が設定され、変更することはできません。</p>
 <p>次に、以下のコマンドでOCIRにログインします。</p>
-<div class="codehilite"><pre><span></span><span class="n">docker</span> <span class="n">login</span> <span class="p">[</span><span class="err">リージョンコード</span><span class="p">].</span><span class="n">ocir</span><span class="p">.</span><span class="n">io</span>
+<div class="codehilite"><pre><span></span><span class="err">docker login [リージョンコード].ocir.io</span>
 </pre></div>
 
 
 <p>例えば、東京リージョン(nrt)をご利用の場合は、以下のコマンドでログインします。</p>
-<div class="codehilite"><pre><span></span><span class="n">docker</span> <span class="n">login</span> <span class="n">nrt</span><span class="p">.</span><span class="n">ocir</span><span class="p">.</span><span class="n">io</span>
+<div class="codehilite"><pre><span></span><span class="err">docker login nrt.ocir.io</span>
 </pre></div>
 
 
@@ -1030,35 +1091,35 @@
 
 
 <p>続いて、OCIRの形式に合わせてコンテナイメージのタグを更新します。<code>docker tag</code>コマンドを実行してくさい。</p>
-<div class="codehilite"><pre><span></span><span class="n">docker</span> <span class="n">tag</span> <span class="p">[</span><span class="err">リポジトリ名</span><span class="p">]</span><span class="o">/</span><span class="n">cowweb</span><span class="p">:</span><span class="n">v1</span><span class="p">.</span><span class="mi">0</span> <span class="p">[</span><span class="err">リージョンコード</span><span class="p">].</span><span class="n">ocir</span><span class="p">.</span><span class="n">io</span><span class="o">/</span><span class="err">オブジェクト・ストレージ・ネームスペース</span><span class="p">]</span><span class="o">/</span><span class="p">[</span><span class="err">リポジトリ名</span><span class="p">]</span><span class="o">/</span><span class="n">cowweb</span><span class="p">:</span><span class="n">v1</span><span class="p">.</span><span class="mi">0</span>
+<div class="codehilite"><pre><span></span><span class="err">docker tag [リポジトリ名]/cowweb:v1.0 [リージョンコード].ocir.io/オブジェクト・ストレージ・ネームスペース]/[リポジトリ名]/cowweb:v1.0</span>
 </pre></div>
 
 
 <p>[リージョンコード]と[オブジェクト・ストレージ・ネームスペース]は、これまでの手順で指定したものと同じものを指定します。リポジトリ名には<code>docker build</code>のときにしてしたものと同じ文字列を指定してください。</p>
 <p>例えば、以下のように指定します。</p>
-<div class="codehilite"><pre><span></span><span class="n">docker</span> <span class="n">tag</span> <span class="n">handson</span><span class="o">-</span><span class="mi">001</span><span class="o">/</span><span class="n">cowweb</span><span class="p">:</span><span class="n">v1</span><span class="p">.</span><span class="mi">0</span> <span class="n">nrt</span><span class="p">.</span><span class="n">ocir</span><span class="p">.</span><span class="n">io</span><span class="o">/</span><span class="n">nrzftilbveen</span><span class="o">/</span><span class="n">handson</span><span class="o">-</span><span class="mi">001</span><span class="o">/</span><span class="n">cowweb</span><span class="p">:</span><span class="n">v1</span><span class="p">.</span><span class="mi">0</span>
+<div class="codehilite"><pre><span></span><span class="err">docker tag handson-001/cowweb:v1.0 nrt.ocir.io/nrzftilbveen/handson-001/cowweb:v1.0</span>
 </pre></div>
 
 
 <p>この操作によって、コンテナイメージにプッシュ先のレジストリを指定する情報を追加しています。これを行わない場合、コンテナイメージはデフォルトのレジストリが指定されたものとみなされ、Docker社が提供するDocker Hubというレジストリが利用されてしまいます。</p>
 <p>これで準備が整いましたので、実際にOCIRにイメージをプッシュします。以下のコマンドを実行してください。</p>
-<div class="codehilite"><pre><span></span><span class="n">docker</span> <span class="n">push</span> <span class="p">[</span><span class="err">リージョンコード</span><span class="p">].</span><span class="n">ocir</span><span class="p">.</span><span class="n">io</span><span class="o">/</span><span class="p">[</span><span class="err">オブジェクト・ストレージ・ネームスペース</span><span class="p">]</span><span class="o">/</span><span class="p">[</span><span class="err">リポジトリ名</span><span class="p">]</span><span class="o">/</span><span class="n">cowweb</span><span class="p">:</span><span class="n">v1</span><span class="p">.</span><span class="mi">0</span>
+<div class="codehilite"><pre><span></span><span class="err">docker push [リージョンコード].ocir.io/[オブジェクト・ストレージ・ネームスペース]/[リポジトリ名]/cowweb:v1.0</span>
 </pre></div>
 
 
 <p>例えば、以下のように指定します。</p>
-<div class="codehilite"><pre><span></span><span class="n">docker</span> <span class="n">push</span> <span class="n">nrt</span><span class="p">.</span><span class="n">ocir</span><span class="p">.</span><span class="n">io</span><span class="o">/</span><span class="n">nrzftilbveen</span><span class="o">/</span><span class="n">handson</span><span class="o">-</span><span class="mi">001</span><span class="o">/</span><span class="n">cowweb</span><span class="p">:</span><span class="n">v1</span><span class="p">.</span><span class="mi">0</span>
+<div class="codehilite"><pre><span></span><span class="err">docker push nrt.ocir.io/nrzftilbveen/handson-001/cowweb:v1.0</span>
 </pre></div>
 
 
 <p>以下のような実行結果となれば、プッシュが成功しています。</p>
-<div class="codehilite"><pre><span></span><span class="n">The</span> <span class="n">push</span> <span class="n">refers</span> <span class="k">to</span> <span class="n">repository</span> <span class="p">[</span><span class="n">nrt</span><span class="p">.</span><span class="n">ocir</span><span class="p">.</span><span class="n">io</span><span class="o">/</span><span class="n">nrzftilbveen</span><span class="o">/</span><span class="n">handson</span><span class="o">-</span><span class="mi">001</span><span class="o">/</span><span class="n">cowweb</span><span class="p">]</span>
-<span class="n">d07a2053e8fb</span><span class="p">:</span> <span class="n">Pushed</span>
-<span class="mi">93</span><span class="n">ed7a751af8</span><span class="p">:</span> <span class="n">Pushed</span>
-<span class="mi">20</span><span class="n">dd87a4c2ab</span><span class="p">:</span> <span class="n">Pushed</span>
-<span class="mi">78075328</span><span class="n">e0da</span><span class="p">:</span> <span class="n">Pushed</span>
-<span class="mi">9</span><span class="n">f8566ee5135</span><span class="p">:</span> <span class="n">Pushed</span>
-<span class="n">v1</span><span class="p">.</span><span class="mi">0</span><span class="p">:</span> <span class="n">digest</span><span class="p">:</span> <span class="n">sha256</span><span class="p">:</span><span class="mi">5769</span><span class="n">c194f3861f71c9fd43eb763813676aaba0b41acf453fb6a09a1af7525c82</span> <span class="k">size</span><span class="p">:</span> <span class="mi">1367</span>
+<div class="codehilite"><pre><span></span><span class="err">The push refers to repository [nrt.ocir.io/nrzftilbveen/handson-001/cowweb]</span>
+<span class="c">d07a2053e8fb: Pushed</span>
+<span class="c">93ed7a751af8: Pushed</span>
+<span class="c">20dd87a4c2ab: Pushed</span>
+<span class="c">78075328e0da: Pushed</span>
+<span class="c">9f8566ee5135: Pushed</span>
+<span class="err">v1.0: digest: sha256:5769c194f3861f71c9fd43eb763813676aaba0b41acf453fb6a09a1af7525c82 size: 1367</span>
 </pre></div>
 
 
@@ -1085,7 +1146,7 @@
 <p>それでは、いよいよOKEクラスターにアプリケーションのコンテナをデプロイします。</p>
 <p>OKEを始めとして、Kubernetesのクラスターにコンテナをデプロイするには、クラスター上の配置情報をmanifestと呼ばれるファイルに記述しておく必要があります。</p>
 <p>サンプルアプリケーションのコードには作成済みのmanifestファイルが含まれていますので、その内容を確認してみます。以下のコマンドを実行してください。</p>
-<div class="codehilite"><pre><span></span><span class="n">cat</span> <span class="p">.</span><span class="o">/</span><span class="n">kubernetes</span><span class="o">/</span><span class="n">cowweb</span><span class="p">.</span><span class="n">yaml</span>
+<div class="codehilite"><pre><span></span><span class="err">cat ./kubernetes/cowweb.yaml</span>
 </pre></div>
 
 
@@ -1149,21 +1210,21 @@
 <p>実際にKubernetes上でコンテナが動作する際には、Podと言われる管理単位に内包される形で実行されます。上記のmanifestでは、サンプルアプリのコンテナを内包するPodが、2つデプロイされることになります。</p>
 </div>
 <p>22行目には、実際にクラスター上で動かすコンテナイメージが指定されています。現在の記述内容は、ご自身環境に合わせた記述にはなっていませんので、この部分を正しい値に修正してください。具体的には、2.2.で<code>docker push</code>コマンドを実行する際に指定した文字列と同じ内容に修正してください。</p>
-<div class="codehilite"><pre><span></span><span class="p">[</span><span class="err">リージョンコード</span><span class="p">].</span><span class="n">ocir</span><span class="p">.</span><span class="n">io</span><span class="o">/</span><span class="p">[</span><span class="err">オブジェクト・ストレージ・ネームスペース</span><span class="p">]</span><span class="o">/</span><span class="p">[</span><span class="err">リポジトリ名</span><span class="p">]</span><span class="o">/</span><span class="n">cowweb</span><span class="p">:</span><span class="n">v1</span><span class="p">.</span><span class="mi">0</span>
+<div class="codehilite"><pre><span></span><span class="err">[リージョンコード].ocir.io/[オブジェクト・ストレージ・ネームスペース]/[リポジトリ名]/cowweb:v1.0</span>
 </pre></div>
 
 
 <p>例えば、以下のような文字列となります。</p>
-<div class="codehilite"><pre><span></span><span class="n">nrt</span><span class="p">.</span><span class="n">ocir</span><span class="p">.</span><span class="n">io</span><span class="o">/</span><span class="n">nrzftilbveen</span><span class="o">/</span><span class="n">handson</span><span class="o">-</span><span class="mi">001</span><span class="o">/</span><span class="n">cowweb</span><span class="p">:</span><span class="n">v1</span><span class="p">.</span><span class="mi">0</span>
+<div class="codehilite"><pre><span></span><span class="err">nrt.ocir.io/nrzftilbveen/handson-001/cowweb:v1.0</span>
 </pre></div>
 
 
 <p>ファイルの修正が完了したら、修正内容をリポジトリに反映しておきます。以下のコマンドを順次実行してください。</p>
-<div class="codehilite"><pre><span></span><span class="n">git</span> <span class="k">add</span> <span class="p">.</span>
+<div class="codehilite"><pre><span></span><span class="err">git add .</span>
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span><span class="n">git</span> <span class="k">commit</span> <span class="o">-</span><span class="n">m</span> <span class="ss">&quot;Update the image tag.&quot;</span>
+<div class="codehilite"><pre><span></span><span class="err">git commit -m &quot;Update the image tag.&quot;</span>
 </pre></div>
 
 
@@ -1182,13 +1243,13 @@
 
 <p>このような場合は、メッセージの指示に従って2つの<code>git config</code>コマンドを実行するようにしてください。普段Gitクライアントお使いの際のname, emailがあればそれで問題ありませんが、実在しない情報を入力しても手順を進めることは可能です。</p>
 </div>
-<div class="codehilite"><pre><span></span><span class="n">git</span> <span class="n">push</span>
+<div class="codehilite"><pre><span></span><span class="err">git push</span>
 </pre></div>
 
 
 <p><code>git push</code>を実行するとGitHubのユーザー名とパスワードの入力を求められます。ここでは、お持ちのGitHubアカウントの情報を入力してください。</p>
 <p>次に、cowweb-service.yamlというmanifestファイルの内容を確認してみます。</p>
-<div class="codehilite"><pre><span></span><span class="n">cat</span> <span class="n">kubernetes</span><span class="o">/</span><span class="n">cowweb</span><span class="o">-</span><span class="n">service</span><span class="p">.</span><span class="n">yaml</span>
+<div class="codehilite"><pre><span></span><span class="err">cat kubernetes/cowweb-service.yaml</span>
 </pre></div>
 
 
@@ -1230,16 +1291,16 @@
 
 
 <p>次に、manifestファイルをクラスターに適用し、PodやServiceをクラスター内に作成します。</p>
-<div class="codehilite"><pre><span></span><span class="n">kubectl</span> <span class="n">apply</span> <span class="o">-</span><span class="n">f</span> <span class="p">.</span><span class="o">/</span><span class="n">kubernetes</span><span class="o">/</span><span class="n">cowweb</span><span class="p">.</span><span class="n">yaml</span>
+<div class="codehilite"><pre><span></span><span class="err">kubectl apply -f ./kubernetes/cowweb.yaml</span>
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span><span class="n">kubectl</span> <span class="n">apply</span> <span class="o">-</span><span class="n">f</span> <span class="p">.</span><span class="o">/</span><span class="n">kubernetes</span><span class="o">/</span><span class="n">cowweb</span><span class="o">-</span><span class="n">service</span><span class="p">.</span><span class="n">yaml</span>
+<div class="codehilite"><pre><span></span><span class="err">kubectl apply -f ./kubernetes/cowweb-service.yaml</span>
 </pre></div>
 
 
 <p>以下のコマンドを実行して、リソースの構成が完了しているかどうかを確認することができます。</p>
-<div class="codehilite"><pre><span></span><span class="n">kubectl</span> <span class="k">get</span> <span class="n">pod</span><span class="p">,</span><span class="n">service</span>
+<div class="codehilite"><pre><span></span><span class="err">kubectl get pod,service</span>
 </pre></div>
 
 
@@ -1268,19 +1329,19 @@
 </div>
 <p>上の例では、IPアドレス130.61.97.82の80番ポートでロードバランサーが公開されておりここにリクエストを送信すると、アプリケーションにアクセスできることを意味しています。このIPアドレスをテキストエディタ等に控えておいてください。</p>
 <p>これでクラスターへのデプロイは完了しましたので、実際に動作確認してみます。以下のコマンドを実行してください。</p>
-<div class="codehilite"><pre><span></span><span class="n">curl</span> <span class="ss">&quot;http://[ロードバランサーのIP]/cowsay/say&quot;</span>
+<div class="codehilite"><pre><span></span><span class="err">curl &quot;http://[ロードバランサーのIP]/cowsay/say&quot;</span>
 </pre></div>
 
 
 <p>ローカルで動作確認したときと同様、以下のようなアスキーアートが表示されれば、アプリケーションが正常に動作しています。</p>
-<div class="codehilite"><pre><span></span> <span class="n">______</span>
-<span class="o">&lt;</span> <span class="n">Moo</span><span class="o">!</span> <span class="o">&gt;</span>
- <span class="c1">------</span>
-        <span class="err">\</span>   <span class="o">^</span><span class="n">__</span><span class="o">^</span>
-         <span class="err">\</span>  <span class="p">(</span><span class="n">oo</span><span class="p">)</span><span class="err">\</span><span class="n">_______</span>
-            <span class="p">(</span><span class="n">__</span><span class="p">)</span><span class="err">\</span>       <span class="p">)</span><span class="err">\</span><span class="o">/</span><span class="err">\</span>
-                <span class="o">||</span><span class="c1">--WWW |</span>
-                <span class="o">||</span>     <span class="o">||</span>
+<div class="codehilite"><pre><span></span><span class="err"> ______</span>
+<span class="err">&lt; Moo! &gt;</span>
+<span class="err"> ------</span>
+<span class="err">        \   ^__^</span>
+<span class="err">         \  (oo)\_______</span>
+<span class="err">            (__)\       )\/\</span>
+<span class="err">                ||--WWW |</span>
+<span class="err">                ||     ||</span>
 </pre></div>
 
 
@@ -1366,7 +1427,7 @@
       
     </div>
     
-      <script src="../../../../assets/javascripts/application.ac79c3b0.js"></script>
+      <script src="../../../../assets/javascripts/application.a8b5e56f.js"></script>
       
         
         
