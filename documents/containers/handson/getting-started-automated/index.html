@@ -32,7 +32,7 @@
         <meta name="lang:search.tokenizer" content="[\s\-　、。，．]+">
       
       <link rel="shortcut icon" href="../../../../assets/images/cloud_46@2x.png">
-      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.4.3">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.5.0">
     
     
       
@@ -40,7 +40,7 @@
       
     
     
-      <link rel="stylesheet" href="../../../../assets/stylesheets/application.30686662.css">
+      <link rel="stylesheet" href="../../../../assets/stylesheets/application.1b62728e.css">
       
         <link rel="stylesheet" href="../../../../assets/stylesheets/application-palette.a8b3c06d.css">
       
@@ -51,7 +51,7 @@
       
     
     
-      <script src="../../../../assets/javascripts/modernizr.74668098.js"></script>
+      <script src="../../../../assets/javascripts/modernizr.268332fc.js"></script>
     
     
       
@@ -219,6 +219,19 @@
       
         <a href="../../../faas/" class="md-tabs__link">
           FaaS
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../../weblogic-operator/" class="md-tabs__link">
+          WebLogic Operator
         </a>
       
     </li>
@@ -727,6 +740,54 @@
   </li>
 
     
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+    
+    <label class="md-nav__link" for="nav-4">
+      WebLogic Operator
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        WebLogic Operator
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../weblogic-operator/" title="WebLogic Operatorのホーム" class="md-nav__link">
+      WebLogic Operatorのホーム
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../weblogic-operator/tutorials/domain.home.in.image_short/" title="ビギナー向けチュートリアル" class="md-nav__link">
+      ビギナー向けチュートリアル
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
   </ul>
 </nav>
                   </div>
@@ -1042,18 +1103,18 @@
 </table>
 <p><img alt="" src="images/01-20.png" /></p>
 <p>CLI実行環境への接続が成功すると、以下のようなコンソール出力が表示されます。</p>
-<div class="codehilite"><pre><span></span><span class="k">Last</span><span class="w"> </span><span class="nl">login</span><span class="p">:</span><span class="w"> </span><span class="n">Fri</span><span class="w"> </span><span class="n">Aug</span><span class="w">  </span><span class="mi">2</span><span class="w"> </span><span class="mi">04</span><span class="err">:</span><span class="mi">21</span><span class="err">:</span><span class="mi">15</span><span class="w"> </span><span class="mi">2019</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="mf">156.151.8.3</span><span class="w"></span>
-<span class="o">[</span><span class="n">opc@oke-client ~</span><span class="o">]</span><span class="err">$</span><span class="w"></span>
+<div class="codehilite"><pre><span></span><span class="err">Last login: Fri Aug  2 04:21:15 2019 from 156.151.8.3</span>
+<span class="err">[opc@oke-client ~]$</span>
 </pre></div>
 
 
 <p>必要なCLIはこの時点でインストール済みですので、例えば以下のようなコマンドを実行することが可能です。</p>
-<div class="codehilite"><pre><span></span><span class="n">kubectl</span> <span class="k">version</span> <span class="c1">--client --short</span>
+<div class="codehilite"><pre><span></span><span class="err">kubectl version --client --short</span>
 </pre></div>
 
 
 <p>以下のような結果となれば、kubectlは正常にインストールされています。</p>
-<div class="codehilite"><pre><span></span><span class="n">Client</span> <span class="k">Version</span><span class="p">:</span> <span class="n">vX</span><span class="p">.</span><span class="n">XX</span><span class="p">.</span><span class="n">X</span>
+<div class="codehilite"><pre><span></span><span class="err">Client Version: vX.XX.X</span>
 </pre></div>
 
 
@@ -1123,7 +1184,7 @@ OCIコンソール画面左上のハンバーガーメニューを展開し、<c
 <p>この値は後の手順で利用しますので、テキストエディタにペーストするなどして控えておいてください。</p>
 <h4 id="3-1-3-oci-cli">3-1-3. OCI CLIのセットアップ<a class="headerlink" href="#3-1-3-oci-cli" title="Permanent link">&para;</a></h4>
 <p>それでは、OCI CLIのセットアップを行います。Tera TermでCLI実行環境にログインし、以下のコマンドを実行してください。</p>
-<div class="codehilite"><pre><span></span><span class="n">oci</span> <span class="n">setup</span> <span class="n">config</span>
+<div class="codehilite"><pre><span></span><span class="err">oci setup config</span>
 </pre></div>
 
 
@@ -1173,7 +1234,7 @@ OCIコンソール画面左上のハンバーガーメニューを展開し、<c
 <p>CLIからOracle Cloud環境の操作をおこなう際は、コマンドの実行の度に認証が行われます。この認証のための鍵はあらかじめOracle Cloud上のユーザーアカウントに設定しておく必要があります。</p>
 <p>上記のOCI CLIのセットアップの中で鍵ペアが作成されていますので、公開鍵をユーザーアカウントに設定していきます。</p>
 <p>まず、Tera Termで以下のコマンドを実行し、公開鍵を表示しておきます。</p>
-<div class="codehilite"><pre><span></span><span class="n">cat</span> <span class="o">~/</span><span class="p">.</span><span class="n">oci</span><span class="o">/</span><span class="n">oci_api_key_public</span><span class="p">.</span><span class="n">pem</span>
+<div class="codehilite"><pre><span></span><span class="err">cat ~/.oci/oci_api_key_public.pem</span>
 </pre></div>
 
 
@@ -1199,12 +1260,12 @@ OCIコンソール画面左上のハンバーガーメニューを展開し、<c
 <p>「Kubeconfigへのアクセス方法」ダイアログに、kubetctlの設定ファイルを取得するためのコマンドが表示されますので、これらを順次実行していきます。</p>
 <p><img alt="" src="images/03-10.png" /></p>
 <p>1つ目のコマンドは、設定ファイルを格納するためのディレクトリの作成です。</p>
-<div class="codehilite"><pre><span></span><span class="n">mkdir</span> <span class="o">-</span><span class="n">p</span> <span class="err">$</span><span class="n">HOME</span><span class="o">/</span><span class="p">.</span><span class="n">kube</span>
+<div class="codehilite"><pre><span></span><span class="err">mkdir -p $HOME/.kube</span>
 </pre></div>
 
 
 <p>2つ目のコマンドは、OCI CLIの設定ファイル取得用のコマンドを実行しています（以下の例はダミーの値で埋めたものですので、実際のコマンドはダイアログからコピーしてください）。</p>
-<div class="codehilite"><pre><span></span><span class="n">oci</span> <span class="n">ce</span> <span class="k">cluster</span> <span class="k">create</span><span class="o">-</span><span class="n">kubeconfig</span> <span class="c1">--cluster-id ocid1.cluster.oc1.iad.xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx --file $HOME/.kube/config --region ap-tokyo-1 --token-version 2.0.0</span>
+<div class="codehilite"><pre><span></span><span class="err">oci ce cluster create-kubeconfig --cluster-id ocid1.cluster.oc1.iad.xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx --file $HOME/.kube/config --region ap-tokyo-1 --token-version 2.0.0</span>
 </pre></div>
 
 
@@ -1214,13 +1275,13 @@ OCIコンソール画面左上のハンバーガーメニューを展開し、<c
 <p>詳細は、kubectlコマンドに関する <i class="fa fa-external-link"></i> <a href="https://kubernetes.io/docs/tasks/access-application-cluster/configure-access-multiple-clusters/#set-the-kubeconfig-environment-variable">公式ドキュメントの記載</a>を参照ください。</p>
 </div>
 <p>最後に、以下のコマンドを実行して、kubectlの動作確認をしてみます。</p>
-<div class="codehilite"><pre><span></span><span class="n">kubectl</span> <span class="k">get</span> <span class="n">nodes</span>
+<div class="codehilite"><pre><span></span><span class="err">kubectl get nodes</span>
 </pre></div>
 
 
 <p>以下のような実行結果になれば、正常にクラスターにアクセスできています。</p>
-<div class="codehilite"><pre><span></span><span class="n">NAME</span>        <span class="n">STATUS</span>   <span class="n">ROLES</span>   <span class="n">AGE</span>   <span class="k">VERSION</span>
-<span class="mi">10</span><span class="p">.</span><span class="mi">0</span><span class="p">.</span><span class="mi">10</span><span class="p">.</span><span class="mi">2</span>   <span class="n">Ready</span>    <span class="n">node</span>    <span class="mi">20</span><span class="n">s</span>   <span class="n">v1</span><span class="p">.</span><span class="mi">13</span><span class="p">.</span><span class="mi">5</span>
+<div class="codehilite"><pre><span></span><span class="err">NAME        STATUS   ROLES   AGE   VERSION</span>
+<span class="err">10.0.10.2   Ready    node    20s   v1.13.5</span>
 </pre></div>
 
 
@@ -1306,7 +1367,7 @@ OCIコンソール画面左上のハンバーガーメニューを展開し、<c
       
     </div>
     
-      <script src="../../../../assets/javascripts/application.ac79c3b0.js"></script>
+      <script src="../../../../assets/javascripts/application.a8b5e56f.js"></script>
       
         
         

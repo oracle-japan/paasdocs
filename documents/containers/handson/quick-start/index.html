@@ -32,7 +32,7 @@
         <meta name="lang:search.tokenizer" content="[\s\-　、。，．]+">
       
       <link rel="shortcut icon" href="../../../../assets/images/cloud_46@2x.png">
-      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.4.3">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.5.0">
     
     
       
@@ -40,7 +40,7 @@
       
     
     
-      <link rel="stylesheet" href="../../../../assets/stylesheets/application.30686662.css">
+      <link rel="stylesheet" href="../../../../assets/stylesheets/application.1b62728e.css">
       
         <link rel="stylesheet" href="../../../../assets/stylesheets/application-palette.a8b3c06d.css">
       
@@ -51,7 +51,7 @@
       
     
     
-      <script src="../../../../assets/javascripts/modernizr.74668098.js"></script>
+      <script src="../../../../assets/javascripts/modernizr.268332fc.js"></script>
     
     
       
@@ -219,6 +219,19 @@
       
         <a href="../../../faas/" class="md-tabs__link">
           FaaS
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../../weblogic-operator/" class="md-tabs__link">
+          WebLogic Operator
         </a>
       
     </li>
@@ -807,6 +820,54 @@
   </li>
 
     
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+    
+    <label class="md-nav__link" for="nav-4">
+      WebLogic Operator
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        WebLogic Operator
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../weblogic-operator/" title="WebLogic Operatorのホーム" class="md-nav__link">
+      WebLogic Operatorのホーム
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../weblogic-operator/tutorials/domain.home.in.image_short/" title="ビギナー向けチュートリアル" class="md-nav__link">
+      ビギナー向けチュートリアル
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
   </ul>
 </nav>
                   </div>
@@ -1203,18 +1264,18 @@
 </table>
 <p><img alt="" src="images/01-20.png" /></p>
 <p>CLIツール実行環境への接続が成功すると、以下のようなコンソール出力が表示されます。</p>
-<div class="codehilite"><pre><span></span><span class="k">Last</span><span class="w"> </span><span class="nl">login</span><span class="p">:</span><span class="w"> </span><span class="n">Fri</span><span class="w"> </span><span class="n">Aug</span><span class="w">  </span><span class="mi">2</span><span class="w"> </span><span class="mi">04</span><span class="err">:</span><span class="mi">21</span><span class="err">:</span><span class="mi">15</span><span class="w"> </span><span class="mi">2019</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="mf">156.151.8.3</span><span class="w"></span>
-<span class="o">[</span><span class="n">opc@oke-client ~</span><span class="o">]</span><span class="err">$</span><span class="w"></span>
+<div class="codehilite"><pre><span></span><span class="err">Last login: Fri Aug  2 04:21:15 2019 from 156.151.8.3</span>
+<span class="err">[opc@oke-client ~]$</span>
 </pre></div>
 
 
 <p>ハンズオンに必要なCLIツールはこの時点でインストール済みですので、例えば以下のようなコマンドを実行することが可能です。</p>
-<div class="codehilite"><pre><span></span><span class="n">kubectl</span> <span class="k">version</span> <span class="c1">--client --short</span>
+<div class="codehilite"><pre><span></span><span class="err">kubectl version --client --short</span>
 </pre></div>
 
 
 <p>以下のような結果となれば、kubectlは正常にインストールされています。</p>
-<div class="codehilite"><pre><span></span><span class="n">Client</span> <span class="k">Version</span><span class="p">:</span> <span class="n">v1</span><span class="p">.</span><span class="mi">15</span><span class="p">.</span><span class="mi">1</span>
+<div class="codehilite"><pre><span></span><span class="err">Client Version: v1.15.1</span>
 </pre></div>
 
 
@@ -1269,7 +1330,7 @@
 <p>この値は後の手順で利用しますので、テキストエディタにペーストするなどして控えておいてください。</p>
 <h4 id="3-1-2-oci-cli">3-1-2. OCI CLIのセットアップ<a class="headerlink" href="#3-1-2-oci-cli" title="Permanent link">&para;</a></h4>
 <p>それでは、OCI CLIのセットアップを行います。Tera TermでCLIツール実行環境にログインし、以下のコマンドを実行してください。</p>
-<div class="codehilite"><pre><span></span><span class="n">oci</span> <span class="n">setup</span> <span class="n">config</span>
+<div class="codehilite"><pre><span></span><span class="err">oci setup config</span>
 </pre></div>
 
 
@@ -1319,7 +1380,7 @@
 <p>CLIからOracle Cloud環境の操作をおこなう際は、コマンドの実行の度に認証が行われます。この認証のための鍵はあらかじめOracle Cloud上のユーザーアカウントに設定しておく必要があります。</p>
 <p>上記のOCI CLIのセットアップの中で鍵ペアが作成されていますので、公開鍵をユーザーアカウントに設定していきます。</p>
 <p>まず、Tera Termで以下のコマンドを実行し、公開鍵を表示しておきます。</p>
-<div class="codehilite"><pre><span></span><span class="n">cat</span> <span class="o">~/</span><span class="p">.</span><span class="n">oci</span><span class="o">/</span><span class="n">oci_api_key_public</span><span class="p">.</span><span class="n">pem</span>
+<div class="codehilite"><pre><span></span><span class="err">cat ~/.oci/oci_api_key_public.pem</span>
 </pre></div>
 
 
@@ -1345,12 +1406,12 @@
 <p>「Kubeconfigへのアクセス方法」ダイアログに、kubetctlの設定ファイルを取得するためのコマンドが表示されますので、これらを順次実行していきます。</p>
 <p><img alt="" src="images/03-10.png" /></p>
 <p>1つ目のコマンドは、設定ファイルを格納するためのディレクトリの作成です。</p>
-<div class="codehilite"><pre><span></span><span class="n">mkdir</span> <span class="o">-</span><span class="n">p</span> <span class="err">$</span><span class="n">HOME</span><span class="o">/</span><span class="p">.</span><span class="n">kube</span>
+<div class="codehilite"><pre><span></span><span class="err">mkdir -p $HOME/.kube</span>
 </pre></div>
 
 
 <p>2つ目のコマンドは、OCI CLIの設定ファイル取得用のコマンドを実行しています（以下の例はダミーの値で埋めたものですので、実際のコマンドはダイアログからコピーしてください）。</p>
-<div class="codehilite"><pre><span></span><span class="n">oci</span> <span class="n">ce</span> <span class="k">cluster</span> <span class="k">create</span><span class="o">-</span><span class="n">kubeconfig</span> <span class="c1">--cluster-id ocid1.cluster.oc1.iad.xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx --file $HOME/.kube/config</span>
+<div class="codehilite"><pre><span></span><span class="err">oci ce cluster create-kubeconfig --cluster-id ocid1.cluster.oc1.iad.xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx --file $HOME/.kube/config</span>
 </pre></div>
 
 
@@ -1360,15 +1421,15 @@
 <p>詳細は、kubectlコマンドに関する <i class="fa fa-external-link"></i> <a href="https://kubernetes.io/docs/tasks/access-application-cluster/configure-access-multiple-clusters/#set-the-kubeconfig-environment-variable">公式ドキュメントの記載</a>を参照ください。</p>
 </div>
 <p>最後に、以下のコマンドを実行して、kubectlの動作確認をしてみます。</p>
-<div class="codehilite"><pre><span></span><span class="n">kubectl</span> <span class="k">get</span> <span class="n">nodes</span>
+<div class="codehilite"><pre><span></span><span class="err">kubectl get nodes</span>
 </pre></div>
 
 
 <p>以下のような実行結果になれば、正常にクラスターにアクセスできています。</p>
-<div class="codehilite"><pre><span></span><span class="n">NAME</span>        <span class="n">STATUS</span>   <span class="n">ROLES</span>   <span class="n">AGE</span>   <span class="k">VERSION</span>
-<span class="mi">10</span><span class="p">.</span><span class="mi">0</span><span class="p">.</span><span class="mi">10</span><span class="p">.</span><span class="mi">2</span>   <span class="n">Ready</span>    <span class="n">node</span>    <span class="mi">20</span><span class="n">s</span>   <span class="n">v1</span><span class="p">.</span><span class="mi">12</span><span class="p">.</span><span class="mi">7</span>
-<span class="mi">10</span><span class="p">.</span><span class="mi">0</span><span class="p">.</span><span class="mi">11</span><span class="p">.</span><span class="mi">2</span>   <span class="n">Ready</span>    <span class="n">node</span>    <span class="mi">47</span><span class="n">s</span>   <span class="n">v1</span><span class="p">.</span><span class="mi">12</span><span class="p">.</span><span class="mi">7</span>
-<span class="mi">10</span><span class="p">.</span><span class="mi">0</span><span class="p">.</span><span class="mi">12</span><span class="p">.</span><span class="mi">2</span>   <span class="n">Ready</span>    <span class="n">node</span>    <span class="mi">47</span><span class="n">s</span>   <span class="n">v1</span><span class="p">.</span><span class="mi">12</span><span class="p">.</span><span class="mi">7</span>
+<div class="codehilite"><pre><span></span><span class="err">NAME        STATUS   ROLES   AGE   VERSION</span>
+<span class="err">10.0.10.2   Ready    node    20s   v1.12.7</span>
+<span class="err">10.0.11.2   Ready    node    47s   v1.12.7</span>
+<span class="err">10.0.12.2   Ready    node    47s   v1.12.7</span>
 </pre></div>
 
 
@@ -1380,12 +1441,12 @@
 <h4 id="4-1-1-manifest">4-1-1. manifestファイルを取得する<a class="headerlink" href="#4-1-1-manifest" title="Permanent link">&para;</a></h4>
 <p>Kubernetesクラスターにアプリケーションをデプロイするには、manifestと呼ばれるファイルに構成情報を記述し、それをクラスターに適用するという流れが通常ですが、ここでは、あらかじめ作成済みのmanifestファイルを利用します。</p>
 <p>まず、作成済みのmanifestファイルをCLIツール実行環境に取得するため、以下のコマンドを実行してください。</p>
-<div class="codehilite"><pre><span></span><span class="nv">git</span> <span class="nv">clone</span> <span class="nv">https</span>:<span class="o">//</span><span class="nv">github</span>.<span class="nv">com</span><span class="o">/</span><span class="nv">oracle</span><span class="o">-</span><span class="nv">japan</span><span class="o">/</span><span class="nv">cowweb</span><span class="o">-</span><span class="k">for</span><span class="o">-</span><span class="nv">wercker</span><span class="o">-</span><span class="nv">demo</span>.<span class="nv">git</span>
+<div class="codehilite"><pre><span></span><span class="err">git clone https://github.com/oracle-japan/cowweb-for-wercker-demo.git</span>
 </pre></div>
 
 
 <p>上記コマンドでできたディレクトリをカレントにしておきます。</p>
-<div class="codehilite"><pre><span></span><span class="nv">cd</span> <span class="nv">cowweb</span><span class="o">-</span><span class="k">for</span><span class="o">-</span><span class="nv">wercker</span><span class="o">-</span><span class="nv">demo</span>
+<div class="codehilite"><pre><span></span><span class="err">cd cowweb-for-wercker-demo</span>
 </pre></div>
 
 
@@ -1393,7 +1454,7 @@
 <p>それでは、いよいよOKEクラスターにアプリケーションのコンテナをデプロイします。</p>
 <p>OKEを始めとして、Kubernetesのクラスターにコンテナをデプロイするには、クラスター上の配置情報をmanifestと呼ばれるファイルに記述しておく必要があります。</p>
 <p>サンプルアプリケーションのコードには作成済みのmanifestファイルが含まれていますので、その内容を確認してみます。以下のコマンドを実行してください。</p>
-<div class="codehilite"><pre><span></span><span class="n">cat</span> <span class="p">.</span><span class="o">/</span><span class="n">kubernetes</span><span class="o">/</span><span class="n">cowweb</span><span class="p">.</span><span class="n">yaml</span>
+<div class="codehilite"><pre><span></span><span class="err">cat ./kubernetes/cowweb.yaml</span>
 </pre></div>
 
 
@@ -1458,7 +1519,7 @@
 </div>
 <p>20行目には、実際にクラスター上で動かすコンテナイメージが指定されています。</p>
 <p>次に、cowweb-service.yamlというmanifestファイルの内容を確認してみます。</p>
-<div class="codehilite"><pre><span></span><span class="n">cat</span> <span class="n">kubernetes</span><span class="o">/</span><span class="n">cowweb</span><span class="o">-</span><span class="n">service</span><span class="p">.</span><span class="n">yaml</span>
+<div class="codehilite"><pre><span></span><span class="err">cat kubernetes/cowweb-service.yaml</span>
 </pre></div>
 
 
@@ -1490,16 +1551,16 @@
 
 <p>このmanifestファイルは、クラスターに対するリクエストのトラフィックを受け付ける際のルールを定義しています。<code>type: LoadBalancer</code>という記述は、クラスターがホストされているクラウドサービスのロードバランサーを自動プロビジョニングし、そのLBに来たトラフィックをコンテナに届けるという意味です。</p>
 <p>それでは、Kubernetes上でサンプルアプリケーションのコンテナを動かしてみます。以下のコマンドを実行してmanifestファイルをクラスターに適用し、PodやServiceをクラスター内に作成します。</p>
-<div class="codehilite"><pre><span></span><span class="n">kubectl</span> <span class="n">apply</span> <span class="o">-</span><span class="n">f</span> <span class="p">.</span><span class="o">/</span><span class="n">kubernetes</span><span class="o">/</span><span class="n">cowweb</span><span class="p">.</span><span class="n">yaml</span>
+<div class="codehilite"><pre><span></span><span class="err">kubectl apply -f ./kubernetes/cowweb.yaml</span>
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span><span class="n">kubectl</span> <span class="n">apply</span> <span class="o">-</span><span class="n">f</span> <span class="p">.</span><span class="o">/</span><span class="n">kubernetes</span><span class="o">/</span><span class="n">cowweb</span><span class="o">-</span><span class="n">service</span><span class="p">.</span><span class="n">yaml</span>
+<div class="codehilite"><pre><span></span><span class="err">kubectl apply -f ./kubernetes/cowweb-service.yaml</span>
 </pre></div>
 
 
 <p>以下のコマンドを実行すると、リソースの構成が完了しているかどうかを確認することができます。</p>
-<div class="codehilite"><pre><span></span><span class="n">kubectl</span> <span class="k">get</span> <span class="n">pod</span><span class="p">,</span><span class="n">service</span>
+<div class="codehilite"><pre><span></span><span class="err">kubectl get pod,service</span>
 </pre></div>
 
 
@@ -1516,19 +1577,19 @@
 
 <p>上の例では、IPアドレス<code>150.136.201.41</code>の80番ポートでロードバランサーが公開されており、ここにリクエストを送信するとアプリケーションにアクセスできることを意味しています。このIPアドレスをテキストエディタ等に控えておいてください。</p>
 <p>これでクラスターへのデプロイは完了しましたので、実際に動作確認してみます。以下のコマンドを実行してください。</p>
-<div class="codehilite"><pre><span></span><span class="n">curl</span> <span class="ss">&quot;http://[ロードバランサーのIP]/cowsay/say&quot;</span>
+<div class="codehilite"><pre><span></span><span class="err">curl &quot;http://[ロードバランサーのIP]/cowsay/say&quot;</span>
 </pre></div>
 
 
 <p>以下のようなアスキーアートが表示されれば、アプリケーションが正常に動作しています。</p>
-<div class="codehilite"><pre><span></span> <span class="n">______</span>
-<span class="o">&lt;</span> <span class="n">Moo</span><span class="o">!</span> <span class="o">&gt;</span>
- <span class="c1">------</span>
-        <span class="err">\</span>   <span class="o">^</span><span class="n">__</span><span class="o">^</span>
-         <span class="err">\</span>  <span class="p">(</span><span class="n">oo</span><span class="p">)</span><span class="err">\</span><span class="n">_______</span>
-            <span class="p">(</span><span class="n">__</span><span class="p">)</span><span class="err">\</span>       <span class="p">)</span><span class="err">\</span><span class="o">/</span><span class="err">\</span>
-                <span class="o">||</span><span class="c1">--WWW |</span>
-                <span class="o">||</span>     <span class="o">||</span>
+<div class="codehilite"><pre><span></span><span class="err"> ______</span>
+<span class="err">&lt; Moo! &gt;</span>
+<span class="err"> ------</span>
+<span class="err">        \   ^__^</span>
+<span class="err">         \  (oo)\_______</span>
+<span class="err">            (__)\       )\/\</span>
+<span class="err">                ||--WWW |</span>
+<span class="err">                ||     ||</span>
 </pre></div>
 
 
@@ -1537,7 +1598,7 @@
 <h4 id="4-2-1">4-2-1. スケールアウト<a class="headerlink" href="#4-2-1" title="Permanent link">&para;</a></h4>
 <p>Deploymentに対してレプリカの数を指定することによって、そのDeploymentが管理するPodの数を増減することができます。</p>
 <p>まず、テキストエディタで<code>./kubernetes/cowweb.yaml</code>を編集し、replica数を4に変更してください。</p>
-<div class="codehilite"><pre><span></span><span class="n">vim</span> <span class="p">.</span><span class="o">/</span><span class="n">kubernetes</span><span class="o">/</span><span class="n">cowweb</span><span class="p">.</span><span class="n">yaml</span>
+<div class="codehilite"><pre><span></span><span class="err">vim ./kubernetes/cowweb.yaml</span>
 </pre></div>
 
 
@@ -1564,20 +1625,20 @@
 </td></tr></table>
 
 <p>編集が完了したら、manifestファイルを再度クラスターに適用します。</p>
-<div class="codehilite"><pre><span></span><span class="n">kubectl</span> <span class="n">apply</span> <span class="o">-</span><span class="n">f</span> <span class="p">.</span><span class="o">/</span><span class="n">kubernetes</span><span class="o">/</span><span class="n">cowweb</span><span class="p">.</span><span class="n">yaml</span>
+<div class="codehilite"><pre><span></span><span class="err">kubectl apply -f ./kubernetes/cowweb.yaml</span>
 </pre></div>
 
 
 <p>以下のコマンドを実行してPodの一覧を表示してみると、4つのPodが構成されていることがわかります。</p>
-<div class="codehilite"><pre><span></span><span class="n">kubectl</span> <span class="k">get</span> <span class="n">pods</span>
+<div class="codehilite"><pre><span></span><span class="err">kubectl get pods</span>
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span><span class="n">NAME</span>                      <span class="n">READY</span>   <span class="n">STATUS</span>    <span class="n">RESTARTS</span>   <span class="n">AGE</span>
-<span class="n">cowweb</span><span class="o">-</span><span class="mi">67657</span><span class="n">b78bc</span><span class="o">-</span><span class="n">gdpmp</span>   <span class="mi">1</span><span class="o">/</span><span class="mi">1</span>     <span class="n">Running</span>   <span class="mi">0</span>          <span class="mi">2</span><span class="n">m38s</span>
-<span class="n">cowweb</span><span class="o">-</span><span class="mi">67657</span><span class="n">b78bc</span><span class="o">-</span><span class="n">r66l5</span>   <span class="mi">1</span><span class="o">/</span><span class="mi">1</span>     <span class="n">Running</span>   <span class="mi">0</span>          <span class="mi">13</span><span class="n">s</span>
-<span class="n">cowweb</span><span class="o">-</span><span class="mi">67657</span><span class="n">b78bc</span><span class="o">-</span><span class="n">rnkmf</span>   <span class="mi">1</span><span class="o">/</span><span class="mi">1</span>     <span class="n">Running</span>   <span class="mi">0</span>          <span class="mi">2</span><span class="n">m38s</span>
-<span class="n">cowweb</span><span class="o">-</span><span class="mi">67657</span><span class="n">b78bc</span><span class="o">-</span><span class="n">vpjwg</span>   <span class="mi">0</span><span class="o">/</span><span class="mi">1</span>     <span class="n">Running</span>   <span class="mi">0</span>          <span class="mi">13</span><span class="n">s</span>
+<div class="codehilite"><pre><span></span><span class="err">NAME                      READY   STATUS    RESTARTS   AGE</span>
+<span class="err">cowweb-67657b78bc-gdpmp   1/1     Running   0          2m38s</span>
+<span class="err">cowweb-67657b78bc-r66l5   1/1     Running   0          13s</span>
+<span class="err">cowweb-67657b78bc-rnkmf   1/1     Running   0          2m38s</span>
+<span class="err">cowweb-67657b78bc-vpjwg   0/1     Running   0          13s</span>
 </pre></div>
 
 
@@ -1586,30 +1647,30 @@
 <p>この時点で、クラスターには4つのcowwebのPodがデプロイされている状態です。この状態で、Podに対するアクセスが負荷分散される様子を確認してみましょう。</p>
 <p>このサンプルアプリケーションには、環境変数の変数名を指定するとその値を答えてくれるという仕掛けがしてあります。これを利用してPodのホスト名を応答させることで、負荷分散の動きを見てみます。</p>
 <p>動作確認で実行したcurlコマンドのURLに<code>?say=HOSTNAME</code>というクエリを追加して、以下のようなコマンドを実行してみてください。</p>
-<div class="codehilite"><pre><span></span><span class="n">curl</span> <span class="ss">&quot;http://[ロードバランサーのIP]/cowsay/say?say=HOSTNAME&quot;</span>
+<div class="codehilite"><pre><span></span><span class="err">curl &quot;http://[ロードバランサーのIP]/cowsay/say?say=HOSTNAME&quot;</span>
 </pre></div>
 
 
 <p>このコマンドを何度か繰り返すと、その度に異なるホスト名が返ってくることがわかります。</p>
-<div class="codehilite"><pre><span></span> <span class="n">_________________________</span>
-<span class="o">&lt;</span> <span class="n">cowweb</span><span class="o">-</span><span class="mi">67657</span><span class="n">b78bc</span><span class="o">-</span><span class="n">rnkmf</span> <span class="o">&gt;</span>
- <span class="c1">-------------------------</span>
-        <span class="err">\</span>   <span class="o">^</span><span class="n">__</span><span class="o">^</span>
-         <span class="err">\</span>  <span class="p">(</span><span class="n">oo</span><span class="p">)</span><span class="err">\</span><span class="n">_______</span>
-            <span class="p">(</span><span class="n">__</span><span class="p">)</span><span class="err">\</span>       <span class="p">)</span><span class="err">\</span><span class="o">/</span><span class="err">\</span>
-                <span class="o">||</span><span class="c1">----w |</span>
-                <span class="o">||</span>     <span class="o">||</span>
+<div class="codehilite"><pre><span></span><span class="err"> _________________________</span>
+<span class="err">&lt; cowweb-67657b78bc-rnkmf &gt;</span>
+<span class="err"> -------------------------</span>
+<span class="err">        \   ^__^</span>
+<span class="err">         \  (oo)\_______</span>
+<span class="err">            (__)\       )\/\</span>
+<span class="err">                ||----w |</span>
+<span class="err">                ||     ||</span>
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span> <span class="n">_________________________</span>
-<span class="o">&lt;</span> <span class="n">cowweb</span><span class="o">-</span><span class="mi">67657</span><span class="n">b78bc</span><span class="o">-</span><span class="n">gdpmp</span> <span class="o">&gt;</span>
- <span class="c1">-------------------------</span>
-        <span class="err">\</span>   <span class="o">^</span><span class="n">__</span><span class="o">^</span>
-         <span class="err">\</span>  <span class="p">(</span><span class="n">oo</span><span class="p">)</span><span class="err">\</span><span class="n">_______</span>
-            <span class="p">(</span><span class="n">__</span><span class="p">)</span><span class="err">\</span>       <span class="p">)</span><span class="err">\</span><span class="o">/</span><span class="err">\</span>
-                <span class="o">||</span><span class="c1">----w |</span>
-                <span class="o">||</span>     <span class="o">||</span>
+<div class="codehilite"><pre><span></span><span class="err"> _________________________</span>
+<span class="err">&lt; cowweb-67657b78bc-gdpmp &gt;</span>
+<span class="err"> -------------------------</span>
+<span class="err">        \   ^__^</span>
+<span class="err">         \  (oo)\_______</span>
+<span class="err">            (__)\       )\/\</span>
+<span class="err">                ||----w |</span>
+<span class="err">                ||     ||</span>
 </pre></div>
 
 
@@ -1618,7 +1679,7 @@
 <h4 id="4-3-1">4-3-1. ローリングアップデート<a class="headerlink" href="#4-3-1" title="Permanent link">&para;</a></h4>
 <p>コンテナレジストリには新しいバージョンのコンテナイメージをアップロード済みですので、manifestファイルで指定するコンテナイメージを変更し、クラスターに適用するだけで、バージョンアップを行うことができます。</p>
 <p>テキストエディタで<code>./kubernetes/cowweb.yaml</code>を編集し、コンテナイメージのバージョンをv1.1に変更してください。</p>
-<div class="codehilite"><pre><span></span><span class="n">vim</span> <span class="p">.</span><span class="o">/</span><span class="n">kubernetes</span><span class="o">/</span><span class="n">cowweb</span><span class="p">.</span><span class="n">yaml</span>
+<div class="codehilite"><pre><span></span><span class="err">vim ./kubernetes/cowweb.yaml</span>
 </pre></div>
 
 
@@ -1677,13 +1738,13 @@
 </td></tr></table>
 
 <p>編集が完了したら、manifestファイルを再度クラスターに適用します。</p>
-<div class="codehilite"><pre><span></span><span class="n">kubectl</span> <span class="n">apply</span> <span class="o">-</span><span class="n">f</span> <span class="p">.</span><span class="o">/</span><span class="n">kubernetes</span><span class="o">/</span><span class="n">cowweb</span><span class="p">.</span><span class="n">yaml</span>
+<div class="codehilite"><pre><span></span><span class="err">kubectl apply -f ./kubernetes/cowweb.yaml</span>
 </pre></div>
 
 
 <p><code>kubectl get pods</code>を繰り返し実行すると、古いPodの削除と新しいPodの作成が徐々に行われていく様子が確認できます。</p>
 <p>しばらくして再び4つのPodが<code>Runnnig</code>の状態になったら、以下のコマンドを実行してPodのアップデートの履歴を確認してみましょう。</p>
-<div class="codehilite"><pre><span></span><span class="n">kubectl</span> <span class="k">describe</span> <span class="n">deployment</span> <span class="n">cowweb</span>
+<div class="codehilite"><pre><span></span><span class="err">kubectl describe deployment cowweb</span>
 </pre></div>
 
 
@@ -1708,7 +1769,7 @@
 <p>3行目の<code>Scaled up replica set cowweb-6c9c97d956 to 1</code>というイベント以降が、ローリングアップデートのために発生した一連のイベントを表しており、新しいバージョンのPodを1つ足すごとに、古いバージョンのPodを1つ減らすということが繰り返されています。</p>
 <h4 id="4-3-2">4-3-2. アップデートされたアプリの動作確認<a class="headerlink" href="#4-3-2" title="Permanent link">&para;</a></h4>
 <p>最後に、アップデートされたアプリケーションにアクセスして、結果を確認してみましょう。</p>
-<div class="codehilite"><pre><span></span><span class="n">curl</span> <span class="ss">&quot;http://[ロードバランサーのIP]/cowsay/say&quot;</span>
+<div class="codehilite"><pre><span></span><span class="err">curl &quot;http://[ロードバランサーのIP]/cowsay/say&quot;</span>
 </pre></div>
 
 
@@ -1795,7 +1856,7 @@
       
     </div>
     
-      <script src="../../../../assets/javascripts/application.ac79c3b0.js"></script>
+      <script src="../../../../assets/javascripts/application.a8b5e56f.js"></script>
       
         
         

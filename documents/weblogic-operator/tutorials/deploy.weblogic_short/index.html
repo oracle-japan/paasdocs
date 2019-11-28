@@ -32,7 +32,7 @@
         <meta name="lang:search.tokenizer" content="[\s\-　、。，．]+">
       
       <link rel="shortcut icon" href="../../../../assets/images/cloud_46@2x.png">
-      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.4.3">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.5.0">
     
     
       
@@ -40,7 +40,7 @@
       
     
     
-      <link rel="stylesheet" href="../../../../assets/stylesheets/application.30686662.css">
+      <link rel="stylesheet" href="../../../../assets/stylesheets/application.1b62728e.css">
       
         <link rel="stylesheet" href="../../../../assets/stylesheets/application-palette.a8b3c06d.css">
       
@@ -51,7 +51,7 @@
       
     
     
-      <script src="../../../../assets/javascripts/modernizr.74668098.js"></script>
+      <script src="../../../../assets/javascripts/modernizr.268332fc.js"></script>
     
     
       
@@ -217,6 +217,19 @@
       
         <a href="../../../faas/" class="md-tabs__link">
           FaaS
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../" class="md-tabs__link">
+          WebLogic Operator
         </a>
       
     </li>
@@ -554,6 +567,54 @@
   </li>
 
     
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+    
+    <label class="md-nav__link" for="nav-4">
+      WebLogic Operator
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        WebLogic Operator
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../" title="WebLogic Operatorのホーム" class="md-nav__link">
+      WebLogic Operatorのホーム
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../domain.home.in.image_short/" title="ビギナー向けチュートリアル" class="md-nav__link">
+      ビギナー向けチュートリアル
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
   </ul>
 </nav>
                   </div>
@@ -634,37 +695,38 @@
                 
                 <h1 id="oracle-weblogic-operator">Oracle WebLogic Operator チュートリアル<a class="headerlink" href="#oracle-weblogic-operator" title="Permanent link">&para;</a></h1>
 <h3 id="weblogic">WebLogic ドメインのデプロイ<a class="headerlink" href="#weblogic" title="Permanent link">&para;</a></h3>
+<p><img alt="" src="../images/image_4.png" /></p>
 <h4 id="weblogic-kubernetes">WebLogic ドメインを起動するKubernetesクラスターの準備<a class="headerlink" href="#weblogic-kubernetes" title="Permanent link">&para;</a></h4>
 <p>ドメインのネームスペースを作成します:</p>
-<div class="codehilite"><pre><span></span><span class="n">kubectl</span> <span class="k">create</span> <span class="n">namespace</span> <span class="n">sample</span><span class="o">-</span><span class="n">domain1</span><span class="o">-</span><span class="n">ns</span>
+<div class="codehilite"><pre><span></span><span class="err">kubectl create namespace sample-domain1-ns</span>
 </pre></div>
 
 
 <p>管理サーバーのブート資格情報を含むKubernetesシークレットを作成します:</p>
-<div class="codehilite"><pre><span></span><span class="n">kubectl</span> <span class="o">-</span><span class="n">n</span> <span class="n">sample</span><span class="o">-</span><span class="n">domain1</span><span class="o">-</span><span class="n">ns</span> <span class="k">create</span> <span class="n">secret</span> <span class="n">generic</span> <span class="n">sample</span><span class="o">-</span><span class="n">domain1</span><span class="o">-</span><span class="n">weblogic</span><span class="o">-</span><span class="n">credentials</span> <span class="err">\</span>
-  <span class="c1">--from-literal=username=weblogic \</span>
-  <span class="c1">--from-literal=password=welcome1</span>
+<div class="codehilite"><pre><span></span><span class="err">kubectl -n sample-domain1-ns create secret generic sample-domain1-weblogic-credentials \</span>
+<span class="err">  --from-literal=username=weblogic \</span>
+<span class="err">  --from-literal=password=welcome1</span>
 </pre></div>
 
 
 <p>ドメインのUIDでシークレットにラベルを付けます:</p>
-<div class="codehilite"><pre><span></span><span class="n">kubectl</span> <span class="n">label</span> <span class="n">secret</span> <span class="n">sample</span><span class="o">-</span><span class="n">domain1</span><span class="o">-</span><span class="n">weblogic</span><span class="o">-</span><span class="n">credentials</span> <span class="err">\</span>
-  <span class="o">-</span><span class="n">n</span> <span class="n">sample</span><span class="o">-</span><span class="n">domain1</span><span class="o">-</span><span class="n">ns</span> <span class="err">\</span>
-  <span class="n">weblogic</span><span class="p">.</span><span class="n">domainUID</span><span class="o">=</span><span class="n">sample</span><span class="o">-</span><span class="n">domain1</span> <span class="err">\</span>
-  <span class="n">weblogic</span><span class="p">.</span><span class="n">domainName</span><span class="o">=</span><span class="n">sample</span><span class="o">-</span><span class="n">domain1</span>
+<div class="codehilite"><pre><span></span><span class="err">kubectl label secret sample-domain1-weblogic-credentials \</span>
+<span class="err">  -n sample-domain1-ns \</span>
+<span class="err">  weblogic.domainUID=sample-domain1 \</span>
+<span class="err">  weblogic.domainName=sample-domain1</span>
 </pre></div>
 
 
 <h4 id="traefikweblogic">TraefikロードバランサーとWebLogicオペレーターの構成を更新する<a class="headerlink" href="#traefikweblogic" title="Permanent link">&para;</a></h4>
 <p>ドメインネームスペース（WebLogicドメインがまだデプロイされていない）を取得したら、ドメインのデプロイ先に関するロードバランサーとオペレーターの構成を更新する必要があります。</p>
 <p>ドメイン<code>helm</code>をインストールする前に、WebLogic OperatorのローカルGitリポジトリフォルダーにいることを確認してください。</p>
-<div class="codehilite"><pre><span></span><span class="n">cd</span> <span class="o">/</span><span class="n">u01</span><span class="o">/</span><span class="n">content</span><span class="o">/</span><span class="n">weblogic</span><span class="o">-</span><span class="n">kubernetes</span><span class="o">-</span><span class="k">operator</span><span class="o">/</span>
+<div class="codehilite"><pre><span></span><span class="err">cd /u01/content/weblogic-kubernetes-operator/</span>
 </pre></div>
 
 
 <p>Podの起動に時間が掛かり、デフォルトだとタイムアウトになってしまうため、Weblogic Operatorの定義にオプションを追加します。
 以下のコマンドからエディタ(vi)を起動します。</p>
-<div class="codehilite"><pre><span></span><span class="n">kubectl</span> <span class="n">edit</span> <span class="n">cm</span> <span class="o">-</span><span class="n">n</span> <span class="n">sample</span><span class="o">-</span><span class="n">weblogic</span><span class="o">-</span><span class="k">operator</span><span class="o">-</span><span class="n">ns</span> <span class="n">weblogic</span><span class="o">-</span><span class="k">operator</span><span class="o">-</span><span class="n">cm</span>
+<div class="codehilite"><pre><span></span><span class="err">kubectl edit cm -n sample-weblogic-operator-ns weblogic-operator-cm</span>
 </pre></div>
 
 
@@ -682,21 +744,21 @@
 
 <p>完了したら保存して終了します。終了する方法はviエディタと同じ手順です。</p>
 <p>オペレータを更新するには、次の<code>helm upgrade</code>コマンドを実行します:</p>
-<div class="codehilite"><pre><span></span><span class="n">helm</span> <span class="n">upgrade</span> <span class="err">\</span>
-  <span class="c1">--reuse-values \</span>
-  <span class="c1">--set &quot;domainNamespaces={sample-domain1-ns}&quot; \</span>
-  <span class="n">sample</span><span class="o">-</span><span class="n">weblogic</span><span class="o">-</span><span class="k">operator</span> <span class="err">\</span>
-  <span class="n">kubernetes</span><span class="o">/</span><span class="n">charts</span><span class="o">/</span><span class="n">weblogic</span><span class="o">-</span><span class="k">operator</span> <span class="err">\</span>
-  <span class="c1">--recreate-pods</span>
+<div class="codehilite"><pre><span></span><span class="err">helm upgrade \</span>
+<span class="err">  --reuse-values \</span>
+<span class="err">  --set &quot;domainNamespaces={sample-domain1-ns}&quot; \</span>
+<span class="err">  sample-weblogic-operator \</span>
+<span class="err">  kubernetes/charts/weblogic-operator \</span>
+<span class="err">  --recreate-pods</span>
 </pre></div>
 
 
 <p>Traefikを更新するには、次の<code>helm upgrade</code>コマンドを実行します:</p>
-<div class="codehilite"><pre><span></span><span class="n">helm</span> <span class="n">upgrade</span> <span class="err">\</span>
-  <span class="c1">--reuse-values \</span>
-  <span class="c1">--set &quot;kubernetes.namespaces={traefik,sample-domain1-ns}&quot; \</span>
-  <span class="n">traefik</span><span class="o">-</span><span class="k">operator</span> <span class="err">\</span>
-  <span class="k">stable</span><span class="o">/</span><span class="n">traefik</span>
+<div class="codehilite"><pre><span></span><span class="err">helm upgrade \</span>
+<span class="err">  --reuse-values \</span>
+<span class="err">  --set &quot;kubernetes.namespaces={traefik,sample-domain1-ns}&quot; \</span>
+<span class="err">  traefik-operator \</span>
+<span class="err">  stable/traefik</span>
 </pre></div>
 
 
@@ -704,13 +766,13 @@
 <h4 id="kubernetesweblogic">KubernetesにWebLogicドメインをデプロイする<a class="headerlink" href="#kubernetesweblogic" title="Permanent link">&para;</a></h4>
 <p>WebLogicドメインをデプロイするには、オペレーターがWebLogicドメインを適切に起動するために必要なパラメーターを含むドメインリソース定義を作成する必要があります。</p>
 <p>本チュートリアルではカスタムリソースオブジェクトの定義が記述されたdomain.yamlファイルを使用します。次のコマンドでローカルにコピーしてください。</p>
-<div class="codehilite"><pre><span></span><span class="n">curl</span> <span class="o">-</span><span class="n">LSs</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">raw</span><span class="p">.</span><span class="n">githubusercontent</span><span class="p">.</span><span class="n">com</span><span class="o">/</span><span class="n">nagypeter</span><span class="o">/</span><span class="n">weblogic</span><span class="o">-</span><span class="k">operator</span><span class="o">-</span><span class="n">tutorial</span><span class="o">/</span><span class="n">master</span><span class="o">/</span><span class="n">k8s</span><span class="o">/</span><span class="n">domain_short</span><span class="p">.</span><span class="n">yaml</span> <span class="o">&gt;/</span><span class="n">u01</span><span class="o">/</span><span class="k">domain</span><span class="p">.</span><span class="n">yaml</span>
+<div class="codehilite"><pre><span></span><span class="err">curl -LSs https://raw.githubusercontent.com/nagypeter/weblogic-operator-tutorial/master/k8s/domain_short.yaml &gt;/u01/domain.yaml</span>
 </pre></div>
 
 
 <p>コピー後、お手持ちのエディターで内容を確認してください。</p>
 <p>次のコマンドを適用して、ドメインカスタムリソースオブジェクトを作成します:</p>
-<div class="codehilite"><pre><span></span><span class="n">kubectl</span> <span class="n">apply</span> <span class="o">-</span><span class="n">f</span> <span class="o">/</span><span class="n">u01</span><span class="o">/</span><span class="k">domain</span><span class="p">.</span><span class="n">yaml</span>
+<div class="codehilite"><pre><span></span><span class="err">kubectl apply -f /u01/domain.yaml</span>
 </pre></div>
 
 
@@ -731,31 +793,31 @@ sample-domain1-managed-server2   <span class="m">0</span>/1       Running   <spa
 
 
 <p>上記の結果と同様の3つの実行中のポッドを確認する必要があります。実行中のポッドがすべて表示されない場合は、しばらく待った後に定期的に確認してください。コンピュートインスタンスのシェイプによっては、ドメイン全体の展開に2〜3分かかることがあります。</p>
-<p>WebLogicにデプロイされたアプリケーションまたは管理コンソールにアクセスするには、<em>Traefik</em>イングレスを構成する必要があります。 OCIロードバランサーは、前のステップの<em>Traefik</em>インストール中に既に割り当てられています。</p>
+<p>WebLogicにデプロイされたアプリケーションまたは管理コンソールにアクセスするには、<em>Traefik</em>Ingressを構成する必要があります。 OCIロードバランサーは、前のステップの<em>Traefik</em>インストール中に既に割り当てられています。</p>
 <p>外部トラフィックを<em>Traefik</em>を介してドメインクラスターアドレスまたは管理サーバーのコンソールにルーティングするパスルーティングを構成するのが最も簡単な方法です。</p>
-<p>次のingressリソース定義を実行します:</p>
-<div class="codehilite"><pre><span></span><span class="n">cat</span> <span class="o">&lt;&lt;</span> <span class="n">EOF</span> <span class="o">|</span> <span class="n">kubectl</span> <span class="n">apply</span> <span class="o">-</span><span class="n">f</span> <span class="o">-</span>
-<span class="n">apiVersion</span><span class="p">:</span> <span class="n">extensions</span><span class="o">/</span><span class="n">v1beta1</span>
-<span class="n">kind</span><span class="p">:</span> <span class="n">Ingress</span>
-<span class="n">metadata</span><span class="p">:</span>
-  <span class="n">name</span><span class="p">:</span> <span class="n">traefik</span><span class="o">-</span><span class="n">pathrouting</span><span class="o">-</span><span class="mi">1</span>
-  <span class="n">namespace</span><span class="p">:</span> <span class="n">sample</span><span class="o">-</span><span class="n">domain1</span><span class="o">-</span><span class="n">ns</span>
-  <span class="n">annotations</span><span class="p">:</span>
-    <span class="n">kubernetes</span><span class="p">.</span><span class="n">io</span><span class="o">/</span><span class="n">ingress</span><span class="p">.</span><span class="k">class</span><span class="p">:</span> <span class="n">traefik</span>
-<span class="n">spec</span><span class="p">:</span>
-  <span class="n">rules</span><span class="p">:</span>
-  <span class="o">-</span> <span class="k">host</span><span class="p">:</span>
-    <span class="n">http</span><span class="p">:</span>
-      <span class="n">paths</span><span class="p">:</span>
-      <span class="o">-</span> <span class="n">path</span><span class="p">:</span> <span class="o">/</span>
-        <span class="n">backend</span><span class="p">:</span>
-          <span class="n">serviceName</span><span class="p">:</span> <span class="n">sample</span><span class="o">-</span><span class="n">domain1</span><span class="o">-</span><span class="k">cluster</span><span class="o">-</span><span class="k">cluster</span><span class="o">-</span><span class="mi">1</span>
-          <span class="n">servicePort</span><span class="p">:</span> <span class="mi">8001</span>
-      <span class="o">-</span> <span class="n">path</span><span class="p">:</span> <span class="o">/</span><span class="n">console</span>
-        <span class="n">backend</span><span class="p">:</span>
-          <span class="n">serviceName</span><span class="p">:</span> <span class="n">sample</span><span class="o">-</span><span class="n">domain1</span><span class="o">-</span><span class="k">admin</span><span class="o">-</span><span class="n">server</span>
-          <span class="n">servicePort</span><span class="p">:</span> <span class="mi">7001</span>          
-<span class="n">EOF</span>
+<p>次のIngressリソース定義を実行します:</p>
+<div class="codehilite"><pre><span></span><span class="err">cat &lt;&lt; EOF | kubectl apply -f -</span>
+<span class="c">apiVersion: extensions/v1beta1</span>
+<span class="c">kind: Ingress</span>
+<span class="c">metadata:</span>
+<span class="c">  name: traefik-pathrouting-1</span>
+<span class="c">  namespace: sample-domain1-ns</span>
+<span class="c">  annotations:</span>
+<span class="c">    kubernetes.io/ingress.class: traefik</span>
+<span class="c">spec:</span>
+<span class="c">  rules:</span>
+<span class="c">  - host:</span>
+<span class="c">    http:</span>
+<span class="c">      paths:</span>
+<span class="c">      - path: /</span>
+<span class="c">        backend:</span>
+<span class="c">          serviceName: sample-domain1-cluster-cluster-1</span>
+<span class="c">          servicePort: 8001</span>
+<span class="c">      - path: /console</span>
+<span class="c">        backend:</span>
+<span class="c">          serviceName: sample-domain1-admin-server</span>
+<span class="c">          servicePort: 7001          </span>
+<span class="err">EOF</span>
 </pre></div>
 
 
@@ -771,12 +833,16 @@ sample-domain1-managed-server2   <span class="m">0</span>/1       Running   <spa
 <p>管理コンソールのURLをブラウザーで開きます:</p>
 <p>管理者のユーザー資格情報（weblogic / welcome1）を入力し、<strong>Login</strong>をクリックします</p>
 <p><img alt="" src="../images/deploy.domain/weblogic.console.login.png" /></p>
-<p>!このユースケースでは、Administration Consoleの使用目的はデモ/テストのみであることに注意してください。ドメイン設定はポッドで保持され、再起動すると、イメージの元の値が再び使用されます。特定の構成パラメーターをオーバーライドするには(イメージの移植性を確保するには)このチュートリアルのオーバーライド部分に従ってください。</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>このユースケースでは、Administration Consoleの使用目的はデモ/テストのみであることに注意してください。ドメイン設定はポッドで保持され、再起動すると、イメージの元の値が再び使用されます。特定の構成パラメーターをオーバーライドするには(イメージの移植性を確保するには)このチュートリアルの<a href="../override.jdbc/">JDBC Datasource parametersのオーバーライド</a>を参考に実施してください。</p>
+</div>
 <h4 id="web">デモWebアプリケーションのテスト<a class="headerlink" href="#web" title="Permanent link">&para;</a></h4>
 <p>サンプルアプリケーションのURLは以下の通りです:</p>
 <p><code>http://EXTERNAL-IP/opdemo/?dsname=testDatasource</code></p>
 <p><img alt="" src="../images/deploy.domain/webapp.png" /></p>
 <p>ページを更新し、ホスト名が変更されたことを確認します。画面上に要求に応答している管理対象サーバーの名前が表示されます。また、2つの管理対象サーバー間の負荷分散が確認できます。</p>
+<p>続いて、<a href="../scale.weblogic/">WebLogic Clusterのスケーリング</a>に進んでください。</p>
                 
                   
                 
@@ -822,7 +888,7 @@ sample-domain1-managed-server2   <span class="m">0</span>/1       Running   <spa
       
     </div>
     
-      <script src="../../../../assets/javascripts/application.ac79c3b0.js"></script>
+      <script src="../../../../assets/javascripts/application.a8b5e56f.js"></script>
       
         
         

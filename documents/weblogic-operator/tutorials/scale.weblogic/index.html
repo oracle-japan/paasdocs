@@ -32,7 +32,7 @@
         <meta name="lang:search.tokenizer" content="[\s\-　、。，．]+">
       
       <link rel="shortcut icon" href="../../../../assets/images/cloud_46@2x.png">
-      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.4.3">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.5.0">
     
     
       
@@ -40,7 +40,7 @@
       
     
     
-      <link rel="stylesheet" href="../../../../assets/stylesheets/application.30686662.css">
+      <link rel="stylesheet" href="../../../../assets/stylesheets/application.1b62728e.css">
       
         <link rel="stylesheet" href="../../../../assets/stylesheets/application-palette.a8b3c06d.css">
       
@@ -51,7 +51,7 @@
       
     
     
-      <script src="../../../../assets/javascripts/modernizr.74668098.js"></script>
+      <script src="../../../../assets/javascripts/modernizr.268332fc.js"></script>
     
     
       
@@ -217,6 +217,19 @@
       
         <a href="../../../faas/" class="md-tabs__link">
           FaaS
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../" class="md-tabs__link">
+          WebLogic Operator
         </a>
       
     </li>
@@ -554,6 +567,54 @@
   </li>
 
     
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+    
+    <label class="md-nav__link" for="nav-4">
+      WebLogic Operator
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        WebLogic Operator
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../" title="WebLogic Operatorのホーム" class="md-nav__link">
+      WebLogic Operatorのホーム
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../domain.home.in.image_short/" title="ビギナー向けチュートリアル" class="md-nav__link">
+      ビギナー向けチュートリアル
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
   </ul>
 </nav>
                   </div>
@@ -621,47 +682,53 @@
 <li>WLDFポリシールールとスクリプトアクションを使用して、オペレーターのスケール用REST APIを呼び出します。</li>
 <li>Prometheusアラートアクションを使用して、オペレーターのスケール用REST APIを呼び出します。</li>
 </ul>
+<p><img alt="" src="../images/image_5.png" /></p>
 <h4 id="kubectlweblogic"><code>kubectl</code>を使用したWebLogicクラスターのスケーリング<a class="headerlink" href="#kubectlweblogic" title="Permanent link">&para;</a></h4>
 <p>KubernetesでWebLogicクラスターをスケーリングする最も簡単な方法は、ドメインリソース内のレプリカプロパティを単純に編集することです。変更を保持するには、<em>domain.yaml</em>を編集し、<code>kubectl</code>を使用して変更を適用します。お好みのエディターを使用して<em>domain.yaml</em>を開きます。</p>
 <p>以下の箇所を探します:</p>
-<div class="codehilite"><pre><span></span><span class="n">clusters</span><span class="p">:</span>
-<span class="o">-</span> <span class="n">clusterName</span><span class="p">:</span> <span class="k">cluster</span><span class="o">-</span><span class="mi">1</span>
-  <span class="n">serverStartState</span><span class="p">:</span> <span class="ss">&quot;RUNNING&quot;</span>
-  <span class="n">replicas</span><span class="p">:</span> <span class="mi">2</span>
+<div class="codehilite"><pre><span></span><span class="c">clusters:</span>
+<span class="err">- clusterName: cluster-1</span>
+<span class="err">  serverStartState: &quot;RUNNING&quot;</span>
+<span class="err">  replicas: 2</span>
 </pre></div>
 
 
 <p><code>replicas</code>を3に変更し、変更を保存します。<code>kubectl</code>を使用して変更を適用します:</p>
-<div class="codehilite"><pre><span></span><span class="n">kubectl</span> <span class="n">apply</span> <span class="o">-</span><span class="n">f</span> <span class="o">/</span><span class="n">u01</span><span class="o">/</span><span class="k">domain</span><span class="p">.</span><span class="n">yaml</span>
+<div class="codehilite"><pre><span></span><span class="err">kubectl apply -f /u01/domain.yaml</span>
 </pre></div>
 
 
 <p><code>kubectl</code>を使用してポッドの数の変更を確認します:</p>
-<div class="codehilite"><pre><span></span><span class="n">kubectl</span> <span class="k">get</span> <span class="n">po</span> <span class="o">-</span><span class="n">n</span> <span class="n">sample</span><span class="o">-</span><span class="n">domain1</span><span class="o">-</span><span class="n">ns</span>
-<span class="n">NAME</span>                             <span class="n">READY</span>     <span class="n">STATUS</span>        <span class="n">RESTARTS</span>   <span class="n">AGE</span>
-<span class="n">sample</span><span class="o">-</span><span class="n">domain1</span><span class="o">-</span><span class="k">admin</span><span class="o">-</span><span class="n">server</span>      <span class="mi">1</span><span class="o">/</span><span class="mi">1</span>       <span class="n">Running</span>       <span class="mi">0</span>          <span class="mi">57</span><span class="n">m</span>
-<span class="n">sample</span><span class="o">-</span><span class="n">domain1</span><span class="o">-</span><span class="n">managed</span><span class="o">-</span><span class="n">server1</span>   <span class="mi">1</span><span class="o">/</span><span class="mi">1</span>       <span class="n">Running</span>       <span class="mi">0</span>          <span class="mi">56</span><span class="n">m</span>
-<span class="n">sample</span><span class="o">-</span><span class="n">domain1</span><span class="o">-</span><span class="n">managed</span><span class="o">-</span><span class="n">server2</span>   <span class="mi">1</span><span class="o">/</span><span class="mi">1</span>       <span class="n">Running</span>       <span class="mi">0</span>          <span class="mi">55</span><span class="n">m</span>
-<span class="n">sample</span><span class="o">-</span><span class="n">domain1</span><span class="o">-</span><span class="n">managed</span><span class="o">-</span><span class="n">server3</span>   <span class="mi">1</span><span class="o">/</span><span class="mi">1</span>       <span class="n">Running</span>       <span class="mi">0</span>          <span class="mi">1</span><span class="n">m</span>
+<div class="codehilite"><pre><span></span><span class="err">kubectl get po -n sample-domain1-ns</span>
+<span class="err">NAME                             READY     STATUS        RESTARTS   AGE</span>
+<span class="err">sample-domain1-admin-server      1/1       Running       0          57m</span>
+<span class="err">sample-domain1-managed-server1   1/1       Running       0          56m</span>
+<span class="err">sample-domain1-managed-server2   1/1       Running       0          55m</span>
+<span class="err">sample-domain1-managed-server3   1/1       Running       0          1m</span>
 </pre></div>
 
 
 <p>すぐに管理対象サーバー3が表示され、数分以内にREADY状態になります。WebLogic管理コンソールを使用して、管理対象サーバーのスケーリングアクションを確認することもできます:</p>
 <p><img alt="alt text" src="../images/scaling/check.on.console.png" /></p>
-<p>注意! <code>kubectl edit</code>コマンドを使用して、既存の（実行中の）ドメインリソースファイルを直接編集できます。この場合、デスクトップにある<code>domain.yaml</code>は実行中のドメインのリソースの変更が反映されません。</p>
-<div class="codehilite"><pre><span></span><span class="n">kubectl</span> <span class="n">edit</span> <span class="k">domain</span> <span class="n">DOMAIN_UID</span> <span class="o">-</span><span class="n">n</span> <span class="n">DOMAIN_NAMESPACE</span>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><code>kubectl edit</code>コマンドを使用して、既存の（実行中の）ドメインリソースファイルを直接編集できます。この場合、デスクトップにある<code>domain.yaml</code>は実行中のドメインのリソースの変更が反映されません。</p>
+</div>
+<div class="codehilite"><pre><span></span><span class="err">kubectl edit domain DOMAIN_UID -n DOMAIN_NAMESPACE</span>
 </pre></div>
 
 
 <p>デフォルト設定を使用する場合の構文は次のとおりです:</p>
-<div class="codehilite"><pre><span></span><span class="n">kubectl</span> <span class="n">edit</span> <span class="k">domain</span> <span class="n">sample</span><span class="o">-</span><span class="n">domain1</span> <span class="o">-</span><span class="n">n</span> <span class="n">sample</span><span class="o">-</span><span class="n">domain1</span><span class="o">-</span><span class="n">ns</span>
+<div class="codehilite"><pre><span></span><span class="err">kubectl edit domain sample-domain1 -n sample-domain1-ns</span>
 </pre></div>
 
 
 <p>実行すると<code>vi</code>のようなエディターが表示されます。</p>
-<hr />
-<p>注意! コンソールを使用してクラスターをスケーリングしないでください。オペレーターがこの操作を制御します。オペレーターのオプションを使用して、Kubernetesにデプロイされたクラスターをスケーリングします。</p>
-<hr />
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>コンソールを使用してクラスターをスケーリングしないでください。オペレーターがこの操作を制御します。オペレーターのオプションを使用して、Kubernetesにデプロイされたクラスターをスケーリングします。</p>
+</div>
+<p>続いて、<a href="../override.jdbc/">JDBC Datasource parametersのオーバーライド</a>に進んでください。</p>
                 
                   
                 
@@ -707,7 +774,7 @@
       
     </div>
     
-      <script src="../../../../assets/javascripts/application.ac79c3b0.js"></script>
+      <script src="../../../../assets/javascripts/application.a8b5e56f.js"></script>
       
         
         

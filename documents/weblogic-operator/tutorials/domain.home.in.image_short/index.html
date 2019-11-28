@@ -32,15 +32,15 @@
         <meta name="lang:search.tokenizer" content="[\s\-　、。，．]+">
       
       <link rel="shortcut icon" href="../../../../assets/images/cloud_46@2x.png">
-      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.4.3">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.5.0">
     
     
       
-        <title>Oracle WebLogic Operator チュートリアル # - Oracle Cloud - PaaS ドキュメント</title>
+        <title>ビギナー向けチュートリアル - Oracle Cloud - PaaS ドキュメント</title>
       
     
     
-      <link rel="stylesheet" href="../../../../assets/stylesheets/application.30686662.css">
+      <link rel="stylesheet" href="../../../../assets/stylesheets/application.1b62728e.css">
       
         <link rel="stylesheet" href="../../../../assets/stylesheets/application-palette.a8b3c06d.css">
       
@@ -51,7 +51,7 @@
       
     
     
-      <script src="../../../../assets/javascripts/modernizr.74668098.js"></script>
+      <script src="../../../../assets/javascripts/modernizr.268332fc.js"></script>
     
     
       
@@ -115,7 +115,7 @@
             </span>
             <span class="md-header-nav__topic">
               
-                Oracle WebLogic Operator チュートリアル #
+                ビギナー向けチュートリアル
               
             </span>
           
@@ -183,14 +183,16 @@
       
         
 
-<nav class="md-tabs" data-md-component="tabs">
+  
+
+<nav class="md-tabs md-tabs--active" data-md-component="tabs">
   <div class="md-tabs__inner md-grid">
     <ul class="md-tabs__list">
       
         
   <li class="md-tabs__item">
     
-      <a href="../../../.." class="md-tabs__link md-tabs__link--active">
+      <a href="../../../.." class="md-tabs__link">
         Home
       </a>
     
@@ -217,6 +219,19 @@
       
         <a href="../../../faas/" class="md-tabs__link">
           FaaS
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../" class="md-tabs__link md-tabs__link--active">
+          WebLogic Operator
         </a>
       
     </li>
@@ -554,6 +569,108 @@
   </li>
 
     
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4" checked>
+    
+    <label class="md-nav__link" for="nav-4">
+      WebLogic Operator
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        WebLogic Operator
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../" title="WebLogic Operatorのホーム" class="md-nav__link">
+      WebLogic Operatorのホーム
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        ビギナー向けチュートリアル
+      </label>
+    
+    <a href="./" title="ビギナー向けチュートリアル" class="md-nav__link md-nav__link--active">
+      ビギナー向けチュートリアル
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">目次</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#oracle-weblogic-operatorkubernetesoracle-weblogic-domaindomain-home-in-image" class="md-nav__link">
+    Oracle WebLogic Operatorを使ったKubernetes上のOracle WebLogic Domain(Domain-home-in-image)へのデプロイ
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    前準備
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    このハンズオンセッションで扱うトピック:
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
   </ul>
 </nav>
                   </div>
@@ -586,19 +703,6 @@
     前準備
   </a>
   
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#virtualbox" class="md-nav__link">
-    VirtualBoxイメージの準備を開始する前に
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
       
         <li class="md-nav__item">
@@ -627,39 +731,41 @@
                 
                 <h1 id="oracle-weblogic-operator">Oracle WebLogic Operator チュートリアル<a class="headerlink" href="#oracle-weblogic-operator" title="Permanent link">&para;</a></h1>
 <h3 id="oracle-weblogic-operatorkubernetesoracle-weblogic-domaindomain-home-in-image">Oracle WebLogic Operatorを使ったKubernetes上のOracle WebLogic Domain(<em>Domain-home-in-image</em>)へのデプロイ<a class="headerlink" href="#oracle-weblogic-operatorkubernetesoracle-weblogic-domaindomain-home-in-image" title="Permanent link">&para;</a></h3>
-<p>このチュートリアルでは<a href="https://github.com/oracle/weblogic-kubernetes-operator">Oracle WebLogic Server Kubernetes Operator 2.0</a>を使ってWebアプリケーションが格納されたWeblogic Domain Containerをデプロイ、起動する方法を記します。</p>
+<p>このチュートリアルでは<a href="https://github.com/oracle/weblogic-kubernetes-operator">Oracle WebLogic Server Kubernetes Operator 2.0</a>を使ってWebアプリケーションが格納されたWeblogic Domain Containerをデプロイ、起動する方法を記します。  </p>
 <p>このデモで扱うWebアプリケーションはWebLogic Operatorの特徴を示すためにWebLogic DomainのMBean属性を表示するだけのシンプルなJSPページを採用しています。</p>
 <p><strong>アーキテクチャ</strong></p>
 <p>WebLogic DomainはPersistent VolumeかDocker Imageの中に配置することができます。<a href="https://github.com/oracle/weblogic-kubernetes-operator/blob/2.0/site/domains.md#create-and-manage-weblogic-domains">これら2つの方法は共に利点と技術的な制約があります。</a> もしくは他のクラウドベンダーを採用することで、あなたのニーズにより合った方法があるかもしれません。</p>
 <p>このチュートリアルでは、デプロイされたイメージ内のWebLogicドメインでDockerイメージを実装します。これは、すべてのアーティファクト、ドメイン関連ファイルがイメージ内に保存されることを意味します。ポッドからの中央の共有ドメインフォルダーはありません。これは、管理対象サーバーをスケールアウトするためにドメインを別のホストに配布する標準インストールトポロジに似ています。主な違いは、コンテナパッケージ化されたWebLogicドメインを使用すると、パック/アンパックメカニズムを使用して複数のホスト間でドメインバイナリとコンフィグレーションファイルを配布する必要がないことです。</p>
-<p><img alt="" src="../images/wlsonk8s.domain-home-in-image.png" /></p>
+<p><img alt="" src="../images/image_home.png" /></p>
 <p>Kubernetes環境では、WebLogicオペレーターは、ドメイン内で1つの管理サーバーと複数の管理対象サーバーのみが実行されるようにします。オペレーターは、複雑なアプリケーションのインスタンスを作成、構成、および管理するためにKubernetesを拡張するアプリケーション固有のコントローラーです。 Oracle WebLogic Server Kubernetes Operatorは、WebLogicドメインとデプロイメントの管理と操作を簡素化します。</p>
 <p>Helmは、Kubernetesアプリケーションの管理に役立つフレームワークであり、helmチャートは、Helmアプリケーションを定義してKubernetesクラスターにインストールするのに役立ちます。 Helmには、クライアント（Helm）とサーバー（Tiller）の2つの部分があります。 TillerはKubernetesクラスター内で実行され、helmチャートのリリース（インストール）を管理します。</p>
-<p>このチュートリアルは、Kubernetes（OKE）用のOracle Cloud Infrastructure Container Engineでテストされています。</p>
+<p>このチュートリアルは、Oracle Cloud Infrastructure Container Engine for Kubernetesでテストされています。</p>
 <h3 id="_1">前準備<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
 <ul>
 <li><a href="https://cloud.oracle.com/en_US/cloud-infrastructure">有効なOracle Cloud Infrastructureアカウント</a>。このチュートリアルは<a href="https://myservices.us.oraclecloud.com/mycloud/signup">Trial account</a>を利用してテストされています。</li>
-<li>Oracle Cloud Infrastructure CLI, <code>kubectl</code>, <code>helm</code>は<a href="https://drive.google.com/file/d/1B8HXGioWL6IpyufS_TYBKKu7oAbqWkAG">こちら</a>からVirtualBox image をダウンロードして構成スクリプトを実行してこのワークショップのテスト環境を取得します。(必要な合計スペース：OVA + インポートされたイメージ &lt; 7 GB)。</li>
-<li>もし必要であれば最初にVirtualBoxをインストールしてください<a href="https://www.virtualbox.org/wiki/Downloads">download VirtualBox</a>。</li>
+<li>Oracle Cloud Infrastructure CLI, <code>kubectl</code>, <code>helm</code>は<a href="https://drive.google.com/file/d/140JW-H5zzh0P709W-hdUPcbw_HZy2XcX">こちら</a>からVirtualBox image をダウンロードして構成スクリプトを実行してこのワークショップのテスト環境を取得します。(必要な合計スペース：OVA + インポートされたイメージ &lt; 7 GB)。</li>
+<li>
+<p>もし必要であれば最初にVirtualBoxをインストールしてください<a href="https://www.virtualbox.org/wiki/Downloads">Download VirtualBox</a>。</p>
+</li>
+<li>
+<p>ターミナルウィンドウを開き、次の構成スクリプトを実行してデスクトップ環境を準備します。スクリプトが終了したら、ターミナルを閉じます。</p>
+</li>
 </ul>
-<h4 id="virtualbox">VirtualBoxイメージの準備を開始する前に<a class="headerlink" href="#virtualbox" title="Permanent link">&para;</a></h4>
-<p>ターミナルウィンドウを開き、次の構成スクリプトを実行してデスクトップ環境を準備します。</p>
 <div class="codehilite"><pre><span></span>curl -LSs https://raw.githubusercontent.com/nagypeter/vmcontrol/master/setup-operator-workshop.sh <span class="p">|</span> bash
 </pre></div>
 
 
-<p>スクリプトが終了したら、ターミナルを閉じます。</p>
 <h3 id="_2">このハンズオンセッションで扱うトピック:<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
 <ol>
-<li><a href="../setup.oke/">Oracle Cloud InfrastructureでOracle Kubernetes Engineインスタンスを設定</a></li>
+<li><a href="../setup.oke/">OCIでOKEインスタンスを設定</a></li>
 <li><a href="../install.operator/">WebLogic Operatorのインストール</a></li>
 <li><a href="../install.traefik/">Traefik Software Loadbalancerのインストール</a></li>
 <li><a href="../deploy.weblogic_short/">WebLogic Domainのデプロイ</a></li>
 <li><a href="../scale.weblogic/">WebLogic Clusterのスケーリング</a></li>
 <li><a href="../override.jdbc/">JDBC Datasource parametersのオーバーライド</a></li>
-<li><a href="../update.application_short/">新しいイメージへのローリングアップデートによるデプロイ済みアプリケーションの更新</a></li>
-<li><a href="../node.selector/">ノードへのWebLogic Podsの割り当て(2つのデータセンターにまたがるクラスターをシミュレートするシナリオ)</a></li>
-<li><a href="../node.selector.license/">ノードへのWebLogic Podsの割り当て(クラスターのサブセットのみのライセンスをシミュレートするシナリオ)</a></li>
+<li><a href="../update.application_short/">ローリングアップデートによるデプロイ済みアプリケーションの更新</a></li>
+<li><a href="../node.selector/">ノードに対するWebLogicのPodの割り当て</a></li>
+<li><a href="../node.selector.license/">ライセンス対象のノードに対するWebLogicのPodの配置</a></li>
 </ol>
                 
                   
@@ -677,6 +783,27 @@
       
         
 <footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../../" title="WebLogic Operatorのホーム" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  前
+                </span>
+                WebLogic Operatorのホーム
+              </span>
+            </div>
+          </a>
+        
+        
+      </nav>
+    </div>
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
@@ -706,7 +833,7 @@
       
     </div>
     
-      <script src="../../../../assets/javascripts/application.ac79c3b0.js"></script>
+      <script src="../../../../assets/javascripts/application.a8b5e56f.js"></script>
       
         
         

@@ -32,15 +32,15 @@
         <meta name="lang:search.tokenizer" content="[\s\-　、。，．]+">
       
       <link rel="shortcut icon" href="../../assets/images/cloud_46@2x.png">
-      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.4.3">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.5.0">
     
     
       
-        <title>Oracle Cloud - PaaS ドキュメント</title>
+        <title>WebLogic Operatorのホーム - Oracle Cloud - PaaS ドキュメント</title>
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/application.30686662.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/application.1b62728e.css">
       
         <link rel="stylesheet" href="../../assets/stylesheets/application-palette.a8b3c06d.css">
       
@@ -51,7 +51,7 @@
       
     
     
-      <script src="../../assets/javascripts/modernizr.74668098.js"></script>
+      <script src="../../assets/javascripts/modernizr.268332fc.js"></script>
     
     
       
@@ -115,7 +115,7 @@
             </span>
             <span class="md-header-nav__topic">
               
-                Home
+                WebLogic Operatorのホーム
               
             </span>
           
@@ -183,14 +183,16 @@
       
         
 
-<nav class="md-tabs" data-md-component="tabs">
+  
+
+<nav class="md-tabs md-tabs--active" data-md-component="tabs">
   <div class="md-tabs__inner md-grid">
     <ul class="md-tabs__list">
       
         
   <li class="md-tabs__item">
     
-      <a href="../.." class="md-tabs__link md-tabs__link--active">
+      <a href="../.." class="md-tabs__link">
         Home
       </a>
     
@@ -217,6 +219,19 @@
       
         <a href="../faas/" class="md-tabs__link">
           FaaS
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="./" class="md-tabs__link md-tabs__link--active">
+          WebLogic Operator
         </a>
       
     </li>
@@ -554,6 +569,94 @@
   </li>
 
     
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4" checked>
+    
+    <label class="md-nav__link" for="nav-4">
+      WebLogic Operator
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        WebLogic Operator
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        WebLogic Operatorのホーム
+      </label>
+    
+    <a href="./" title="WebLogic Operatorのホーム" class="md-nav__link md-nav__link--active">
+      WebLogic Operatorのホーム
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">目次</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    ビギナー向けチュートリアル
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="tutorials/domain.home.in.image_short/" title="ビギナー向けチュートリアル" class="md-nav__link">
+      ビギナー向けチュートリアル
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
   </ul>
 </nav>
                   </div>
@@ -599,23 +702,31 @@
                 
                 
                 <h1 id="weblogic-operator">WebLogic Operator<a class="headerlink" href="#weblogic-operator" title="Permanent link">&para;</a></h1>
-<p>サーバレスアーキテクチャを担うFaaS(Function as a Service)のサービス群です。</p>
+<p>WebLogic Operatorは、Kubernetes上でWebLogicを管理するためのKubernetes Operatorです。</p>
 <p>このカテゴリには以下が含まれます。</p>
 <ul>
 <li>
 <dl>
-<dt>Fn Project:</dt>
-<dd>Oracle社主導で開発を進めている開発者エクスペリエンス重視のオープンソースFaaS構築プラットフォームです。CLI上で構築からデプロイまで実施でき、ローカル環境も簡単に構築できます。</dd>
+<dt>Oracle Container Engine for Kubernetes (OKE):</dt>
+<dd>フルマネージドなKuberentesクラスターを提供するクラウドサービスです。</dd>
 </dl>
 </li>
 <li>
 <dl>
-<dt>Oracle Functions:</dt>
-<dd>Oracleが提供するFn Projectのマネージドサービスです。Fn Projectと同様の感覚で操作でき、アプリケーションの管理やデプロイするファンクションはOCI(Oracle Cloud Infrastructure)コンソール上からも確認できます。</dd>
+<dt>WebLogic Operator:</dt>
+<dd>Kubernetes上でWebLogicを管理するためのKubernetes Operatorです。</dd>
 </dl>
 </li>
 </ul>
 <h2 id="_1">ビギナー向けチュートリアル<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<ul>
+<li>
+<dl>
+<dt><a href="tutorials/domain.home.in.image_short/">WebLogic Operator入門</a> <i class="fa fa-external-link"></i></dt>
+<dd>WebLogic Operatorを利用したKubernetes上への簡単なアプリケーションのデプロイ/更新とKubernetes上でのドメイン管理についてご案内します。</dd>
+</dl>
+</li>
+</ul>
                 
                   
                 
@@ -632,6 +743,41 @@
       
         
 <footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../faas/oraclefunctions/handson/getting-started/" title="Oracle Functionsことはじめ" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  前
+                </span>
+                Oracle Functionsことはじめ
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="tutorials/domain.home.in.image_short/" title="ビギナー向けチュートリアル" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  次
+                </span>
+                ビギナー向けチュートリアル
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
@@ -661,7 +807,7 @@
       
     </div>
     
-      <script src="../../assets/javascripts/application.ac79c3b0.js"></script>
+      <script src="../../assets/javascripts/application.a8b5e56f.js"></script>
       
         
         
