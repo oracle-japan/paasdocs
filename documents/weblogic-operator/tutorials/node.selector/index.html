@@ -32,11 +32,11 @@
         <meta name="lang:search.tokenizer" content="[\s\-　、。，．]+">
       
       <link rel="shortcut icon" href="../../../../assets/images/cloud_46@2x.png">
-      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.5.0">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.6.0">
     
     
       
-        <title>Oracle WebLogic Operator チュートリアル # - Oracle Cloud - PaaS ドキュメント</title>
+        <title>ノードに対するWebLogicのPodの割り当て - Oracle Cloud - PaaS ドキュメント</title>
       
     
     
@@ -56,7 +56,7 @@
     
       
         <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono&display=fallback">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
         <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
       
     
@@ -115,7 +115,7 @@
             </span>
             <span class="md-header-nav__topic">
               
-                Oracle WebLogic Operator チュートリアル #
+                ノードに対するWebLogicのPodの割り当て
               
             </span>
           
@@ -183,14 +183,16 @@
       
         
 
-<nav class="md-tabs" data-md-component="tabs">
+  
+
+<nav class="md-tabs md-tabs--active" data-md-component="tabs">
   <div class="md-tabs__inner md-grid">
     <ul class="md-tabs__list">
       
         
   <li class="md-tabs__item">
     
-      <a href="../../../.." class="md-tabs__link md-tabs__link--active">
+      <a href="../../../.." class="md-tabs__link">
         Home
       </a>
     
@@ -228,7 +230,7 @@
   
     <li class="md-tabs__item">
       
-        <a href="../../" class="md-tabs__link">
+        <a href="../domain.home.in.image_short/" class="md-tabs__link md-tabs__link--active">
           WebLogic Operator
         </a>
       
@@ -347,19 +349,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../containers/handson/getting-started-automated/" title="OKEでKubernetesを始めてみよう (ハンズオンはこちらから)" class="md-nav__link">
-      OKEでKubernetesを始めてみよう (ハンズオンはこちらから)
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../../containers/handson/getting-started/" title="OKEでKubernetesを始めてみよう" class="md-nav__link">
+    <a href="../../../containers/handson/getting-started-automated/" title="OKEでKubernetesを始めてみよう" class="md-nav__link">
       OKEでKubernetesを始めてみよう
     </a>
   </li>
@@ -433,42 +423,6 @@
   <li class="md-nav__item">
     <a href="../../../containers/wercker/getting-started/" title="Werckerを使ってみよう" class="md-nav__link">
       Werckerを使ってみよう
-    </a>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item md-nav__item--nested">
-    
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-4" type="checkbox" id="nav-2-4">
-    
-    <label class="md-nav__link" for="nav-2-4">
-      【Modern Cloud Day特設】
-    </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
-      <label class="md-nav__title" for="nav-2-4">
-        【Modern Cloud Day特設】
-      </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../../containers/handson/quick-start/" title="OKE Quick Start 30分" class="md-nav__link">
-      OKE Quick Start 30分
     </a>
   </li>
 
@@ -571,10 +525,12 @@
       
       
 
+  
 
-  <li class="md-nav__item md-nav__item--nested">
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4" checked>
     
     <label class="md-nav__link" for="nav-4">
       WebLogic Operator
@@ -592,8 +548,41 @@
 
 
   <li class="md-nav__item">
-    <a href="../../" title="WebLogic Operatorのホーム" class="md-nav__link">
+    <a href="../domain.home.in.image_short/" title="WebLogic Operatorのホーム" class="md-nav__link">
       WebLogic Operatorのホーム
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4-2" type="checkbox" id="nav-4-2" checked>
+    
+    <label class="md-nav__link" for="nav-4-2">
+      ビギナー向けチュートリアル
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-4-2">
+        ビギナー向けチュートリアル
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../setup.oke/" title="OCIでOKEインスタンスを設定" class="md-nav__link">
+      OCIでOKEインスタンスを設定
     </a>
   </li>
 
@@ -604,9 +593,189 @@
 
 
   <li class="md-nav__item">
-    <a href="../domain.home.in.image_short/" title="ビギナー向けチュートリアル" class="md-nav__link">
-      ビギナー向けチュートリアル
+    <a href="../install.operator/" title="WebLogic Operatorのインストール" class="md-nav__link">
+      WebLogic Operatorのインストール
     </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../install.traefik/" title="Traefik Software Loadbalancerのインストール" class="md-nav__link">
+      Traefik Software Loadbalancerのインストール
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../deploy.weblogic_short/" title="WebLogic Domainのデプロイ" class="md-nav__link">
+      WebLogic Domainのデプロイ
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../scale.weblogic/" title="WebLogic Clusterのスケーリング" class="md-nav__link">
+      WebLogic Clusterのスケーリング
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../override.jdbc/" title="JDBC Datasource parametersのオーバーライド" class="md-nav__link">
+      JDBC Datasource parametersのオーバーライド
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../update.application_short/" title="ローリングアップデートによるデプロイ済みアプリケーションの更新" class="md-nav__link">
+      ローリングアップデートによるデプロイ済みアプリケーションの更新
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        ノードに対するWebLogicのPodの割り当て
+      </label>
+    
+    <a href="./" title="ノードに対するWebLogicのPodの割り当て" class="md-nav__link md-nav__link--active">
+      ノードに対するWebLogicのPodの割り当て
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">目次</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#weblogicpod" class="md-nav__link">
+    ノードに対するWebLogicのPodの割り当て
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    アフィニティの作成
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    特定のサーバを指定したノードに配置する
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    ラベルの設定
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    ドメイン・リソース定義の変更
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#domainyaml-nodeselector" class="md-nav__link">
+    domain.yaml 内のラベルと nodeSelector エントリの削除
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../node.selector.license/" title="ライセンス対象のノードに対するWebLogicのPodの配置" class="md-nav__link">
+      ライセンス対象のノードに対するWebLogicのPodの配置
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
   </li>
 
         
@@ -840,6 +1009,7 @@ domain.weblogic.oracle/sample-domain1 configured
                 
                   
                 
+                
               
               
                 
@@ -853,6 +1023,41 @@ domain.weblogic.oracle/sample-domain1 configured
       
         
 <footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../update.application_short/" title="ローリングアップデートによるデプロイ済みアプリケーションの更新" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  前
+                </span>
+                ローリングアップデートによるデプロイ済みアプリケーションの更新
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../node.selector.license/" title="ライセンス対象のノードに対するWebLogicのPodの配置" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  次
+                </span>
+                ライセンス対象のノードに対するWebLogicのPodの配置
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
@@ -882,7 +1087,7 @@ domain.weblogic.oracle/sample-domain1 configured
       
     </div>
     
-      <script src="../../../../assets/javascripts/application.a8b5e56f.js"></script>
+      <script src="../../../../assets/javascripts/application.808e90bb.js"></script>
       
         
         
