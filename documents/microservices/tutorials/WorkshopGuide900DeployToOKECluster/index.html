@@ -769,8 +769,9 @@
 <p>次のステップを追加します。「ステップ」をクリックします。</p>
 <ul>
 <li>リポジトリ：ご利用のリポジトリを選択する</li>
+<li>SCMコミット時に自動的にビルドを実行：チェックオンにする</li>
 </ul>
-<p><img alt="" src="../images/1730.jpg" title="" /></p>
+<p><a href="../images/1730.jpg" title=""></a></p>
 <p>「ステップの追加」から「Docker」⇒「Dockerログイン」を選択します。</p>
 <p><img alt="" src="../images/1740.jpg" title="" /></p>
 <p>下記項目を入力します。</p>
@@ -803,9 +804,7 @@
 <span class="err">./kubectl version</span>
 <span class="err">./kubectl config view</span>
 <span class="err">./kubectl get nodes</span>
-<span class="err">./kubectl delete secret atp-secret --ignore-not-found=true</span>
 <span class="err">./kubectl delete statefulset okeatpapp --ignore-not-found=true</span>
-<span class="err">./apply_secret.sh</span>
 <span class="err">./kubectl apply -f okeatpapp.yaml</span>
 <span class="err">./kubectl get services okeatpapp</span>
 <span class="err">./kubectl get pods</span>
