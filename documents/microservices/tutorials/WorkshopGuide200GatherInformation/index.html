@@ -332,11 +332,11 @@
       <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-2" type="checkbox" id="nav-2-2">
     
     <label class="md-nav__link" for="nav-2-2">
-      ビギナー向けチュートリアル
+      ビギナー向けチュートリアル -その1-
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
       <label class="md-nav__title" for="nav-2-2">
-        ビギナー向けチュートリアル
+        ビギナー向けチュートリアル -その1-
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
         
@@ -744,22 +744,15 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#6-api-signingprivate" class="md-nav__link">
-    6. API SigningのPrivateキーのローカルパス
+  <a href="#6-api-signing" class="md-nav__link">
+    6. API Signingキーのフィンガープリント
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#7-api-signing" class="md-nav__link">
-    7. API Signingキーのフィンガープリント
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#8" class="md-nav__link">
-    8. 認証トークン
+  <a href="#7" class="md-nav__link">
+    7. 認証トークン
   </a>
   
 </li>
@@ -788,15 +781,15 @@
                 
                 <h1 id="_1">ワークショップで利用するアカウント情報の収集<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
 <h2 id="ociocid">OCIを使用するための一連のOCIDなど情報の収集<a class="headerlink" href="#ociocid" title="Permanent link">&para;</a></h2>
-<p>ワークショップを進める上で下記の情報が必要となります。<strong>取得した情報は後ほど使用するためメモ帳などに控えておいてください。</strong></p>
+<p>ハンズオンを進める上で下記の情報が必要となります。<strong>取得した情報は後ほど使用するためメモ帳などに控えておいてください。</strong></p>
 <ol>
 <li>テナントOCID</li>
 <li>オブジェクト・ストレージ・ネームスペース</li>
 <li>リージョン識別子</li>
 <li>コンパートメントOCID</li>
 <li>ユーザーOCID</li>
-<li>API SigningのPrivateキーのローカルパス</li>
 <li>API Signingキーのフィンガープリント</li>
+<li>認証トークン</li>
 </ol>
 <h4 id="1-ocid-2">1. テナントOCID　/　2. オブジェクト・ストレージ・ネームスペース<a class="headerlink" href="#1-ocid-2" title="Permanent link">&para;</a></h4>
 <p>OCIコンソール右上のハンバーガーメニューを展開し、「管理」⇒「テナント詳細」に移動します。</p>
@@ -808,50 +801,35 @@
 <p><img alt="" src="../images/1010.jpg" title="" /></p>
 <h4 id="3">3. リージョン識別子<a class="headerlink" href="#3" title="Permanent link">&para;</a></h4>
 <p>OCIコンソール右上のハンバーガーメニューを展開し、「管理」⇒「地域管理」に移動します。</p>
-<p>以下をコピーしてメモしてください。
-+ Region Identifier：リージョン識別子</p>
+<p>以下をコピーしてメモしてください。</p>
+<ul>
+<li>Region Identifier：リージョン識別子</li>
+</ul>
 <p>日本にあるデータセンター"Japan East (Tokyo)"を使用する場合"ap-tokyo-1"になります。</p>
 <p><img alt="" src="../images/1020.jpg" title="" /></p>
 <h4 id="4-ocid">4. コンパートメントOCID<a class="headerlink" href="#4-ocid" title="Permanent link">&para;</a></h4>
 <p>OCIコンソール右上のハンバーガーメニューを展開し、「アイデンティティ」⇒「コンパートメント」に移動します。コンパートメント一覧から使用するコンパートメントに移動します。</p>
-<p>以下をコピーしてメモしてください。
-+ OCID：コンパートメントOCID</p>
+<p>以下をコピーしてメモしてください。</p>
+<ul>
+<li>OCID：コンパートメントOCID</li>
+</ul>
 <p><img alt="" src="../images/1030.jpg" title="" />
 　</p>
 <h4 id="5-ocid">5. ユーザーOCID<a class="headerlink" href="#5-ocid" title="Permanent link">&para;</a></h4>
 <p>OCIコンソール右上のハンバーガーメニューを展開し、「アイデンティティ」⇒「ユーザー」に移動します。ユーザー一覧から使用するユーザーに移動します。</p>
-<p>以下をコピーしてメモしてください。
-+ OCID：ユーザーOCID</p>
+<p>以下をコピーしてメモしてください。</p>
+<ul>
+<li>OCID：ユーザーOCID</li>
+</ul>
 <p><img alt="" src="../images/1040.jpg" title="" /></p>
-<h4 id="6-api-signingprivate">6. API SigningのPrivateキーのローカルパス<a class="headerlink" href="#6-api-signingprivate" title="Permanent link">&para;</a></h4>
-<p>API Signingキーを持っていない場合、<a href="https://docs.cloud.oracle.com/iaas/Content/API/Concepts/apisigningkey.htm">API Signingキーの作成方法</a>を参考にして、作成します。</p>
-<p>例：</p>
-<p>パスフレーズなしでAPI SigningのPrivateキーを生成するには、</p>
-<div class="codehilite"><pre><span></span><span class="err">mkdir ~/.oci</span>
-<span class="err">openssl genrsa -out ~/.oci/oci_api_key.pem 2048</span>
-<span class="err">chmod go-rwx ~/.oci/oci_api_key.pem</span>
-</pre></div>
-
-
-<p>API SigningのPublicキーを生成するには、</p>
-<div class="codehilite"><pre><span></span><span class="err">openssl rsa -pubout -in ~/.oci/oci_api_key.pem -out ~/.oci/oci_api_key_public.pem</span>
-</pre></div>
-
-
-<p>~/.oci/oci_api_key.pemはAPI SigningのPrivateキーのローカルパスになります。絶対パスを取得して、メモしてください。</p>
-<p>API SigningのPrivateキーを有効にするために、ユーザー詳細画面で該当Publicキーを追加する必要があります。</p>
+<h4 id="6-api-signing">6. API Signingキーのフィンガープリント<a class="headerlink" href="#6-api-signing" title="Permanent link">&para;</a></h4>
+<p>API Signingキーのフィンガープリントは<a href="../WorkshopGuide100InstallSoftware/">必要なソフトウェアのインストール</a>の手順により、<br />
+ユーザー詳細画面から確認できるようになっています。</p>
 <p>ユーザー詳細画面で「APIキー」に移動します。</p>
-<p><img alt="" src="../images/1050.jpg" title="" /></p>
-<p>API SigningのPublicキーを入力して、「追加」ボタンをクリックします。</p>
-<p><img alt="" src="../images/1060.jpg" title="" /></p>
-<h4 id="7-api-signing">7. API Signingキーのフィンガープリント<a class="headerlink" href="#7-api-signing" title="Permanent link">&para;</a></h4>
-<p>API Signingキーのフィンガープリントを取得するには、下記コマンドを実行します。</p>
-<p>以下の出力結果をコピーしてメモしてください。</p>
-<div class="codehilite"><pre><span></span><span class="err">openssl rsa -pubout -outform DER -in ~/.oci/oci_api_key.pem | openssl md5 -c</span>
-</pre></div>
-
-
-<h4 id="8">8. 認証トークン<a class="headerlink" href="#8" title="Permanent link">&para;</a></h4>
+<p><strong>スクショを貼る</strong></p>
+<p>表示されている値をメモしてください。</p>
+<p><strong>スクショを貼る</strong></p>
+<h4 id="7">7. 認証トークン<a class="headerlink" href="#7" title="Permanent link">&para;</a></h4>
 <p>マシンもしくはOKEからOCIRを使用するために、認証トークンの収集を行います（ユーザー認証用のパスワードではなく、認証トークンが必要です）。</p>
 <p>OCIコンソール右上のハンバーガーメニューを展開し、「アイデンティティ」⇒「ユーザー」に移動します。ユーザー一覧から使用するユーザーへ移動します。</p>
 <p>「リソース」の「認証トークン」に移動し、「トークンの生成」ボタンをクリックします。</p>
@@ -864,8 +842,7 @@
 <p><strong>生成されたトークンは一回のみ表示されます。「コピー」をクリックしてトークンがコピーされ、どこに保存してください。完了したら、「閉じる」ボタンをクリックします。（注：忘れたときは作成されたトークンを削除して、再度生成してください。）</strong></p>
 <p><img alt="" src="../images/1066.jpg" title="" /></p>
 <p>これで、ワークショップで利用するアカウント情報の収集が完了しました。</p>
-<p>続いて<a href="../WorkshopGuide300CreateProjectRepository/">DevCSでプロジェクトとリポジトリの作成</a>に進んでください。</p>
-<p><a href="../../">ワークショップTopへ</a></p>
+<p>続いて<a href="../WorkshopGuide300CreateProjectRepository/">プロジェクトとリポジトリの作成</a>に進んでください。</p>
                 
                   
                 
@@ -889,7 +866,7 @@
       <div class="md-footer-copyright">
         
           <div class="md-footer-copyright__highlight">
-            Copyright &copy; 2018 - 2019 Oracle Corporation Japan
+            Copyright &copy; 2018 - 2020 Oracle Corporation Japan
           </div>
         
         powered by
