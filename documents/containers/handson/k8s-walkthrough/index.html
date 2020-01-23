@@ -338,11 +338,11 @@
       <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-2" type="checkbox" id="nav-2-2" checked>
     
     <label class="md-nav__link" for="nav-2-2">
-      ビギナー向けチュートリアル
+      ビギナー向けチュートリアル -その1-
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
       <label class="md-nav__title" for="nav-2-2">
-        ビギナー向けチュートリアル
+        ビギナー向けチュートリアル -その1-
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
         
@@ -1148,7 +1148,7 @@
 
 <p>ユーザー名、パスワードの入力を求めるメッセージが表示されますので、以下のように入力してください。</p>
 <ul>
-<li>ユーザー名: [オブジェクト・ストレージ・ネームスペース]/[ユーザー名] （例: nrzftilbveen/Handson-001）</li>
+<li>ユーザー名: [オブジェクト・ストレージ・ネームスペース]/[ユーザー名] （例: nrzftilbveen/oracleidentitycloudservice/yoi.naka.0106@gmail.com）</li>
 <li>パスワード: [2.1.で作成したトークン文字列]</li>
 </ul>
 <div class="admonition warning">
@@ -1300,6 +1300,10 @@
 </pre></div>
 
 
+<div class="codehilite"><pre><span></span><span class="err">git push</span>
+</pre></div>
+
+
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>このコマンドを実行したとき、以下のようなメッセージが表示されることがあります。</p>
@@ -1315,10 +1319,6 @@
 
 <p>このような場合は、メッセージの指示に従って2つの<code>git config</code>コマンドを実行するようにしてください。普段Gitクライアントお使いの際のname, emailがあればそれで問題ありませんが、実在しない情報を入力しても手順を進めることは可能です。</p>
 </div>
-<div class="codehilite"><pre><span></span><span class="err">git push</span>
-</pre></div>
-
-
 <p><code>git push</code>を実行するとGitHubのユーザー名とパスワードの入力を求められます。ここでは、お持ちのGitHubアカウントの情報を入力してください。</p>
 <p>次に、cowweb-service.yamlというmanifestファイルの内容を確認してみます。</p>
 <div class="codehilite"><pre><span></span><span class="err">cat kubernetes/cowweb-service.yaml</span>
@@ -1352,13 +1352,14 @@
 </td></tr></table>
 
 <p>このmanifestファイルは、クラスターに対するリクエストのトラフィックを受け付ける際のルールを定義しています。<code>type: LoadBalancer</code>という記述は、クラスターがホストされているクラウドサービスのロードバランサーを自動プロビジョニングし、そのLBに来たトラフィックをコンテナに届けるという意味です。</p>
-<p>それでは、Kubernetes上でサンプルアプリケーションのコンテナを動かしてみます。まずは、クラスターを区画に分けて管理するための領域である、namespaceを作成します。以下のコマンドで、namespace名は任意の文字列を指定できます。</p>
-<div class="codehilite"><pre><span></span><span class="n">kubectl</span><span class="w"> </span><span class="k">create</span><span class="w"> </span><span class="n">namespace</span><span class="w"> </span><span class="o">[</span><span class="n">namespace名</span><span class="o">]</span><span class="w"></span>
+<p>それでは、Kubernetes上でサンプルアプリケーションのコンテナを動かしてみます。まずは、クラスターを区画に分けて管理するための領域である、namespaceを作成します。以下のコマンドで、namespace名は任意の文字列を指定できます。<br />
+今回は"handson"というnamespace名で作成します。</p>
+<div class="codehilite"><pre><span></span><span class="err">kubectl create namespace handson</span>
 </pre></div>
 
 
 <p>デフォルトのNamespaceを上記で作成したものに変更しておきます。これを行うと、以降、kubectlの実行の度にNamespaceを指定する必要がなくなります。</p>
-<div class="codehilite"><pre><span></span><span class="n">kubectl</span><span class="w"> </span><span class="n">config</span><span class="w"> </span><span class="k">set</span><span class="o">-</span><span class="n">context</span><span class="w"> </span><span class="err">$</span><span class="p">(</span><span class="n">kubectl</span><span class="w"> </span><span class="n">config</span><span class="w"> </span><span class="k">current</span><span class="o">-</span><span class="n">context</span><span class="p">)</span><span class="w"> </span><span class="c1">--namespace=[namespace名]</span>
+<div class="codehilite"><pre><span></span><span class="err">kubectl config set-context $(kubectl config current-context) --namespace=handson</span>
 </pre></div>
 
 
@@ -1477,7 +1478,7 @@
       <div class="md-footer-copyright">
         
           <div class="md-footer-copyright__highlight">
-            Copyright &copy; 2018 - 2019 Oracle Corporation Japan
+            Copyright &copy; 2018 - 2020 Oracle Corporation Japan
           </div>
         
         powered by

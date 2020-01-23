@@ -332,11 +332,11 @@
       <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-2" type="checkbox" id="nav-2-2">
     
     <label class="md-nav__link" for="nav-2-2">
-      ビギナー向けチュートリアル
+      ビギナー向けチュートリアル -その1-
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
       <label class="md-nav__title" for="nav-2-2">
-        ビギナー向けチュートリアル
+        ビギナー向けチュートリアル -その1-
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
         
@@ -910,10 +910,10 @@ key|value
 -|-
 tenancy_ocid|テナントOCID
 user_ocid|ユーザーOCID
-fingerprint|API SigningのPrivateキーのフィンガープリント
+fingerprint|API Signingキーのフィンガープリント
 region|リージョン識別子、たとえば、ap-tokyo-1
-passphrase|API Signingキーのパスワード（設定されない場合は""を入力）
-private_key_path|API Signingキーのローカルパス</p>
+passphrase| ""(空文字)
+private_key_path|<code>/home/opc/.oci/oci_api_key.pem</code></p>
 <p>OCI Service Brokerをインストールします。</p>
 <div class="codehilite"><pre><span></span><span class="err">helm install charts/oci-service-broker/. --name oci-service-broker \</span>
 <span class="err">    --set ociCredentials.secretName=ocicredentials \</span>
@@ -1091,8 +1091,7 @@ private_key_path|API Signingキーのローカルパス</p>
 <p>作成されたファイルWallet_tfOKEATPDB.zipを使用して、ATPデータベースへ接続できます。</p>
 <p>DevCSのビルド機能でこのファイルを使用して、データを導入し確認できます。次のステップで説明します。</p>
 <p>これで、ATPデータベースのWalletファイルの取得は完了しました。</p>
-<p>続いて<a href="../WorkshopGuide700LoadData/">DevCSのビルド機能（CI/CD）を使用して、ATPへデータ導入</a>に進んでください。</p>
-<p><a href="../../">ワークショップTopへ</a></p>
+<p>続いて<a href="../WorkshopGuide700LoadData/">ATPへのサンプルデータ登録</a>に進んでください。</p>
                 
                   
                 
@@ -1116,7 +1115,7 @@ private_key_path|API Signingキーのローカルパス</p>
       <div class="md-footer-copyright">
         
           <div class="md-footer-copyright__highlight">
-            Copyright &copy; 2018 - 2019 Oracle Corporation Japan
+            Copyright &copy; 2018 - 2020 Oracle Corporation Japan
           </div>
         
         powered by
