@@ -1,0 +1,1487 @@
+
+
+
+
+<!doctype html>
+<html lang="ja" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+      
+      
+      
+        <meta name="lang:clipboard.copy" content="クリップボードへコピー">
+      
+        <meta name="lang:clipboard.copied" content="コピーしました">
+      
+        <meta name="lang:search.language" content="en, jp">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="何も見つかりませんでした">
+      
+        <meta name="lang:search.result.one" content="1件見つかりました">
+      
+        <meta name="lang:search.result.other" content="#件見つかりました">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-　、。，．]+">
+      
+      <link rel="shortcut icon" href="../../../../assets/images/cloud_46@2x.png">
+      <meta name="generator" content="mkdocs-1.1, mkdocs-material-4.6.3">
+    
+    
+      
+        <title>Oracle WebLogic Operator チュートリアル # - Oracle Cloud - PaaS ドキュメント</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/application.adb8469c.css">
+      
+        <link rel="stylesheet" href="../../../../assets/stylesheets/application-palette.a8b3c06d.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="#03a9f4">
+      
+    
+    
+      <script src="../../../../assets/javascripts/modernizr.86422ebf.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../../../../assets/fonts/material-icons.css">
+    
+    
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+    
+      <link rel="stylesheet" href="../../../../stylesheets/extra.css">
+    
+    
+      
+    
+    
+  </head>
+  
+    
+    
+    <body dir="ltr" data-md-color-primary="light-blue" data-md-color-accent="light-blue">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448" viewBox="0 0 416 448" id="__github"><path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19T128 352t-18.125-8.5-10.75-19T96 304t3.125-20.5 10.75-19T128 256t18.125 8.5 10.75 19T160 304zm160 0q0 10-3.125 20.5t-10.75 19T288 352t-18.125-8.5-10.75-19T256 304t3.125-20.5 10.75-19T288 256t18.125 8.5 10.75 19T320 304zm40 0q0-30-17.25-51T296 232q-10.25 0-48.75 5.25Q229.5 240 208 240t-39.25-2.75Q130.75 232 120 232q-29.5 0-46.75 21T56 304q0 22 8 38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0 37.25-1.75t35-7.375 30.5-15 20.25-25.75T360 304zm56-44q0 51.75-15.25 82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5T212 416q-19.5 0-35.5-.75t-36.875-3.125-38.125-7.5-34.25-12.875T37 371.5t-21.5-28.75Q0 312 0 260q0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25 30.875Q171.5 96 212 96q37 0 70 8 26.25-20.5 46.75-30.25T376 64q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34 99.5z"/></svg>
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#oracle-weblogic-operator" tabindex="0" class="md-skip">
+        Skip to content
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="../../../.." title="Oracle Cloud - PaaS ドキュメント" aria-label="Oracle Cloud - PaaS ドキュメント" class="md-header-nav__button md-logo">
+          
+            <img alt="logo" src="../../../../assets/images/cloud_w_46@2x.png" width="24" height="24">
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+              Oracle Cloud - PaaS ドキュメント
+            </span>
+            <span class="md-header-nav__topic">
+              
+                Oracle WebLogic Operator チュートリアル #
+              
+            </span>
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" aria-label="search" name="query" placeholder="検索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            検索キーワードを入力してください
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            
+
+
+  
+
+<a href="https://github.com/oracle-japan/paasdocs" title="リポジトリへ" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    oracle-japan/paasdocs
+  </div>
+</a>
+          </div>
+        </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+        
+
+<nav class="md-tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  <li class="md-tabs__item">
+    
+      <a href="../../../.." class="md-tabs__link md-tabs__link--active">
+        Home
+      </a>
+    
+  </li>
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../../containers/common/" class="md-tabs__link">
+          コンテナ
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../../faas/" class="md-tabs__link">
+          FaaS
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../tutorials/domain.home.in.image_short/" class="md-tabs__link">
+          WebLogic Operator
+        </a>
+      
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+      
+      <main class="md-main" role="main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="../../../.." title="Oracle Cloud - PaaS ドキュメント" class="md-nav__button md-logo">
+      
+        <img alt="logo" src="../../../../assets/images/cloud_w_46@2x.png" width="48" height="48">
+      
+    </a>
+    Oracle Cloud - PaaS ドキュメント
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+<a href="https://github.com/oracle-japan/paasdocs" title="リポジトリへ" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    oracle-japan/paasdocs
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../../.." title="Home" class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+    
+    <label class="md-nav__link" for="nav-2">
+      コンテナ
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        コンテナ
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../containers/common/" title="コンテナのホーム" class="md-nav__link">
+      コンテナのホーム
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-2" type="checkbox" id="nav-2-2">
+    
+    <label class="md-nav__link" for="nav-2-2">
+      ビギナー向けチュートリアル
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-2-2">
+        ビギナー向けチュートリアル
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../containers/handson/k8s-walkthrough/" title="OKEでアプリケーションを動かしてみよう" class="md-nav__link">
+      OKEでアプリケーションを動かしてみよう
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../containers/handson/k8s-basic-ops/" title="Kubernetesの基本的な操作を体験しよう" class="md-nav__link">
+      Kubernetesの基本的な操作を体験しよう
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../containers/handson/integrated-cicd/" title="OKEとWerckerによるCI/CD" class="md-nav__link">
+      OKEとWerckerによるCI/CD
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+    
+    <label class="md-nav__link" for="nav-3">
+      FaaS
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        FaaS
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../faas/" title="FaaSのホーム" class="md-nav__link">
+      FaaSのホーム
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-2" type="checkbox" id="nav-3-2">
+    
+    <label class="md-nav__link" for="nav-3-2">
+      ビギナー向けチュートリアル
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-2">
+        ビギナー向けチュートリアル
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../faas/fn/handson/getting-started/" title="Fn Projectことはじめ" class="md-nav__link">
+      Fn Projectことはじめ
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../faas/oraclefunctions/handson/getting-started/" title="Oracle Functionsことはじめ" class="md-nav__link">
+      Oracle Functionsことはじめ
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../faas/with_apigw/" title="Oracle Cloud Infrastructure API Gateway + Oracle Functionsハンズオン" class="md-nav__link">
+      Oracle Cloud Infrastructure API Gateway + Oracle Functionsハンズオン
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+    
+    <label class="md-nav__link" for="nav-4">
+      WebLogic Operator
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        WebLogic Operator
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../tutorials/domain.home.in.image_short/" title="WebLogic Operatorのホーム" class="md-nav__link">
+      WebLogic Operatorのホーム
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4-2" type="checkbox" id="nav-4-2">
+    
+    <label class="md-nav__link" for="nav-4-2">
+      ビギナー向けチュートリアル
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-4-2">
+        ビギナー向けチュートリアル
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../tutorials/setup.oke/" title="OCIでOKEインスタンスを設定" class="md-nav__link">
+      OCIでOKEインスタンスを設定
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../tutorials/install.operator/" title="WebLogic Operatorのインストール" class="md-nav__link">
+      WebLogic Operatorのインストール
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../tutorials/install.traefik/" title="Traefik Software Loadbalancerのインストール" class="md-nav__link">
+      Traefik Software Loadbalancerのインストール
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../tutorials/deploy.weblogic_short/" title="WebLogic Domainのデプロイ" class="md-nav__link">
+      WebLogic Domainのデプロイ
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../tutorials/scale.weblogic/" title="WebLogic Clusterのスケーリング" class="md-nav__link">
+      WebLogic Clusterのスケーリング
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../tutorials/override.jdbc/" title="JDBC Datasource parametersのオーバーライド" class="md-nav__link">
+      JDBC Datasource parametersのオーバーライド
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../tutorials/update.application_short/" title="ローリングアップデートによるデプロイ済みアプリケーションの更新" class="md-nav__link">
+      ローリングアップデートによるデプロイ済みアプリケーションの更新
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../tutorials/node.selector/" title="ノードに対するWebLogicのPodの割り当て" class="md-nav__link">
+      ノードに対するWebLogicのPodの割り当て
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../tutorials/node.selector.license/" title="ライセンス対象のノードに対するWebLogicのPodの配置" class="md-nav__link">
+      ライセンス対象のノードに対するWebLogicのPodの配置
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">目次</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#weblogic" class="md-nav__link">
+    WebLogic ドメインのデプロイ
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#weblogic-kubernetes" class="md-nav__link">
+    WebLogic ドメインを起動するKubernetesクラスタの準備
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#traefikweblogic" class="md-nav__link">
+    TraefikロードバランサーとWebLogicオペレーターの構成を更新する
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#weblogicpvfss" class="md-nav__link">
+    WebLogicドメインPV用のFSSの作成
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#weblogicpvpvc" class="md-nav__link">
+    WebLogicドメインのPVとPVCの作成
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#kubernetesweblogic" class="md-nav__link">
+    KubernetesにWebLogicドメインをデプロイする
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#web" class="md-nav__link">
+    デモWebアプリケーションのデプロイ
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="oracle-weblogic-operator">Oracle WebLogic Operator チュートリアル<a class="headerlink" href="#oracle-weblogic-operator" title="Permanent link">&para;</a></h1>
+<h3 id="weblogic">WebLogic ドメインのデプロイ<a class="headerlink" href="#weblogic" title="Permanent link">&para;</a></h3>
+<p><img alt="" src="../images/image_4.png" /></p>
+<h4 id="weblogic-kubernetes">WebLogic ドメインを起動するKubernetesクラスタの準備<a class="headerlink" href="#weblogic-kubernetes" title="Permanent link">&para;</a></h4>
+<p>ドメインのネームスペースを作成します：
+<div class="codehilite"><pre><span></span><code>kubectl create namespace sample-domain1-ns
+</code></pre></div>
+管理サーバーのブート資格情報を含むKubernetesシークレットを作成します：
+<div class="codehilite"><pre><span></span><code>kubectl -n sample-domain1-ns create secret generic sample-domain1-weblogic-credentials <span class="se">\</span>
+  --from-literal<span class="o">=</span><span class="nv">username</span><span class="o">=</span>weblogic <span class="se">\</span>
+  --from-literal<span class="o">=</span><span class="nv">password</span><span class="o">=</span>welcome1
+</code></pre></div>
+ドメインのUIDでシークレットにラベルを付けます：
+<div class="codehilite"><pre><span></span><code>kubectl label secret sample-domain1-weblogic-credentials <span class="se">\</span>
+  -n sample-domain1-ns <span class="se">\</span>
+  weblogic.domainUID<span class="o">=</span>sample-domain1 <span class="se">\</span>
+  weblogic.domainName<span class="o">=</span>sample-domain1
+</code></pre></div></p>
+<h4 id="traefikweblogic">TraefikロードバランサーとWebLogicオペレーターの構成を更新する<a class="headerlink" href="#traefikweblogic" title="Permanent link">&para;</a></h4>
+<p>ドメインネームスペース（WebLogicドメインがまだデプロイされていない）を取得したら、ドメインのデプロイ先に関するロードバランサーとオペレーターの構成を更新する必要があります。</p>
+<p>ドメイン<code>helm</code>をインストールする前に、WebLogic OperatorのローカルGitリポジトリフォルダーにいることを確認してください。
+<div class="codehilite"><pre><span></span><code><span class="nb">cd</span> /u01/content/weblogic-kubernetes-operator/
+</code></pre></div></p>
+<p>Podの起動に時間が掛かり、デフォルトだとタイムアウトになってしまうため、Weblogic Operatorの定義にオプションを追加します。
+以下のコマンドからエディタ(vi)を起動します。</p>
+<div class="codehilite"><pre><span></span><code>kubectl edit cm -n sample-weblogic-operator-ns weblogic-operator-cm
+</code></pre></div>
+
+<p>以下の場所に<code>introspectorJobActiveDeadlineSeconds: "600"</code>を追加します。インデントに注意して追加してください。
+<div class="codehilite"><pre><span></span><code><span class="n">apiVersion</span><span class="o">:</span> <span class="n">v1</span>
+<span class="n">data</span><span class="o">:</span>
+  <span class="n">internalOperatorCert</span><span class="o">:</span> <span class="o">~~~~~</span>
+  <span class="o">~~~~~</span><span class="err">略</span><span class="o">~~~~~</span>
+  <span class="o">~~~~~</span>
+  <span class="n">introspectorJobActiveDeadlineSeconds</span><span class="o">:</span> <span class="s2">&quot;600&quot;</span>
+  <span class="n">serviceaccount</span><span class="o">:</span> <span class="n">sample</span><span class="o">-</span><span class="n">weblogic</span><span class="o">-</span><span class="n">operator</span><span class="o">-</span><span class="n">sa</span>
+  <span class="n">targetNamespaces</span><span class="o">:</span> <span class="n">sample</span><span class="o">-</span><span class="n">domain1</span><span class="o">-</span><span class="n">ns</span>
+</code></pre></div>
+完了したら保存して終了します。終了する方法はviエディタと同じ手順です。</p>
+<p>オペレータを更新するには、次の<code>helm upgrade</code>コマンドを実行します：
+<div class="codehilite"><pre><span></span><code>helm upgrade <span class="se">\</span>
+  --reuse-values <span class="se">\</span>
+  --set <span class="s2">&quot;domainNamespaces={sample-domain1-ns}&quot;</span> <span class="se">\</span>
+  sample-weblogic-operator <span class="se">\</span>
+  kubernetes/charts/weblogic-operator <span class="se">\</span>
+  --recreate-pods
+</code></pre></div></p>
+<p>Traefikを更新するには、次の<code>helm upgrade</code>コマンドを実行します：
+<div class="codehilite"><pre><span></span><code>helm upgrade <span class="se">\</span>
+  --reuse-values <span class="se">\</span>
+  --set <span class="s2">&quot;kubernetes.namespaces={traefik,sample-domain1-ns}&quot;</span> <span class="se">\</span>
+  traefik-operator <span class="se">\</span>
+  stable/traefik
+</code></pre></div>
+上記どちらの場合でも更新されるパラメーターはドメインネームスペースのみであることに注意してください。</p>
+<h4 id="weblogicpvfss">WebLogicドメインPV用のFSSの作成<a class="headerlink" href="#weblogicpvfss" title="Permanent link">&para;</a></h4>
+<p>WebLogicドメインファイルを格納する外部ストレージを作成します。</p>
+<p>OCIコンソールから<strong>ファイル・ストレージ</strong>をクリックし、<strong>ファイル・システム</strong>をクリックします。</p>
+<p><img alt="" src="../images/deploy.domain/01.create.fss.png" /></p>
+<p><strong>ファイル・システムの作成</strong>をクリックします。</p>
+<p><img alt="" src="../images/deploy.domain/02.create.fss.png" /></p>
+<p><strong>詳細の編集</strong>をクリックして、下記項目をOKEワーカーノードと同じ情報を設定してください。次、<strong>作成</strong>をクリックします。</p>
+<ul>
+<li>仮想クラウド・ネットワーク</li>
+<li>サブネット</li>
+</ul>
+<p><img alt="" src="../images/deploy.domain/03.create.fss.png" /></p>
+<p>エクスポートのテーブルから<strong>マウント・コマンド</strong>をクリックします。</p>
+<p><img alt="" src="../images/deploy.domain/04.create.fss.png" /></p>
+<p>セキュリティ・ルールを設定する必要があるので、この説明通りに設定してください。FSSサーバーのIPとディレクトリをメモ帳に書き留めておいてください。たとえば、<code>10.0.10.5</code>と<code>FileSystem-20200212-1035</code>。</p>
+<p><img alt="" src="../images/deploy.domain/05.create.fss.png" /></p>
+<p>セキュリティルールを追加します。</p>
+<p>イングレス・ルールには、赤枠で囲まれている情報と同じように登録してください。</p>
+<p><img alt="" src="../images/deploy.domain/06.create.fss.png" /></p>
+<p>エグレス・ルールには、赤枠で囲まれている情報と同じように登録してください。</p>
+<p><img alt="" src="../images/deploy.domain/07.create.fss.png" /></p>
+<p>WebLogicドメインのPVとPVCを作成するために、FSSのマウント・ターゲットのOCIDが必要です。このOCIDをメモ帳に書き留めておいてください。</p>
+<p><img alt="" src="../images/deploy.domain/08.create.fss.png" /></p>
+<p><img alt="" src="../images/deploy.domain/09.create.fss.png" /></p>
+<p>これでFSSの作成は完了しました。</p>
+<h4 id="weblogicpvpvc">WebLogicドメインのPVとPVCの作成<a class="headerlink" href="#weblogicpvpvc" title="Permanent link">&para;</a></h4>
+<p>WebLogicドメインのPVとPVCを作成します。</p>
+<p>PVとPVCを作成するスクリプトが格納されているディレクトリへ移動してください。</p>
+<div class="codehilite"><pre><span></span><code><span class="nb">cd</span> /u01/content/weblogic-kubernetes-operator
+</code></pre></div>
+
+<div class="codehilite"><pre><span></span><code><span class="nb">cd</span> kubernetes/samples/scripts/create-weblogic-domain-pv-pvc
+</code></pre></div>
+
+<p>mntTargetId（※）を各自の情報へ修正して、StorageClassを作成してください。※:mntTargetIdはメモ帳に書き留めたFSSのマウント・ターゲットのOCID</p>
+<div class="codehilite"><pre><span></span><code>cat <span class="s">&lt;&lt;EOF &gt; oci-fss.yaml</span>
+<span class="s">kind: StorageClass</span>
+<span class="s">apiVersion: storage.k8s.io/v1beta1</span>
+<span class="s">metadata:</span>
+<span class="s">  name: oci-storage-class</span>
+<span class="s">provisioner: oracle.com/oci-fss</span>
+<span class="s">parameters:</span>
+<span class="s">  # Insert mount target from the FSS here</span>
+<span class="s">  mntTargetId: ocid1.mounttarget.oc1.ap_tokyo_1.aaaaaaxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</span>
+<span class="s">EOF</span>
+</code></pre></div>
+
+<div class="codehilite"><pre><span></span><code>kubectl apply -f oci-fss.yaml
+</code></pre></div>
+
+<p>作成したStorageClassを確認します。</p>
+<div class="codehilite"><pre><span></span><code>kubectl get storageclass
+</code></pre></div>
+
+<p>以下のような出力が得られます：<br>
+※oci (default)はOCIのブロック・ストレージを使用して、ReadWriteOnceの仕組みであるため、複数OKEワーカーノードの利用にはふさわしくありません。</p>
+<div class="codehilite"><pre><span></span><code><span class="err">NAME                PROVISIONER          AGE</span>
+<span class="err">oci (default)       oracle.com/oci       5d1h</span>
+<span class="err">oci-storage-class   oracle.com/oci-fss   31s</span>
+</code></pre></div>
+
+<p>Weblogic Kubernetes Operatorで用意するテンプレートを使用します。</p>
+<p>バックアップを取ります。</p>
+<div class="codehilite"><pre><span></span><code>cp pv-template.yaml pv-template.yaml.bak
+</code></pre></div>
+
+<div class="codehilite"><pre><span></span><code>cp pvc-template.yaml pvc-template.yaml.bak
+</code></pre></div>
+
+<p>PVのテンプレートを修正します。</p>
+<div class="codehilite"><pre><span></span><code>vi pv-template.yaml
+</code></pre></div>
+
+<p>修正後のpv-template.yamlは：</p>
+<div class="codehilite"><pre><span></span><code><span class="c1">#!yaml hl_lines=&quot;12 17 18 25&quot;</span>
+<span class="c1"># Copyright (c) 2018, 2019, Oracle Corporation and/or its affiliates.  All rights reserved.</span>
+<span class="c1"># Licensed under the Universal Permissive License v 1.0 as shown at https://oss.oracle.com/licenses/upl.</span>
+
+<span class="nt">apiVersion</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">v1</span>
+<span class="nt">kind</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">PersistentVolume</span>
+<span class="nt">metadata</span><span class="p">:</span>
+  <span class="nt">name</span><span class="p">:</span> <span class="err">%</span><span class="l l-Scalar l-Scalar-Plain">DOMAIN_UID%%SEPARATOR%%BASE_NAME%-pv</span>
+  <span class="nt">labels</span><span class="p">:</span>
+    <span class="nt">weblogic.resourceVersion</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">domain-v2</span>
+    <span class="nt">%DOMAIN_UID_LABEL_PREFIX%weblogic.domainUID</span><span class="p">:</span> <span class="err">%</span><span class="l l-Scalar l-Scalar-Plain">DOMAIN_UID%</span>
+<span class="nt">spec</span><span class="p">:</span>
+  <span class="nt">storageClassName</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">oci-storage-class</span>
+  <span class="nt">capacity</span><span class="p">:</span>
+    <span class="nt">storage</span><span class="p">:</span> <span class="err">%</span><span class="l l-Scalar l-Scalar-Plain">SAMPLE_STORAGE_SIZE%</span>
+  <span class="nt">accessModes</span><span class="p">:</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">ReadWriteMany</span>
+  <span class="nt">mountOptions</span><span class="p">:</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">nosuid</span>
+  <span class="c1"># Valid values are Retain, Delete or Recycle</span>
+  <span class="nt">persistentVolumeReclaimPolicy</span><span class="p">:</span> <span class="err">%</span><span class="l l-Scalar l-Scalar-Plain">SAMPLE_STORAGE_RECLAIM_POLICY%</span>
+  <span class="nt">%HOST_PATH_PREFIX%hostPath</span><span class="p">:</span>
+  <span class="nt">%NFS_PREFIX%nfs</span><span class="p">:</span>
+    <span class="nt">%NFS_PREFIX%server</span><span class="p">:</span> <span class="err">%</span><span class="l l-Scalar l-Scalar-Plain">SAMPLE_STORAGE_NFS_SERVER%</span>
+    <span class="nt">path</span><span class="p">:</span> <span class="s">&quot;%SAMPLE_STORAGE_PATH%&quot;</span>
+    <span class="nt">readOnly</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">false</span>
+</code></pre></div>
+
+<p>PVCのテンプレートを修正します。</p>
+<div class="codehilite"><pre><span></span><code>vi pvc-template.yaml
+</code></pre></div>
+
+<p>修正後のpvc-template.yamlは：</p>
+<div class="codehilite"><pre><span></span><code><span class="c1">#!yaml hl_lines=&quot;13 19&quot;</span>
+<span class="c1"># Copyright (c) 2018, 2019, Oracle Corporation and/or its affiliates.  All rights reserved.</span>
+<span class="c1"># Licensed under the Universal Permissive License v 1.0 as shown at https://oss.oracle.com/licenses/upl.</span>
+
+<span class="nt">kind</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">PersistentVolumeClaim</span>
+<span class="nt">apiVersion</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">v1</span>
+<span class="nt">metadata</span><span class="p">:</span>
+  <span class="nt">name</span><span class="p">:</span> <span class="err">%</span><span class="l l-Scalar l-Scalar-Plain">DOMAIN_UID%%SEPARATOR%%BASE_NAME%-pvc</span>
+  <span class="nt">namespace</span><span class="p">:</span> <span class="err">%</span><span class="l l-Scalar l-Scalar-Plain">NAMESPACE%</span>
+  <span class="nt">labels</span><span class="p">:</span>
+    <span class="nt">weblogic.resourceVersion</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">domain-v2</span>
+    <span class="nt">%DOMAIN_UID_LABEL_PREFIX%weblogic.domainUID</span><span class="p">:</span> <span class="err">%</span><span class="l l-Scalar l-Scalar-Plain">DOMAIN_UID%</span>
+<span class="nt">spec</span><span class="p">:</span>
+  <span class="nt">storageClassName</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">oci-storage-class</span>
+  <span class="nt">accessModes</span><span class="p">:</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">ReadWriteMany</span>
+  <span class="nt">resources</span><span class="p">:</span>
+    <span class="nt">requests</span><span class="p">:</span>
+      <span class="nt">storage</span><span class="p">:</span> <span class="err">%</span><span class="l l-Scalar l-Scalar-Plain">SAMPLE_STORAGE_SIZE%</span>
+  <span class="nt">volumeName</span><span class="p">:</span> <span class="err">%</span><span class="l l-Scalar l-Scalar-Plain">DOMAIN_UID%%SEPARATOR%%BASE_NAME%-pv</span>
+</code></pre></div>
+
+<p>PVとPVC作成スクリプト用のInputファイルを作成します。</p>
+<div class="codehilite"><pre><span></span><code>cp create-pv-pvc-inputs.yaml my-pv-pvc-inputs.yaml
+</code></pre></div>
+
+<p>my-pv-pvc-inputs.yamlを修正します。</p>
+<div class="codehilite"><pre><span></span><code>vi my-pv-pvc-inputs.yaml
+</code></pre></div>
+
+<p>weblogicDomainStorageNFSServer（※1）とweblogicDomainStoragePath（※2）を各自の情報へ修正してください。</p>
+<p>※1:weblogicDomainStorageNFSServerは、メモ帳に書き留めたFSSサーバーのIP</p>
+<p>※2:weblogicDomainStoragePathは、メモ帳に書き留めたFSSサーバーのディレクトリ</p>
+<p>修正後のmy-pv-pvc-inputs.yamlは：</p>
+<div class="codehilite"><pre><span></span><code><span class="c1">#!yaml hl_lines=&quot;13 16 21 25 36&quot;</span>
+<span class="c1"># Copyright (c) 2018, 2019, Oracle Corporation and/or its affiliates.  All rights reserved.</span>
+<span class="c1"># Licensed under the Universal Permissive License v 1.0 as shown at https://oss.oracle.com/licenses/upl.</span>
+
+<span class="c1"># The version of this inputs file.  Do not modify.</span>
+<span class="nt">version</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">create-weblogic-sample-domain-pv-pvc-inputs-v1</span>
+
+<span class="c1"># The base name of the pv and pvc</span>
+<span class="nt">baseName</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">weblogic-sample</span>
+
+<span class="c1"># Unique ID identifying a domain.</span>
+<span class="c1"># If left empty, the generated pv can be shared by multiple domains</span>
+<span class="c1"># This ID must not contain an underscope (&quot;_&quot;), and must be lowercase and unique across all domains in a Kubernetes cluster.</span>
+<span class="nt">domainUID</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">sample-domain1</span>
+
+<span class="c1"># Name of the namespace for the persistent volume claim</span>
+<span class="nt">namespace</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">sample-domain1-ns</span>
+
+<span class="c1"># Persistent volume type for the persistent storage.</span>
+<span class="c1"># The value must be &#39;HOST_PATH&#39; or &#39;NFS&#39;.</span>
+<span class="c1"># If using &#39;NFS&#39;, weblogicDomainStorageNFSServer must be specified.</span>
+<span class="nt">weblogicDomainStorageType</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">NFS</span>
+
+<span class="c1"># The server name or ip address of the NFS server to use for the persistent storage.</span>
+<span class="c1"># The following line must be uncomment and customized if weblogicDomainStorateType is NFS:</span>
+<span class="nt">weblogicDomainStorageNFSServer</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">10.0.10.5</span>
+
+<span class="c1"># Physical path of the persistent storage.</span>
+<span class="c1"># When weblogicDomainStorageType is set to HOST_PATH, this value should be set the to path to the</span>
+<span class="c1"># domain storage on the Kubernetes host.</span>
+<span class="c1"># When weblogicDomainStorageType is set to NFS, then weblogicDomainStorageNFSServer should be set</span>
+<span class="c1"># to the IP address or name of the DNS server, and this value should be set to the exported path</span>
+<span class="c1"># on that server.</span>
+<span class="c1"># Note that the path where the domain is mounted in the WebLogic containers is not affected by this</span>
+<span class="c1"># setting, that is determined when you create your domain.</span>
+<span class="c1"># The following line must be uncomment and customized:</span>
+<span class="nt">weblogicDomainStoragePath</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/FileSystem-20200212-1035</span>
+
+<span class="c1"># Reclaim policy of the persistent storage</span>
+<span class="c1"># The valid values are: &#39;Retain&#39;, &#39;Delete&#39;, and &#39;Recycle&#39;</span>
+<span class="nt">weblogicDomainStorageReclaimPolicy</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Retain</span>
+
+<span class="c1"># Total storage allocated to the persistent storage.</span>
+<span class="nt">weblogicDomainStorageSize</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">10Gi</span>
+</code></pre></div>
+
+<p>PVとPVC作成スクリプトを実行します。</p>
+<div class="codehilite"><pre><span></span><code>./create-pv-pvc.sh -i my-pv-pvc-inputs.yaml -o . -e
+</code></pre></div>
+
+<p>作成したPVとPVCを確認します。</p>
+<div class="codehilite"><pre><span></span><code>kubectl get pv,pvc -n sample-domain1-ns
+</code></pre></div>
+
+<p>STATUSが<em>Bound</em>になっていることを確認できます。</p>
+<div class="codehilite"><pre><span></span><code><span class="n">NAME</span>                                                 <span class="n">CAPACITY</span>   <span class="k">ACCESS</span> <span class="n">MODES</span>   <span class="n">RECLAIM</span> <span class="n">POLICY</span>   <span class="n">STATUS</span>   <span class="n">CLAIM</span>                                                  <span class="n">STORAGECLASS</span>        <span class="n">REASON</span>   <span class="n">AGE</span>
+<span class="n">persistentvolume</span><span class="o">/</span><span class="n">sample</span><span class="o">-</span><span class="n">domain1</span><span class="o">-</span><span class="n">weblogic</span><span class="o">-</span><span class="n">sample</span><span class="o">-</span><span class="n">pv</span>   <span class="mi">10</span><span class="n">Gi</span>       <span class="n">RWX</span>            <span class="n">Retain</span>           <span class="n">Bound</span>    <span class="n">sample</span><span class="o">-</span><span class="n">domain1</span><span class="o">-</span><span class="n">ns</span><span class="o">/</span><span class="n">sample</span><span class="o">-</span><span class="n">domain1</span><span class="o">-</span><span class="n">weblogic</span><span class="o">-</span><span class="n">sample</span><span class="o">-</span><span class="n">pvc</span>   <span class="n">oci</span><span class="o">-</span><span class="k">storage</span><span class="o">-</span><span class="k">class</span>            <span class="mi">2</span><span class="n">m49s</span>
+
+<span class="n">NAME</span>                                                       <span class="n">STATUS</span>   <span class="n">VOLUME</span>                              <span class="n">CAPACITY</span>   <span class="k">ACCESS</span> <span class="n">MODES</span>   <span class="n">STORAGECLASS</span>        <span class="n">AGE</span>
+<span class="n">persistentvolumeclaim</span><span class="o">/</span><span class="n">sample</span><span class="o">-</span><span class="n">domain1</span><span class="o">-</span><span class="n">weblogic</span><span class="o">-</span><span class="n">sample</span><span class="o">-</span><span class="n">pvc</span>   <span class="n">Bound</span>    <span class="n">sample</span><span class="o">-</span><span class="n">domain1</span><span class="o">-</span><span class="n">weblogic</span><span class="o">-</span><span class="n">sample</span><span class="o">-</span><span class="n">pv</span>   <span class="mi">10</span><span class="n">Gi</span>       <span class="n">RWX</span>            <span class="n">oci</span><span class="o">-</span><span class="k">storage</span><span class="o">-</span><span class="k">class</span>   <span class="mi">2</span><span class="n">m43s</span>
+</code></pre></div>
+
+<p>これでPVとPVCの作成は完了しました。</p>
+<h4 id="kubernetesweblogic">KubernetesにWebLogicドメインをデプロイする<a class="headerlink" href="#kubernetesweblogic" title="Permanent link">&para;</a></h4>
+<p>WebLogicドメインをデプロイします。</p>
+<p>PVを使用するWebLogicドメイン作成スクリプトが格納されているディレクトリへ移動してください。</p>
+<div class="codehilite"><pre><span></span><code><span class="nb">cd</span> /u01/content/weblogic-kubernetes-operator
+</code></pre></div>
+
+<div class="codehilite"><pre><span></span><code><span class="nb">cd</span> kubernetes/samples/scripts/create-weblogic-domain/domain-home-on-pv
+</code></pre></div>
+
+<p>docker hubにある一般のイメージを使用する場合、認証なしでご使用いただけますが、WebLogicのイメージはdocker hub storeにあるため、事前に使用条件を承諾する必要です。</p>
+<p>docker hub storeからイメージを取得できるように、secretを作成します。</p>
+<div class="codehilite"><pre><span></span><code>kubectl create secret docker-registry dockersecret <span class="se">\</span>
+  -n sample-domain1-ns <span class="se">\</span>
+  --docker-server<span class="o">=</span>index.docker.io/v1/ <span class="se">\</span>
+  --docker-username<span class="o">=</span>YOUR_USERNAME <span class="se">\</span>
+  --docker-password<span class="o">=</span>YOUR_PASSWORD <span class="se">\</span>
+  --docker-email<span class="o">=</span>YOUR_EMAIL
+</code></pre></div>
+
+<p>WebLogicドメインをデプロイするには、オペレーターがWebLogicドメインを適切に起動するために必要なパラメーターを含むドメインリソース定義を作成する必要があります。</p>
+<p>my-domain-inputs.yamlを作成します。</p>
+<div class="codehilite"><pre><span></span><code>cp create-domain-inputs.yaml my-domain-inputs.yaml
+</code></pre></div>
+
+<p>my-domain-inputs.yamlを修正します。</p>
+<div class="codehilite"><pre><span></span><code>vi my-domain-inputs.yaml
+</code></pre></div>
+
+<p>修正後のmy-domain-inputs.yamlは：</p>
+<div class="codehilite"><pre><span></span><code><span class="c1">#!yaml hl_lines=&quot;15 19 45 53 61 69 95 102&quot;</span>
+<span class="c1"># Copyright (c) 2018, 2019, Oracle Corporation and/or its affiliates.  All rights reserved.</span>
+<span class="c1"># Licensed under the Universal Permissive License v 1.0 as shown at https://oss.oracle.com/licenses/upl.</span>
+
+<span class="c1"># The version of this inputs file.  Do not modify.</span>
+<span class="nt">version</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">create-weblogic-sample-domain-inputs-v1</span>
+
+<span class="c1"># Port number for admin server</span>
+<span class="nt">adminPort</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">7001</span>
+
+<span class="c1"># Name of the Admin Server</span>
+<span class="nt">adminServerName</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">admin-server</span>
+
+<span class="c1"># Unique ID identifying a domain.</span>
+<span class="c1"># This ID must not contain an underscope (&quot;_&quot;), and must be lowercase and unique across all domains in a Kubernetes cluster.</span>
+<span class="nt">domainUID</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">sample-domain1</span>
+
+<span class="c1"># Home of the WebLogic domain</span>
+<span class="c1"># If not specified, the value is derived from the domainUID as /shared/domains/&lt;domainUID&gt;</span>
+<span class="nt">domainHome</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/shared/domains/sample-domain1</span>
+
+<span class="c1"># Determines which WebLogic Servers the operator will start up</span>
+<span class="c1"># Legal values are &quot;NEVER&quot;, &quot;IF_NEEDED&quot;, or &quot;ADMIN_ONLY&quot;</span>
+<span class="nt">serverStartPolicy</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">IF_NEEDED</span>
+
+<span class="c1"># Cluster name</span>
+<span class="nt">clusterName</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">cluster-1</span>
+
+<span class="c1"># Number of managed servers to generate for the domain</span>
+<span class="nt">configuredManagedServerCount</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">5</span>
+
+<span class="c1"># Number of managed servers to initially start for the domain</span>
+<span class="nt">initialManagedServerReplicas</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">2</span>
+
+<span class="c1"># Base string used to generate managed server names</span>
+<span class="nt">managedServerNameBase</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">managed-server</span>
+
+<span class="c1"># Port number for each managed server</span>
+<span class="nt">managedServerPort</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">8001</span>
+
+<span class="c1"># WebLogic Server Docker image.</span>
+<span class="c1"># The operator requires WebLogic Server 12.2.1.3.0 with patch 29135930 applied.</span>
+<span class="c1"># The WebLogic Docker image, `weblogic:12.2.1.3`, has all the necessary patches applied.</span>
+<span class="c1"># Refer to [WebLogic Docker images](../../../../../site/weblogic-docker-images.md) for details on how</span>
+<span class="c1"># to obtain or create the image.</span>
+<span class="nt">image</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">store/oracle/weblogic:12.2.1.4</span>
+
+<span class="c1"># Image pull policy</span>
+<span class="c1"># Legal values are &quot;IfNotPresent&quot;, &quot;Always&quot;, or &quot;Never&quot;</span>
+<span class="nt">imagePullPolicy</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">IfNotPresent</span>
+
+<span class="c1"># Name of the Kubernetes secret to access the Docker Store to pull the WebLogic Server Docker image</span>
+<span class="c1"># The presence of the secret will be validated when this parameter is enabled.</span>
+<span class="nt">imagePullSecretName</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">dockersecret</span>
+
+<span class="c1"># Boolean indicating if production mode is enabled for the domain</span>
+<span class="nt">productionModeEnabled</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
+
+<span class="c1"># Name of the Kubernetes secret for the Admin Server&#39;s username and password</span>
+<span class="c1"># The name must be lowercase.</span>
+<span class="c1"># If not specified, the value is derived from the domainUID as &lt;domainUID&gt;-weblogic-credentials</span>
+<span class="nt">weblogicCredentialsSecretName</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">sample-domain1-weblogic-credentials</span>
+
+<span class="c1"># Whether to include server .out to the pod&#39;s stdout.</span>
+<span class="c1"># The default is true.</span>
+<span class="nt">includeServerOutInPodLog</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
+
+<span class="c1"># The in-pod location for domain log, server logs, server out, and node manager log files</span>
+<span class="c1"># If not specified, the value is derived from the domainUID as /shared/logs/&lt;domainUID&gt;</span>
+<span class="nt">logHome</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/shared/logs/sample-domain1</span>
+
+<span class="c1"># An (optional) in-pod location for data storage of default and custom file stores.</span>
+<span class="c1"># If not specified or the value is either not set or empty (e.g. dataHome: &quot;&quot;) then the</span>
+<span class="c1"># data storage directories are determined from the WebLogic domain home configuration.</span>
+<span class="c1">#dataHome:</span>
+
+<span class="c1"># Port for the T3Channel of the NetworkAccessPoint</span>
+<span class="nt">t3ChannelPort</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">30012</span>
+
+<span class="c1"># Public address for T3Channel of the NetworkAccessPoint.  This value should be set to the</span>
+<span class="c1"># kubernetes server address, which you can get by running &quot;kubectl cluster-info&quot;.  If this</span>
+<span class="c1"># value is not set to that address, WLST will not be able to connect from outside the</span>
+<span class="c1"># kubernetes cluster.</span>
+<span class="c1">#t3PublicAddress: </span>
+
+<span class="c1"># Boolean to indicate if the channel should be exposed as a service</span>
+<span class="nt">exposeAdminT3Channel</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">false</span>
+
+<span class="c1"># NodePort to expose for the admin server</span>
+<span class="nt">adminNodePort</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">30701</span>
+
+<span class="c1"># Boolean to indicate if the adminNodePort will be exposed</span>
+<span class="nt">exposeAdminNodePort</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">false</span>
+
+<span class="c1"># Name of the domain namespace</span>
+<span class="nt">namespace</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">sample-domain1-ns</span>
+
+<span class="c1">#Java Option for WebLogic Server</span>
+<span class="nt">javaOptions</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">-Dweblogic.StdoutDebugEnabled=false</span>
+
+<span class="c1"># Name of the persistent volume claim</span>
+<span class="c1"># If not specified, the value is derived from the domainUID as &lt;domainUID&gt;-weblogic-sample-pvc</span>
+<span class="nt">persistentVolumeClaimName</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">sample-domain1-weblogic-sample-pvc</span>
+
+<span class="c1"># Mount path of the domain persistent volume.</span>
+<span class="nt">domainPVMountPath</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/shared</span>
+
+<span class="c1"># Mount path where the create domain scripts are located inside a pod</span>
+<span class="c1">#</span>
+<span class="c1"># The `create-domain.sh` script creates a Kubernetes job to run the script (specified in the</span>
+<span class="c1"># `createDomainScriptName` property) in a Kubernetes pod to create a WebLogic home. Files</span>
+<span class="c1"># in the `createDomainFilesDir` directory are mounted to this location in the pod, so that</span>
+<span class="c1"># a Kubernetes pod can use the scripts and supporting files to create a domain home.</span>
+<span class="nt">createDomainScriptsMountPath</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/u01/weblogic</span>
+
+<span class="c1"># Script that the create domain script uses to create a WebLogic domain</span>
+<span class="c1">#</span>
+<span class="c1"># The `create-domain.sh` script creates a Kubernetes job to run this script to create a</span>
+<span class="c1"># domain home. The script is located in the in-pod directory that is specified in the</span>
+<span class="c1"># `createDomainScriptsMountPath` property.</span>
+<span class="c1">#</span>
+<span class="c1"># If you need to provide your own scripts to create the domain home, instead of using the</span>
+<span class="c1"># built-it scripts, you must use this property to set the name of the script that you want</span>
+<span class="c1"># the create domain job to run.</span>
+<span class="nt">createDomainScriptName</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">create-domain-job.sh</span>
+
+<span class="c1"># Directory on the host machine to locate all the files to create a WebLogic domain</span>
+<span class="c1"># It contains the script that is specified in the `createDomainScriptName` property.</span>
+<span class="c1">#</span>
+<span class="c1"># By default, this directory is set to the relative path `wlst`, and the create script will</span>
+<span class="c1"># use the built-in WLST offline scripts in the `wlst` directory to create the WebLogic domain.</span>
+<span class="c1"># It can also be set to the relative path `wdt`, and then the built-in WDT scripts will be</span>
+<span class="c1"># used instead.</span>
+<span class="c1">#</span>
+<span class="c1"># An absolute path is also supported to point to an arbitrary directory in the file system.</span>
+<span class="c1">#</span>
+<span class="c1"># The built-in scripts can be replaced by the user-provided scripts or model files as long</span>
+<span class="c1"># as those files are in the specified directory. Files in this directory are put into a</span>
+<span class="c1"># Kubernetes config map, which in turn is mounted to the `createDomainScriptsMountPath`,</span>
+<span class="c1"># so that the Kubernetes pod can use the scripts and supporting files to create a domain home.</span>
+<span class="nt">createDomainFilesDir</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">wlst</span>
+
+<span class="c1"># Uncomment and edit value(s) below to specify the maximum amount of </span>
+<span class="c1"># compute resources allowed, and minimum amount of compute resources</span>
+<span class="c1"># required for each server pod.</span>
+<span class="c1"># These are optional. </span>
+<span class="c1"># Please refer to the kubernetes documentation on Managing Compute</span>
+<span class="c1"># Resources for Containers for details.</span>
+<span class="c1">#</span>
+<span class="c1"># serverPodMemoryRequest: &quot;64Mi&quot;</span>
+<span class="c1"># serverPodCpuRequest: &quot;250m&quot;</span>
+<span class="c1"># serverPodMemoryLimit: &quot;1Gi&quot;</span>
+<span class="c1"># serverPodCpuLimit: &quot;1000m&quot;</span>
+
+<span class="c1"># Istio service mesh support is experimental.</span>
+<span class="c1"># istioEnabled specifies whether or not it is deployed under Istio.</span>
+<span class="nt">istioEnabled</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">false</span>
+
+<span class="c1"># Istio service mesh support is experimental.</span>
+<span class="c1"># istioReadinessPort specifies the WebLogic NAP port for use by the readiness probe</span>
+<span class="nt">istioReadinessPort</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">8888</span>
+</code></pre></div>
+
+<p>create-domain-job-template.yamlのバックアップを取ります。</p>
+<div class="codehilite"><pre><span></span><code>cp create-domain-job-template.yaml create-domain-job-template.yaml.bak
+</code></pre></div>
+
+<p>create-domain-job-template.yamlを修正します。</p>
+<div class="codehilite"><pre><span></span><code>vi create-domain-job-template.yaml
+</code></pre></div>
+
+<p>修正後のcreate-domain-job-template.yamlは：</p>
+<div class="codehilite"><pre><span></span><code><span class="c1">#!yaml hl_lines=&quot;24&quot;</span>
+<span class="c1"># Copyright (c) 2018, 2019, Oracle Corporation and/or its affiliates.  All rights reserved.</span>
+<span class="c1"># Licensed under the Universal Permissive License v 1.0 as shown at https://oss.oracle.com/licenses/upl.</span>
+
+<span class="nt">apiVersion</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">batch/v1</span>
+<span class="nt">kind</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Job</span>
+<span class="nt">metadata</span><span class="p">:</span>
+  <span class="nt">name</span><span class="p">:</span> <span class="err">%</span><span class="l l-Scalar l-Scalar-Plain">DOMAIN_UID%-create-weblogic-sample-domain-job</span>
+  <span class="nt">namespace</span><span class="p">:</span> <span class="err">%</span><span class="l l-Scalar l-Scalar-Plain">NAMESPACE%</span>
+<span class="nt">spec</span><span class="p">:</span>
+  <span class="nt">template</span><span class="p">:</span>
+    <span class="nt">metadata</span><span class="p">:</span>
+      <span class="nt">annotations</span><span class="p">:</span>
+        <span class="nt">sidecar.istio.io/inject</span><span class="p">:</span> <span class="s">&quot;false&quot;</span>
+      <span class="nt">labels</span><span class="p">:</span>
+        <span class="nt">weblogic.resourceVersion</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">domain-v2</span>
+        <span class="nt">weblogic.domainUID</span><span class="p">:</span> <span class="err">%</span><span class="l l-Scalar l-Scalar-Plain">DOMAIN_UID%</span>
+        <span class="nt">weblogic.domainName</span><span class="p">:</span> <span class="err">%</span><span class="l l-Scalar l-Scalar-Plain">DOMAIN_NAME%</span>
+        <span class="nt">app</span><span class="p">:</span> <span class="err">%</span><span class="l l-Scalar l-Scalar-Plain">DOMAIN_UID%-create-weblogic-sample-domain-job</span>
+    <span class="nt">spec</span><span class="p">:</span>
+      <span class="nt">restartPolicy</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Never</span>
+      <span class="nt">initContainers</span><span class="p">:</span>
+        <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">fix-pvc-owner</span>
+          <span class="nt">image</span><span class="p">:</span> <span class="err">%</span><span class="l l-Scalar l-Scalar-Plain">WEBLOGIC_IMAGE%</span>
+          <span class="nt">command</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="s">&quot;sh&quot;</span><span class="p p-Indicator">,</span> <span class="s">&quot;-c&quot;</span><span class="p p-Indicator">,</span> <span class="s">&quot;chown</span><span class="nv"> </span><span class="s">1000:1000</span><span class="nv"> </span><span class="s">%DOMAIN_ROOT_DIR%/.</span><span class="nv"> </span><span class="s">&amp;&amp;</span><span class="nv"> </span><span class="s">find</span><span class="nv"> </span><span class="s">%DOMAIN_ROOT_DIR%/.</span><span class="nv"> </span><span class="s">-maxdepth</span><span class="nv"> </span><span class="s">1</span><span class="nv"> </span><span class="s">!</span><span class="nv"> </span><span class="s">-name</span><span class="nv"> </span><span class="s">&#39;.snapshot&#39;</span><span class="nv"> </span><span class="s">!</span><span class="nv"> </span><span class="s">-name</span><span class="nv"> </span><span class="s">&#39;.&#39;</span><span class="nv"> </span><span class="s">-print0</span><span class="nv"> </span><span class="s">|</span><span class="nv"> </span><span class="s">xargs</span><span class="nv"> </span><span class="s">-r</span><span class="nv"> </span><span class="s">-0</span><span class="nv"> </span><span class="s">chown</span><span class="nv"> </span><span class="s">-R</span><span class="nv"> </span><span class="s">1000:1000&quot;</span><span class="p p-Indicator">]</span>
+          <span class="nt">volumeMounts</span><span class="p">:</span>
+          <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">weblogic-sample-domain-storage-volume</span>
+            <span class="nt">mountPath</span><span class="p">:</span> <span class="err">%</span><span class="l l-Scalar l-Scalar-Plain">DOMAIN_ROOT_DIR%</span>
+          <span class="nt">securityContext</span><span class="p">:</span>
+            <span class="nt">runAsUser</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">0</span>
+            <span class="nt">runAsGroup</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">0</span>
+      <span class="nt">containers</span><span class="p">:</span>
+        <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">create-weblogic-sample-domain-job</span>
+          <span class="nt">image</span><span class="p">:</span> <span class="err">%</span><span class="l l-Scalar l-Scalar-Plain">WEBLOGIC_IMAGE%</span>
+          <span class="nt">imagePullPolicy</span><span class="p">:</span> <span class="err">%</span><span class="l l-Scalar l-Scalar-Plain">WEBLOGIC_IMAGE_PULL_POLICY%</span>
+          <span class="nt">ports</span><span class="p">:</span>
+            <span class="p p-Indicator">-</span> <span class="nt">containerPort</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">7001</span>
+          <span class="nt">volumeMounts</span><span class="p">:</span>
+          <span class="p p-Indicator">-</span> <span class="nt">mountPath</span><span class="p">:</span> <span class="err">%</span><span class="l l-Scalar l-Scalar-Plain">CREATE_DOMAIN_SCRIPT_DIR%</span>
+            <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">create-weblogic-sample-domain-job-cm-volume</span>
+          <span class="p p-Indicator">-</span> <span class="nt">mountPath</span><span class="p">:</span> <span class="err">%</span><span class="l l-Scalar l-Scalar-Plain">DOMAIN_ROOT_DIR%</span>
+            <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">weblogic-sample-domain-storage-volume</span>
+          <span class="p p-Indicator">-</span> <span class="nt">mountPath</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/weblogic-operator/secrets</span>
+            <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">weblogic-credentials-volume</span>
+          <span class="nt">command</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="s">&quot;/bin/sh&quot;</span><span class="p p-Indicator">]</span>
+          <span class="nt">args</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="s">&quot;%CREATE_DOMAIN_SCRIPT_DIR%/%CREATE_DOMAIN_SCRIPT%&quot;</span><span class="p p-Indicator">]</span>
+          <span class="nt">env</span><span class="p">:</span>
+            <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">DOMAIN_UID</span>
+              <span class="nt">value</span><span class="p">:</span> <span class="s">&quot;%DOMAIN_UID%&quot;</span>
+            <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">DOMAIN_NAME</span>
+              <span class="nt">value</span><span class="p">:</span> <span class="s">&quot;%DOMAIN_NAME%&quot;</span>
+            <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">ADMIN_SERVER_NAME</span>
+              <span class="nt">value</span><span class="p">:</span> <span class="s">&quot;%ADMIN_SERVER_NAME%&quot;</span>
+            <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">ADMIN_SERVER_NAME_SVC</span>
+              <span class="nt">value</span><span class="p">:</span> <span class="s">&quot;%ADMIN_SERVER_NAME_SVC%&quot;</span>
+            <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">ADMIN_PORT</span>
+              <span class="nt">value</span><span class="p">:</span> <span class="s">&quot;%ADMIN_PORT%&quot;</span>
+            <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">CLUSTER_NAME</span>
+              <span class="nt">value</span><span class="p">:</span> <span class="s">&quot;%CLUSTER_NAME%&quot;</span>
+            <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">CLUSTER_TYPE</span>
+              <span class="nt">value</span><span class="p">:</span> <span class="s">&quot;DYNAMIC&quot;</span>
+            <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">T3_CHANNEL_PORT</span>
+              <span class="nt">value</span><span class="p">:</span> <span class="s">&quot;%T3_CHANNEL_PORT%&quot;</span>
+            <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">T3_PUBLIC_ADDRESS</span>
+              <span class="nt">value</span><span class="p">:</span> <span class="s">&quot;%T3_PUBLIC_ADDRESS%&quot;</span>
+            <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">MANAGED_SERVER_NAME_BASE_SVC</span>
+              <span class="nt">value</span><span class="p">:</span> <span class="s">&quot;%MANAGED_SERVER_NAME_BASE_SVC%&quot;</span>
+            <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">MANAGED_SERVER_NAME_BASE</span>
+              <span class="nt">value</span><span class="p">:</span> <span class="s">&quot;%MANAGED_SERVER_NAME_BASE%&quot;</span>
+            <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">CONFIGURED_MANAGED_SERVER_COUNT</span>
+              <span class="nt">value</span><span class="p">:</span> <span class="s">&quot;%CONFIGURED_MANAGED_SERVER_COUNT%&quot;</span>
+            <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">MANAGED_SERVER_PORT</span>
+              <span class="nt">value</span><span class="p">:</span> <span class="s">&quot;%MANAGED_SERVER_PORT%&quot;</span>
+            <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">PRODUCTION_MODE_ENABLED</span>
+              <span class="nt">value</span><span class="p">:</span> <span class="s">&quot;%PRODUCTION_MODE_ENABLED%&quot;</span>
+            <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">CREATE_DOMAIN_SCRIPT_DIR</span>
+              <span class="nt">value</span><span class="p">:</span> <span class="s">&quot;%CREATE_DOMAIN_SCRIPT_DIR%&quot;</span>
+            <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">DOMAIN_ROOT_DIR</span>
+              <span class="nt">value</span><span class="p">:</span> <span class="s">&quot;%DOMAIN_ROOT_DIR%&quot;</span>
+            <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">DOMAIN_HOME_DIR</span>
+              <span class="nt">value</span><span class="p">:</span> <span class="s">&quot;%DOMAIN_HOME%&quot;</span>
+            <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">DOMAIN_LOGS_DIR</span>
+              <span class="nt">value</span><span class="p">:</span> <span class="s">&quot;%DOMAIN_ROOT_DIR%/logs/%DOMAIN_UID%&quot;</span>
+            <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">ISTIO_ENABLED</span>
+              <span class="nt">value</span><span class="p">:</span> <span class="s">&quot;%ISTIO_ENABLED%&quot;</span>
+            <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">ISTIO_READINESS_PORT</span>
+              <span class="nt">value</span><span class="p">:</span> <span class="s">&quot;%ISTIO_READINESS_PORT%&quot;</span>
+            <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">WDT_VERSION</span>
+              <span class="nt">value</span><span class="p">:</span> <span class="err">%</span><span class="l l-Scalar l-Scalar-Plain">WDT_VERSION%</span>
+      <span class="nt">volumes</span><span class="p">:</span>
+        <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">create-weblogic-sample-domain-job-cm-volume</span>
+          <span class="nt">configMap</span><span class="p">:</span>
+            <span class="nt">name</span><span class="p">:</span> <span class="err">%</span><span class="l l-Scalar l-Scalar-Plain">DOMAIN_UID%-create-weblogic-sample-domain-job-cm</span>
+        <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">weblogic-sample-domain-storage-volume</span>
+          <span class="nt">persistentVolumeClaim</span><span class="p">:</span>
+            <span class="nt">claimName</span><span class="p">:</span> <span class="err">%</span><span class="l l-Scalar l-Scalar-Plain">DOMAIN_PVC_NAME%</span>
+        <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">weblogic-credentials-volume</span>
+          <span class="nt">secret</span><span class="p">:</span>
+            <span class="nt">secretName</span><span class="p">:</span> <span class="err">%</span><span class="l l-Scalar l-Scalar-Plain">WEBLOGIC_CREDENTIALS_SECRET_NAME%</span>
+      <span class="nt">%WEBLOGIC_IMAGE_PULL_SECRET_PREFIX%imagePullSecrets</span><span class="p">:</span>
+      <span class="nt">%WEBLOGIC_IMAGE_PULL_SECRET_PREFIX%- name</span><span class="p">:</span> <span class="err">%</span><span class="l l-Scalar l-Scalar-Plain">WEBLOGIC_IMAGE_PULL_SECRET_NAME%</span>
+</code></pre></div>
+
+<p>WebLogicドメインを作成します。</p>
+<div class="codehilite"><pre><span></span><code>./create-domain.sh -i my-domain-inputs.yaml -o . -e
+</code></pre></div>
+
+<p>最初に実行するドメイン作成ジョブを確認します：</p>
+<div class="codehilite"><pre><span></span><code>kubectl get po -n sample-domain1-ns
+</code></pre></div>
+
+<p>以下のような結果が得られます：</p>
+<div class="codehilite"><pre><span></span><code><span class="err">NAME                                                     READY   STATUS      RESTARTS   AGE</span>
+<span class="err">sample-domain1-create-weblogic-sample-domain-job-djk84                              0/1     Running     0          52s</span>
+</code></pre></div>
+
+<p>ドメインのネームスペース(sample-domain1-ns)のポッドを定期的に確認すると、すぐにサーバーが起動されていることがわかります：</p>
+<p><div class="codehilite"><pre><span></span><code>kubectl get po -n sample-domain1-ns -o wide
+</code></pre></div>
+以下のような出力が得られます：
+<div class="codehilite"><pre><span></span><code><span class="err">NAME                                                     READY   STATUS      RESTARTS   AGE     IP            NODE         NOMINATED NODE   READINESS GATES</span>
+<span class="err">sample-domain1-admin-server                              1/1     Running     0          6m      10.244.3.10   10.0.10.3    &lt;none&gt;           &lt;none&gt;</span>
+<span class="err">sample-domain1-create-weblogic-sample-domain-job-djk84   0/1     Completed   0          7m55s   10.244.3.8    10.0.10.3    &lt;none&gt;           &lt;none&gt;</span>
+<span class="err">sample-domain1-managed-server1                           1/1     Running     0          4m14s   10.244.3.12   10.0.10.3    &lt;none&gt;           &lt;none&gt;</span>
+<span class="err">sample-domain1-managed-server2                           1/1     Running     0          4m14s   10.244.3.11   10.0.10.3    &lt;none&gt;           &lt;none&gt;</span>
+</code></pre></div></p>
+<p>上記の結果と同様の3つの実行中のポッドを確認する必要があります。実行中のポッドがすべて表示されない場合は、しばらく待った後に定期的に確認してください。コンピュートインスタンスのシェイプによっては、ドメイン全体の展開に2〜3分かかることがあります。</p>
+<p>WebLogicにデプロイされたアプリケーションまたは管理コンソールにアクセスするには、<em>Traefik</em>Ingressを構成する必要があります。 OCIロードバランサーは、前のステップの<em>Traefik</em>インストール中に既に割り当てられています。</p>
+<p>外部トラフィックを<em>Traefik</em>を介してドメインクラスタアドレスまたは管理サーバーのコンソールにルーティングするパスルーティングを構成するのが最も簡単な方法です。</p>
+<p>次のIngressリソース定義を実行します：</p>
+<div class="codehilite"><pre><span></span><code>cat <span class="s">&lt;&lt; EOF | kubectl apply -f -</span>
+<span class="s">apiVersion: extensions/v1beta1</span>
+<span class="s">kind: Ingress</span>
+<span class="s">metadata:</span>
+<span class="s">  name: traefik-pathrouting-1</span>
+<span class="s">  namespace: sample-domain1-ns</span>
+<span class="s">  annotations:</span>
+<span class="s">    kubernetes.io/ingress.class: traefik</span>
+<span class="s">spec:</span>
+<span class="s">  rules:</span>
+<span class="s">  - host:</span>
+<span class="s">    http:</span>
+<span class="s">      paths:</span>
+<span class="s">      - path: /</span>
+<span class="s">        backend:</span>
+<span class="s">          serviceName: sample-domain1-cluster-cluster-1</span>
+<span class="s">          servicePort: 8001</span>
+<span class="s">      - path: /console</span>
+<span class="s">        backend:</span>
+<span class="s">          serviceName: sample-domain1-admin-server</span>
+<span class="s">          servicePort: 7001          </span>
+<span class="s">EOF</span>
+</code></pre></div>
+
+<p>2つのバックエンドとネームスペース、サービスネーム、サービスポートの定義に注意してください。最初のバックエンドはルートコンテキストパスでアプリケーションに到達するドメインクラスタサービスです。 2つ目は管理コンソール用の別のサービスです。</p>
+<p>Ingressが作成されたら、以下の形式で管理コンソールのURLを作成します：</p>
+<p><code>http://EXTERNAL-IP/console</code></p>
+<p>EXTERNAL-IPは、Traefikのインストール中に表示されます。メモを忘れた場合は、次のコマンドを実行して取得できます：</p>
+<div class="codehilite"><pre><span></span><code>kubectl describe svc traefik-operator --namespace traefik <span class="p">|</span> grep Ingress <span class="p">|</span> awk <span class="s1">&#39;{print $3}&#39;</span>
+</code></pre></div>
+
+<p>以下のような出力が得られます：</p>
+<div class="codehilite"><pre><span></span><code><span class="err">xxx.xxx.xxx.xxx</span>
+</code></pre></div>
+
+<p>管理コンソールのURLをブラウザーで開きます：</p>
+<p>管理者のユーザー資格情報（weblogic / welcome1）を入力し、<strong>Login</strong>をクリックします。</p>
+<p><img alt="" src="../images/deploy.domain/10.weblogic.console.png" /></p>
+<h4 id="web">デモWebアプリケーションのデプロイ<a class="headerlink" href="#web" title="Permanent link">&para;</a></h4>
+<p>デモWebアプリケーションをデプロイします。</p>
+<p>GitからデモWebアプリケーションを取得します。</p>
+<div class="codehilite"><pre><span></span><code><span class="nb">cd</span> /u01/content
+</code></pre></div>
+
+<div class="codehilite"><pre><span></span><code>git clone https://github.com/oracle-japan/weblogic-operator-handson.git
+</code></pre></div>
+
+<p>Weblogic管理コンソール画面で<strong>Lock &amp; Edit</strong>をクリックします。</p>
+<p><img alt="" src="../images/deploy.domain/11.deploy.application.1.png" /></p>
+<p><strong>Deployments</strong>をクリックします。</p>
+<p><img alt="" src="../images/deploy.domain/11.deploy.application.2.png" /></p>
+<p><strong>Install</strong>をクリックします。</p>
+<p><img alt="" src="../images/deploy.domain/11.deploy.application.3.png" /></p>
+<p><strong>Upload your file(s)</strong>をクリックします。</p>
+<p><img alt="" src="../images/deploy.domain/11.deploy.application.4.png" /></p>
+<p><strong>ファイルを選択</strong>をクリックします。</p>
+<p><img alt="" src="../images/deploy.domain/11.deploy.application.5.png" /></p>
+<p><code>/u01/content/weblogic-operator-handson/application/1.0/opdemo.war</code>を選択して、<strong>Next</strong>をクリックします。</p>
+<p><img alt="" src="../images/deploy.domain/11.deploy.application.6.png" /></p>
+<p>デフォルトのままで、<strong>Next</strong>をクリックします。</p>
+<p><img alt="" src="../images/deploy.domain/11.deploy.application.7.png" /></p>
+<p>デフォルトのままで、<strong>Next</strong>をクリックします。</p>
+<p><img alt="" src="../images/deploy.domain/11.deploy.application.8.png" /></p>
+<p><code>cluster-1</code>のチェックをオンにして、<strong>Next</strong>をクリックします。</p>
+<p><img alt="" src="../images/deploy.domain/11.deploy.application.9.png" /></p>
+<p><strong>Finish</strong>をクリックします。</p>
+<p><img alt="" src="../images/deploy.domain/11.deploy.application.10.png" /></p>
+<p><strong>Activate Changes</strong>をクリックします。</p>
+<p><img alt="" src="../images/deploy.domain/11.deploy.application.11.png" /></p>
+<p><strong>Controll</strong>をクリックします。</p>
+<p><img alt="" src="../images/deploy.domain/11.deploy.application.12.png" /></p>
+<p><code>opdemo</code>のチェックをオンにして、<strong>Servicing all requests</strong>をクリックします。</p>
+<p><img alt="" src="../images/deploy.domain/11.deploy.application.13.png" /></p>
+<p><strong>Yes</strong>をクリックします。</p>
+<p><img alt="" src="../images/deploy.domain/11.deploy.application.14.png" /></p>
+<p><code>State</code>が<code>Prepared</code>から<code>Active</code>になることを確認できます。</p>
+<p><img alt="" src="../images/deploy.domain/11.deploy.application.15.png" /></p>
+<p>デモアプリケーションのURLは以下の通りです：</p>
+<p><code>http://EXTERNAL-IP/opdemo/</code></p>
+<p><img alt="" src="../images/deploy.domain/11.deploy.application.16.png" /></p>
+<p>ページを更新し、ホスト名が変更されたことを確認します。画面上に要求に応答している管理対象サーバーの名前が表示されます。また、2つの管理対象サーバー間の負荷分散が確認できます。</p>
+<p>続いて、<a href="../06.scale.weblogic/">WebLogic Clusterのスケーリング</a>に進んでください。</p>
+                
+                  
+                
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright &copy; 2018 - 2020 Oracle Corporation Japan
+          </div>
+        
+        powered by
+        <a href="https://www.mkdocs.org" target="_blank" rel="noopener">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs</a>
+      </div>
+      
+  <div class="md-footer-social">
+    <link rel="stylesheet" href="../../../../assets/fonts/font-awesome.css">
+    
+      <a href="https://github.com/oracle-japan" target="_blank" rel="noopener" title="github" class="md-footer-social__link fa fa-github"></a>
+    
+  </div>
+
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../../../assets/javascripts/application.c33a9706.js"></script>
+      
+        
+        
+          
+          <script src="../../../../assets/javascripts/lunr/lunr.stemmer.support.js"></script>
+          
+            
+          
+            
+              
+              
+            
+          
+          
+            <script src="../../../../assets/javascripts/lunr/lunr.multi.js"></script>
+          
+        
+      
+      <script>app.initialize({version:"1.1",url:{base:"../../../.."}})</script>
+      
+    
+  </body>
+</html>
