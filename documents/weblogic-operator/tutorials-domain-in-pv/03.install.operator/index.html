@@ -1,0 +1,936 @@
+
+
+
+
+<!doctype html>
+<html lang="ja" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+      
+      
+      
+        <meta name="lang:clipboard.copy" content="クリップボードへコピー">
+      
+        <meta name="lang:clipboard.copied" content="コピーしました">
+      
+        <meta name="lang:search.language" content="en, jp">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="何も見つかりませんでした">
+      
+        <meta name="lang:search.result.one" content="1件見つかりました">
+      
+        <meta name="lang:search.result.other" content="#件見つかりました">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-　、。，．]+">
+      
+      <link rel="shortcut icon" href="../../../../assets/images/cloud_46@2x.png">
+      <meta name="generator" content="mkdocs-1.1, mkdocs-material-4.6.3">
+    
+    
+      
+        <title>Oracle WebLogic Operator チュートリアル # - Oracle Cloud - PaaS ドキュメント</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/application.adb8469c.css">
+      
+        <link rel="stylesheet" href="../../../../assets/stylesheets/application-palette.a8b3c06d.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="#03a9f4">
+      
+    
+    
+      <script src="../../../../assets/javascripts/modernizr.86422ebf.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../../../../assets/fonts/material-icons.css">
+    
+    
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+    
+      <link rel="stylesheet" href="../../../../stylesheets/extra.css">
+    
+    
+      
+    
+    
+  </head>
+  
+    
+    
+    <body dir="ltr" data-md-color-primary="light-blue" data-md-color-accent="light-blue">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448" viewBox="0 0 416 448" id="__github"><path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19T128 352t-18.125-8.5-10.75-19T96 304t3.125-20.5 10.75-19T128 256t18.125 8.5 10.75 19T160 304zm160 0q0 10-3.125 20.5t-10.75 19T288 352t-18.125-8.5-10.75-19T256 304t3.125-20.5 10.75-19T288 256t18.125 8.5 10.75 19T320 304zm40 0q0-30-17.25-51T296 232q-10.25 0-48.75 5.25Q229.5 240 208 240t-39.25-2.75Q130.75 232 120 232q-29.5 0-46.75 21T56 304q0 22 8 38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0 37.25-1.75t35-7.375 30.5-15 20.25-25.75T360 304zm56-44q0 51.75-15.25 82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5T212 416q-19.5 0-35.5-.75t-36.875-3.125-38.125-7.5-34.25-12.875T37 371.5t-21.5-28.75Q0 312 0 260q0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25 30.875Q171.5 96 212 96q37 0 70 8 26.25-20.5 46.75-30.25T376 64q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34 99.5z"/></svg>
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#oracle-weblogic-operator" tabindex="0" class="md-skip">
+        Skip to content
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="../../../.." title="Oracle Cloud - PaaS ドキュメント" aria-label="Oracle Cloud - PaaS ドキュメント" class="md-header-nav__button md-logo">
+          
+            <img alt="logo" src="../../../../assets/images/cloud_w_46@2x.png" width="24" height="24">
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+              Oracle Cloud - PaaS ドキュメント
+            </span>
+            <span class="md-header-nav__topic">
+              
+                Oracle WebLogic Operator チュートリアル #
+              
+            </span>
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" aria-label="search" name="query" placeholder="検索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            検索キーワードを入力してください
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            
+
+
+  
+
+<a href="https://github.com/oracle-japan/paasdocs" title="リポジトリへ" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    oracle-japan/paasdocs
+  </div>
+</a>
+          </div>
+        </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+        
+
+<nav class="md-tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  <li class="md-tabs__item">
+    
+      <a href="../../../.." class="md-tabs__link md-tabs__link--active">
+        Home
+      </a>
+    
+  </li>
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../../containers/common/" class="md-tabs__link">
+          コンテナ
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../../faas/" class="md-tabs__link">
+          FaaS
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../tutorials/domain.home.in.image_short/" class="md-tabs__link">
+          WebLogic Operator
+        </a>
+      
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+      
+      <main class="md-main" role="main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="../../../.." title="Oracle Cloud - PaaS ドキュメント" class="md-nav__button md-logo">
+      
+        <img alt="logo" src="../../../../assets/images/cloud_w_46@2x.png" width="48" height="48">
+      
+    </a>
+    Oracle Cloud - PaaS ドキュメント
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+<a href="https://github.com/oracle-japan/paasdocs" title="リポジトリへ" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    oracle-japan/paasdocs
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../../.." title="Home" class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+    
+    <label class="md-nav__link" for="nav-2">
+      コンテナ
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        コンテナ
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../containers/common/" title="コンテナのホーム" class="md-nav__link">
+      コンテナのホーム
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-2" type="checkbox" id="nav-2-2">
+    
+    <label class="md-nav__link" for="nav-2-2">
+      ビギナー向けチュートリアル
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-2-2">
+        ビギナー向けチュートリアル
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../containers/handson/k8s-walkthrough/" title="OKEでアプリケーションを動かしてみよう" class="md-nav__link">
+      OKEでアプリケーションを動かしてみよう
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../containers/handson/k8s-basic-ops/" title="Kubernetesの基本的な操作を体験しよう" class="md-nav__link">
+      Kubernetesの基本的な操作を体験しよう
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../containers/handson/integrated-cicd/" title="OKEとWerckerによるCI/CD" class="md-nav__link">
+      OKEとWerckerによるCI/CD
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+    
+    <label class="md-nav__link" for="nav-3">
+      FaaS
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        FaaS
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../faas/" title="FaaSのホーム" class="md-nav__link">
+      FaaSのホーム
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-2" type="checkbox" id="nav-3-2">
+    
+    <label class="md-nav__link" for="nav-3-2">
+      ビギナー向けチュートリアル
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-2">
+        ビギナー向けチュートリアル
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../faas/fn/handson/getting-started/" title="Fn Projectことはじめ" class="md-nav__link">
+      Fn Projectことはじめ
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../faas/oraclefunctions/handson/getting-started/" title="Oracle Functionsことはじめ" class="md-nav__link">
+      Oracle Functionsことはじめ
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../faas/with_apigw/" title="Oracle Cloud Infrastructure API Gateway + Oracle Functionsハンズオン" class="md-nav__link">
+      Oracle Cloud Infrastructure API Gateway + Oracle Functionsハンズオン
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+    
+    <label class="md-nav__link" for="nav-4">
+      WebLogic Operator
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        WebLogic Operator
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../tutorials/domain.home.in.image_short/" title="WebLogic Operatorのホーム" class="md-nav__link">
+      WebLogic Operatorのホーム
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4-2" type="checkbox" id="nav-4-2">
+    
+    <label class="md-nav__link" for="nav-4-2">
+      ビギナー向けチュートリアル
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-4-2">
+        ビギナー向けチュートリアル
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../tutorials/setup.oke/" title="OCIでOKEインスタンスを設定" class="md-nav__link">
+      OCIでOKEインスタンスを設定
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../tutorials/install.operator/" title="WebLogic Operatorのインストール" class="md-nav__link">
+      WebLogic Operatorのインストール
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../tutorials/install.traefik/" title="Traefik Software Loadbalancerのインストール" class="md-nav__link">
+      Traefik Software Loadbalancerのインストール
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../tutorials/deploy.weblogic_short/" title="WebLogic Domainのデプロイ" class="md-nav__link">
+      WebLogic Domainのデプロイ
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../tutorials/scale.weblogic/" title="WebLogic Clusterのスケーリング" class="md-nav__link">
+      WebLogic Clusterのスケーリング
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../tutorials/override.jdbc/" title="JDBC Datasource parametersのオーバーライド" class="md-nav__link">
+      JDBC Datasource parametersのオーバーライド
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../tutorials/update.application_short/" title="ローリングアップデートによるデプロイ済みアプリケーションの更新" class="md-nav__link">
+      ローリングアップデートによるデプロイ済みアプリケーションの更新
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../tutorials/node.selector/" title="ノードに対するWebLogicのPodの割り当て" class="md-nav__link">
+      ノードに対するWebLogicのPodの割り当て
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../tutorials/node.selector.license/" title="ライセンス対象のノードに対するWebLogicのPodの配置" class="md-nav__link">
+      ライセンス対象のノードに対するWebLogicのPodの配置
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">目次</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#weblogic-operator" class="md-nav__link">
+    WebLogic Operatorのインストール
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#helm-chartoperator" class="md-nav__link">
+    Helm chartを用いたoperatorのインスト―ル
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="oracle-weblogic-operator">Oracle WebLogic Operator チュートリアル<a class="headerlink" href="#oracle-weblogic-operator" title="Permanent link">&para;</a></h1>
+<h3 id="weblogic-operator">WebLogic Operatorのインストール<a class="headerlink" href="#weblogic-operator" title="Permanent link">&para;</a></h3>
+<p>operatorは、複雑なアプリケーションのインスタンスの構築、設定、管理を行うためにKubernetesを拡張するアプリケーションに特化したコントローラーです。
+Oracle WebLogic Server Kubernetes Operator ("operator"と呼びます)は、WebLogicドメインとデプロイメントの操作と管理を簡略化します。</p>
+<p><img alt="" src="../images/image_2.png" /></p>
+<h4 id="helm-chartoperator">Helm chartを用いたoperatorのインスト―ル<a class="headerlink" href="#helm-chartoperator" title="Permanent link">&para;</a></h4>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>事前に下記構成スクリプトを実行した場合、WebLogic Operatorのgit repositoryをcloneする必要はありません。</p>
+</div>
+<div class="codehilite"><pre><span></span><code>curl -LSs https://github.com/oracle-japan/weblogic-operator-handson/master/setup-operator-workshop.sh <span class="p">|</span> bash
+</code></pre></div>
+
+<p>​    この手順はスキップしてください。<br />
+​    そうではない方は、以下のコマンドを実行し、ディレクトリの作成とgit repositoryのcloneを行ってください。</p>
+<p><div class="codehilite"><pre><span></span><code>mkdir -p /u01/content/
+</code></pre></div>
+<div class="codehilite"><pre><span></span><code><span class="nb">cd</span> /u01/content/
+</code></pre></div>
+<div class="codehilite"><pre><span></span><code>git clone https://github.com/oracle/weblogic-kubernetes-operator.git -b v2.4.0
+</code></pre></div></p>
+<hr />
+<p>operatorのインストールと管理を行うためのHelmを使用するために、Tillerが利用する<code>cluster-admin</code>ロールのサービスアカウントを確保する必要があります。
+デフォルトでは、ネームスペース<code>kube-system</code>の<code>default</code>に作成されます。以下のコマンドを利用してサービスアカウントに必要な権限を付与してください。</p>
+<div class="codehilite"><pre><span></span><code>cat <span class="s">&lt;&lt; EOF | kubectl apply -f -</span>
+<span class="s">apiVersion: rbac.authorization.k8s.io/v1</span>
+<span class="s">kind: ClusterRoleBinding</span>
+<span class="s">metadata:</span>
+<span class="s">  name: helm-user-cluster-admin-role</span>
+<span class="s">roleRef:</span>
+<span class="s">  apiGroup: rbac.authorization.k8s.io</span>
+<span class="s">  kind: ClusterRole</span>
+<span class="s">  name: cluster-admin</span>
+<span class="s">subjects:</span>
+<span class="s">- kind: ServiceAccount</span>
+<span class="s">  name: default</span>
+<span class="s">  namespace: kube-system</span>
+<span class="s">EOF</span>
+</code></pre></div>
+
+<p>以下のような出力が確認できます。</p>
+<div class="codehilite"><pre><span></span><code><span class="err">clusterrolebinding.rbac.authorization.k8s.io/helm-user-cluster-admin-role created</span>
+</code></pre></div>
+
+
+<p>Kubernetesは、様々な理由でユーザーアカウントとサービスアカウントの概念を区別しています。主な理由は、ユーザーアカウントはユーザー用、サービスアカウントはpodで実行されるプロセス用になっているためです。WebLogic Operatorにはサービスアカウントも必要です。サービスアカウントが指定されていない場合、デフォルトが指定されます。(たとえば、ネームスペースのデフォルトサービスアカウントになります)<br />
+別のサービスアカウントを使用する場合は、オペレーターのHelm chartをインストールする前に、オペレーター用のネームスペースとサービスアカウントを作成する必要があります。</p>
+<p>以下のように、事前にoperatorのネームスペースを作成しておきます。</p>
+<div class="codehilite"><pre><span></span><code>kubectl create namespace sample-weblogic-operator-ns
+</code></pre></div>
+
+<p>サービスアカウントを作成します。</p>
+<div class="codehilite"><pre><span></span><code>kubectl create serviceaccount -n sample-weblogic-operator-ns sample-weblogic-operator-sa
+</code></pre></div>
+
+<p>operatorの<code>helm</code>インストールを実行するためにカレントディレクトリがWebLogic OperatorのローカルGitレポジトリが存在するディレクトリになっていることを確認してください。</p>
+<div class="codehilite"><pre><span></span><code><span class="nb">cd</span> /u01/content/weblogic-kubernetes-operator/
+</code></pre></div>
+
+<p>helmを使い始める前にサーバサイドのTillerサービスをアップグレードしておくことをお勧めします。以下のコマンドを実行してください。</p>
+<div class="codehilite"><pre><span></span><code>helm init --upgrade
+</code></pre></div>
+
+<p>operatorのHelm chartをインストールするために<code>helm install</code>を使用します。ここでは、operatorで使用する"release"名を決める必要があります。</p>
+<p>以下のいずれかによって、operatorのHelm chartにおけるデフォルト設定の上書きを行います。</p>
+<ul>
+<li><a href="https://github.com/oracle/weblogic-kubernetes-operator/blob/v2.4.0/kubernetes/charts/weblogic-operator/values.yaml">custom YAML</a>を利用した上書き:上書きする値を含んだ設定ファイルを作成し、Helmコマンドの<code>--value</code>オプションを使用して設定を行う</li>
+<li>直接指定での上書き:Helmコマンドの<code>--set</code>オプションを利用して、直接、それぞれの値を上書きする</li>
+</ul>
+<p>ここでは、シンプルに<code>--set</code>オプションを使用して設定値の上書きを行います。</p>
+<p>設定値のメモ：</p>
+<ul>
+<li><strong>name</strong>: リソースの名前</li>
+<li><strong>namespace</strong>: operatorをデプロイするネームスペース</li>
+<li><strong>image</strong>: 事前にビルドされたWebLogic Operator 2.4.0 imageを使用します。 Docker hubから利用可能です。</li>
+<li><strong>serviceAccount</strong>:　operatorを実行するためのサービスアカウント</li>
+<li><strong>domainNamespaces</strong>: 管理したいデプロイするwebLogicドメインのネームスペース。WebLogicドメインはまだデプロイしていないですが、ここにはWebLogicがデプロイされた際にアップデートされる値が入ります。</li>
+</ul>
+<p>以下の<code>helm install</code>コマンドを実行します：
+<div class="codehilite"><pre><span></span><code>helm install kubernetes/charts/weblogic-operator <span class="se">\</span>
+  --name sample-weblogic-operator <span class="se">\</span>
+  --namespace sample-weblogic-operator-ns <span class="se">\</span>
+  --set <span class="nv">image</span><span class="o">=</span>oracle/weblogic-kubernetes-operator:2.4.0 <span class="se">\</span>
+  --set <span class="nv">serviceAccount</span><span class="o">=</span>sample-weblogic-operator-sa <span class="se">\</span>
+  --set <span class="s2">&quot;domainNamespaces={}&quot;</span>
+</code></pre></div>
+以下のような出力が得られます：
+<div class="codehilite"><pre><span></span><code><span class="n">NAME</span><span class="o">:</span>   <span class="n">sample</span><span class="o">-</span><span class="n">weblogic</span><span class="o">-</span><span class="n">operator</span>
+<span class="n">LAST</span> <span class="n">DEPLOYED</span><span class="o">:</span> <span class="n">Wed</span> <span class="n">Feb</span> <span class="mi">12</span> <span class="mi">09</span><span class="o">:</span><span class="mi">04</span><span class="o">:</span><span class="mi">31</span> <span class="mi">2020</span>
+<span class="n">NAMESPACE</span><span class="o">:</span> <span class="n">sample</span><span class="o">-</span><span class="n">weblogic</span><span class="o">-</span><span class="n">operator</span><span class="o">-</span><span class="n">ns</span>
+<span class="n">STATUS</span><span class="o">:</span> <span class="n">DEPLOYED</span>
+
+<span class="n">RESOURCES</span><span class="o">:</span>
+<span class="o">==&gt;</span> <span class="n">v1</span><span class="o">/</span><span class="n">ClusterRole</span>
+<span class="n">NAME</span>                                                                      <span class="n">AGE</span>
+<span class="n">sample</span><span class="o">-</span><span class="n">weblogic</span><span class="o">-</span><span class="n">operator</span><span class="o">-</span><span class="n">ns</span><span class="o">-</span><span class="n">weblogic</span><span class="o">-</span><span class="n">operator</span><span class="o">-</span><span class="n">clusterrole</span><span class="o">-</span><span class="n">domain</span><span class="o">-</span><span class="n">admin</span>    <span class="mi">1</span><span class="n">s</span>
+<span class="n">sample</span><span class="o">-</span><span class="n">weblogic</span><span class="o">-</span><span class="n">operator</span><span class="o">-</span><span class="n">ns</span><span class="o">-</span><span class="n">weblogic</span><span class="o">-</span><span class="n">operator</span><span class="o">-</span><span class="n">clusterrole</span><span class="o">-</span><span class="n">general</span>         <span class="mi">1</span><span class="n">s</span>
+<span class="n">sample</span><span class="o">-</span><span class="n">weblogic</span><span class="o">-</span><span class="n">operator</span><span class="o">-</span><span class="n">ns</span><span class="o">-</span><span class="n">weblogic</span><span class="o">-</span><span class="n">operator</span><span class="o">-</span><span class="n">clusterrole</span><span class="o">-</span><span class="kd">namespace</span>       <span class="mi">1</span><span class="n">s</span>
+<span class="n">sample</span><span class="o">-</span><span class="n">weblogic</span><span class="o">-</span><span class="n">operator</span><span class="o">-</span><span class="n">ns</span><span class="o">-</span><span class="n">weblogic</span><span class="o">-</span><span class="n">operator</span><span class="o">-</span><span class="n">clusterrole</span><span class="o">-</span><span class="n">nonresource</span>     <span class="mi">1</span><span class="n">s</span>
+<span class="n">sample</span><span class="o">-</span><span class="n">weblogic</span><span class="o">-</span><span class="n">operator</span><span class="o">-</span><span class="n">ns</span><span class="o">-</span><span class="n">weblogic</span><span class="o">-</span><span class="n">operator</span><span class="o">-</span><span class="n">clusterrole</span><span class="o">-</span><span class="n">operator</span><span class="o">-</span><span class="n">admin</span>  <span class="mi">1</span><span class="n">s</span>
+
+<span class="o">==&gt;</span> <span class="n">v1</span><span class="o">/</span><span class="n">ClusterRoleBinding</span>
+<span class="n">NAME</span>                                                                             <span class="n">AGE</span>
+<span class="n">sample</span><span class="o">-</span><span class="n">weblogic</span><span class="o">-</span><span class="n">operator</span><span class="o">-</span><span class="n">ns</span><span class="o">-</span><span class="n">weblogic</span><span class="o">-</span><span class="n">operator</span><span class="o">-</span><span class="n">clusterrolebinding</span><span class="o">-</span><span class="n">auth</span><span class="o">-</span><span class="n">delegator</span>  <span class="mi">0</span><span class="n">s</span>
+<span class="n">sample</span><span class="o">-</span><span class="n">weblogic</span><span class="o">-</span><span class="n">operator</span><span class="o">-</span><span class="n">ns</span><span class="o">-</span><span class="n">weblogic</span><span class="o">-</span><span class="n">operator</span><span class="o">-</span><span class="n">clusterrolebinding</span><span class="o">-</span><span class="n">discovery</span>       <span class="mi">0</span><span class="n">s</span>
+<span class="n">sample</span><span class="o">-</span><span class="n">weblogic</span><span class="o">-</span><span class="n">operator</span><span class="o">-</span><span class="n">ns</span><span class="o">-</span><span class="n">weblogic</span><span class="o">-</span><span class="n">operator</span><span class="o">-</span><span class="n">clusterrolebinding</span><span class="o">-</span><span class="n">general</span>         <span class="mi">0</span><span class="n">s</span>
+<span class="n">sample</span><span class="o">-</span><span class="n">weblogic</span><span class="o">-</span><span class="n">operator</span><span class="o">-</span><span class="n">ns</span><span class="o">-</span><span class="n">weblogic</span><span class="o">-</span><span class="n">operator</span><span class="o">-</span><span class="n">clusterrolebinding</span><span class="o">-</span><span class="n">nonresource</span>     <span class="mi">0</span><span class="n">s</span>
+
+<span class="o">==&gt;</span> <span class="n">v1</span><span class="o">/</span><span class="n">ConfigMap</span>
+<span class="n">NAME</span>                  <span class="n">AGE</span>
+<span class="n">weblogic</span><span class="o">-</span><span class="n">operator</span><span class="o">-</span><span class="n">cm</span>  <span class="mi">1</span><span class="n">s</span>
+
+<span class="o">==&gt;</span> <span class="n">v1</span><span class="o">/</span><span class="n">Pod</span><span class="o">(</span><span class="n">related</span><span class="o">)</span>
+<span class="n">NAME</span>                                <span class="n">AGE</span>
+<span class="n">weblogic</span><span class="o">-</span><span class="n">operator</span><span class="o">-</span><span class="mi">7</span><span class="n">f7784766c</span><span class="o">-</span><span class="n">z7v4z</span>  <span class="mi">0</span><span class="n">s</span>
+
+<span class="o">==&gt;</span> <span class="n">v1</span><span class="o">/</span><span class="n">Role</span>
+<span class="n">NAME</span>                    <span class="n">AGE</span>
+<span class="n">weblogic</span><span class="o">-</span><span class="n">operator</span><span class="o">-</span><span class="n">role</span>  <span class="mi">0</span><span class="n">s</span>
+
+<span class="o">==&gt;</span> <span class="n">v1</span><span class="o">/</span><span class="n">RoleBinding</span>
+<span class="n">NAME</span>                                     <span class="n">AGE</span>
+<span class="n">weblogic</span><span class="o">-</span><span class="n">operator</span><span class="o">-</span><span class="n">rolebinding</span>            <span class="mi">0</span><span class="n">s</span>
+<span class="n">weblogic</span><span class="o">-</span><span class="n">operator</span><span class="o">-</span><span class="n">rolebinding</span><span class="o">-</span><span class="kd">namespace</span>  <span class="mi">0</span><span class="n">s</span>
+
+<span class="o">==&gt;</span> <span class="n">v1</span><span class="o">/</span><span class="n">Secret</span>
+<span class="n">NAME</span>                       <span class="n">AGE</span>
+<span class="n">weblogic</span><span class="o">-</span><span class="n">operator</span><span class="o">-</span><span class="n">secrets</span>  <span class="mi">1</span><span class="n">s</span>
+
+<span class="o">==&gt;</span> <span class="n">v1</span><span class="o">/</span><span class="n">Service</span>
+<span class="n">NAME</span>                            <span class="n">AGE</span>
+<span class="kd">internal</span><span class="o">-</span><span class="n">weblogic</span><span class="o">-</span><span class="n">operator</span><span class="o">-</span><span class="n">svc</span>  <span class="mi">0</span><span class="n">s</span>
+
+<span class="o">==&gt;</span> <span class="n">v1beta1</span><span class="o">/</span><span class="n">Deployment</span>
+<span class="n">NAME</span>               <span class="n">AGE</span>
+<span class="n">weblogic</span><span class="o">-</span><span class="n">operator</span>  <span class="mi">0</span><span class="n">s</span>
+</code></pre></div></p>
+<p>podを確認してみましょう：</p>
+<div class="codehilite"><pre><span></span><code>kubectl get po -n sample-weblogic-operator-ns
+</code></pre></div>
+
+<p>以下のような出力が得られます：</p>
+<p><div class="codehilite"><pre><span></span><code><span class="err">NAME                                 READY   STATUS    RESTARTS   AGE</span>
+<span class="err">weblogic-operator-7f7784766c-z7v4z   1/1     Running   0          2m33s</span>
+</code></pre></div>
+operatorのhelm chartを確認してみましょう：</p>
+<div class="codehilite"><pre><span></span><code>helm list sample-weblogic-operator
+</code></pre></div>
+
+<p>以下のような出力が得られます：</p>
+<div class="codehilite"><pre><span></span><code><span class="err">NAME                            REVISION        UPDATED                         STATUS          CHART                   APP VERSION     NAMESPACE</span>
+<span class="err">sample-weblogic-operator        1               Wed Feb 12 09:04:31 2020        DEPLOYED        weblogic-operator-2.4.0                 sample-weblogic-operator-ns</span>
+</code></pre></div>
+
+<p>以上で、WebLogic Operatorがインストールされました。</p>
+<p>続いて、<a href="../04.install.traefik/">Traefik Software Loadbalancerのインストール</a>に進んでください。</p>
+                
+                  
+                
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright &copy; 2018 - 2020 Oracle Corporation Japan
+          </div>
+        
+        powered by
+        <a href="https://www.mkdocs.org" target="_blank" rel="noopener">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs</a>
+      </div>
+      
+  <div class="md-footer-social">
+    <link rel="stylesheet" href="../../../../assets/fonts/font-awesome.css">
+    
+      <a href="https://github.com/oracle-japan" target="_blank" rel="noopener" title="github" class="md-footer-social__link fa fa-github"></a>
+    
+  </div>
+
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../../../assets/javascripts/application.c33a9706.js"></script>
+      
+        
+        
+          
+          <script src="../../../../assets/javascripts/lunr/lunr.stemmer.support.js"></script>
+          
+            
+          
+            
+              
+              
+            
+          
+          
+            <script src="../../../../assets/javascripts/lunr/lunr.multi.js"></script>
+          
+        
+      
+      <script>app.initialize({version:"1.1",url:{base:"../../../.."}})</script>
+      
+    
+  </body>
+</html>
