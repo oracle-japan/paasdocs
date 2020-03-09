@@ -89,7 +89,7 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     
-      <a href="#oracle-cloud-infrasturcture-api-gaetway-oracle-functions" tabindex="0" class="md-skip">
+      <a href="#oracle-cloud-infrasturcture-api-gateway-oracle-functions" tabindex="0" class="md-skip">
         Skip to content
       </a>
     
@@ -230,7 +230,7 @@
   
     <li class="md-tabs__item">
       
-        <a href="../../weblogic-operator/tutorials/domain.home.in.image_short/" class="md-tabs__link">
+        <a href="../../weblogic-operator/" class="md-tabs__link">
           WebLogic Operator
         </a>
       
@@ -556,8 +556,8 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#3-1api-gateway" class="md-nav__link">
-    3-1.API Gatewayの作成
+  <a href="#3-1oci-api-gateway" class="md-nav__link">
+    3-1.OCI API Gatewayの作成
   </a>
   
 </li>
@@ -627,7 +627,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../weblogic-operator/tutorials/domain.home.in.image_short/" title="WebLogic Operatorのホーム" class="md-nav__link">
+    <a href="../../weblogic-operator/" title="WebLogic Operatorのホーム" class="md-nav__link">
       WebLogic Operatorのホーム
     </a>
   </li>
@@ -643,11 +643,11 @@
       <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4-2" type="checkbox" id="nav-4-2">
     
     <label class="md-nav__link" for="nav-4-2">
-      ビギナー向けチュートリアル
+      ビギナー向けチュートリアル-domain in image-編
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
       <label class="md-nav__title" for="nav-4-2">
-        ビギナー向けチュートリアル
+        ビギナー向けチュートリアル-domain in image-編
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
         
@@ -847,8 +847,8 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#3-1api-gateway" class="md-nav__link">
-    3-1.API Gatewayの作成
+  <a href="#3-1oci-api-gateway" class="md-nav__link">
+    3-1.OCI API Gatewayの作成
   </a>
   
 </li>
@@ -889,7 +889,7 @@
               
                 
                 
-                <h1 id="oracle-cloud-infrasturcture-api-gaetway-oracle-functions">Oracle Cloud Infrasturcture API Gaetway + Oracle Functionsハンズオン<a class="headerlink" href="#oracle-cloud-infrasturcture-api-gaetway-oracle-functions" title="Permanent link">&para;</a></h1>
+                <h1 id="oracle-cloud-infrasturcture-api-gateway-oracle-functions">Oracle Cloud Infrasturcture API Gateway + Oracle Functionsハンズオン<a class="headerlink" href="#oracle-cloud-infrasturcture-api-gateway-oracle-functions" title="Permanent link">&para;</a></h1>
 <p>このエントリーでは、OCI API GatewayとOracle Functionsを組み合わせて、
 簡単なサーバレスアプリケーションを開発する手順をご紹介します。</p>
 <h2 id="_1">条件<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
@@ -913,9 +913,9 @@
 <li>サンプルアプリケーションのデプロイ<br />
    　・このステップでは、事前にデプロイされたQRコードを生成するFunctionsのアプリケーションをデプロイします</li>
 <li>OCI API Gatewayプロビジョニングの事前準備<br />
-   　・このステップでは、API Gatewayを構成するための事前設定を行います</li>
+   　・このステップでは、OCI API Gatewayを構成するための事前設定を行います</li>
 <li>OCI API GatewayへのOracle Functionsへのデプロイと動作確認<br />
-   　・このステップでは、API GatewayにFunctionsをデプロイし、簡易的に構築したWebサーバ上のHTMLから動作確認を行います</li>
+   　・このステップでは、OCI API GatewayにFunctionsをデプロイし、簡易的に構築したWebサーバ上のHTMLから動作確認を行います</li>
 </ol>
 <h2 id="1">1.サンプルアプリケーションのデプロイ<a class="headerlink" href="#1" title="Permanent link">&para;</a></h2>
 <p>ここでは、サンプルアプリケーションのデプロイを行います。  </p>
@@ -952,14 +952,14 @@ fn-generate-qrcodeディレクトリに移動します。</p>
 <h2 id="2oci-api-gateway">2.OCI API Gatewayプロビジョニングの事前準備<a class="headerlink" href="#2oci-api-gateway" title="Permanent link">&para;</a></h2>
 <p>ここでは、OCI API Gatewayをプロビジョニングするための事前準備を行います。</p>
 <h3 id="2-1">2-1.イングレス・ルールの追加<a class="headerlink" href="#2-1" title="Permanent link">&para;</a></h3>
-<p>API Gatewayは、デフォルトでは開いていないポート443で通信します。 ポート443のトラフィックを許可するには、パブリックリージョナルサブネットの新しいステートフルのイングレス・ルールを追加する必要があります。</p>
+<p>OCI API Gatewayは、デフォルトでは開いていないポート443で通信します。 ポート443のトラフィックを許可するには、サブネットに対してイングレス・ルールを追加する必要があります。</p>
 <p>OCIコンソールにログインし、[ネットワーキング]に移動して、[仮想クラウド・ネットワーク]をクリックします。</p>
 <p><img alt="" src="images/image-add-security-rule-01.png" /></p>
-<p>[コンパートメント]からAPI Gatewayで利用するコンパートメントを選択して、API Gatewayで利用するVCNリンクをクリックします。<br />
+<p>[コンパートメント]からOCI API Gatewayで利用するコンパートメント(今回はルートコンパートメント)を選択して、OCI API Gatewayで利用するVCNリンクをクリックします。<br />
 VCNは<a href="../oraclefunctions/handson/getting-started/">Oracle Functionsことはじめ</a>で作成したVCNを利用してください。</p>
 <p><img alt="" src="images/image-add-security-rule-02.png" /></p>
-<p>API Gatewayで利用するサブネットリンクをクリックします。<br />
-今回は、いずれかのパブリックサブネットを選択してください。</p>
+<p>OCI API Gatewayで利用するサブネットリンクをクリックします。<br />
+今回は、パブリックサブネット("Oracle Functions Handson"で作成した場合は"パブリック・サブネット-Oracle Functions Handson(リージョナル)")を選択してください。</p>
 <p><img alt="" src="images/image-add-security-rule-03.png" /></p>
 <p>[Default Security List for ...]リンクをクリックします。</p>
 <p><img alt="" src="images/image-add-security-rule-04.png" /></p>
@@ -976,7 +976,7 @@ VCNは<a href="../oraclefunctions/handson/getting-started/">Oracle Functionsこ�
 <p>新しいイングレス・ルールが追加されます。</p>
 <p><img alt="" src="images/image-add-security-rule-07.png" /></p>
 <h3 id="2-2">2-2.動的ポリシーの作成<a class="headerlink" href="#2-2" title="Permanent link">&para;</a></h3>
-<p>API GatewayでOracle Functionsを利用するための動的ポリシーの作成を行います。  </p>
+<p>OCI API GatewayでOracle Functionsを利用するための動的ポリシーの作成を行います。  </p>
 <div class="admonition info">
 <p class="admonition-title">補足:動的グループおよびポリシーについて</p>
 <p>動的グループを使用すると、Oracle Cloud Infrastructureコンピュータ・インスタンスを(ユーザー・グループと同様に)プリンシパルのアクターとしてグループ化し、ポリシーを作成できます。 
@@ -994,7 +994,7 @@ VCNは<a href="../oraclefunctions/handson/getting-started/">Oracle Functionsこ�
 <ul>
 <li>名前：任意。今回は<code>api_gw_grp</code></li>
 <li>説明：任意。今回は<code>API Gateway Dynamic Group</code></li>
-<li>ルール1：<code>&lt;compartment-ocid&gt;</code>は[アイデンティティ]⇒[コンパートメント]に移動して、API Gatewayで使用するコンパートメントを開いて、該当OCIDを記入します。
+<li>ルール1：<code>&lt;compartment-ocid&gt;</code>は[アイデンティティ]⇒[コンパートメント]に移動して、OCI API Gatewayで使用するコンパートメント(今回はルートコンパートメント)を開いて、該当OCIDを記入します。
   <div class="codehilite"><pre><span></span><code><span class="err">ALL {resource.type = &#39;ApiGateway&#39;, resource.compartment.id = &#39;&lt;compartment-ocid&gt;&#39;}</span>
 </code></pre></div></li>
 </ul>
@@ -1004,7 +1004,7 @@ VCNは<a href="../oraclefunctions/handson/getting-started/">Oracle Functionsこ�
 </ul>
 <p>OCIコンソールにログインし、[アイデンティティ]をクリックして、[ポリシー]をクリックします。</p>
 <p><img alt="" src="images/image-add-policy-01.png" /></p>
-<p>[コンパートメント]からAPI Gatewayで利用するコンパートメントを選択して、[ポリシーの作成]をクリックします。</p>
+<p>[コンパートメント]からOCI API Gatewayで利用するコンパートメント(今回はルートコンパートメント)を選択して、[ポリシーの作成]をクリックします。</p>
 <p><img alt="" src="images/image-add-policy-04.png" /></p>
 <p>以下項目を入力して、[作成]をクリックします。</p>
 <ul>
@@ -1018,7 +1018,7 @@ VCNは<a href="../oraclefunctions/handson/getting-started/">Oracle Functionsこ�
 <p><img alt="" src="images/image-add-policy-05.png" /></p>
 <p>以上で、OCI API Gatewayプロビジョニングの事前準備は完了です。  </p>
 <h2 id="3oci-api-gatewayoracle-functions">3.OCI API GatewayへのOracle Functionsへのデプロイと動作確認<a class="headerlink" href="#3oci-api-gatewayoracle-functions" title="Permanent link">&para;</a></h2>
-<h3 id="3-1api-gateway">3-1.API Gatewayの作成<a class="headerlink" href="#3-1api-gateway" title="Permanent link">&para;</a></h3>
+<h3 id="3-1oci-api-gateway">3-1.OCI API Gatewayの作成<a class="headerlink" href="#3-1oci-api-gateway" title="Permanent link">&para;</a></h3>
 <p>OCIコンソールにログインし、[開発者サービス]に移動して、[APIゲートウェイ]をクリックしてから、次の操作を行います。</p>
 <p>[ゲートウェイの作成]をクリックして、次を指定します。</p>
 <ul>
@@ -1029,10 +1029,10 @@ VCNは<a href="../oraclefunctions/handson/getting-started/">Oracle Functionsこ�
 <p>タイプ：パブリック</p>
 </li>
 <li>
-<p>コンパートメント：API Gatewayリソースを作成するコンパートメントの名前。今回はルートコンパートメントを指定してください。</p>
+<p>コンパートメント：OCI API Gatewayリソースを作成するコンパートメントの名前。今回はルートコンパートメントを指定。</p>
 </li>
 <li>
-<p>仮想クラウド・ネットワーク：API Gatewayで使用するVCNの名前。今回は、<a href="../oraclefunctions/handson/getting-started/">Oracle Functionsことはじめ</a>で作成したVCNを指定してください。</p>
+<p>仮想クラウド・ネットワーク：OCI API Gatewayで使用するVCNの名前。今回は、<a href="../oraclefunctions/handson/getting-started/">Oracle Functionsことはじめ</a>で作成したVCNを指定してください。</p>
 </li>
 <li>
 <p>サブネット：VCNのサブネットの名前。今回は、<a href="../oraclefunctions/handson/getting-started/">Oracle Functionsことはじめ</a>で作成したVCNのパブリック・サブネットを指定してください。</p>
@@ -1049,13 +1049,13 @@ VCNは<a href="../oraclefunctions/handson/getting-started/">Oracle Functionsこ�
 <p>画面左側にあるメニューの[リソース]で[デプロイメント]をクリックし、[デプロイメントの作成]をクリックします。</p>
 <p>[最初から]をクリックし、[APIリクエスト・ポリシー]内の[CORS]セクションの[追加]をクリックします。</p>
 <p><img alt="image-20200221160825018" src="images/image-17.png" /></p>
-<p>後続の手順で構築するWebサーバからAPI Gatewayへのアクセスを許可するために以下の設定を行います。<br />
+<p>後続の手順で構築するWebサーバからOCI API Gatewayへのアクセスを許可するために以下の設定を行います。<br />
 [オリジン]内の[許可されるオリジン]に<code>*</code>と入力し、[変更の保存]をクリックします。</p>
 <p>[基本情報]については以下を入力します。</p>
 <ul>
 <li>名前：新しいAPIデプロイメントの名前。今回は、workshop-api-deployment</li>
 <li>パス接頭辞：APIデプロイメントに含まれるすべてのルートのパスに追加するパスプレフィックス。今回は<code>/v1</code></li>
-<li>コンパートメント：新しいAPIデプロイメントを作成するコンパートメント</li>
+<li>コンパートメント：新しいAPIデプロイメントを作成するコンパートメント(今回はルートコンパートメント)</li>
 </ul>
 <p>以下のような状態になっていれば問題ありません。[次]をクリックします。
 <img alt="" src="images/image-09.png" /></p>
@@ -1145,12 +1145,12 @@ VCNは<a href="../oraclefunctions/handson/getting-started/">Oracle Functionsこ�
 </code></pre></div>
 </td></tr></table>
 
-<p><code>API_URL</code>は<code>https://&lt;API Gatewayのエンドポイント&gt;/&lt;パス接頭辞&gt;/&lt;APIのパス&gt;</code>の形式になります。<br />
+<p><code>API_URL</code>は<code>https://&lt;OCI API Gatewayのエンドポイント&gt;/&lt;パス接頭辞&gt;/&lt;APIのパス&gt;</code>の形式になります。<br />
 今回は以下の形式になります。<code>&lt;APIデプロイメントのエンドポイント&gt;</code>を手順3－2でコピーしたエンドポイントに修正してください。</p>
 <div class="codehilite"><pre><span></span><code><span class="kr">const</span> <span class="nx">sampleURL</span> <span class="o">=</span> <span class="s2">&quot;&lt;APIデプロイメントのエンドポイント&gt;/fn-generate-qrcode?contents=&quot;</span><span class="p">;</span>
 </code></pre></div>
 
-<p>例えば以下のようになります。(XXXXの部分は各自のAPI Gatewayのエンドポイントにより異なります)</p>
+<p>例えば以下のようになります。(XXXXの部分は各自のOCI API Gatewayのエンドポイントにより異なります)</p>
 <div class="codehilite"><pre><span></span><code><span class="kr">const</span> <span class="nx">sampleURL</span> <span class="o">=</span> <span class="s2">&quot;https://XXXXXXXXXXXXXXXXXXXXXXXXX.apigateway.ap-tokyo-1.oci.customer-oci.com/v1/fn-generate-qrcode?contents=&quot;</span><span class="p">;</span>
 </code></pre></div>
 
@@ -1170,11 +1170,11 @@ VCNは<a href="../oraclefunctions/handson/getting-started/">Oracle Functionsこ�
 <p>HTTPサーバーのデフォルトポート80で通信を行うようにするためにイングレスルールを追加します。</p>
 <p>OCIコンソールにログインし、[ネットワーキング]に移動して、[仮想クラウド・ネットワーク]をクリックします。</p>
 <p><img alt="" src="images/image-add-security-rule-01.png" /></p>
-<p>[コンパートメント]からAPI Gatewayで利用するコンパートメントを選択して、API Gatewayで利用するVCNリンクをクリックします。<br />
+<p>[コンパートメント]からOCI API Gatewayで利用するコンパートメント(今回はルートコンパートメント)を選択して、OCI API Gatewayで利用するVCNリンクをクリックします。<br />
 VCNは<a href="../oraclefunctions/handson/getting-started/">Oracle Functionsことはじめ</a>で作成したVCNを利用してください。</p>
 <p><img alt="" src="images/image-add-security-rule-02.png" /></p>
-<p>API Gatewayで利用するサブネットリンクをクリックします。<br />
-今回は、いずれかのパブリックサブネットを選択してください。</p>
+<p>OCI API Gatewayで利用するサブネットリンクをクリックします。<br />
+今回は、パブリックサブネット("Oracle Functions Handson"で作成した場合は"パブリック・サブネット-Oracle Functions Handson(リージョナル)")を選択してください。</p>
 <p><img alt="" src="images/image-add-security-rule-03.png" /></p>
 <p>[Default Security List for ...]リンクをクリックします。</p>
 <p><img alt="" src="images/image-add-security-rule-04.png" /></p>
@@ -1220,7 +1220,7 @@ VCNは<a href="../oraclefunctions/handson/getting-started/">Oracle Functionsこ�
 <p>それぞれのQRコードが作成されます。QRコードをクリックして、ダウンロードできます。</p>
 <p>手元にあるスマートフォンでスキャンして、電話するとか、Webページに移動するとかの機能が実行されます。（以下の画像にあるQRコードをスキャンできます）</p>
 <p><img alt="" src="images/image-16.png" /></p>
-<p>これで、Oracle API GatewayとOracle Functionsを利用した簡単なサーバレスアプリケーションが構築できました。<br />
+<p>これで、OCI API GatewayとOracle Functionsを利用した簡単なサーバレスアプリケーションが構築できました。<br />
 お疲れ様でした！</p>
                 
                   
@@ -1258,7 +1258,7 @@ VCNは<a href="../oraclefunctions/handson/getting-started/">Oracle Functionsこ�
           </a>
         
         
-          <a href="../../weblogic-operator/tutorials/domain.home.in.image_short/" title="WebLogic Operatorのホーム" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../../weblogic-operator/" title="WebLogic Operatorのホーム" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
