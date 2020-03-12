@@ -1,9 +1,90 @@
 .md-typeset h1 {
   font-size: 26pt;
 }
+
+/* border color */
 .md-typeset h2 {
-  border-bottom: solid 1px #03A9F4;
+  border-bottom: solid 1px #6A9D67;
 }
 .md-typeset h3 {
-  border-bottom: 1px dotted #03A9F4;
+  border-bottom: 1px dotted #6A9D67;
+}
+
+/* header color */
+[data-md-color-primary=grey] .md-header {
+  background-color: #3F3A36;
+}
+[data-md-color-primary=grey] .md-tabs {
+  background-color: #100F0E;
+}
+
+/* main contents color */
+.md-main {
+  background-color: #ECE9E6;
+}
+.md-main div {
+  background-color: #FCFBFA;
+}
+[data-md-color-primary=grey] .md-typeset a {
+  color: #BC6D38;
+}
+.md-main a {
+  color: #BC6D38;
+}
+.md-main a:hover {
+  color: #BC6D38;
+}
+
+/* note color */
+.md-typeset .admonition {
+  border-left-color: #2D7480;
+}
+.md-typeset .admonition>.admonition-title{
+  background-color: #AECCD4;
+  border-bottom-color: #AECCD4;
+}
+.md-typeset .admonition>.admonition-title:before{
+  color: #100F0E;
+}
+
+/* info color */
+.md-typeset .admonition.info {
+  border-left-color: #2D7480;
+}
+.md-typeset .admonition.info>.admonition-title{
+  background-color: #AECCD4;
+  border-bottom-color: #AECCD4;
+}
+.md-typeset .admonition.info>.admonition-title:before{
+  color: #100F0E;
+}
+
+/* table style */
+.md-typeset table:not([class]) th {
+  background-color: #ECE9E6;
+  color: #100F0E;
+}
+
+/* footer color */
+.md-footer-nav {
+  background-color: #100F0E;
+}
+.md-footer-meta {
+  background-color: #3F3A36;
+}
+
+/* mobile */
+@media only screen and (max-width: 76.1875em){
+  html [data-md-color-primary=grey] .md-nav--primary .md-nav__title--site {
+    background-color: #3F3A36;
+  }
+}
+[data-md-color-primary=grey] .md-nav__source {
+  background-color: #100F0E;
+}
+.md-source__icon {
+  background-color: unset !important;
+}
+.md-source__repository {
+  background-color: unset !important;
 }
