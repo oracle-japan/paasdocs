@@ -1,0 +1,1438 @@
+
+
+
+
+<!doctype html>
+<html lang="ja" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+      
+      
+      
+        <meta name="lang:clipboard.copy" content="クリップボードへコピー">
+      
+        <meta name="lang:clipboard.copied" content="コピーしました">
+      
+        <meta name="lang:search.language" content="en, jp">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="何も見つかりませんでした">
+      
+        <meta name="lang:search.result.one" content="1件見つかりました">
+      
+        <meta name="lang:search.result.other" content="#件見つかりました">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-　、。，．]+">
+      
+      <link rel="shortcut icon" href="../../../../assets/images/cloud_46@2x.png">
+      <meta name="generator" content="mkdocs-1.1, mkdocs-material-4.6.3">
+    
+    
+      
+        <title>【オプション】Service Brokerを利用したATPのプロビジョニング - Oracle Cloud - PaaS ドキュメント</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/application.adb8469c.css">
+      
+        <link rel="stylesheet" href="../../../../assets/stylesheets/application-palette.a8b3c06d.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="#757575">
+      
+    
+    
+      <script src="../../../../assets/javascripts/modernizr.86422ebf.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../../../../assets/fonts/material-icons.css">
+    
+    
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+    
+      <link rel="stylesheet" href="../../../../stylesheets/extra.css">
+    
+    
+      
+    
+    
+  </head>
+  
+    
+    
+    <body dir="ltr" data-md-color-primary="grey" data-md-color-accent="grey">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448" viewBox="0 0 416 448" id="__github"><path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19T128 352t-18.125-8.5-10.75-19T96 304t3.125-20.5 10.75-19T128 256t18.125 8.5 10.75 19T160 304zm160 0q0 10-3.125 20.5t-10.75 19T288 352t-18.125-8.5-10.75-19T256 304t3.125-20.5 10.75-19T288 256t18.125 8.5 10.75 19T320 304zm40 0q0-30-17.25-51T296 232q-10.25 0-48.75 5.25Q229.5 240 208 240t-39.25-2.75Q130.75 232 120 232q-29.5 0-46.75 21T56 304q0 22 8 38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0 37.25-1.75t35-7.375 30.5-15 20.25-25.75T360 304zm56-44q0 51.75-15.25 82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5T212 416q-19.5 0-35.5-.75t-36.875-3.125-38.125-7.5-34.25-12.875T37 371.5t-21.5-28.75Q0 312 0 260q0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25 30.875Q171.5 96 212 96q37 0 70 8 26.25-20.5 46.75-30.25T376 64q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34 99.5z"/></svg>
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#service-brokeratp" tabindex="0" class="md-skip">
+        Skip to content
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="../../../.." title="Oracle Cloud - PaaS ドキュメント" aria-label="Oracle Cloud - PaaS ドキュメント" class="md-header-nav__button md-logo">
+          
+            <img alt="logo" src="../../../../assets/images/cloud_w_46@2x.png" width="24" height="24">
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+              Oracle Cloud - PaaS ドキュメント
+            </span>
+            <span class="md-header-nav__topic">
+              
+                【オプション】Service Brokerを利用したATPのプロビジョニング
+              
+            </span>
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" aria-label="search" name="query" placeholder="検索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            検索キーワードを入力してください
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            
+
+
+  
+
+<a href="https://github.com/oracle-japan/paasdocs" title="リポジトリへ" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    oracle-japan/paasdocs
+  </div>
+</a>
+          </div>
+        </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+        
+
+  
+
+<nav class="md-tabs md-tabs--active" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  <li class="md-tabs__item">
+    
+      <a href="../../../.." class="md-tabs__link">
+        Home
+      </a>
+    
+  </li>
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../../containers/common/" class="md-tabs__link md-tabs__link--active">
+          コンテナ
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../../faas/" class="md-tabs__link">
+          FaaS
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../../weblogic-operator/" class="md-tabs__link">
+          WebLogic Operator
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../../api-management/" class="md-tabs__link">
+          API管理
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../../remote-session/" class="md-tabs__link">
+          リモートハンズオンについて
+        </a>
+      
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+      
+      <main class="md-main" role="main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="../../../.." title="Oracle Cloud - PaaS ドキュメント" class="md-nav__button md-logo">
+      
+        <img alt="logo" src="../../../../assets/images/cloud_w_46@2x.png" width="48" height="48">
+      
+    </a>
+    Oracle Cloud - PaaS ドキュメント
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+<a href="https://github.com/oracle-japan/paasdocs" title="リポジトリへ" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    oracle-japan/paasdocs
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../../.." title="Home" class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" checked>
+    
+    <label class="md-nav__link" for="nav-2">
+      コンテナ
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        コンテナ
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../containers/common/" title="コンテナのホーム" class="md-nav__link">
+      コンテナのホーム
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-2" type="checkbox" id="nav-2-2">
+    
+    <label class="md-nav__link" for="nav-2-2">
+      ビギナー向けチュートリアル
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-2-2">
+        ビギナー向けチュートリアル
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../containers/handson/k8s-walkthrough/" title="OKEでアプリケーションを動かしてみよう" class="md-nav__link">
+      OKEでアプリケーションを動かしてみよう
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../containers/handson/k8s-basic-ops/" title="Kubernetesの基本的な操作を体験しよう" class="md-nav__link">
+      Kubernetesの基本的な操作を体験しよう
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../containers/handson/integrated-cicd/" title="OKEとWerckerによるCI/CD" class="md-nav__link">
+      OKEとWerckerによるCI/CD
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-3" type="checkbox" id="nav-2-3" checked>
+    
+    <label class="md-nav__link" for="nav-2-3">
+      ミドル向けチュートリアル
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-2-3">
+        ミドル向けチュートリアル
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../WorkshopGuide000InstallSoftware/" title="コンパートメントの設定" class="md-nav__link">
+      コンパートメントの設定
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../WorkshopGuide100SetupDevCS/" title="必要なソフトウェアのインストール" class="md-nav__link">
+      必要なソフトウェアのインストール
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../WorkshopGuide200GatherInformation/" title="ワークショップで利用するアカウント情報の収集" class="md-nav__link">
+      ワークショップで利用するアカウント情報の収集
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../WorkshopGuide300CreateProjectRepository/" title="プロジェクトとリポジトリの作成" class="md-nav__link">
+      プロジェクトとリポジトリの作成
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../WorkshopGuide400CreateVirtualMachine/" title="ビルド用の仮想マシンの準備" class="md-nav__link">
+      ビルド用の仮想マシンの準備
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../WorkshopGuide600ProvisionATPDatabase/" title="ATPのプロビジョニングとATP接続情報の作成" class="md-nav__link">
+      ATPのプロビジョニングとATP接続情報の作成
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../WorkshopGuide700LoadData/" title="ATPへのサンプルデータ登録" class="md-nav__link">
+      ATPへのサンプルデータ登録
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../WorkshopGuide800CreateImageToOCIR/" title="Dockerイメージの作成とOCIRへの登録" class="md-nav__link">
+      Dockerイメージの作成とOCIRへの登録
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../WorkshopGuide900DeployToOKECluster/" title="OKEクラスタへのデプロイ" class="md-nav__link">
+      OKEクラスタへのデプロイ
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../WorkshopGuide1000RedeployToOKECluster/" title="アプリケーションの再デプロイ" class="md-nav__link">
+      アプリケーションの再デプロイ
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../WorkshopGuide1100AdditionalExplaination/" title="【オプション】今回利用したアプリケーションに関する補足" class="md-nav__link">
+      【オプション】今回利用したアプリケーションに関する補足
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        【オプション】Service Brokerを利用したATPのプロビジョニング
+      </label>
+    
+    <a href="./" title="【オプション】Service Brokerを利用したATPのプロビジョニング" class="md-nav__link md-nav__link--active">
+      【オプション】Service Brokerを利用したATPのプロビジョニング
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">目次</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-helm" class="md-nav__link">
+    1. helmをインストールする
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-service-catalogsvcat" class="md-nav__link">
+    2. Service Catalogとsvcatツールをインストールする
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-oci-service-broker" class="md-nav__link">
+    3. OCI Service Brokerをインストールする
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-atp" class="md-nav__link">
+    4. ATPをプロビジョニングする
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+    
+    <label class="md-nav__link" for="nav-3">
+      FaaS
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        FaaS
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../faas/" title="FaaSのホーム" class="md-nav__link">
+      FaaSのホーム
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-2" type="checkbox" id="nav-3-2">
+    
+    <label class="md-nav__link" for="nav-3-2">
+      ビギナー向けチュートリアル
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-2">
+        ビギナー向けチュートリアル
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../faas/fn/handson/getting-started/" title="Fn Projectことはじめ" class="md-nav__link">
+      Fn Projectことはじめ
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../faas/oraclefunctions/handson/getting-started/" title="Oracle Functionsことはじめ" class="md-nav__link">
+      Oracle Functionsことはじめ
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../faas/with_apigw/" title="Oracle Cloud Infrastructure API Gateway + Oracle Functionsハンズオン" class="md-nav__link">
+      Oracle Cloud Infrastructure API Gateway + Oracle Functionsハンズオン
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+    
+    <label class="md-nav__link" for="nav-4">
+      WebLogic Operator
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        WebLogic Operator
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../weblogic-operator/" title="WebLogic Operatorのホーム" class="md-nav__link">
+      WebLogic Operatorのホーム
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4-2" type="checkbox" id="nav-4-2">
+    
+    <label class="md-nav__link" for="nav-4-2">
+      ビギナー向けチュートリアル-domain in image-編
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-4-2">
+        ビギナー向けチュートリアル-domain in image-編
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../weblogic-operator/tutorials/setup.oke/" title="OCIでOKEインスタンスを設定" class="md-nav__link">
+      OCIでOKEインスタンスを設定
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../weblogic-operator/tutorials/install.operator/" title="WebLogic Operatorのインストール" class="md-nav__link">
+      WebLogic Operatorのインストール
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../weblogic-operator/tutorials/install.traefik/" title="Traefik Software Loadbalancerのインストール" class="md-nav__link">
+      Traefik Software Loadbalancerのインストール
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../weblogic-operator/tutorials/deploy.weblogic_short/" title="WebLogic Domainのデプロイ" class="md-nav__link">
+      WebLogic Domainのデプロイ
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../weblogic-operator/tutorials/scale.weblogic/" title="WebLogic Clusterのスケーリング" class="md-nav__link">
+      WebLogic Clusterのスケーリング
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../weblogic-operator/tutorials/override.jdbc/" title="JDBC Datasource parametersのオーバーライド" class="md-nav__link">
+      JDBC Datasource parametersのオーバーライド
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../weblogic-operator/tutorials/update.application_short/" title="ローリングアップデートによるデプロイ済みアプリケーションの更新" class="md-nav__link">
+      ローリングアップデートによるデプロイ済みアプリケーションの更新
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../weblogic-operator/tutorials/node.selector/" title="ノードに対するWebLogicのPodの割り当て" class="md-nav__link">
+      ノードに対するWebLogicのPodの割り当て
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../weblogic-operator/tutorials/node.selector.license/" title="ライセンス対象のノードに対するWebLogicのPodの配置" class="md-nav__link">
+      ライセンス対象のノードに対するWebLogicのPodの配置
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
+    
+    <label class="md-nav__link" for="nav-5">
+      API管理
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-5">
+        API管理
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../api-management/" title="API管理のホーム" class="md-nav__link">
+      API管理のホーム
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5-2" type="checkbox" id="nav-5-2">
+    
+    <label class="md-nav__link" for="nav-5-2">
+      ビギナー向けチュートリアル
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-5-2">
+        ビギナー向けチュートリアル
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../api-management/handson/getting-started/" title="Oracle Cloud Infrasturcture API Gatewayハンズオン" class="md-nav__link">
+      Oracle Cloud Infrasturcture API Gatewayハンズオン
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6">
+    
+    <label class="md-nav__link" for="nav-6">
+      リモートハンズオンについて
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-6">
+        リモートハンズオンについて
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../remote-session/" title="リモートハンズオン時の注意事項" class="md-nav__link">
+      リモートハンズオン時の注意事項
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">目次</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-helm" class="md-nav__link">
+    1. helmをインストールする
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-service-catalogsvcat" class="md-nav__link">
+    2. Service Catalogとsvcatツールをインストールする
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-oci-service-broker" class="md-nav__link">
+    3. OCI Service Brokerをインストールする
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-atp" class="md-nav__link">
+    4. ATPをプロビジョニングする
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="service-brokeratp">【オプション】Service Brokerを使用したATPのプロビジョニング<a class="headerlink" href="#service-brokeratp" title="Permanent link">&para;</a></h1>
+<p>このステップでは、Service Brokerを使用してOKEからATPをプロビジョニングする方法について説明します。</p>
+<p>Service Broker、Service CatalogおよびOCI Service Brokerについて、説明します。</p>
+<ul>
+<li>
+<p>Service Brokerは、サードパーティが提供および管理する一連の管理サービスのエンドポイントです。</p>
+</li>
+<li>
+<p>Service Catalogは、Kubernetesクラスタで実行されているアプリケーションが、クラウドプロバイダーが提供するデータストアサービスなどの外部管理ソフトウェアを簡単に使用できるようにする拡張APIです。</p>
+</li>
+<li>
+<p>OCI Service Brokerは、OCI（Oracle Cloud Infrastructure）サービス用の<a href="https://github.com/openservicebrokerapi/servicebroker/blob/v2.14/spec.md">Open Service Broker API Spec</a>のオープンソース実装です。お客様はこの実装を使用して、<a href="https://docs.cloud.oracle.com/iaas/Content/ContEng/Concepts/contengoverview.htm">Oracle Container Engine for Kubernetes</a>または他のKubernetesクラスタにOpen Service Brokerをインストールできます。</p>
+</li>
+</ul>
+<p>このステップが完了すると以下の絵のような構成になります。</p>
+<p><img alt="" src="../images/2015.jpg" title="" /></p>
+<h3 id="1-helm">1. helmをインストールする<a class="headerlink" href="#1-helm" title="Permanent link">&para;</a></h3>
+<p>以下の図の赤枠部分をインストールします。</p>
+<p><img alt="" src="../images/2012.jpg" title="" /></p>
+<p>ServiceBrokerを利用するためにhelmをインストールします。</p>
+<div class="highlight"><pre><span></span><code>curl https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3 | bash
+</code></pre></div>
+
+<p>helmバージョン情報を確認します。</p>
+<p><div class="highlight"><pre><span></span><code>helm version
+</code></pre></div>
+以下のように表示されていれば、helmがインストールされています。</p>
+<div class="highlight"><pre><span></span><code>version.BuildInfo{Version:&quot;v3.0.2&quot;, GitCommit:&quot;19e47ee3283ae98139d98460de796c1be1e3975f&quot;, GitTreeState:&quot;clean&quot;, GoVersion:&quot;go1.13.5&quot;}
+</code></pre></div>
+
+<p>これで、helmのインストールは完了しました。</p>
+<h3 id="2-service-catalogsvcat">2. Service Catalogとsvcatツールをインストールする<a class="headerlink" href="#2-service-catalogsvcat" title="Permanent link">&para;</a></h3>
+<p>以下の図の赤枠部分をインストールします。</p>
+<p><img alt="" src="../images/2013.jpg" title="" /></p>
+<p>Service Catalogのリポジトリを追加します。</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Service Catalogの詳細については<a href="https://kubernetes.io/docs/concepts/extend-kubernetes/service-catalog/">こちら</a>をご確認ください。</p>
+</div>
+<div class="highlight"><pre><span></span><code>helm repo add svc-cat https://svc-catalog-charts.storage.googleapis.com
+</code></pre></div>
+
+<p>Service Catalogをインストールします。</p>
+<div class="highlight"><pre><span></span><code>helm install catalog svc-cat/catalog --set controllerManager.verbosity=&quot;4&quot; --timeout 300s
+</code></pre></div>
+
+<p>svcatツールをインストールします。<br />
+"svcat"は、Service Catalogリソースを操作するためのコマンドラインインターフェイス（CLI）です。</p>
+<div class="highlight"><pre><span></span><code>curl -sLO https://download.svcat.sh/cli/latest/linux/amd64/svcat
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code>chmod +x ./svcat
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code>sudo mv ./svcat /usr/local/bin/
+</code></pre></div>
+
+<p>svcatツールのクライアントバージョン情報を確認します。</p>
+<div class="highlight"><pre><span></span><code>svcat version --client
+</code></pre></div>
+
+<p>svcatのクライアントバージョン情報が出力されることを確認します。</p>
+<div class="highlight"><pre><span></span><code>Client Version: v0.3.0-beta.2
+</code></pre></div>
+
+<p>これで、Service Catalogとsvcatツールのインストールは完了しました。</p>
+<h3 id="3-oci-service-broker">3. OCI Service Brokerをインストールする<a class="headerlink" href="#3-oci-service-broker" title="Permanent link">&para;</a></h3>
+<p>以下の図の赤枠部分をインストールします。</p>
+<p><img alt="" src="../images/2014.jpg" title="" /></p>
+<p>oke-atp-workshopディレクトリに移動して、OCI Service Brokerリポジトリのクローンを実行します。</p>
+<div class="highlight"><pre><span></span><code>git clone https://github.com/oracle/oci-service-broker.git
+</code></pre></div>
+
+<p><code>oci-service-broker</code>ディレクトリに移動します。</p>
+<div class="highlight"><pre><span></span><code>cd oci-service-broker
+</code></pre></div>
+
+<p>OCI Service Brokerをインストールするのは、ociアカウント情報などが含まれるSecretを作成する必要があります。該当Secretを作成します。</p>
+<div class="highlight"><pre><span></span><code>kubectl create secret generic ocicredentials \
+  --from-literal=tenancy=&lt;tenancy_ocid&gt; \
+  --from-literal=user=&lt;user_ocid&gt; \
+  --from-literal=fingerprint=&lt;fingerprint&gt; \
+  --from-literal=region=&lt;region&gt; \
+  --from-literal=passphrase=&lt;passphrase&gt; \
+  --from-file=privatekey=&lt;private_key_path&gt;
+</code></pre></div>
+
+<p>対象のパラメータは以下のとおりです。</p>
+<table>
+<thead>
+<tr>
+<th>key</th>
+<th>value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>tenancy_ocid</td>
+<td>テナントOCID</td>
+</tr>
+<tr>
+<td>user_ocid</td>
+<td>ユーザーOCID</td>
+</tr>
+<tr>
+<td>fingerprint</td>
+<td>API Signingキーのフィンガープリント</td>
+</tr>
+<tr>
+<td>region</td>
+<td>リージョン識別子。今回は"us-ashburn-1"</td>
+</tr>
+<tr>
+<td>passphrase</td>
+<td>""(空文字)</td>
+</tr>
+<tr>
+<td>private_key_path</td>
+<td><code>/home/opc/.oci/oci_api_key.pem</code></td>
+</tr>
+</tbody>
+</table>
+<p>OCI Service Brokerをインストールします。</p>
+<div class="highlight"><pre><span></span><code>helm install oci-service-broker charts/oci-service-broker/. \
+    --set ociCredentials.secretName=ocicredentials \
+    --set storage.etcd.useEmbedded=true \
+    --set tls.enabled=false
+</code></pre></div>
+
+<p>OCI Service Brokerの登録先のnamespaceを設定します。今回は、defaultのnamespaceに登録します。</p>
+<div class="highlight"><pre><span></span><code>sed -i -e &#39;s/&lt;NAMESPACE_OF_OCI_SERVICE_BROKER&gt;/default/g&#39; ./charts/oci-service-broker/samples/oci-service-broker.yaml
+</code></pre></div>
+
+<p>OCI Service Brokerの登録を実行します。</p>
+<div class="highlight"><pre><span></span><code>kubectl create -f ./charts/oci-service-broker/samples/oci-service-broker.yaml
+</code></pre></div>
+
+<p>Service Brokerの情報を確認します。</p>
+<div class="highlight"><pre><span></span><code>svcat get brokers
+</code></pre></div>
+
+<p>Service Brokerの情報が表示されることを確認します。ステータスが"Ready"になります。("Readyになるまで、3~5分かかる場合があります")</p>
+<div class="highlight"><pre><span></span><code>         NAME          NAMESPACE                    URL                     STATUS  
++--------------------+-----------+----------------------------------------+--------+
+  oci-service-broker               http://oci-service-broker.default:8080   Ready 
+</code></pre></div>
+
+<p>OCI Service Brokerで利用できるサービスの一覧を確認します。</p>
+<div class="highlight"><pre><span></span><code>svcat get classes
+</code></pre></div>
+
+<p>利用できるOCIサービスが表示されます。</p>
+<div class="highlight"><pre><span></span><code>          NAME           NAMESPACE                 DESCRIPTION                 
++----------------------+-----------+------------------------------------------+
+  atp-service                        Autonomous Transaction                    
+                                     Processing Service                        
+  object-store-service               Object Storage Service                    
+  adw-service                        Autonomous Data Warehouse                 
+                                     Service                                   
+  oss-service                        Oracle Streaming Service
+</code></pre></div>
+
+<p>それぞれのサービスで利用可能なプランを確認します。</p>
+<div class="highlight"><pre><span></span><code>svcat get plans
+</code></pre></div>
+
+<p>OCI Service Brokerが提供するサービスのプランが表示されます。</p>
+<div class="highlight"><pre><span></span><code>    NAME     NAMESPACE          CLASS                    DESCRIPTION            
++----------+-----------+----------------------+--------------------------------+
+  standard               atp-service            OCI Autonomous Transaction      
+                                                Processing                      
+  archive                object-store-service   An Archive type Object Storage  
+  standard               object-store-service   A Standard type Object Storage  
+  standard               adw-service            OCI Autonomous Data Warehouse   
+  standard               oss-service            Oracle Streaming Service
+</code></pre></div>
+
+<p>これで、OCI Service Brokerのインストールは完了しました。</p>
+<h3 id="4-atp">4. ATPをプロビジョニングする<a class="headerlink" href="#4-atp" title="Permanent link">&para;</a></h3>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>ATPはデフォルトで"Admin"ユーザが設定されます。OCIコンソールでATPをプロビジョニングした場合も同様になります。アプリケーションで使用するATPユーザの作成については<a href="#-6.アプリケーション実行ユーザの作成">6.アプリケーション実行ユーザの作成</a>で説明します。</p>
+</div>
+<p><code>oci-service-broker</code>のサンプルをベースにして、ATPをプロビジョニングします。</p>
+<p>サンプルファイルにあるコンパートメントを更新します。</p>
+<p>&lt;コンパートメントOCID&gt;を各自のコンパートメントOCIDへ変更してください。</p>
+<div class="highlight"><pre><span></span><code>sed -i -e &#39;s/CHANGE_COMPARTMENT_OCID_HERE/&lt;コンパートメントOCID&gt;/g&#39; ./charts/oci-service-broker/samples/atp/atp-instance-plain.yaml
+</code></pre></div>
+
+<p>サンプルファイルにあるATPの名称を更新します。今回は、"tfOKEATPDB"とします。</p>
+<div class="highlight"><pre><span></span><code>sed -i -e &#39;s/osbdemo/tfOKEATPDB/g&#39; ./charts/oci-service-broker/samples/atp/atp-instance-plain.yaml
+</code></pre></div>
+
+<p>サンプルファイルにあるATPのパスワードを更新します。今回は、"TFWorkshop__2000"とします。</p>
+<div class="highlight"><pre><span></span><code>sed -i -e &#39;s/s123456789S@/TFWorkshop__2000/g&#39; ./charts/oci-service-broker/samples/atp/atp-instance-plain.yaml
+</code></pre></div>
+
+<p>ATPをプロビジョニングします。</p>
+<div class="highlight"><pre><span></span><code>kubectl create -f ./charts/oci-service-broker/samples/atp/atp-instance-plain.yaml
+</code></pre></div>
+
+<p>プロビジョニング状況を確認します。</p>
+<div class="highlight"><pre><span></span><code>svcat get instances --all-namespaces
+</code></pre></div>
+
+<p>プロビジョニング直後は、ステータスは"Provisioning"になります。</p>
+<div class="highlight"><pre><span></span><code>       NAME        NAMESPACE      CLASS        PLAN        STATUS     
++----------------+-----------+-------------+----------+--------------+
+  osb-atp-demo-1   default     atp-service   standard   Provisioning
+</code></pre></div>
+
+<p>5分程度経過するとステータスは"Ready"になります。</p>
+<div class="highlight"><pre><span></span><code>       NAME        NAMESPACE      CLASS        PLAN     STATUS  
++----------------+-----------+-------------+----------+--------+
+  osb-atp-demo-1   default     atp-service   standard   Ready
+</code></pre></div>
+
+<p>ATPへアクセスするためのCredencialを作成します。</p>
+<div class="highlight"><pre><span></span><code>kubectl create -f ./charts/oci-service-broker/samples/atp/atp-binding-plain.yaml
+</code></pre></div>
+
+<p>Credencialの情報を確認します。</p>
+<div class="highlight"><pre><span></span><code>svcat get bindings
+</code></pre></div>
+
+<p>Credencialの情報が表示されることを確認します。(以下では"atp-demo-binding")</p>
+<div class="highlight"><pre><span></span><code>        NAME         NAMESPACE      INSTANCE      STATUS  
++------------------+-----------+----------------+--------+
+  atp-demo-binding   default     osb-atp-demo-1   Ready
+</code></pre></div>
+
+<p>CredencialはSecretとして管理されており、ATPにアクセスするためのWalletファイルが含まれています。</p>
+<div class="highlight"><pre><span></span><code>kubectl get secrets atp-demo-binding -o yaml
+</code></pre></div>
+
+<p>ATPのパスワードが格納されるSecretを作成します。
+サンプルファイルにあるプレーンテキストと暗号化テキスト両方を更新します。(パスワードはbase64で暗号化します)</p>
+<div class="highlight"><pre><span></span><code>sed -i -e &#39;s/s123456789S@/TFWorkshop__2000/g&#39; ./charts/oci-service-broker/samples/atp/atp-demo-secret.yaml
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code>sed -i -e &#39;s/czEyMzQ1Njc4OVNACg==/VEZXb3Jrc2hvcF9fMjAwMAo=/g&#39; ./charts/oci-service-broker/samples/atp/atp-demo-secret.yaml
+</code></pre></div>
+
+<p>Secretを作成します。</p>
+<div class="highlight"><pre><span></span><code>kubectl create -f ./charts/oci-service-broker/samples/atp/atp-demo-secret.yaml
+</code></pre></div>
+
+<p>これで、OKEからのATPのプロビジョニングが完了しました。</p>
+                
+                  
+                
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../WorkshopGuide1100AdditionalExplaination/" title="【オプション】今回利用したアプリケーションに関する補足" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  前
+                </span>
+                【オプション】今回利用したアプリケーションに関する補足
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../../../faas/" title="FaaSのホーム" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  次
+                </span>
+                FaaSのホーム
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright &copy; 2018 - 2020 Oracle Corporation Japan
+          </div>
+        
+        powered by
+        <a href="https://www.mkdocs.org" target="_blank" rel="noopener">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs</a>
+      </div>
+      
+  <div class="md-footer-social">
+    <link rel="stylesheet" href="../../../../assets/fonts/font-awesome.css">
+    
+      <a href="https://github.com/oracle-japan" target="_blank" rel="noopener" title="github" class="md-footer-social__link fa fa-github"></a>
+    
+  </div>
+
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../../../assets/javascripts/application.c33a9706.js"></script>
+      
+        
+        
+          
+          <script src="../../../../assets/javascripts/lunr/lunr.stemmer.support.js"></script>
+          
+            
+          
+            
+              
+              
+            
+          
+          
+            <script src="../../../../assets/javascripts/lunr/lunr.multi.js"></script>
+          
+        
+      
+      <script>app.initialize({version:"1.1",url:{base:"../../../.."}})</script>
+      
+    
+  </body>
+</html>
