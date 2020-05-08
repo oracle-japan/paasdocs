@@ -36,7 +36,7 @@
     
     
       
-        <title>OKEとWerckerによるCI/CD - Oracle Cloud - PaaS ドキュメント</title>
+        <title>Index - Oracle Cloud - PaaS ドキュメント</title>
       
     
     
@@ -115,7 +115,7 @@
             </span>
             <span class="md-header-nav__topic">
               
-                OKEとWerckerによるCI/CD
+                Index
               
             </span>
           
@@ -183,16 +183,14 @@
       
         
 
-  
-
-<nav class="md-tabs md-tabs--active" data-md-component="tabs">
+<nav class="md-tabs" data-md-component="tabs">
   <div class="md-tabs__inner md-grid">
     <ul class="md-tabs__list">
       
         
   <li class="md-tabs__item">
     
-      <a href="../../../.." class="md-tabs__link">
+      <a href="../../../.." class="md-tabs__link md-tabs__link--active">
         Home
       </a>
     
@@ -204,7 +202,7 @@
   
     <li class="md-tabs__item">
       
-        <a href="../../common/" class="md-tabs__link md-tabs__link--active">
+        <a href="../../common/" class="md-tabs__link">
           コンテナ
         </a>
       
@@ -323,12 +321,10 @@
       
       
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+  <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" checked>
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
     
     <label class="md-nav__link" for="nav-2">
       コンテナ
@@ -356,12 +352,10 @@
           
           
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+  <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-2" type="checkbox" id="nav-2-2" checked>
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-2" type="checkbox" id="nav-2-2">
     
     <label class="md-nav__link" for="nav-2-2">
       ビギナー向けチュートリアル
@@ -394,239 +388,6 @@
     <a href="../k8s-basic-ops/" title="Kubernetesの基本的な操作を体験しよう" class="md-nav__link">
       Kubernetesの基本的な操作を体験しよう
     </a>
-  </li>
-
-        
-          
-          
-          
-
-  
-
-
-  <li class="md-nav__item md-nav__item--active">
-    
-    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-    
-      
-    
-    
-      <label class="md-nav__link md-nav__link--active" for="__toc">
-        OKEとWerckerによるCI/CD
-      </label>
-    
-    <a href="./" title="OKEとWerckerによるCI/CD" class="md-nav__link md-nav__link--active">
-      OKEとWerckerによるCI/CD
-    </a>
-    
-      
-<nav class="md-nav md-nav--secondary">
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">目次</label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    このチュートリアルを実施するために必要な要件
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    全体の流れ
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#1-service-account" class="md-nav__link">
-    1 . Service Accountの作成
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#11-service-account" class="md-nav__link">
-    1.1 Service Accountの作成
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#12-cluster-role-binding" class="md-nav__link">
-    1.2 Cluster Role Bindingの作成
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#13-token" class="md-nav__link">
-    1.3 tokenの取得
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#14-secretstoken" class="md-nav__link">
-    1.4 secretsからtokenを確認する
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#2-cicd" class="md-nav__link">
-    2 . CI/CDパイプラインの作成
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#21-wreckeryml" class="md-nav__link">
-    2.1 wrecker.ymlの作成
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#22-wercker" class="md-nav__link">
-    2.2. Werckerのアプリケーションの作成
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#23-wercker" class="md-nav__link">
-    2.3. Werckerのパイプラインの作成
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#24" class="md-nav__link">
-    2.4. 作成したパイプラインをつかってワークフローを構成する
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#25-oke" class="md-nav__link">
-    2.5. OKEにデプロイするための接続情報の設定
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#3-wercker" class="md-nav__link">
-    3 . Werckerによる初期バージョンのデプロイ
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#31-werckeryml" class="md-nav__link">
-    3.1. wercker.ymlを更新とワークフローの実行
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#32" class="md-nav__link">
-    3.2. アプリケーションの動作確認
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#4" class="md-nav__link">
-    4 . アプリケーションの更新とプルリクエストの発行
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#41-github" class="md-nav__link">
-    4.1. GitHub上でアプリケーションのコードを更新する
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#42" class="md-nav__link">
-    4.2. プルリクエストを発行する
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#5" class="md-nav__link">
-    5 . 新バージョンの自動デプロイ
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#51" class="md-nav__link">
-    5.1. プルリクエストをマージする
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#52-master" class="md-nav__link">
-    5.2. 自動でMasterのビルド、デプロイが実行されることを確認する
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-      
-      
-      
-      
-    </ul>
-  
-</nav>
-    
   </li>
 
         
@@ -890,6 +651,78 @@
   <li class="md-nav__item">
     <a href="../../../faas/with_apigw/" title="Oracle Cloud Infrastructure API Gateway + Oracle Functionsハンズオン" class="md-nav__link">
       Oracle Cloud Infrastructure API Gateway + Oracle Functionsハンズオン
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-3" type="checkbox" id="nav-3-3">
+    
+    <label class="md-nav__link" for="nav-3-3">
+      ミドル向けチュートリアル
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-3">
+        ミドル向けチュートリアル
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../faas/resize_vmshape/" title="Oracle Functionsを利用したVMシェイプ変更" class="md-nav__link">
+      Oracle Functionsを利用したVMシェイプ変更
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../faas/functions_to_atp_with_ords/" title="Oracle Functionsを利用したATPとのREST連携" class="md-nav__link">
+      Oracle Functionsを利用したATPとのREST連携
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../faas/functions_to_nosql/" title="Oracle Functionsを利用したOracle NoSQL Database Cloud Serviceとの連携" class="md-nav__link">
+      Oracle Functionsを利用したOracle NoSQL Database Cloud Serviceとの連携
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../faas/apigw_auth_with_functions/" title="Oracle Functionsを利用したAPI Gatewayでの認証" class="md-nav__link">
+      Oracle Functionsを利用したAPI Gatewayでの認証
     </a>
   </li>
 
@@ -1890,41 +1723,6 @@ namespace:  7 bytes
       
         
 <footer class="md-footer">
-  
-    <div class="md-footer-nav">
-      <nav class="md-footer-nav__inner md-grid">
-        
-          <a href="../k8s-basic-ops/" title="Kubernetesの基本的な操作を体験しよう" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
-            <div class="md-flex__cell md-flex__cell--shrink">
-              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
-            </div>
-            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
-              <span class="md-flex__ellipsis">
-                <span class="md-footer-nav__direction">
-                  前
-                </span>
-                Kubernetesの基本的な操作を体験しよう
-              </span>
-            </div>
-          </a>
-        
-        
-          <a href="../../../microservices/tutorials/WorkshopGuide000InstallSoftware/" title="コンパートメントの設定" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
-            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
-              <span class="md-flex__ellipsis">
-                <span class="md-footer-nav__direction">
-                  次
-                </span>
-                コンパートメントの設定
-              </span>
-            </div>
-            <div class="md-flex__cell md-flex__cell--shrink">
-              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
-            </div>
-          </a>
-        
-      </nav>
-    </div>
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">

@@ -183,14 +183,16 @@
       
         
 
-<nav class="md-tabs" data-md-component="tabs">
+  
+
+<nav class="md-tabs md-tabs--active" data-md-component="tabs">
   <div class="md-tabs__inner md-grid">
     <ul class="md-tabs__list">
       
         
   <li class="md-tabs__item">
     
-      <a href="../../.." class="md-tabs__link md-tabs__link--active">
+      <a href="../../.." class="md-tabs__link">
         Home
       </a>
     
@@ -215,7 +217,7 @@
   
     <li class="md-tabs__item">
       
-        <a href="../" class="md-tabs__link">
+        <a href="../" class="md-tabs__link md-tabs__link--active">
           FaaS
         </a>
       
@@ -387,18 +389,6 @@
   <li class="md-nav__item">
     <a href="../../containers/handson/k8s-basic-ops/" title="Kubernetesの基本的な操作を体験しよう" class="md-nav__link">
       Kubernetesの基本的な操作を体験しよう
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../containers/handson/integrated-cicd/" title="OKEとWerckerによるCI/CD" class="md-nav__link">
-      OKEとWerckerによるCI/CD
     </a>
   </li>
 
@@ -585,10 +575,12 @@
       
       
 
+  
 
-  <li class="md-nav__item md-nav__item--nested">
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3" checked>
     
     <label class="md-nav__link" for="nav-3">
       FaaS
@@ -663,6 +655,153 @@
   <li class="md-nav__item">
     <a href="../with_apigw/" title="Oracle Cloud Infrastructure API Gateway + Oracle Functionsハンズオン" class="md-nav__link">
       Oracle Cloud Infrastructure API Gateway + Oracle Functionsハンズオン
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-3" type="checkbox" id="nav-3-3" checked>
+    
+    <label class="md-nav__link" for="nav-3-3">
+      ミドル向けチュートリアル
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-3">
+        ミドル向けチュートリアル
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Oracle Functionsを利用したVMシェイプ変更
+      </label>
+    
+    <a href="./" title="Oracle Functionsを利用したVMシェイプ変更" class="md-nav__link md-nav__link--active">
+      Oracle Functionsを利用したVMシェイプ変更
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">目次</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    条件
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    全体の流れ
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    1.事前準備
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2oracle-functions" class="md-nav__link">
+    2.Oracle Functionsの作成
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    3.アラームの作成
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-vm" class="md-nav__link">
+    4.仮想マシン (VM) のメモリ使用率の延伸
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../functions_to_atp_with_ords/" title="Oracle Functionsを利用したATPとのREST連携" class="md-nav__link">
+      Oracle Functionsを利用したATPとのREST連携
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../functions_to_nosql/" title="Oracle Functionsを利用したOracle NoSQL Database Cloud Serviceとの連携" class="md-nav__link">
+      Oracle Functionsを利用したOracle NoSQL Database Cloud Serviceとの連携
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../apigw_auth_with_functions/" title="Oracle Functionsを利用したAPI Gatewayでの認証" class="md-nav__link">
+      Oracle Functionsを利用したAPI Gatewayでの認証
     </a>
   </li>
 
@@ -995,8 +1134,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#2oracle-funstions" class="md-nav__link">
-    2.Oracle Funstionsの作成
+  <a href="#2oracle-functions" class="md-nav__link">
+    2.Oracle Functionsの作成
   </a>
   
 </li>
@@ -1010,7 +1149,7 @@
       
         <li class="md-nav__item">
   <a href="#4-vm" class="md-nav__link">
-    4.仮想マシン (VM) のメモリ利用率の延伸
+    4.仮想マシン (VM) のメモリ使用率の延伸
   </a>
   
 </li>
@@ -1033,10 +1172,10 @@
                 
                 
                 <h1 id="oracle-functionsvm">Oracle Functionsを利用したVMシェイプ変更<a class="headerlink" href="#oracle-functionsvm" title="Permanent link">&para;</a></h1>
-<p>このエントリーでは、想定したメモリ利用率を超える仮想マシン (VM) のシェイプをOracle Functionsを利用して動的に変更する手順を記載します。</p>
+<p>このエントリーでは、想定したメモリ使用率を超える仮想マシン (VM) のシェイプをOracle Functionsを利用して動的に変更する手順を記載します。</p>
 <div class="admonition warning">
 <p class="admonition-title">注意事項: ハンズオン環境について</p>
-<p>このハンズオンでは、動作確認のために意図的にVMのメモリ利用率を上昇させるスクリプトを使用します。そのため、商用環境などでは絶対に行わないでください。
+<p>このハンズオンでは、動作確認のために意図的にVMのメモリ使用率を上昇させるスクリプトを使用します。そのため、商用環境などでは絶対に行わないでください。
 また、使用する仮想マシン (VM) についてもテスト用として用意したものを使用するようにしてください。</p>
 </div>
 <h2 id="_1">条件<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
@@ -1059,13 +1198,15 @@
 <ol>
 <li>事前準備<br />
    　・このステップでは、Oracle Functionsが仮想マシン (VM) のシェイプを変更できるようにするための準備を行います</li>
-<li>Oracle Funstionsの作成<br />
+<li>Oracle Functionsの作成<br />
    　・このステップでは、仮想マシン (VM) のシェイプを変更するFunctionsのデプロイを行います</li>
 <li>アラームの作成<br />
-   　・このステップでは、仮想マシン (VM) のメモリ利用率上昇を検知し、Functionsを呼び出すための設定を行います</li>
-<li>仮想マシン (VM) のメモリ利用率の延伸<br />
-   　・このステップでは、意図的に仮想マシン (VM) のメモリ利用率を上昇させ、仮想マシン (VM) のシェイプが自動的に変更されるかの動作確認を行います</li>
+   　・このステップでは、仮想マシン (VM) のメモリ使用率上昇を検知し、Functionsを呼び出すための設定を行います</li>
+<li>仮想マシン (VM) のメモリ使用率の延伸<br />
+   　・このステップでは、意図的に仮想マシン (VM) のメモリ使用率を上昇させ、仮想マシン (VM) のシェイプが自動的に変更されるかの動作確認を行います</li>
 </ol>
+<p>このエントリーが完了すると、以下のようなコンテンツが作成されます。</p>
+<p><img alt="" src="images/summary.jpg" /></p>
 <h2 id="1">1.事前準備<a class="headerlink" href="#1" title="Permanent link">&para;</a></h2>
 <p>このステップでは、Oracle Functionsから仮想マシン (VM) を操作するための動的グループとポリシーの設定を行います。</p>
 <div class="admonition info">
@@ -1083,7 +1224,7 @@
 </ul>
 <div class="admonition info">
 <p class="admonition-title">コンパートメントOCIDについて</p>
-<p>[アイデンティティ]⇒[コンパートメント]に移動して、使用するコンパートメント(今回はルートコンパートメント)を開いて、該当OCIDを記入します。</p>
+<p>[アイデンティティ]⇒[コンパートメント]に移動して、使用するコンパートメント(今回はルートコンパートメント)を開いて、該当OCIDを確認します。</p>
 </div>
 <p><img alt="" src="images/create-dyn-grp.png" /></p>
 <p>OCIコンソールのハンバーガーメニューをクリックして、「アイデンティティ」⇒「ポリシー」に移動し、「ポリシーの作成」をクリックします。</p>
@@ -1100,12 +1241,12 @@
 </li>
 </ul>
 <div class="admonition info">
-<p class="admonition-title">コンパートメントOCIDについて</p>
-<p>[アイデンティティ]⇒[コンパートメント]に移動して、使用するコンパートメント(今回はルートコンパートメント)を開いて、該当コンパートメント名を記入します。</p>
+<p class="admonition-title">コンパートメント名について</p>
+<p>[アイデンティティ]⇒[コンパートメント]に移動して、使用するコンパートメント(今回はルートコンパートメント)を開いて、該当コンパートメント名を確認します。</p>
 </div>
 <p><img alt="" src="images/create-policy.png" /></p>
 <p>これで、動的グループの作成とポリシーの作成は完了しました。</p>
-<h2 id="2oracle-funstions">2.Oracle Funstionsの作成<a class="headerlink" href="#2oracle-funstions" title="Permanent link">&para;</a></h2>
+<h2 id="2oracle-functions">2.Oracle Functionsの作成<a class="headerlink" href="#2oracle-functions" title="Permanent link">&para;</a></h2>
 <p>このステップでは、仮想マシン (VM) のシェイプを変更するOracle Functionsのデプロイを行います。</p>
 <p>OCIコンソールのハンバーガーメニューをクリックして、「開発者サービス」に移動して、「ファンクション」をクリックします。</p>
 <p>コンソール右上にあるリージョン名を変更します。今回は、<a href="../oraclefunctions/handson/getting-started/">Oracle Functionsことはじめ</a>で利用したAshburnを使用します。</p>
@@ -1139,7 +1280,7 @@
 <p>「アラームの作成」 ページの 「アラームの定義」 で、しきい値を設定します。</p>
 <ul>
 <li>
-<p>アラーム名：アラート名を指定。今回は<code>high-memory-utilization-alarm</code></p>
+<p>アラーム名：アラーム名を指定。今回は<code>high-memory-utilization-alarm</code></p>
 </li>
 <li>
 <p>メトリックの説明:</p>
@@ -1211,9 +1352,7 @@
 </li>
 </ul>
 <p>「トピックとサブスクリプションの作成」をクリックします。</p>
-<ol>
-<li><strong>トピック</strong>から作成されたトピックを選択して、「アラームの保存」をクリックします。</li>
-</ol>
+<p><strong>トピック</strong>から作成されたトピックを選択して、「アラームの保存」をクリックします。</p>
 <p><img alt="" src="images/create-alarm-05.png" /></p>
 <p>次に、OCIコンソールを使用して、アラームの設定時に作成したトピックにオプションの電子メールサブスクリプションを追加します。</p>
 <p>OCIコンソールのハンバーガーメニューを開きます。「ソリューションおよびプラットフォーム」 で、「アプリケーション統合」に移動し、「通知」 をクリックします。</p>
@@ -1227,21 +1366,87 @@
 <p><img alt="image-20200327160656735" src="images/add-subscription.png" /></p>
 <div class="admonition info">
 <p class="admonition-title">Notificationについて</p>
-<p>Notificationサービスは電子メールの他にもHTTPS(カスタムURL)/PagerDuty/Slackに対する通知を行うことができます。</p>
+<p>Notificationサービスはファンクションや電子メールの他にもHTTPS(カスタムURL)/PagerDuty/Slackに対する通知を行うことができます。</p>
 </div>
 <p>電子メール サブスクリプションが作成され、指定した電子メールアドレスにサブスクリプションの確認URLが送信されます。サブスクリプションは、確認されるまで 「保留中」になります。</p>
 <p>サブスクリプションをアクティブにするためには電子メールアドレスを承認する必要があるので、確認URLのリンクを開いてください。</p>
 <p>これで、アラームの作成は完了です。</p>
-<h2 id="4-vm">4.仮想マシン (VM) のメモリ利用率の延伸<a class="headerlink" href="#4-vm" title="Permanent link">&para;</a></h2>
+<h2 id="4-vm">4.仮想マシン (VM) のメモリ使用率の延伸<a class="headerlink" href="#4-vm" title="Permanent link">&para;</a></h2>
 <p>このステップでは、<a href="../oraclefunctions/handson/getting-started/">Oracle Functionsことはじめ</a>で作成したコンピュートインスタンスを利用して動作確認を行います。</p>
 <p>現在VMのシェイプを確認します。シェイプは<code>VM.Standard2.1</code>になっています。</p>
 <p><img alt="image-20200327161440948" src="images/instance-detail-01.png" /></p>
-<p>プロジェクトディレクトリに移動します。</p>
-<div class="highlight"><pre><span></span><code><span class="nb">cd</span> <span class="nv">$HOME</span>/functions_resize_vmshape
+<p>以下のコマンドをコンピュートインスタンス上で実行し、メモリ使用率を徐々にあげていきます。</p>
+<div class="highlight"><pre><span></span><code>/dev/null &lt; $(yes) &amp;
 </code></pre></div>
 
-<p>メモリ使用率を増加させるスクリプトを実行してください。</p>
-<div class="highlight"><pre><span></span><code>./increase_memory_utilization.sh
+<p>以下のように10プロセス程度をバックグランド実行で起動します。
+<div class="highlight"><pre><span></span><code>[opc@instance]$ 
+[opc@instance]$ /dev/null &lt; $(yes) &amp;
+[1] 2370
+[opc@instance]$ /dev/null &lt; $(yes) &amp;
+[2] 2372
+[opc@instance]$ /dev/null &lt; $(yes) &amp;
+[3] 2374
+[opc@instance]$ /dev/null &lt; $(yes) &amp;
+[4] 2376
+[opc@instance]$ /dev/null &lt; $(yes) &amp;
+[5] 2378
+[opc@instance]$ /dev/null &lt; $(yes) &amp;
+[6] 2380
+[opc@instance]$ /dev/null &lt; $(yes) &amp;
+[7] 2382
+[opc@instance]$ /dev/null &lt; $(yes) &amp;
+[8] 2384
+[opc@instance]$ /dev/null &lt; $(yes) &amp;
+[9] 2387
+[opc@instance]$ /dev/null &lt; $(yes) &amp;
+[10] 2389
+[opc@instance]$ 
+</code></pre></div></p>
+<p>以下のコマンドを実行し、メモリ使用率を確認しましょう。
+3秒間隔で表示されますが、徐々に空きメモリが減っていくことが確認できます。</p>
+<div class="highlight"><pre><span></span><code>free -h -s 3 
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code>              total        used        free      shared  buff/cache   available
+Mem:            14G        5.5G        8.6G         16M        288M        8.7G
+Swap:          8.0G          0B        8.0G
+
+              total        used        free      shared  buff/cache   available
+Mem:            14G        5.6G        8.5G         16M        288M        8.5G
+Swap:          8.0G          0B        8.0G
+
+              total        used        free      shared  buff/cache   available
+Mem:            14G        5.7G        8.4G         16M        288M        8.5G
+Swap:          8.0G          0B        8.0G
+
+              total        used        free      shared  buff/cache   available
+Mem:            14G        5.8G        8.3G         16M        288M        8.3G
+Swap:          8.0G          0B        8.0G
+
+              total        used        free      shared  buff/cache   available
+Mem:            14G        5.9G        8.2G         16M        288M        8.2G
+Swap:          8.0G          0B        8.0G
+
+              total        used        free      shared  buff/cache   available
+Mem:            14G        6.0G        8.1G         16M        288M        8.1G
+Swap:          8.0G          0B        8.0G
+
+              total        used        free      shared  buff/cache   available
+Mem:            14G        6.1G        8.0G         16M        288M        8.0G
+Swap:          8.0G          0B        8.0G
+
+              total        used        free      shared  buff/cache   available
+Mem:            14G        6.3G        7.9G         16M        288M        7.9G
+Swap:          8.0G          0B        8.0G
+
+              total        used        free      shared  buff/cache   available
+Mem:            14G        6.4G        7.8G         16M        288M        7.8G
+Swap:          8.0G          0B        8.0G
+
+              total        used        free      shared  buff/cache   available
+Mem:            14G        6.5G        7.6G         16M        288M        7.7G
+Swap:          8.0G          0B        8.0G
 </code></pre></div>
 
 <p>5分～10分程度経つと、メモリ使用率が90%を超えて、アラームメールが送信されます。</p>
@@ -1273,6 +1478,41 @@
       
         
 <footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../with_apigw/" title="Oracle Cloud Infrastructure API Gateway + Oracle Functionsハンズオン" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  前
+                </span>
+                Oracle Cloud Infrastructure API Gateway + Oracle Functionsハンズオン
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../functions_to_atp_with_ords/" title="Oracle Functionsを利用したATPとのREST連携" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  次
+                </span>
+                Oracle Functionsを利用したATPとのREST連携
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
