@@ -1,0 +1,1504 @@
+
+
+
+
+<!doctype html>
+<html lang="ja" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+      
+      
+      
+        <meta name="lang:clipboard.copy" content="クリップボードへコピー">
+      
+        <meta name="lang:clipboard.copied" content="コピーしました">
+      
+        <meta name="lang:search.language" content="en, jp">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="何も見つかりませんでした">
+      
+        <meta name="lang:search.result.one" content="1件見つかりました">
+      
+        <meta name="lang:search.result.other" content="#件見つかりました">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-　、。，．]+">
+      
+      <link rel="shortcut icon" href="../../../assets/images/cloud_46@2x.png">
+      <meta name="generator" content="mkdocs-1.1, mkdocs-material-4.6.3">
+    
+    
+      
+        <title>Oracle Functionsを利用したAPI Gatewayでの認証 - Oracle Cloud - PaaS ドキュメント</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/application.adb8469c.css">
+      
+        <link rel="stylesheet" href="../../../assets/stylesheets/application-palette.a8b3c06d.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="#757575">
+      
+    
+    
+      <script src="../../../assets/javascripts/modernizr.86422ebf.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../../../assets/fonts/material-icons.css">
+    
+    
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+    
+      <link rel="stylesheet" href="../../../stylesheets/extra.css">
+    
+    
+      
+    
+    
+  </head>
+  
+    
+    
+    <body dir="ltr" data-md-color-primary="grey" data-md-color-accent="grey">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448" viewBox="0 0 416 448" id="__github"><path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19T128 352t-18.125-8.5-10.75-19T96 304t3.125-20.5 10.75-19T128 256t18.125 8.5 10.75 19T160 304zm160 0q0 10-3.125 20.5t-10.75 19T288 352t-18.125-8.5-10.75-19T256 304t3.125-20.5 10.75-19T288 256t18.125 8.5 10.75 19T320 304zm40 0q0-30-17.25-51T296 232q-10.25 0-48.75 5.25Q229.5 240 208 240t-39.25-2.75Q130.75 232 120 232q-29.5 0-46.75 21T56 304q0 22 8 38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0 37.25-1.75t35-7.375 30.5-15 20.25-25.75T360 304zm56-44q0 51.75-15.25 82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5T212 416q-19.5 0-35.5-.75t-36.875-3.125-38.125-7.5-34.25-12.875T37 371.5t-21.5-28.75Q0 312 0 260q0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25 30.875Q171.5 96 212 96q37 0 70 8 26.25-20.5 46.75-30.25T376 64q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34 99.5z"/></svg>
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#oracle-functionsoci-api-gateway" tabindex="0" class="md-skip">
+        Skip to content
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="../../.." title="Oracle Cloud - PaaS ドキュメント" aria-label="Oracle Cloud - PaaS ドキュメント" class="md-header-nav__button md-logo">
+          
+            <img alt="logo" src="../../../assets/images/cloud_w_46@2x.png" width="24" height="24">
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+              Oracle Cloud - PaaS ドキュメント
+            </span>
+            <span class="md-header-nav__topic">
+              
+                Oracle Functionsを利用したAPI Gatewayでの認証
+              
+            </span>
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" aria-label="search" name="query" placeholder="検索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            検索キーワードを入力してください
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            
+
+
+  
+
+<a href="https://github.com/oracle-japan/paasdocs" title="リポジトリへ" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    oracle-japan/paasdocs
+  </div>
+</a>
+          </div>
+        </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+        
+
+  
+
+<nav class="md-tabs md-tabs--active" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  <li class="md-tabs__item">
+    
+      <a href="../../.." class="md-tabs__link">
+        Home
+      </a>
+    
+  </li>
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../containers/common/" class="md-tabs__link">
+          コンテナ
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../" class="md-tabs__link md-tabs__link--active">
+          FaaS
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../weblogic-operator/" class="md-tabs__link">
+          WebLogic Operator
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../api-management/" class="md-tabs__link">
+          API管理
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../remote-session/" class="md-tabs__link">
+          リモートハンズオンについて
+        </a>
+      
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+      
+      <main class="md-main" role="main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="../../.." title="Oracle Cloud - PaaS ドキュメント" class="md-nav__button md-logo">
+      
+        <img alt="logo" src="../../../assets/images/cloud_w_46@2x.png" width="48" height="48">
+      
+    </a>
+    Oracle Cloud - PaaS ドキュメント
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+<a href="https://github.com/oracle-japan/paasdocs" title="リポジトリへ" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    oracle-japan/paasdocs
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../.." title="Home" class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+    
+    <label class="md-nav__link" for="nav-2">
+      コンテナ
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        コンテナ
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../containers/common/" title="コンテナのホーム" class="md-nav__link">
+      コンテナのホーム
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-2" type="checkbox" id="nav-2-2">
+    
+    <label class="md-nav__link" for="nav-2-2">
+      ビギナー向けチュートリアル
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-2-2">
+        ビギナー向けチュートリアル
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../containers/handson/k8s-walkthrough/" title="OKEでアプリケーションを動かしてみよう" class="md-nav__link">
+      OKEでアプリケーションを動かしてみよう
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../containers/handson/k8s-basic-ops/" title="Kubernetesの基本的な操作を体験しよう" class="md-nav__link">
+      Kubernetesの基本的な操作を体験しよう
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-3" type="checkbox" id="nav-2-3">
+    
+    <label class="md-nav__link" for="nav-2-3">
+      ミドル向けチュートリアル
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-2-3">
+        ミドル向けチュートリアル
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../microservices/tutorials/WorkshopGuide000InstallSoftware/" title="コンパートメントの設定" class="md-nav__link">
+      コンパートメントの設定
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../microservices/tutorials/WorkshopGuide100SetupDevCS/" title="必要なソフトウェアのインストール" class="md-nav__link">
+      必要なソフトウェアのインストール
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../microservices/tutorials/WorkshopGuide200GatherInformation/" title="ワークショップで利用するアカウント情報の収集" class="md-nav__link">
+      ワークショップで利用するアカウント情報の収集
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../microservices/tutorials/WorkshopGuide300CreateProjectRepository/" title="プロジェクトとリポジトリの作成" class="md-nav__link">
+      プロジェクトとリポジトリの作成
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../microservices/tutorials/WorkshopGuide400CreateVirtualMachine/" title="ビルド用の仮想マシンの準備" class="md-nav__link">
+      ビルド用の仮想マシンの準備
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../microservices/tutorials/WorkshopGuide600ProvisionATPDatabase/" title="ATPのプロビジョニングとATP接続情報の作成" class="md-nav__link">
+      ATPのプロビジョニングとATP接続情報の作成
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../microservices/tutorials/WorkshopGuide700LoadData/" title="ATPへのサンプルデータ登録" class="md-nav__link">
+      ATPへのサンプルデータ登録
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../microservices/tutorials/WorkshopGuide800CreateImageToOCIR/" title="Dockerイメージの作成とOCIRへの登録" class="md-nav__link">
+      Dockerイメージの作成とOCIRへの登録
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../microservices/tutorials/WorkshopGuide900DeployToOKECluster/" title="OKEクラスタへのデプロイ" class="md-nav__link">
+      OKEクラスタへのデプロイ
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../microservices/tutorials/WorkshopGuide1000RedeployToOKECluster/" title="アプリケーションの再デプロイ" class="md-nav__link">
+      アプリケーションの再デプロイ
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../microservices/tutorials/WorkshopGuide1100AdditionalExplaination/" title="【オプション】今回利用したアプリケーションに関する補足" class="md-nav__link">
+      【オプション】今回利用したアプリケーションに関する補足
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../microservices/tutorials/WorkshopGuide1200ProvisionATPDatabase/" title="【オプション】Service Brokerを利用したATPのプロビジョニング" class="md-nav__link">
+      【オプション】Service Brokerを利用したATPのプロビジョニング
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3" checked>
+    
+    <label class="md-nav__link" for="nav-3">
+      FaaS
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        FaaS
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../" title="FaaSのホーム" class="md-nav__link">
+      FaaSのホーム
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-2" type="checkbox" id="nav-3-2">
+    
+    <label class="md-nav__link" for="nav-3-2">
+      ビギナー向けチュートリアル
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-2">
+        ビギナー向けチュートリアル
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../fn/handson/getting-started/" title="Fn Projectことはじめ" class="md-nav__link">
+      Fn Projectことはじめ
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../oraclefunctions/handson/getting-started/" title="Oracle Functionsことはじめ" class="md-nav__link">
+      Oracle Functionsことはじめ
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../with_apigw/" title="Oracle Cloud Infrastructure API Gateway + Oracle Functionsハンズオン" class="md-nav__link">
+      Oracle Cloud Infrastructure API Gateway + Oracle Functionsハンズオン
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-3" type="checkbox" id="nav-3-3" checked>
+    
+    <label class="md-nav__link" for="nav-3-3">
+      ミドル向けチュートリアル
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-3">
+        ミドル向けチュートリアル
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../resize_vmshape/" title="Oracle Functionsを利用したVMシェイプ変更" class="md-nav__link">
+      Oracle Functionsを利用したVMシェイプ変更
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../functions_to_atp_with_ords/" title="Oracle Functionsを利用したATPとのREST連携" class="md-nav__link">
+      Oracle Functionsを利用したATPとのREST連携
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../functions_to_nosql/" title="Oracle Functionsを利用したOracle NoSQL Database Cloud Serviceとの連携" class="md-nav__link">
+      Oracle Functionsを利用したOracle NoSQL Database Cloud Serviceとの連携
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Oracle Functionsを利用したAPI Gatewayでの認証
+      </label>
+    
+    <a href="./" title="Oracle Functionsを利用したAPI Gatewayでの認証" class="md-nav__link md-nav__link--active">
+      Oracle Functionsを利用したAPI Gatewayでの認証
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">目次</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    条件
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    全体の流れ
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1oracle-funstions" class="md-nav__link">
+    1.Oracle Funstionsのでデプロイ
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-1oracle-function" class="md-nav__link">
+    1-1.Oracle Functionの作成
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1-2oracle-function" class="md-nav__link">
+    1-2.Oracle Functionのデプロイ
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13" class="md-nav__link">
+    1.3.簡易動作確認
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2oci-api-gateway" class="md-nav__link">
+    2.OCI API Gatewayの設定
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    3.動作確認
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+    
+    <label class="md-nav__link" for="nav-4">
+      WebLogic Operator
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        WebLogic Operator
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../weblogic-operator/" title="WebLogic Operatorのホーム" class="md-nav__link">
+      WebLogic Operatorのホーム
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4-2" type="checkbox" id="nav-4-2">
+    
+    <label class="md-nav__link" for="nav-4-2">
+      ビギナー向けチュートリアル-domain in image-編
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-4-2">
+        ビギナー向けチュートリアル-domain in image-編
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../weblogic-operator/tutorials/setup.oke/" title="OCIでOKEインスタンスを設定" class="md-nav__link">
+      OCIでOKEインスタンスを設定
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../weblogic-operator/tutorials/install.operator/" title="WebLogic Operatorのインストール" class="md-nav__link">
+      WebLogic Operatorのインストール
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../weblogic-operator/tutorials/install.traefik/" title="Traefik Software Loadbalancerのインストール" class="md-nav__link">
+      Traefik Software Loadbalancerのインストール
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../weblogic-operator/tutorials/deploy.weblogic_short/" title="WebLogic Domainのデプロイ" class="md-nav__link">
+      WebLogic Domainのデプロイ
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../weblogic-operator/tutorials/scale.weblogic/" title="WebLogic Clusterのスケーリング" class="md-nav__link">
+      WebLogic Clusterのスケーリング
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../weblogic-operator/tutorials/override.jdbc/" title="JDBC Datasource parametersのオーバーライド" class="md-nav__link">
+      JDBC Datasource parametersのオーバーライド
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../weblogic-operator/tutorials/update.application_short/" title="ローリングアップデートによるデプロイ済みアプリケーションの更新" class="md-nav__link">
+      ローリングアップデートによるデプロイ済みアプリケーションの更新
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../weblogic-operator/tutorials/node.selector/" title="ノードに対するWebLogicのPodの割り当て" class="md-nav__link">
+      ノードに対するWebLogicのPodの割り当て
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../weblogic-operator/tutorials/node.selector.license/" title="ライセンス対象のノードに対するWebLogicのPodの配置" class="md-nav__link">
+      ライセンス対象のノードに対するWebLogicのPodの配置
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
+    
+    <label class="md-nav__link" for="nav-5">
+      API管理
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-5">
+        API管理
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../api-management/" title="API管理のホーム" class="md-nav__link">
+      API管理のホーム
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5-2" type="checkbox" id="nav-5-2">
+    
+    <label class="md-nav__link" for="nav-5-2">
+      ビギナー向けチュートリアル
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-5-2">
+        ビギナー向けチュートリアル
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../api-management/handson/getting-started/" title="Oracle Cloud Infrasturcture API Gatewayハンズオン" class="md-nav__link">
+      Oracle Cloud Infrasturcture API Gatewayハンズオン
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6">
+    
+    <label class="md-nav__link" for="nav-6">
+      リモートハンズオンについて
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-6">
+        リモートハンズオンについて
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../remote-session/" title="リモートハンズオン時の注意事項" class="md-nav__link">
+      リモートハンズオン時の注意事項
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">目次</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    条件
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    全体の流れ
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1oracle-funstions" class="md-nav__link">
+    1.Oracle Funstionsのでデプロイ
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-1oracle-function" class="md-nav__link">
+    1-1.Oracle Functionの作成
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1-2oracle-function" class="md-nav__link">
+    1-2.Oracle Functionのデプロイ
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13" class="md-nav__link">
+    1.3.簡易動作確認
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2oci-api-gateway" class="md-nav__link">
+    2.OCI API Gatewayの設定
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    3.動作確認
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="oracle-functionsoci-api-gateway">Oracle Functionsを利用したOCI API Gatewayでの認証<a class="headerlink" href="#oracle-functionsoci-api-gateway" title="Permanent link">&para;</a></h1>
+<p>このセッションでは、Oracle Functionsを利用してOCI API Gatewayが渡されたクライアントシークレットをチェックし、正しいクライアントシークレットが含まれているかどうかに基づいてリクエストを許可したり拒否したりするシンプルなAuthorizer Functionを作成します。  </p>
+<h2 id="_1">条件<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<ul>
+<li>クラウド環境<ul>
+<li>有効なOracle Cloudアカウントがあること</li>
+</ul>
+</li>
+<li>事前環境構築<ul>
+<li><a href="../with_apigw/">Oracle Cloud Infrasturcture API Gateway + Oracle Functionsハンズオン</a>が完了していること</li>
+</ul>
+</li>
+</ul>
+<h2 id="_2">全体の流れ<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p>手順の大まかな流れは以下のとおりです。</p>
+<ol>
+<li>Oracle Functionsのデプロイ<br />
+   　・このステップでは、認証を行う　Oracle Functionsをデプロイします</li>
+<li>API Gatewayの設定<br />
+   　・このステップでは、デプロイしたOracle FunctionsをOCI API Gatewayで利用できるように設定を行います</li>
+<li>動作確認<br />
+   　・このステップでは、OCI API Gatewayを呼び出して動作確認を行います</li>
+</ol>
+<div class="admonition info">
+<p class="admonition-title">OCI API Gatewayでサポートしている認証および承認機能について</p>
+<p>OCI API Gatewayでは複数の認証方式をサポートしています。詳細は<a href="https://docs.cloud.oracle.com/ja-jp/iaas/Content/APIGateway/Tasks/apigatewayaddingauthzauthn.htm">APIデプロイメントへの認証と認可の追加</a>をご確認ください。</p>
+</div>
+<p>このセッションが完了すると、以下のようなコンテンツが作成されます。</p>
+<p><img alt="image-20200409151057057" src="images/summary.jpg" /></p>
+<h2 id="1oracle-funstions">1.Oracle Funstionsのでデプロイ<a class="headerlink" href="#1oracle-funstions" title="Permanent link">&para;</a></h2>
+<p>ここでは、Oracle Functionsの作成とデプロイを行います。</p>
+<h3 id="1-1oracle-function">1-1.Oracle Functionの作成<a class="headerlink" href="#1-1oracle-function" title="Permanent link">&para;</a></h3>
+<p>Oracle OCIコンソールの左上にあるハンバーガーメニューをクリックして、[開発者サービス]⇒[ファンクション]に移動します。</p>
+<p>Oracle Functionsに使用する予定のリージョンを選択します（Fn Project CLIコンテキストで指定されたDockerレジストリと同じリージョンを推奨します）。<br />
+ここでは、Ashburnリージョン<code>us-ashburn-1</code>を使用します。</p>
+<p>利用するコンパートメントを選択します。<br />
+今回は、ルートコンパートメントを利用します。  </p>
+<p>[アプリケーションの作成]をクリックして、次を指定します。</p>
+<ul>
+<li>名前：このアプリケーションに最初のFunctionをデプロイし、Functionを呼び出すときにこのアプリケーションを指定します。たとえば、<code>fn-samples-app</code>。</li>
+<li>VCN：Functionを実行するVCN。今回は、<a href="../oraclefunctions/handson/getting-started/">Oracle Functionsことはじめ</a>で作成したVCNを指定。</li>
+<li>サブネット：Functionを実行するサブネット。今回は、<a href="../oraclefunctions/handson/getting-started/">Oracle Functionsことはじめ</a>で作成したVCNのサブネットを指定。</li>
+</ul>
+<p><img alt="" src="images/create-function.png" /></p>
+<p>[作成]をクリックします。</p>
+<h3 id="1-2oracle-function">1-2.Oracle Functionのデプロイ<a class="headerlink" href="#1-2oracle-function" title="Permanent link">&para;</a></h3>
+<p><a href="../oraclefunctions/handson/getting-started/">Oracle Functionsことはじめ</a>で作成したコンピュートインスタンスにログインし、ユーザーホームディレクトリに移動します。</p>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span> <span class="nv">$HOME</span>
+</code></pre></div>
+
+<p>ソースコードをcloneし、ディレクトリに移動します。</p>
+<div class="highlight"><pre><span></span><code>git clone https://github.com/oracle-japan/function-authorizer-for-apigw.git
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span> <span class="k">function</span>-authorizer-for-apigw
+</code></pre></div>
+
+<p>以下のコマンドを実行して、<code>fn-authorizer</code>というFunctionをデプロイします。</p>
+<div class="highlight"><pre><span></span><code>fn -v deploy --app fn-samples-app
+</code></pre></div>
+
+<p>今回は、Functionsに環境変数として、チェック対象となるクライアントシークレット(正規のクライアントシークレット)を設定します。  </p>
+<div class="highlight"><pre><span></span><code>fn config app fn-samples-app SECRET_TOKEN &lt;your_token&gt;
+</code></pre></div>
+
+<ul>
+<li>your_token：任意。今回は、<code>my_secret_token</code></li>
+</ul>
+<div class="highlight"><pre><span></span><code>fn config app fn-samples-app SECRET_TOKEN my_secret_token
+</code></pre></div>
+
+<h3 id="13">1.3.簡易動作確認<a class="headerlink" href="#13" title="Permanent link">&para;</a></h3>
+<p>デプロイしたOracle Functionsの軽い動作確認を行います。  </p>
+<p>以下のコマンドを実行してOracle Functionsを呼び出します。</p>
+<div class="highlight"><pre><span></span><code><span class="nb">echo</span> <span class="s2">&quot;{\&quot;type\&quot;:\&quot;TOKEN\&quot;,\&quot;token\&quot;:\&quot;my_secret_token\&quot;}&quot;</span> <span class="p">|</span> fn invoke fn-samples-app fn-authorizer
+</code></pre></div>
+
+<p>上記の場合は、正しいクライアントシークレット(<code>my_secret_token</code>)を設定しているので、正常に認証されています。</p>
+<div class="highlight"><pre><span></span><code>{
+    &quot;active&quot;: true,
+    &quot;principal&quot;: &quot;https://example.com/users/jdoe&quot;,
+    &quot;scope&quot;: [
+        &quot;list:hello&quot;,
+        &quot;read:hello&quot;,
+        &quot;create:hello&quot;,
+        &quot;update:hello&quot;,
+        &quot;delete:hello&quot;,
+        &quot;someScope&quot;
+    ],
+    &quot;expiresAt&quot;: &quot;2020-04-27T10:06:09.103Z&quot;,
+    &quot;wwwAuthenticate&quot;: null,
+    &quot;clientId&quot;: &quot;host123&quot;,
+    &quot;context&quot;: {
+        &quot;email&quot;: &quot;john.doe@example.com&quot;
+    }
+}
+</code></pre></div>
+
+<h2 id="2oci-api-gateway">2.OCI API Gatewayの設定<a class="headerlink" href="#2oci-api-gateway" title="Permanent link">&para;</a></h2>
+<p>ここでは、Oracle Functionsを利用してOCI API Gatewayで認証が行えるように設定を行います。</p>
+<p>Oracle OCIコンソールの左上にあるハンバーガーメニューをクリックして、[開発者サービス]⇒[APIゲートウェイ]に移動して、次の操作を行います。</p>
+<p>[ゲートウェイの作成]をクリックして、次を指定します。</p>
+<ul>
+<li>
+<p>名前：新しいゲートウェイの名前、たとえば、<code>workshop-api-gateway</code></p>
+</li>
+<li>
+<p>タイプ：パブリック</p>
+</li>
+<li>
+<p>コンパートメント：OCI API Gatewayリソースを作成するコンパートメントの名前（こちらのワークショップではFunctionと同じコンパートメントを指定してください）</p>
+</li>
+<li>
+<p>仮想クラウド・ネットワーク：OCI API Gatewayで使用するVCN。(Oracle Functionと同じVCNを指定してください)</p>
+</li>
+<li>
+<p>サブネット：VCNのサブネット。(Oracle Functionと同じVCNサブネットを指定してください)</p>
+</li>
+</ul>
+<p><img alt="" src="images/create-apigateway-01.png" /></p>
+<p>新しいAPIゲートウェイが作成されると、[ゲートウェイ]ページのリストに<code>アクティブ</code>と表示されます。</p>
+<p><img alt="" src="images/create-apigateway-02.png" /></p>
+<p>[リソース]で[デプロイメント]をクリックし、[デプロイメントの作成]をクリックします。</p>
+<p>次に[デプロイメントの作成]をクリックします。</p>
+<p><img alt="" src="images/create-apigateway-03.png" /></p>
+<p>[最初から]をクリックし、[基本情報]と[APIリクエスト・ポリシー]セクションで次を指定します。</p>
+<ul>
+<li>名前：新しいAPIデプロイメントの名前、今回は、<code>workshop</code></li>
+<li>パス接頭辞：APIデプロイメントに含まれるすべてのルートのパスに追加するパスプレフィックス、今回は、<code>/workshop</code></li>
+<li>コンパートメント：新しいAPIデプロイメントを作成するコンパートメント</li>
+<li>認証：認証枠にある[追加]をクリックして、認証ポリシー画面で以下項目を指定して、[変更の保存]をクリックします。<ul>
+<li>アプリケーション：Authorizer Functionが属するアプリケーションの名前。今回は、<code>fn-samples-app</code></li>
+<li>機能名：Authorizer Functionが属する機能の名前。今回は、<code>fn-authorizer</code></li>
+<li>認証トークン：ヘッダー</li>
+<li>ヘッダー名：今回使用するOracle Functionsでは、<code>token</code>という名前のヘッダー項目を使用します
+  <img alt="" src="images/create-apigateway-05.png" /></li>
+</ul>
+</li>
+</ul>
+<p>[次]をクリックします。</p>
+<p><img alt="" src="images/create-apigateway-04.png" /></p>
+<p>[1のルーティング]セクションで次を指定して、[次]をクリックします。</p>
+<ul>
+<li>パス：APIのパス。今回は、<code>/stock</code></li>
+<li>メソッド：APIのメソッドを指定します。今回は、<code>GET</code></li>
+<li>タイプ：バックエンド・サービスのタイプを指定します。今回は、<code>標準レスポンス</code></li>
+<li>ステータス・コード：返却するHTTPステータスコード。今回は、<code>200</code></li>
+<li>本文：返却するメッセージ。今回は、<code>{"status":"ok"}</code></li>
+</ul>
+<p><img alt="" src="images/create-apigateway-06.png" /></p>
+<p>新しいAPIデプロイメント用に入力した詳細を確認し、[作成]をクリックして作成します。</p>
+<p><img alt="" src="images/create-apigateway-07.png" /></p>
+<p>新しいAPIデプロイメントが作成されると、APIデプロイメントのリストにアクティブとして表示されます。</p>
+<p>APIデプロイメントのリストで、作成したばかりの新しいAPIデプロイメントのエンドポイントの横にある[コピー]をクリックして、エンドポイントをコピーします。</p>
+<p><img alt="" src="images/test-01.png" /></p>
+<p>以上で、OCI API Gatewayの設定は完了です。</p>
+<h2 id="3">3.動作確認<a class="headerlink" href="#3" title="Permanent link">&para;</a></h2>
+<p>ここでは、OCI API Gatewayを実際に呼び出して動作確認を行います。</p>
+<p>curlや任意のHTTPクライアントなど、ご自身が利用しやすいツールを使用して動作確認を行ってください。  </p>
+<p>今回は、Postmanを使用して動作確認を行います。  </p>
+<p>以下項目を入力して、[Send]をクリックします。</p>
+<ul>
+<li>endpoint：<code>コピーしたAPIデプロイメントのエンドポイント</code>/<code>stock</code><br />
+  例えば、<code>https://xxxxxxxxxxxxxx.ap-tokyo-1.oci.customer-oci.com/workshop/stock</code>のようになります。</li>
+<li>type：<code>TOKEN</code></li>
+<li>token：<code>fn config</code>で設定したSECRET_TOKENの値。今回は、<code>my_secret_token</code></li>
+</ul>
+<p><img alt="image-20200427191750586" src="images/test-02.png" /></p>
+<p>認証が成功すると、バックエンドが呼び出されて、以下のような出力が得られます。</p>
+<div class="highlight"><pre><span></span><code>{&quot;status&quot;:&quot;ok&quot;}
+</code></pre></div>
+
+<p>次に、誤った認証情報を入力して、[Send]をクリックします。</p>
+<ul>
+<li>token：今回は、<code>xxxxxx</code></li>
+</ul>
+<p><img alt="image-20200427191559915" src="images/test-03.png" /></p>
+<p>認証が失敗するので、以下のような出力が得られます。</p>
+<div class="highlight"><pre><span></span><code>{
+    &quot;message&quot;: &quot;Unauthorized&quot;,
+    &quot;code&quot;: 401
+}
+</code></pre></div>
+
+<p>以上で、Oracle Functionsを利用したOCI API Gatewayでの認証ができました！<br />
+お疲れ様でした！</p>
+                
+                  
+                
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../functions_to_nosql/" title="Oracle Functionsを利用したOracle NoSQL Database Cloud Serviceとの連携" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  前
+                </span>
+                Oracle Functionsを利用したOracle NoSQL Database Cloud Serviceとの連携
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../../weblogic-operator/" title="WebLogic Operatorのホーム" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  次
+                </span>
+                WebLogic Operatorのホーム
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright &copy; 2018 - 2020 Oracle Corporation Japan
+          </div>
+        
+        powered by
+        <a href="https://www.mkdocs.org" target="_blank" rel="noopener">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs</a>
+      </div>
+      
+  <div class="md-footer-social">
+    <link rel="stylesheet" href="../../../assets/fonts/font-awesome.css">
+    
+      <a href="https://github.com/oracle-japan" target="_blank" rel="noopener" title="github" class="md-footer-social__link fa fa-github"></a>
+    
+  </div>
+
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../../assets/javascripts/application.c33a9706.js"></script>
+      
+        
+        
+          
+          <script src="../../../assets/javascripts/lunr/lunr.stemmer.support.js"></script>
+          
+            
+          
+            
+              
+              
+            
+          
+          
+            <script src="../../../assets/javascripts/lunr/lunr.multi.js"></script>
+          
+        
+      
+      <script>app.initialize({version:"1.1",url:{base:"../../.."}})</script>
+      
+    
+  </body>
+</html>
