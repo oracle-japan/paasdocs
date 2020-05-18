@@ -32,7 +32,7 @@
         <meta name="lang:search.tokenizer" content="[\s\-　、。，．]+">
       
       <link rel="shortcut icon" href="../../../assets/images/cloud_46@2x.png">
-      <meta name="generator" content="mkdocs-1.1, mkdocs-material-4.6.3">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-4.6.3">
     
     
       
@@ -1675,14 +1675,32 @@ OCIコンソール画面左上のハンバーガーメニューを展開し、<c
 </div>
 <p>クラスターの詳細画面で、<code>Kubeconfigへのアクセス</code>をクリックします。</p>
 <p><img alt="" src="images/03-09.png" /></p>
-<p>「Kubeconfigへのアクセス方法」ダイアログに、kubetctlの設定ファイルを取得するためのコマンドが表示されますので、これらを順次実行していきます。</p>
-<p><img alt="" src="images/03-10.png" /></p>
-<p>1つ目のコマンドは、設定ファイルを格納するためのディレクトリの作成です。</p>
+<p>「自分のクラスタへのアクセス」というダイアログが表示されます。<br />
+OKEへのアクセス方法は「Cloud Shellアクセス」と「ローカル・アクセス」の2種類が存在します。<br />
+今回はCLI実行環境を作成したので、「ローカル・アクセス」でアクセスを行います。<br />
+ダイアログ上部の「ローカル・アクセス」をクリックします。
+<img alt="" src="images/03-11.png" /></p>
+<div class="admonition info">
+<p class="admonition-title">Cloud Shellについて</p>
+<p>Oracle Cloud Infrastructureは、Oracle CloudコンソールからアクセスできるWebブラウザベースのコンソールです。Cloud Shellには、OCI CLIをはじめとして、Oracle Cloud Infrastructure上のサービスにアクセスするための便利なツールが事前に含まれています。
+詳細は、<a href="https://docs.cloud.oracle.com/ja-jp/iaas/Content/API/Concepts/cloudshellintro.htm">公式ドキュメントの記載</a>をご確認ください。</p>
+</div>
+<p>表示されたダイアログの中にkubetctlの設定ファイルを取得するためのコマンドが表示されますので、これらを順次実行していきます。</p>
+<p><img alt="" src="images/03-12.png" /></p>
+<p>1つ目のコマンドはOCI CLIのバージョンの確認です。<br />
+右端の「コピー」をクリックしてコピーします。</p>
+<div class="codehilite"><pre><span></span><code><span class="err">oci -v</span>
+</code></pre></div>
+
+
+<p>2つ目のコマンドは、設定ファイルを格納するためのディレクトリの作成です。<br />
+右端の「コピー」をクリックしてコピーします。</p>
 <div class="codehilite"><pre><span></span><code><span class="err">mkdir -p $HOME/.kube</span>
 </code></pre></div>
 
 
-<p>2つ目のコマンドは、OCI CLIの設定ファイル取得用のコマンドを実行しています（以下の例はダミーの値で埋めたものですので、実際のコマンドはダイアログからコピーしてください）。</p>
+<p>3つ目のコマンドは、OCI CLIの設定ファイル取得用のコマンドを実行しています（以下の例はダミーの値で埋めたものですので、実際のコマンドはダイアログからコピーしてください）。<br />
+右端の「コピー」をクリックしてコピーします。</p>
 <div class="codehilite"><pre><span></span><code><span class="err">oci ce cluster create-kubeconfig --cluster-id ocid1.cluster.oc1.iad.xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx --file $HOME/.kube/config --region ap-tokyo-1 --token-version 2.0.0</span>
 </code></pre></div>
 
@@ -1807,7 +1825,7 @@ OCIコンソール画面左上のハンバーガーメニューを展開し、<c
           
         
       
-      <script>app.initialize({version:"1.1",url:{base:"../../.."}})</script>
+      <script>app.initialize({version:"1.1.2",url:{base:"../../.."}})</script>
       
     
   </body>
