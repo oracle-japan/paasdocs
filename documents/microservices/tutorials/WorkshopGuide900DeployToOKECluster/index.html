@@ -1251,10 +1251,30 @@ oke-atp-workshopディレクトリに移動します。<br />
 <p>35行目にpullしてくるイメージのレジストリが設定されています。<br />
 この行を<a href="../WorkshopGuide800CreateImageToOCIR/">Dockerイメージを作成とOCIRへの登録</a>にて登録したイメージに設定します。<br />
 &lt;リージョンコード&gt;、&lt;オブジェクト・ストレージ・ネームスペース&gt;の部分をご自身の値に書き換えてください。  </p>
-<p>&lt;リージョンコード&gt;については、<a href="../WorkshopGuide800CreateImageToOCIR/#1-ocir">OCIRリポジトリへの接続を構成する</a>をご確認ください。</p>
-<div class="highlight"><pre><span></span><code><span class="nt">image</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt;リージョンコード&gt;.ocir.io/&lt;オブジェクト・ストレージ・ネームスペース&gt;/workshop/okeatpapp:latest</span>
+<p>&lt;リージョンコード&gt;については、<a href="../WorkshopGuide800CreateImageToOCIR/#1-ocir">OCIRリポジトリへの接続を構成する</a>をご確認ください。<br />
+また、イメージ名については、<a href="../WorkshopGuide800CreateImageToOCIR/#2-docker">OCIRリポジトリへの接続を構成する</a>にて指定したものになります。</p>
+<div class="highlight"><pre><span></span><code><span class="nt">image</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt;リージョンコード&gt;.ocir.io/&lt;オブジェクト・ストレージ・ネームスペース&gt;/workshop/&lt;ご自身が付与したイメージ名&gt;:latest</span>
 </code></pre></div>
 
+<div class="admonition warning">
+<p class="admonition-title">注意事項: トライアル環境以外の環境をお使いの方へ</p>
+<p>トライアル環境以外の環境をお使いの方は、ATPプロビジョニング時にATPのデータベース名を変更しているかと思います。<br />
+その場合は、サンプルアプリケーションの設定ファイルに定義している接続識別子を変更する必要があります。<br />
+以下の手順に従ってください。  </p>
+<ul>
+<li>アプリケーションの設定ファイルを開く</li>
+</ul>
+<div class="highlight"><pre><span></span><code>vim src/main/resources/META-INF/microprofile-config.properties 
+</code></pre></div>
+
+<ul>
+<li>25行目の設定値キー名"javax.sql.DataSource.workshopDataSource.dataSource.url"の値の接続識別子部分"@tfokeatpdb_high"をATPのデータベース名に合わせて修正する<br />
+   例えば、ATPデータベース名がtfokeatpdb1234の場合は以下のように修正します。</li>
+</ul>
+<div class="highlight"><pre><span></span><code>jdbc:oracle:thin:@tfokeatpdb1234_high?TNS_ADMIN=/db-demo/creds
+</code></pre></div>
+
+</div>
 <p>修正したmanifestをレポジトリにpushします。</p>
 <p><div class="highlight"><pre><span></span><code>git add oke-atp-helidon.yaml
 </code></pre></div>

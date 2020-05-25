@@ -1147,16 +1147,25 @@
 <li>パスワード：データベースパスワードを設定。今回は"TFWorkshop__2000"</li>
 <li>資格証明ファイル：ウォレットファイルを指定。今回は"./Wallet_tfOKEATPDB.zip"</li>
 <li>接続文字列：データベースの名前＆"_high"/"_low"などで構成される接続文字列。今回は"tfOKEATPDB_HIGH"</li>
-<li>SQLファイル・パス：作成スクリプトを含むsqlファイルのパス。今回は"aone/create_schema.sql"</li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">注意事項: トライアル環境以外の環境をお使いの方へ</p>
+<p>トライアル環境以外の環境をお使いの方は、ATPプロビジョニング時にATPのデータベース名を変更しているかと思います。<br />
+その場合は、接続文字列"tfOKEATPDB_HIGH"を変更する必要があります。
+"_HIGH"以前の文字列がデータベース名になっておりますので、ご自身が変更したデータベース名に合わせてください。<br />
+例えば、ATPデータベース名が"tfOKEATPDB1234"の場合は、接続識別子は"tfOKEATPDB1234_HIGH"となります。</p>
+</div>
+<ul>
+<li>SQLファイル・パス：作成スクリプトを含むsqlファイルのパス。今回は"sql/create_schema.sql"</li>
 </ul>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>"aone/create_schema.sql"では、ATPに対して"handson"という名前のスキーマ(ユーザ)を作成しています。この後の手順でデプロイするアプリケーションでは
-"aone/create_schema.sql"によって作成されるスキーマのテーブルを使用します。アプリケーションが"handson"スキーマを利用する設定は<a href="../WorkshopGuide600ProvisionATPDatabase/">Service Brokerを使用したATPの作成</a>の「6.ATPのユーザの作成」にて設定済みです。</p>
+<p>"sql/create_schema.sql"では、ATPに対して"handson"という名前のスキーマ(ユーザ)を作成しています。この後の手順でデプロイするアプリケーションでは
+"sql/create_schema.sql"によって作成されるスキーマのテーブルを使用します。アプリケーションが"handson"スキーマを利用する設定は<a href="../WorkshopGuide600ProvisionATPDatabase/">Service Brokerを使用したATPの作成</a>の「6.ATPのユーザの作成」にて設定済みです。</p>
 </div>
 <p><img alt="" src="../images/1350.jpg" title="" /></p>
 <p>「今すぐビルド」ボタンをクリックします。</p>
-<p>これが環境内で最初のビルドジョブである場合、ビルドエンジンの起動が完了するまでに最大15分かかる場合があります。</p>
+<p>これが環境内で最初のビルドジョブである場合、ビルドエンジンの起動が完了するまでに最大15分程度かかる場合があります。</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>ビルドエンジンの起動に時間がかかるので、先に<a href="../WorkshopGuide800CreateImageToOCIR/">Dockerイメージを作成とOCIRへの登録</a>を実施してください。</p>

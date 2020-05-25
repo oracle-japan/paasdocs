@@ -1234,8 +1234,7 @@ oci-storage-class   oracle.com/oci-fss   31s
 </code></pre></div>
 
 <p>修正後のpv-template.yamlは：</p>
-<div class="highlight"><pre><span></span><code><span class="c1">#!yaml hl_lines=&quot;12 17 18 25&quot;</span>
-<span class="c1"># Copyright (c) 2018, 2019, Oracle Corporation and/or its affiliates.  All rights reserved.</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># Copyright (c) 2018, 2019, Oracle Corporation and/or its affiliates.  All rights reserved.</span>
 <span class="c1"># Licensed under the Universal Permissive License v 1.0 as shown at https://oss.oracle.com/licenses/upl.</span>
 
 <span class="nt">apiVersion</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">v1</span>
@@ -1246,29 +1245,28 @@ oci-storage-class   oracle.com/oci-fss   31s
     <span class="nt">weblogic.resourceVersion</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">domain-v2</span>
     <span class="nt">%DOMAIN_UID_LABEL_PREFIX%weblogic.domainUID</span><span class="p">:</span> <span class="err">%</span><span class="l l-Scalar l-Scalar-Plain">DOMAIN_UID%</span>
 <span class="nt">spec</span><span class="p">:</span>
-  <span class="nt">storageClassName</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">oci-storage-class</span>
-  <span class="nt">capacity</span><span class="p">:</span>
+<span class="hll">  <span class="nt">storageClassName</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">oci-storage-class</span>
+</span>  <span class="nt">capacity</span><span class="p">:</span>
     <span class="nt">storage</span><span class="p">:</span> <span class="err">%</span><span class="l l-Scalar l-Scalar-Plain">SAMPLE_STORAGE_SIZE%</span>
   <span class="nt">accessModes</span><span class="p">:</span>
     <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">ReadWriteMany</span>
-  <span class="nt">mountOptions</span><span class="p">:</span>
-    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">nosuid</span>
-  <span class="c1"># Valid values are Retain, Delete or Recycle</span>
+<span class="hll">  <span class="nt">mountOptions</span><span class="p">:</span>
+</span><span class="hll">    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">nosuid</span>
+</span>  <span class="c1"># Valid values are Retain, Delete or Recycle</span>
   <span class="nt">persistentVolumeReclaimPolicy</span><span class="p">:</span> <span class="err">%</span><span class="l l-Scalar l-Scalar-Plain">SAMPLE_STORAGE_RECLAIM_POLICY%</span>
   <span class="nt">%HOST_PATH_PREFIX%hostPath</span><span class="p">:</span>
   <span class="nt">%NFS_PREFIX%nfs</span><span class="p">:</span>
     <span class="nt">%NFS_PREFIX%server</span><span class="p">:</span> <span class="err">%</span><span class="l l-Scalar l-Scalar-Plain">SAMPLE_STORAGE_NFS_SERVER%</span>
     <span class="nt">path</span><span class="p">:</span> <span class="s">&quot;%SAMPLE_STORAGE_PATH%&quot;</span>
-    <span class="nt">readOnly</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">false</span>
-</code></pre></div>
+<span class="hll">    <span class="nt">readOnly</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">false</span>
+</span></code></pre></div>
 
 <p>PVCのテンプレートを修正します。</p>
 <div class="highlight"><pre><span></span><code>vi pvc-template.yaml
 </code></pre></div>
 
 <p>修正後のpvc-template.yamlは：</p>
-<div class="highlight"><pre><span></span><code><span class="c1">#!yaml hl_lines=&quot;13 19&quot;</span>
-<span class="c1"># Copyright (c) 2018, 2019, Oracle Corporation and/or its affiliates.  All rights reserved.</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># Copyright (c) 2018, 2019, Oracle Corporation and/or its affiliates.  All rights reserved.</span>
 <span class="c1"># Licensed under the Universal Permissive License v 1.0 as shown at https://oss.oracle.com/licenses/upl.</span>
 
 <span class="nt">kind</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">PersistentVolumeClaim</span>
@@ -1280,14 +1278,14 @@ oci-storage-class   oracle.com/oci-fss   31s
     <span class="nt">weblogic.resourceVersion</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">domain-v2</span>
     <span class="nt">%DOMAIN_UID_LABEL_PREFIX%weblogic.domainUID</span><span class="p">:</span> <span class="err">%</span><span class="l l-Scalar l-Scalar-Plain">DOMAIN_UID%</span>
 <span class="nt">spec</span><span class="p">:</span>
-  <span class="nt">storageClassName</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">oci-storage-class</span>
-  <span class="nt">accessModes</span><span class="p">:</span>
+<span class="hll">  <span class="nt">storageClassName</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">oci-storage-class</span>
+</span>  <span class="nt">accessModes</span><span class="p">:</span>
     <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">ReadWriteMany</span>
   <span class="nt">resources</span><span class="p">:</span>
     <span class="nt">requests</span><span class="p">:</span>
       <span class="nt">storage</span><span class="p">:</span> <span class="err">%</span><span class="l l-Scalar l-Scalar-Plain">SAMPLE_STORAGE_SIZE%</span>
-  <span class="nt">volumeName</span><span class="p">:</span> <span class="err">%</span><span class="l l-Scalar l-Scalar-Plain">DOMAIN_UID%%SEPARATOR%%BASE_NAME%-pv</span>
-</code></pre></div>
+<span class="hll">  <span class="nt">volumeName</span><span class="p">:</span> <span class="err">%</span><span class="l l-Scalar l-Scalar-Plain">DOMAIN_UID%%SEPARATOR%%BASE_NAME%-pv</span>
+</span></code></pre></div>
 
 <p>PVとPVC作成スクリプト用のInputファイルを作成します。</p>
 <div class="highlight"><pre><span></span><code>cp create-pv-pvc-inputs.yaml my-pv-pvc-inputs.yaml
@@ -1301,8 +1299,7 @@ oci-storage-class   oracle.com/oci-fss   31s
 <p>※1:weblogicDomainStorageNFSServerは、メモ帳に書き留めたFSSサーバーのIP</p>
 <p>※2:weblogicDomainStoragePathは、メモ帳に書き留めたFSSサーバーのディレクトリ</p>
 <p>修正後のmy-pv-pvc-inputs.yamlは：</p>
-<div class="highlight"><pre><span></span><code><span class="c1">#!yaml hl_lines=&quot;13 16 21 25 36&quot;</span>
-<span class="c1"># Copyright (c) 2018, 2019, Oracle Corporation and/or its affiliates.  All rights reserved.</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># Copyright (c) 2018, 2019, Oracle Corporation and/or its affiliates.  All rights reserved.</span>
 <span class="c1"># Licensed under the Universal Permissive License v 1.0 as shown at https://oss.oracle.com/licenses/upl.</span>
 
 <span class="c1"># The version of this inputs file.  Do not modify.</span>
@@ -1314,20 +1311,20 @@ oci-storage-class   oracle.com/oci-fss   31s
 <span class="c1"># Unique ID identifying a domain.</span>
 <span class="c1"># If left empty, the generated pv can be shared by multiple domains</span>
 <span class="c1"># This ID must not contain an underscope (&quot;_&quot;), and must be lowercase and unique across all domains in a Kubernetes cluster.</span>
-<span class="nt">domainUID</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">sample-domain1</span>
-
+<span class="hll"><span class="nt">domainUID</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">sample-domain1</span>
+</span>
 <span class="c1"># Name of the namespace for the persistent volume claim</span>
-<span class="nt">namespace</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">sample-domain1-ns</span>
-
+<span class="hll"><span class="nt">namespace</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">sample-domain1-ns</span>
+</span>
 <span class="c1"># Persistent volume type for the persistent storage.</span>
 <span class="c1"># The value must be &#39;HOST_PATH&#39; or &#39;NFS&#39;.</span>
 <span class="c1"># If using &#39;NFS&#39;, weblogicDomainStorageNFSServer must be specified.</span>
-<span class="nt">weblogicDomainStorageType</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">NFS</span>
-
+<span class="hll"><span class="nt">weblogicDomainStorageType</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">NFS</span>
+</span>
 <span class="c1"># The server name or ip address of the NFS server to use for the persistent storage.</span>
 <span class="c1"># The following line must be uncomment and customized if weblogicDomainStorateType is NFS:</span>
-<span class="nt">weblogicDomainStorageNFSServer</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">10.0.10.5</span>
-
+<span class="hll"><span class="nt">weblogicDomainStorageNFSServer</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">10.0.10.5</span>
+</span>
 <span class="c1"># Physical path of the persistent storage.</span>
 <span class="c1"># When weblogicDomainStorageType is set to HOST_PATH, this value should be set the to path to the</span>
 <span class="c1"># domain storage on the Kubernetes host.</span>
@@ -1337,8 +1334,8 @@ oci-storage-class   oracle.com/oci-fss   31s
 <span class="c1"># Note that the path where the domain is mounted in the WebLogic containers is not affected by this</span>
 <span class="c1"># setting, that is determined when you create your domain.</span>
 <span class="c1"># The following line must be uncomment and customized:</span>
-<span class="nt">weblogicDomainStoragePath</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/FileSystem-20200212-1035</span>
-
+<span class="hll"><span class="nt">weblogicDomainStoragePath</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/FileSystem-20200212-1035</span>
+</span>
 <span class="c1"># Reclaim policy of the persistent storage</span>
 <span class="c1"># The valid values are: &#39;Retain&#39;, &#39;Delete&#39;, and &#39;Recycle&#39;</span>
 <span class="nt">weblogicDomainStorageReclaimPolicy</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Retain</span>
@@ -1393,8 +1390,7 @@ persistentvolumeclaim/sample-domain1-weblogic-sample-pvc   Bound    sample-domai
 </code></pre></div>
 
 <p>修正後のmy-domain-inputs.yamlは：</p>
-<div class="highlight"><pre><span></span><code><span class="c1">#!yaml hl_lines=&quot;15 19 45 53 61 69 95 102&quot;</span>
-<span class="c1"># Copyright (c) 2018, 2019, Oracle Corporation and/or its affiliates.  All rights reserved.</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># Copyright (c) 2018, 2019, Oracle Corporation and/or its affiliates.  All rights reserved.</span>
 <span class="c1"># Licensed under the Universal Permissive License v 1.0 as shown at https://oss.oracle.com/licenses/upl.</span>
 
 <span class="c1"># The version of this inputs file.  Do not modify.</span>
@@ -1408,12 +1404,12 @@ persistentvolumeclaim/sample-domain1-weblogic-sample-pvc   Bound    sample-domai
 
 <span class="c1"># Unique ID identifying a domain.</span>
 <span class="c1"># This ID must not contain an underscope (&quot;_&quot;), and must be lowercase and unique across all domains in a Kubernetes cluster.</span>
-<span class="nt">domainUID</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">sample-domain1</span>
-
+<span class="hll"><span class="nt">domainUID</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">sample-domain1</span>
+</span>
 <span class="c1"># Home of the WebLogic domain</span>
 <span class="c1"># If not specified, the value is derived from the domainUID as /shared/domains/&lt;domainUID&gt;</span>
-<span class="nt">domainHome</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/shared/domains/sample-domain1</span>
-
+<span class="hll"><span class="nt">domainHome</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/shared/domains/sample-domain1</span>
+</span>
 <span class="c1"># Determines which WebLogic Servers the operator will start up</span>
 <span class="c1"># Legal values are &quot;NEVER&quot;, &quot;IF_NEEDED&quot;, or &quot;ADMIN_ONLY&quot;</span>
 <span class="nt">serverStartPolicy</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">IF_NEEDED</span>
@@ -1438,32 +1434,32 @@ persistentvolumeclaim/sample-domain1-weblogic-sample-pvc   Bound    sample-domai
 <span class="c1"># The WebLogic Docker image, `weblogic:12.2.1.3`, has all the necessary patches applied.</span>
 <span class="c1"># Refer to [WebLogic Docker images](../../../../../site/weblogic-docker-images.md) for details on how</span>
 <span class="c1"># to obtain or create the image.</span>
-<span class="nt">image</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">store/oracle/weblogic:12.2.1.4</span>
-
+<span class="hll"><span class="nt">image</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">store/oracle/weblogic:12.2.1.4</span>
+</span>
 <span class="c1"># Image pull policy</span>
 <span class="c1"># Legal values are &quot;IfNotPresent&quot;, &quot;Always&quot;, or &quot;Never&quot;</span>
 <span class="nt">imagePullPolicy</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">IfNotPresent</span>
 
 <span class="c1"># Name of the Kubernetes secret to access the Docker Store to pull the WebLogic Server Docker image</span>
 <span class="c1"># The presence of the secret will be validated when this parameter is enabled.</span>
-<span class="nt">imagePullSecretName</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">dockersecret</span>
-
+<span class="hll"><span class="nt">imagePullSecretName</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">dockersecret</span>
+</span>
 <span class="c1"># Boolean indicating if production mode is enabled for the domain</span>
 <span class="nt">productionModeEnabled</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
 
 <span class="c1"># Name of the Kubernetes secret for the Admin Server&#39;s username and password</span>
 <span class="c1"># The name must be lowercase.</span>
 <span class="c1"># If not specified, the value is derived from the domainUID as &lt;domainUID&gt;-weblogic-credentials</span>
-<span class="nt">weblogicCredentialsSecretName</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">sample-domain1-weblogic-credentials</span>
-
+<span class="hll"><span class="nt">weblogicCredentialsSecretName</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">sample-domain1-weblogic-credentials</span>
+</span>
 <span class="c1"># Whether to include server .out to the pod&#39;s stdout.</span>
 <span class="c1"># The default is true.</span>
 <span class="nt">includeServerOutInPodLog</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
 
 <span class="c1"># The in-pod location for domain log, server logs, server out, and node manager log files</span>
 <span class="c1"># If not specified, the value is derived from the domainUID as /shared/logs/&lt;domainUID&gt;</span>
-<span class="nt">logHome</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/shared/logs/sample-domain1</span>
-
+<span class="hll"><span class="nt">logHome</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/shared/logs/sample-domain1</span>
+</span>
 <span class="c1"># An (optional) in-pod location for data storage of default and custom file stores.</span>
 <span class="c1"># If not specified or the value is either not set or empty (e.g. dataHome: &quot;&quot;) then the</span>
 <span class="c1"># data storage directories are determined from the WebLogic domain home configuration.</span>
@@ -1488,15 +1484,15 @@ persistentvolumeclaim/sample-domain1-weblogic-sample-pvc   Bound    sample-domai
 <span class="nt">exposeAdminNodePort</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">false</span>
 
 <span class="c1"># Name of the domain namespace</span>
-<span class="nt">namespace</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">sample-domain1-ns</span>
-
+<span class="hll"><span class="nt">namespace</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">sample-domain1-ns</span>
+</span>
 <span class="c1">#Java Option for WebLogic Server</span>
 <span class="nt">javaOptions</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">-Dweblogic.StdoutDebugEnabled=false</span>
 
 <span class="c1"># Name of the persistent volume claim</span>
 <span class="c1"># If not specified, the value is derived from the domainUID as &lt;domainUID&gt;-weblogic-sample-pvc</span>
-<span class="nt">persistentVolumeClaimName</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">sample-domain1-weblogic-sample-pvc</span>
-
+<span class="hll"><span class="nt">persistentVolumeClaimName</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">sample-domain1-weblogic-sample-pvc</span>
+</span>
 <span class="c1"># Mount path of the domain persistent volume.</span>
 <span class="nt">domainPVMountPath</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/shared</span>
 
@@ -1565,8 +1561,7 @@ persistentvolumeclaim/sample-domain1-weblogic-sample-pvc   Bound    sample-domai
 </code></pre></div>
 
 <p>修正後のcreate-domain-job-template.yamlは：</p>
-<div class="highlight"><pre><span></span><code><span class="c1">#!yaml hl_lines=&quot;24&quot;</span>
-<span class="c1"># Copyright (c) 2018, 2019, Oracle Corporation and/or its affiliates.  All rights reserved.</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># Copyright (c) 2018, 2019, Oracle Corporation and/or its affiliates.  All rights reserved.</span>
 <span class="c1"># Licensed under the Universal Permissive License v 1.0 as shown at https://oss.oracle.com/licenses/upl.</span>
 
 <span class="nt">apiVersion</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">batch/v1</span>
@@ -1589,8 +1584,8 @@ persistentvolumeclaim/sample-domain1-weblogic-sample-pvc   Bound    sample-domai
       <span class="nt">initContainers</span><span class="p">:</span>
         <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">fix-pvc-owner</span>
           <span class="nt">image</span><span class="p">:</span> <span class="err">%</span><span class="l l-Scalar l-Scalar-Plain">WEBLOGIC_IMAGE%</span>
-          <span class="nt">command</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="s">&quot;sh&quot;</span><span class="p p-Indicator">,</span> <span class="s">&quot;-c&quot;</span><span class="p p-Indicator">,</span> <span class="s">&quot;chown</span><span class="nv"> </span><span class="s">1000:1000</span><span class="nv"> </span><span class="s">%DOMAIN_ROOT_DIR%/.</span><span class="nv"> </span><span class="s">&amp;&amp;</span><span class="nv"> </span><span class="s">find</span><span class="nv"> </span><span class="s">%DOMAIN_ROOT_DIR%/.</span><span class="nv"> </span><span class="s">-maxdepth</span><span class="nv"> </span><span class="s">1</span><span class="nv"> </span><span class="s">!</span><span class="nv"> </span><span class="s">-name</span><span class="nv"> </span><span class="s">&#39;.snapshot&#39;</span><span class="nv"> </span><span class="s">!</span><span class="nv"> </span><span class="s">-name</span><span class="nv"> </span><span class="s">&#39;.&#39;</span><span class="nv"> </span><span class="s">-print0</span><span class="nv"> </span><span class="s">|</span><span class="nv"> </span><span class="s">xargs</span><span class="nv"> </span><span class="s">-r</span><span class="nv"> </span><span class="s">-0</span><span class="nv"> </span><span class="s">chown</span><span class="nv"> </span><span class="s">-R</span><span class="nv"> </span><span class="s">1000:1000&quot;</span><span class="p p-Indicator">]</span>
-          <span class="nt">volumeMounts</span><span class="p">:</span>
+<span class="hll">          <span class="nt">command</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="s">&quot;sh&quot;</span><span class="p p-Indicator">,</span> <span class="s">&quot;-c&quot;</span><span class="p p-Indicator">,</span> <span class="s">&quot;chown</span><span class="nv"> </span><span class="s">1000:1000</span><span class="nv"> </span><span class="s">%DOMAIN_ROOT_DIR%/.</span><span class="nv"> </span><span class="s">&amp;&amp;</span><span class="nv"> </span><span class="s">find</span><span class="nv"> </span><span class="s">%DOMAIN_ROOT_DIR%/.</span><span class="nv"> </span><span class="s">-maxdepth</span><span class="nv"> </span><span class="s">1</span><span class="nv"> </span><span class="s">!</span><span class="nv"> </span><span class="s">-name</span><span class="nv"> </span><span class="s">&#39;.snapshot&#39;</span><span class="nv"> </span><span class="s">!</span><span class="nv"> </span><span class="s">-name</span><span class="nv"> </span><span class="s">&#39;.&#39;</span><span class="nv"> </span><span class="s">-print0</span><span class="nv"> </span><span class="s">|</span><span class="nv"> </span><span class="s">xargs</span><span class="nv"> </span><span class="s">-r</span><span class="nv"> </span><span class="s">-0</span><span class="nv"> </span><span class="s">chown</span><span class="nv"> </span><span class="s">-R</span><span class="nv"> </span><span class="s">1000:1000&quot;</span><span class="p p-Indicator">]</span>
+</span>          <span class="nt">volumeMounts</span><span class="p">:</span>
           <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">weblogic-sample-domain-storage-volume</span>
             <span class="nt">mountPath</span><span class="p">:</span> <span class="err">%</span><span class="l l-Scalar l-Scalar-Plain">DOMAIN_ROOT_DIR%</span>
           <span class="nt">securityContext</span><span class="p">:</span>
