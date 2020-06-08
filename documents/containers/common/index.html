@@ -611,8 +611,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../microservices/tutorials/WorkshopGuide100SetupDevCS/" title="必要なソフトウェアのインストール" class="md-nav__link">
-      必要なソフトウェアのインストール
+    <a href="../../microservices/tutorials/WorkshopGuide200GatherInformation/" title="ワークショップで利用するアカウント情報の収集" class="md-nav__link">
+      ワークショップで利用するアカウント情報の収集
     </a>
   </li>
 
@@ -623,8 +623,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../microservices/tutorials/WorkshopGuide200GatherInformation/" title="ワークショップで利用するアカウント情報の収集" class="md-nav__link">
-      ワークショップで利用するアカウント情報の収集
+    <a href="../../microservices/tutorials/WorkshopGuide100SetupDevCS/" title="Visual Builder Studioのセットアップ" class="md-nav__link">
+      Visual Builder Studioのセットアップ
     </a>
   </li>
 
@@ -1459,7 +1459,7 @@
 <p>リソース・マネージャの画面で、<code>スタックの作成</code>をクリックします。</p>
 <p><img alt="" src="images/01-06.png" /></p>
 <p>スタックはリソース・マネージャ サービスによって管理されるTerraformコマンドの実行環境です。ここでResource Managerアーカイブをアップロードしてスタックを作成することで、アップロードされたTerraformテンプレートの実行環境がクラウド上に構成されます。</p>
-<p>スタックの作成画面で、<code>.zipファイルをここにドロップします または 参照</code>と表示された領域にダウンロードしたResource Managerアーカイブをドロップし、その後<code>次</code>をクリックします。</p>
+<p>スタックの作成画面で、<code>マイ構成</code>を選択し、<code>.zipファイルをここにドロップします または 参照</code>と表示された領域にダウンロードしたResource Managerアーカイブをドロップし、その後<code>次</code>をクリックします。</p>
 <p><img alt="" src="images/01-07.png" /></p>
 <p>Resource Managerが自動的に各環境毎の<code>TENANCY_OCID</code>と<code>COMPARTMENT_OCID</code>と<code>Region</code>の変数に適切な値を投入します。変数が投入されていることを確認し、<code>次</code>をクリックします。</p>
 <p><img alt="" src="images/01-08.png" /></p>
@@ -1544,7 +1544,18 @@
 <p>次のダイアログで<code>クイック作成</code>を選択し、<code>ワークフローの起動</code>をクリックします。</p>
 <p><img alt="" src="images/02-03-2.png" /></p>
 <p>次のダイアログで、任意の名前を入力し、バージョンを選択します。ここではデフォルトのまま進めていきます。</p>
-<p>"シェイプ"<code>VM.Standard2.1</code>を選択します。</p>
+<p><code>可視性のタイプ</code>には今回<code>プライベート</code>を選択します。これは、
+ワークロードに応じて、ワーカーノードにパブリックIPを付与する必要がある場合は、<code>パブリック</code>を選択してください。</p>
+<div class="admonition note">
+<p class="admonition-title">可視性のタイプについて</p>
+<p><code>可視性のタイプ</code>によって、ワーカーノードに付与されるIPアドレスの種類が変わります。プライベートは、ワーカーノードがプライベートIPのみを付与された状態でプロビジョニングを行うタイプです。<br />
+ワーカーノードにパブリックIPを付与する必要がある場合は、<code>パブリック</code>を選択してください。</p>
+</div>
+<p><code>シェイプ</code>には、今回<code>VM.Standard2.1</code>を選択します。</p>
+<div class="admonition note">
+<p class="admonition-title">シェイプについて</p>
+<p>OKEでは、VM、ベアメタル、HPCなどの様々なシェイプをご利用頂くことができます。ワークロードに応じて、適切なシェイプを選択してください。</p>
+</div>
 <p>ノードの数はワーカーノードの数を指定します。デフォルトで「3」が指定されていますが、本ハンズオンでは最小構成である「1」に変更してください。 </p>
 <div class="admonition note">
 <p class="admonition-title">ノード数について</p>
@@ -1590,14 +1601,14 @@
 <p>OCI CLIのセットアップでは、CLIをどのテナンシのユーザーアカウントとして実行するかを設定するために、テナンシ、ユーザーのOCID（識別子）が必要になります。はじめに、このテナンシのOCIDを取得しておきます。</p>
 <p>OCIコンソール画面右上の人型のアイコンをクリックし、展開したプロファイルから<code>テナンシ:&lt;テナンシ名&gt;</code>をクリックします。</p>
 <p><img alt="" src="images/03-01-1.png" /></p>
-<p>テナンシ情報<code>OCID</code>の右側にある<code>コピー</code>をクリックすると、OCIDがクリップボードにコピーされます。</p>
+<p>テナンシ情報<code>OCID</code>の右側にある<code>コピー</code>をクリックすると、テナンシOCIDがクリップボードにコピーされます。</p>
 <p>この値は後の手順で利用しますので、テキストエディタにペーストするなどして控えておいてください。</p>
 <p><img alt="" src="images/03-01-2.png" /></p>
 <h4 id="3-1-2-ocid">3-1-2. ユーザーのOCIDの確認<a class="headerlink" href="#3-1-2-ocid" title="Permanent link">&para;</a></h4>
 <p>次にテナンシのOCIDを取得しておきます。
-OCIコンソール画面左上のハンバーガーメニューを展開し、<code>アイデンティティ</code>を選択します。</p>
+OCIコンソール画面右上の人型のアイコンをクリックし、展開したプロファイルから<code>ユーザ名</code>(oracleidentitycloudservice/&lt;ユーザ名&gt;)をクリックします。</p>
 <p><img alt="" src="images/03-02.png" /></p>
-<p>登録されているユーザーアカウントの一覧が表示されますので、ログイン中のアカウントに当たるエントリーを見つけてください。該当するエントリーの<code>OCID</code>の右側にある<code>コピー</code>をクリックすると、OCIDがクリップボードにコピーされます。</p>
+<p>ユーザ情報が表示されますので、<code>OCID</code>の右側にある<code>コピー</code>をクリックすると、ユーザOCIDがクリップボードにコピーされます。</p>
 <p><img alt="" src="images/03-03.png" /></p>
 <p>この値は後の手順で利用しますので、テキストエディタにペーストするなどして控えておいてください。</p>
 <h4 id="3-1-3-oci-cli">3-1-3. OCI CLIのセットアップ<a class="headerlink" href="#3-1-3-oci-cli" title="Permanent link">&para;</a></h4>
@@ -1660,7 +1671,9 @@ OCIコンソール画面左上のハンバーガーメニューを展開し、<c
 <p><img alt="" src="images/03-04.png" /></p>
 <p>ユーザーの詳細画面をスクロールして<code>公開キーの追加</code>をクリックします。</p>
 <p><img alt="" src="images/03-05.png" /></p>
-<p>「追加 公開キー」ダイアログの入力欄に、先ほとTera Termに表示した公開鍵をペーストし、<code>追加</code>ボタンをクリックします（<code>-----BEGIN PUBLIC KEY-----</code>と<code>-----END PUBLIC KEY-----</code>の行も含めてペーストします）。</p>
+<p>「公開キーの追加」ダイアログの入力欄が表示されます。<br />
+今回は、<code>公開キーの貼付け</code>をクリックし、先ほとTera Termに表示した公開鍵をペーストし、<code>追加</code>ボタンをクリックします（<code>-----BEGIN PUBLIC KEY-----</code>と<code>-----END PUBLIC KEY-----</code>の行も含めてペーストします）。<br />
+公開キーをファイルで登録したい場合には、<code>公開キー・ファイルの選択</code>をクリックし、公開キーを登録します。</p>
 <p><img alt="" src="images/03-06.png" /></p>
 <p>以上でOCI CLIのセットアップは完了です。</p>
 <h3 id="3-2-kubectl">3-2. kubectlをセットアップする<a class="headerlink" href="#3-2-kubectl" title="Permanent link">&para;</a></h3>

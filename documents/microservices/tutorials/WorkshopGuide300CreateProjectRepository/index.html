@@ -439,8 +439,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../WorkshopGuide100SetupDevCS/" title="必要なソフトウェアのインストール" class="md-nav__link">
-      必要なソフトウェアのインストール
+    <a href="../WorkshopGuide200GatherInformation/" title="ワークショップで利用するアカウント情報の収集" class="md-nav__link">
+      ワークショップで利用するアカウント情報の収集
     </a>
   </li>
 
@@ -451,8 +451,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../WorkshopGuide200GatherInformation/" title="ワークショップで利用するアカウント情報の収集" class="md-nav__link">
-      ワークショップで利用するアカウント情報の収集
+    <a href="../WorkshopGuide100SetupDevCS/" title="Visual Builder Studioのセットアップ" class="md-nav__link">
+      Visual Builder Studioのセットアップ
     </a>
   </li>
 
@@ -1057,23 +1057,30 @@
                 
                 
                 <h1 id="_1">プロジェクトとリポジトリの作成<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
-<p>このステップでは、GitHubリポジトリに基づいてDevCSで新しい開発者プロジェクトをセットアップする方法を説明します。</p>
-<p>一つDevCSのインスタンスは、複数のプロジェクトを管理できます。また、一つのプロジェクトは複数のリポジトリを管理できます。</p>
-<p>プロジェクトを作成するには、「組織」メニューを選択し、「プロジェクト」タブで右側の「＋作成」ボタンをクリックします。</p>
+<p>このステップでは、GitHubリポジトリに基づいてVisual Builder Studioで新しい開発者プロジェクトをセットアップする方法を説明します。</p>
+<p>一つのVisual Builder Studioのインスタンスは、複数のプロジェクトを管理できます。また、一つのプロジェクトは複数のリポジトリを管理できます。</p>
+<p>プロジェクトを作成するには、「組織」(もしくは「Organization」)メニューを選択し、「プロジェクト」(もしくは「Projects」)タブで右側の「＋作成」(もしくは「Create」)ボタンをクリックします。</p>
 <p><img alt="" src="../images/1070.jpg" title="" /></p>
-<p>下記項目を入力して、「Next」をクリックします。</p>
+<p>下記項目を入力して、「次へ」(もしくは「Next」)をクリックします。</p>
 <ul>
 <li>名前：OKEATPWorkshop</li>
+<li>利用する言語は必要に応じて変更してください</li>
 </ul>
+<div class="admonition warning">
+<p class="admonition-title">注意事項: トライアル環境以外の環境をお使いの方へ</p>
+<p>Visual Builder Studio上のプロジェクト名の重複は許容されていません。
+集合ハンズオンなど同一の環境でハンズオンを実施されている方は、プロジェクト名が重複しない様に語尾に任意の文字列(名前のイニシャル等)を追加してください。</p>
+</div>
 <p><img alt="" src="../images/1080.jpg" title="" /></p>
-<p>デフォルトのままにして、「Next」をクリックします。</p>
+<p>デフォルトのままにして、「次へ」(もしくは「Next」)をクリックします。</p>
 <p><img alt="" src="../images/1090.jpg" title="" /></p>
-<p>デフォルトのままにして、「Finish」をクリックします。</p>
+<p>デフォルトのままにして、「終了」(もしくは「Finish」)をクリックします。</p>
 <p><img alt="" src="../images/1100.jpg" title="" /></p>
-<p>すべてのモジュールがプロビジョンされるまでお待ちください。</p>
+<p>すべてのモジュールがプロビジョニングされるまで、数分程度お待ちください。</p>
 <p><img alt="" src="../images/1110.jpg" title="" /></p>
 <p>プロジェクトの作成が完了すると、自動的にこちらの画面に移動されます。</p>
-<p>リポジトリを作成するには、「＋作成」をクリックします。</p>
+<p>続いて、レポジトリを作成します。</p>
+<p>リポジトリを作成するには、画面右側の「＋作成」(もしくは「Create」)をクリックします。</p>
 <p><img alt="" src="../images/1120.jpg" title="" /></p>
 <p>下記項目を入力して、「作成」をクリックします。</p>
 <ul>
@@ -1084,7 +1091,7 @@
 <p><img alt="" src="../images/1130.jpg" title="" /></p>
 <p>インポートが完了すると、既存のリポジトリのファイルがインポートされます。</p>
 <p><img alt="" src="../images/1140.jpg" title="" /></p>
-<p>DevCSで「Git」に移動して、右側の「クローン」を選択し、"HTTPSでクローニングします"の「コピー」アイコンをクリックします。</p>
+<p>Visual Builder Studioで「Git」に移動して、右側の「クローン」を選択し、"Clone with HTTPS."の「コピー」アイコンをクリックします。</p>
 <p><img alt="" src="../images/1145.jpg" title="" /></p>
 <p><a href="../../../containers/common/#_4">ハンズオン共通手順</a>で作成したコンピュートインスタンスにログインします。<br />
 git cloneを実行します。</p>
@@ -1096,7 +1103,7 @@ git cloneを実行します。</p>
 <p>git cloneコマンドや後続の手順で利用するgit pushなどの各種gitコマンドにおいてパスワードの入力を求められることがあります。
 その場合は、ご自身のご利用されているOracle Cloudアカウントに対応するパスワードを入力してください。</p>
 </div>
-<p>これで、DevCSでプロジェクトとリポジトリの作成は完了しました。</p>
+<p>これで、Visual Builder Studioでプロジェクトとリポジトリの作成は完了しました。</p>
 <p>続いて<a href="../WorkshopGuide400CreateVirtualMachine/">ビルド用の仮想マシンの準備</a>に進んでください。</p>
                 
                   
@@ -1119,7 +1126,7 @@ git cloneを実行します。</p>
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../WorkshopGuide200GatherInformation/" title="ワークショップで利用するアカウント情報の収集" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../WorkshopGuide100SetupDevCS/" title="Visual Builder Studioのセットアップ" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -1128,7 +1135,7 @@ git cloneを実行します。</p>
                 <span class="md-footer-nav__direction">
                   前
                 </span>
-                ワークショップで利用するアカウント情報の収集
+                Visual Builder Studioのセットアップ
               </span>
             </div>
           </a>

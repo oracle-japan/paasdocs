@@ -439,8 +439,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../WorkshopGuide100SetupDevCS/" title="必要なソフトウェアのインストール" class="md-nav__link">
-      必要なソフトウェアのインストール
+    <a href="../WorkshopGuide200GatherInformation/" title="ワークショップで利用するアカウント情報の収集" class="md-nav__link">
+      ワークショップで利用するアカウント情報の収集
     </a>
   </li>
 
@@ -451,8 +451,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../WorkshopGuide200GatherInformation/" title="ワークショップで利用するアカウント情報の収集" class="md-nav__link">
-      ワークショップで利用するアカウント情報の収集
+    <a href="../WorkshopGuide100SetupDevCS/" title="Visual Builder Studioのセットアップ" class="md-nav__link">
+      Visual Builder Studioのセットアップ
     </a>
   </li>
 
@@ -1256,24 +1256,90 @@ oke-atp-workshopディレクトリに移動します。<br />
 <div class="highlight"><pre><span></span><code><span class="nt">image</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt;リージョンコード&gt;.ocir.io/&lt;オブジェクト・ストレージ・ネームスペース&gt;/workshop/&lt;ご自身が付与したイメージ名&gt;:latest</span>
 </code></pre></div>
 
-<div class="admonition warning">
-<p class="admonition-title">注意事項: トライアル環境以外の環境をお使いの方へ</p>
-<p>トライアル環境以外の環境をお使いの方は、ATPプロビジョニング時にATPのデータベース名を変更しているかと思います。<br />
-その場合は、サンプルアプリケーションの設定ファイルに定義している接続識別子を変更する必要があります。<br />
-以下の手順に従ってください。  </p>
-<ul>
-<li>アプリケーションの設定ファイルを開く</li>
-</ul>
+<p>次に、サンプルアプリケーションの設定ファイルに定義している接続識別子を変更します。  </p>
+<p>サンプルアプリケーションの設定ファイルを開きます。</p>
 <div class="highlight"><pre><span></span><code>vim src/main/resources/META-INF/microprofile-config.properties 
 </code></pre></div>
 
-<ul>
-<li>25行目の設定値キー名"javax.sql.DataSource.workshopDataSource.dataSource.url"の値の接続識別子部分"@tfokeatpdb_high"をATPのデータベース名に合わせて修正する<br />
-   例えば、ATPデータベース名がtfokeatpdb1234の場合は以下のように修正します。</li>
-</ul>
-<div class="highlight"><pre><span></span><code>jdbc:oracle:thin:@tfokeatpdb1234_high?TNS_ADMIN=/db-demo/creds
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="c1">#</span>
+<span class="c1"># Copyright (c) 2018 Oracle and/or its affiliates. All rights reserved.</span>
+<span class="c1">#</span>
+<span class="c1"># Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);</span>
+<span class="c1"># you may not use this file except in compliance with the License.</span>
+<span class="c1"># You may obtain a copy of the License at</span>
+<span class="c1">#</span>
+<span class="c1">#     http://www.apache.org/licenses/LICENSE-2.0</span>
+<span class="c1">#</span>
+<span class="c1"># Unless required by applicable law or agreed to in writing, software</span>
+<span class="c1"># distributed under the License is distributed on an &quot;AS IS&quot; BASIS,</span>
+<span class="c1"># WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span>
+<span class="c1"># See the License for the specific language governing permissions and</span>
+<span class="c1"># limitations under the License.</span>
+<span class="c1">#</span>
+
+<span class="c1"># Application properties. This is the default greeting</span>
+<span class="l l-Scalar l-Scalar-Plain">app.greeting=Hello</span>
+
+<span class="l l-Scalar l-Scalar-Plain"># Microprofile server properties</span>
+<span class="l l-Scalar l-Scalar-Plain">server.port=8080</span>
+<span class="l l-Scalar l-Scalar-Plain">server.host=0.0.0.0</span>
+
+<span class="l l-Scalar l-Scalar-Plain">javax.sql.DataSource.workshopDataSource.dataSourceClassName=oracle.jdbc.pool.OracleDataSource</span>
+<span class="hll"><span class="l l-Scalar l-Scalar-Plain">javax.sql.DataSource.workshopDataSource.dataSource.url=jdbc:oracle:thin:@sampledb_high?TNS_ADMIN=/db-demo/creds</span>
+</span><span class="l l-Scalar l-Scalar-Plain">javax.sql.DataSource.workshopDataSource.maximumPoolSize=5</span>
+<span class="l l-Scalar l-Scalar-Plain">javax.sql.DataSource.workshopDataSource.minimumIdle=2</span>
+
+<span class="l l-Scalar l-Scalar-Plain"># src/main/resources/web in your source tree</span>
+<span class="l l-Scalar l-Scalar-Plain">server.static.classpath.location=/web</span>
+<span class="l l-Scalar l-Scalar-Plain"># default is index.html</span>
+<span class="l l-Scalar l-Scalar-Plain">server.static.classpath.welcome=index.html</span>
+<span class="l l-Scalar l-Scalar-Plain"># static content path - default is &quot;/&quot;</span>
+<span class="l l-Scalar l-Scalar-Plain"># server.static.classpath.context=/static-cp</span>
+</code></pre></div>
+</td></tr></table>
+
+<p>25行目の設定値"javax.sql.DataSource.workshopDataSource.dataSource.url"の値の接続識別子部分"@sampledb_high"をATPのデータベース名に合わせて修正します。<br />
+今回は、ATPデータベース名を"tfOKEATPDB"にしているため、以下のように修正します。</p>
+<div class="highlight"><pre><span></span><code>jdbc:oracle:thin:@tfokeatpdb_high?TNS_ADMIN=/db-demo/creds
 </code></pre></div>
 
+<div class="admonition warning">
+<p class="admonition-title">注意事項: トライアル環境以外の環境をお使いの方へ</p>
+<p>集合ハンズオンなど同一の環境でハンズオンを実施されている方は、前手順でデータベース名が重複しない様に語尾に任意の文字列(名前のイニシャル等)を追加しておりますので、
+そちらのデータベース名に合わせて修正してください。</p>
 </div>
 <p>修正したmanifestをレポジトリにpushします。</p>
 <p><div class="highlight"><pre><span></span><code>git add oke-atp-helidon.yaml
@@ -1283,7 +1349,7 @@ oke-atp-workshopディレクトリに移動します。<br />
 <div class="highlight"><pre><span></span><code>git push
 </code></pre></div></p>
 <h3 id="2-oke">2. OKEクラスタにアプリケーションをデプロイするビルドジョブを構成する<a class="headerlink" href="#2-oke" title="Permanent link">&para;</a></h3>
-<p>DevCSで、「ビルド」に遷移して、「＋ジョブの作成」ボタンをクリックします。</p>
+<p>Visual Builder Studioで、「ビルド」に遷移して、「＋ジョブの作成」ボタンをクリックします。</p>
 <p><img alt="" src="../images/1700.jpg" title="" /></p>
 <p>下記項目を入力して、「作成」ボタンをクリックします。</p>
 <ul>
@@ -1336,11 +1402,15 @@ kubectl get pods
 kubectl describe pods
 </code></pre></div>
 
+<div class="admonition note">
+<p class="admonition-title">リージョン識別子について</p>
+<p>この手順で設定するリージョン識別子については、OKEをプロビジョニングしたリージョンのリージョン識別子を使用してください。</p>
+</div>
 <p><img alt="" src="../images/1790.jpg" title="" /></p>
 <p>「保存」ボタンをクリックします。</p>
 <p><img alt="" src="../images/1800.jpg" title="" /></p>
 <h3 id="3">3.ビルドパイプラインの設定<a class="headerlink" href="#3" title="Permanent link">&para;</a></h3>
-<p>DevCSで、「ビルド」に遷移して、「Pipelines」タブをクリックします。</p>
+<p>Visual Builder Studioで、「ビルド」に遷移して、「Pipelines」タブをクリックします。</p>
 <p><img alt="" src="../images/2006.jpg" title="" /></p>
 <p>「Create Pipeline」ボタンをクリックします。</p>
 <p><img alt="" src="../images/2007.jpg" title="" /></p>
@@ -1357,7 +1427,7 @@ kubectl describe pods
 <p><img alt="" src="../images/2010.jpg" title="" /></p>
 <p>これで、ビルドパイプラインの作成は完了です。</p>
 <h3 id="4">4. ビルドジョブを実行する<a class="headerlink" href="#4" title="Permanent link">&para;</a></h3>
-<p>DevCSで、「ビルド」に遷移して、「JavaDockerOCIR」をクリックします。</p>
+<p>Visual Builder Studioで、「ビルド」に遷移して、「JavaDockerOCIR」をクリックします。</p>
 <p><img alt="" src="../images/2011.jpg" title="" /></p>
 <p>「今すぐビルド」ボタンをクリックします。</p>
 <p><img alt="" src="../images/1810.jpg" title="" /></p>

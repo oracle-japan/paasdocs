@@ -439,8 +439,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../WorkshopGuide100SetupDevCS/" title="必要なソフトウェアのインストール" class="md-nav__link">
-      必要なソフトウェアのインストール
+    <a href="../WorkshopGuide200GatherInformation/" title="ワークショップで利用するアカウント情報の収集" class="md-nav__link">
+      ワークショップで利用するアカウント情報の収集
     </a>
   </li>
 
@@ -451,8 +451,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../WorkshopGuide200GatherInformation/" title="ワークショップで利用するアカウント情報の収集" class="md-nav__link">
-      ワークショップで利用するアカウント情報の収集
+    <a href="../WorkshopGuide100SetupDevCS/" title="Visual Builder Studioのセットアップ" class="md-nav__link">
+      Visual Builder Studioのセットアップ
     </a>
   </li>
 
@@ -1130,8 +1130,14 @@
                 
                 
                 <h1 id="dockerocir">Dockerイメージを作成とOCIRへの登録<a class="headerlink" href="#dockerocir" title="Permanent link">&para;</a></h1>
-<p>このステップでは、DevCS上でJava Webアプリケーション（データソースとしてATPデータベースを使用）のDockerイメージを作成する方法を説明します。</p>
-<p>ここでは<code>aone</code>というアプリケーションを使用してコンテナイメージを作成します。</p>
+<p>このステップでは、Visual Builder Studio上でJava Webアプリケーション（データソースとしてATPデータベースを使用）のDockerイメージを作成する方法を説明します。</p>
+<p>今回は、Oracle JETとHelidonで作成したサンプルアプリケーションを使用してコンテナイメージを作成します。</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Oracle JETは、Oracleが開発するフロントエンドUIを迅速に構築するためのJavaScriptベースのツールキットです。<br />
+Helidonは、Oracleが提供するオープンソースのマイクロサービス・アプリケーションフレームワークです。<br />
+<a href="https://www.oracle.com/technetwork/jp/developer-tools/jet/overview/index.html">Oracle JET</a>と<a href="https://helidon.io/#/">Helidon</a>についての詳細はそれぞれのリンクをご確認ください.</p>
+</div>
 <p>以下手順で実行します。</p>
 <ol>
 <li>OCIRリポジトリへの接続を構成する</li>
@@ -1139,7 +1145,7 @@
 <li>ビルドジョブを実行する</li>
 </ol>
 <h3 id="1-ocir">1. OCIRリポジトリへの接続を構成する<a class="headerlink" href="#1-ocir" title="Permanent link">&para;</a></h3>
-<p>DevCSで「Docker」に移動して、「外部レジストリのリンク」ボタンをクリックします。</p>
+<p>Visual Builder Studioで「Docker」に移動して、「外部レジストリのリンク」ボタンをクリックします。</p>
 <p><img alt="" src="../images/1500.jpg" title="" /></p>
 <p>下記項目を入力して、「作成」ボタンをクリックします。</p>
 <ul>
@@ -1147,7 +1153,7 @@
 <li>レジストリURL：<code>https://&lt;リージョンコード&gt;.ocir.io</code></li>
 <li>説明："OKE ATP"</li>
 <li>認証：<code>基本</code>を選択</li>
-<li>ユーザー名：<code>&lt;オブジェクト・ストレージ・ネームスペース&gt;/oracleidentitycloudservice/&lt;ユーザ名(メールアドレス)&gt;</code></li>
+<li>ユーザー名：<code>&lt;オブジェクト・ストレージ・ネームスペース&gt;/oracleidentitycloudservice/&lt;ユーザ名&gt;</code></li>
 <li>パスワード：認証トークン</li>
 </ul>
 <p>リージョンコードについては、ご自身の環境に合わせて設定してください。今回は"iad"を設定します。</p>
