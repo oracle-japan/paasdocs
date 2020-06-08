@@ -439,8 +439,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../WorkshopGuide100SetupDevCS/" title="必要なソフトウェアのインストール" class="md-nav__link">
-      必要なソフトウェアのインストール
+    <a href="../WorkshopGuide200GatherInformation/" title="ワークショップで利用するアカウント情報の収集" class="md-nav__link">
+      ワークショップで利用するアカウント情報の収集
     </a>
   </li>
 
@@ -451,8 +451,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../WorkshopGuide200GatherInformation/" title="ワークショップで利用するアカウント情報の収集" class="md-nav__link">
-      ワークショップで利用するアカウント情報の収集
+    <a href="../WorkshopGuide100SetupDevCS/" title="Visual Builder Studioのセットアップ" class="md-nav__link">
+      Visual Builder Studioのセットアップ
     </a>
   </li>
 
@@ -1057,19 +1057,20 @@
                 
                 
                 <h1 id="_1">アプリケーションの再デプロイ<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
-<p>例えば、aoneシステムのトップページのイメージを変更してみましょう。</p>
+<p>ここでは、アプリケーションの再デプロイを行います。  </p>
+<p>今回は、トップページのイメージを変更してみましょう。  </p>
 <p>oke-atp-workshopディレクトリに移動します。以下のコマンドを実行し、イメージファイルを更新します。</p>
 <div class="highlight"><pre><span></span><code>cp src/main/resources/web/images/forsale_new2.jpg src/main/resources/web/images/forsale.jpg
 </code></pre></div>
 
-<p>DevCSのリポジトリへCommitします。
+<p>Visual Builder StudioのリポジトリへCommitします。
 <div class="highlight"><pre><span></span><code>git add .
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>git commit -m &quot;トップページのイメージを変更&quot;
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>git push
 </code></pre></div></p>
-<p>DevCSの「ビルド」に移動して、ジョブ"JavaDockerOCIR"のビルドが自動的に開始されます。成功すると、ステータスが<img alt="" src="../images/status_success.jpg" title="" />になります。</p>
+<p>Visual Builder Studioの「ビルド」に移動して、ジョブ"JavaDockerOCIR"のビルドが自動的に開始されます。成功すると、ステータスが<img alt="" src="../images/status_success.jpg" title="" />になります。</p>
 <p><img alt="" src="../images/1842.jpg" title="" /></p>
 <p>次に、ジョブ"OKEDeploy"のビルドが自動的に開始されます。成功すると、ステータスが<img alt="" src="../images/status_success.jpg" title="" />になります。</p>
 <p><img alt="" src="../images/1844.jpg" title="" /></p>

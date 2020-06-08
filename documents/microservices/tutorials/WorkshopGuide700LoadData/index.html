@@ -439,8 +439,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../WorkshopGuide100SetupDevCS/" title="必要なソフトウェアのインストール" class="md-nav__link">
-      必要なソフトウェアのインストール
+    <a href="../WorkshopGuide200GatherInformation/" title="ワークショップで利用するアカウント情報の収集" class="md-nav__link">
+      ワークショップで利用するアカウント情報の収集
     </a>
   </li>
 
@@ -451,8 +451,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../WorkshopGuide200GatherInformation/" title="ワークショップで利用するアカウント情報の収集" class="md-nav__link">
-      ワークショップで利用するアカウント情報の収集
+    <a href="../WorkshopGuide100SetupDevCS/" title="Visual Builder Studioのセットアップ" class="md-nav__link">
+      Visual Builder Studioのセットアップ
     </a>
   </li>
 
@@ -1116,14 +1116,14 @@
                 
                 
                 <h1 id="atp">ATPへのサンプルデータ登録<a class="headerlink" href="#atp" title="Permanent link">&para;</a></h1>
-<p>このステップでは、DevCSのビルド機能（CI/CD）を使用して、いくつかのテーブルを作成し、ATPにサンプルデータを登録します。  </p>
+<p>このステップでは、Visual Builder Studioのビルド機能（CI/CD）を使用して、いくつかのテーブルを作成し、ATPにサンプルデータを登録します。  </p>
 <p>下記手順で実行します。</p>
 <ol>
 <li>ビルドジョブを作成、実行し、データベースオブジェクトを作成する</li>
 <li>SQL Developer Webを介して検証する</li>
 </ol>
 <h3 id="1">1. ビルドジョブを作成、実行し、データベースオブジェクトを作成する<a class="headerlink" href="#1" title="Permanent link">&para;</a></h3>
-<p>DevCSで、「ビルド」に移動し、「＋ジョブを作成」ボタンをクリックします。</p>
+<p>Visual Builder Studioで、「ビルド」に移動し、「＋ジョブを作成」ボタンをクリックします。</p>
 <p><img alt="" src="../images/1300.jpg" title="" /></p>
 <p>下記項目を入力し、「作成」ボタンをクリックします。</p>
 <ul>
@@ -1150,7 +1150,7 @@
 </ul>
 <div class="admonition warning">
 <p class="admonition-title">注意事項: トライアル環境以外の環境をお使いの方へ</p>
-<p>トライアル環境以外の環境をお使いの方は、ATPプロビジョニング時にATPのデータベース名を変更しているかと思います。<br />
+<p>トライアル環境以外の環境をお使いの方は、ATPプロビジョニング時にATPのデータベース名を変更している場合があります。<br />
 その場合は、接続文字列"tfOKEATPDB_HIGH"を変更する必要があります。
 "_HIGH"以前の文字列がデータベース名になっておりますので、ご自身が変更したデータベース名に合わせてください。<br />
 例えば、ATPデータベース名が"tfOKEATPDB1234"の場合は、接続識別子は"tfOKEATPDB1234_HIGH"となります。</p>
@@ -1176,7 +1176,7 @@
 <p>成功すると、ログの最後に"Status:DONE Result:SUCCESSFUL"と表示されます。また、SQL実行の詳細な内容を確認できます。</p>
 <p><img alt="" src="../images/1380.jpg" title="" /></p>
 <p>ビルドマシンのログも確認できます。</p>
-<p>DevCSで、「組織」⇒「仮想マシンのビルド」⇒「VMのビルド」で使用したテンプレートを選択して、右側のメニューアイコンから「ログの表示」を選択します。</p>
+<p>Visual Builder Studioで、「組織」⇒「仮想マシンのビルド」⇒「VMのビルド」で使用したテンプレートを選択して、右側のメニューアイコンから「ログの表示」を選択します。</p>
 <p><img alt="" src="../images/1390.jpg" title="" /></p>
 <p>仮想マシンのログが表示されます。</p>
 <p><img alt="" src="../images/1400.jpg" title="" /></p>

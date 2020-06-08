@@ -439,8 +439,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../WorkshopGuide100SetupDevCS/" title="必要なソフトウェアのインストール" class="md-nav__link">
-      必要なソフトウェアのインストール
+    <a href="../WorkshopGuide200GatherInformation/" title="ワークショップで利用するアカウント情報の収集" class="md-nav__link">
+      ワークショップで利用するアカウント情報の収集
     </a>
   </li>
 
@@ -451,8 +451,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../WorkshopGuide200GatherInformation/" title="ワークショップで利用するアカウント情報の収集" class="md-nav__link">
-      ワークショップで利用するアカウント情報の収集
+    <a href="../WorkshopGuide100SetupDevCS/" title="Visual Builder Studioのセットアップ" class="md-nav__link">
+      Visual Builder Studioのセットアップ
     </a>
   </li>
 
@@ -1157,7 +1157,8 @@
 </ul>
 <div class="admonition warning">
 <p class="admonition-title">注意事項: トライアル環境以外の環境をお使いの方へ</p>
-<p>データベース名は重複できないので、トライアル環境以外の環境をお使いの方は、語尾に任意の文字列(名前のイニシャル等)を追加するなどして重複しない名前にしてください。</p>
+<p>Autonomous Databaseはデータベース名の重複が許容されていません。
+集合ハンズオンなど同一の環境でハンズオンを実施されている方は、データベース名が重複しない様に語尾に任意の文字列(名前のイニシャル等)を追加するなどして重複しない名前にしてください。</p>
 </div>
 <ul>
 <li>
@@ -1234,7 +1235,7 @@
 <div class="highlight"><pre><span></span><code>kubectl create configmap okeatp --from-file<span class="o">=</span>Wallet_tfOKEATPDB
 </code></pre></div>
 
-<p>後続の手順で、DevCSからサンプルデータを登録するためにWalletファイルをDevCSのGitレポジトリに登録します。</p>
+<p>後続の手順で、Visual Builder Studioからサンプルデータを登録するためにWalletファイルをVisual Builder StudioのGitレポジトリに登録します。</p>
 <div class="highlight"><pre><span></span><code>git add Wallet_tfOKEATPDB.zip
 </code></pre></div>
 
