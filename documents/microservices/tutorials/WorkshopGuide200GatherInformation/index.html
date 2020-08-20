@@ -277,19 +277,6 @@
   
 
       
-        
-  
-  
-    <li class="md-tabs__item">
-      
-        <a href="../../../cloud-shell/" class="md-tabs__link">
-          Cloud Shellについて
-        </a>
-      
-    </li>
-  
-
-      
     </ul>
   </div>
 </nav>
@@ -1174,42 +1161,6 @@
   </li>
 
     
-      
-      
-      
-
-
-  <li class="md-nav__item md-nav__item--nested">
-    
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-8" type="checkbox" id="nav-8">
-    
-    <label class="md-nav__link" for="nav-8">
-      Cloud Shellについて
-    </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-8">
-        Cloud Shellについて
-      </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../../cloud-shell/" title="CLI環境にCloud Shellを利用する" class="md-nav__link">
-      CLI環境にCloud Shellを利用する
-    </a>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
-
-    
   </ul>
 </nav>
                   </div>
@@ -1367,11 +1318,12 @@ APIキーに表示されているフィンガープリントを確認します�
 <p><img alt="" src="../images/1066.jpg" title="" /></p>
 <h4 id="6-api">6. API秘密鍵<a class="headerlink" href="#6-api" title="Permanent link">&para;</a></h4>
 <p>APIキー秘密鍵は<a href="../../../containers/common/#_4">ハンズオン共通手順</a>の手順により作成しています。<br />
-<a href="../../../containers/common/#_4">ハンズオン共通手順</a>にて作成したクライアント環境にログインし、ホームディレクトリ(<code>/home/opc</code>)から以下のコマンドを実行します。</p>
-<div class="codehilite"><pre><span></span><code><span class="err">cat .oci/oci_api_key.pem</span>
-</code></pre></div>
-
-
+<a href="../../../containers/common/#3-2-cloud-shell">Cloud Shellを起動</a>し、ホームディレクトリ(<code>/home/opc</code>)から以下のコマンドを実行します。</p>
+<div class="admonition note">
+<p class="admonition-title">クライアント環境をご利用の方へ</p>
+<p>別途クライアント環境を作成された方は作成した環境にログインし、ホームディレクトリ(<code>/home/opc</code>)からコマンドを実行してください。</p>
+<p>cat .oci/oci_api_key.pem</p>
+</div>
 <p>以下のような内容が表示されます。</p>
 <div class="codehilite"><pre><span></span><code><span class="err">-----BEGIN RSA PRIVATE KEY-----</span>
 <span class="err">MIIEowIBAAKCAQEAtql2nZ3kmjXlE7MKgqWW6bCQCDPbcgF8h7jnpEgznRMXga1n</span>

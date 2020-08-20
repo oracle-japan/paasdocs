@@ -277,19 +277,6 @@
   
 
       
-        
-  
-  
-    <li class="md-tabs__item">
-      
-        <a href="../../../cloud-shell/" class="md-tabs__link">
-          Cloud Shellについて
-        </a>
-      
-    </li>
-  
-
-      
     </ul>
   </div>
 </nav>
@@ -1133,42 +1120,6 @@
   </li>
 
     
-      
-      
-      
-
-
-  <li class="md-nav__item md-nav__item--nested">
-    
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-8" type="checkbox" id="nav-8">
-    
-    <label class="md-nav__link" for="nav-8">
-      Cloud Shellについて
-    </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-8">
-        Cloud Shellについて
-      </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../../cloud-shell/" title="CLI環境にCloud Shellを利用する" class="md-nav__link">
-      CLI環境にCloud Shellを利用する
-    </a>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
-
-    
   </ul>
 </nav>
                   </div>
@@ -1306,7 +1257,11 @@
 <p>Walletファイルについては<a href="https://docs.oracle.com/cd/E83857_01/paas/atp-cloud/atpug/connect-jdbc-thin-wallet.html#GUID-5ED3C08C-1A84-4E5A-B07A-A5114951AA9E">マニュアル</a>をご確認ください。
 なお、Walletファイルはzipファイルです。</p>
 </div>
-<p><a href="../../../containers/common/#_4">ハンズオン共通手順</a>で作成したコンピュートインスタンスにログインします。</p>
+<p><a href="../../../containers/common/#3-2-cloud-shell">Cloud Shellを起動</a>します。</p>
+<div class="admonition note">
+<p class="admonition-title">クライアント環境をご利用の方へ</p>
+<p>別途クライアント環境を作成された方は作成した環境にログインし、ホームディレクトリ(<code>/home/opc</code>)からコマンドを実行してください。</p>
+</div>
 <p>oke_atp_workshopディレクトリに移動します。</p>
 <div class="codehilite"><pre><span></span><code><span class="err">cd oke_atp_workshop</span>
 </code></pre></div>
@@ -1333,6 +1288,14 @@
 <div class="highlight"><pre><span></span><code>kubectl create configmap okeatp --from-file<span class="o">=</span>Wallet_tfOKEATPDB
 </code></pre></div>
 
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>誤って作成してしまった場合等に削除する場合は以下のコマンドを実行。</p>
+<div class="codehilite"><pre><span></span><code><span class="err">kubectl delete configmap &lt;configmap名&gt;</span>
+</code></pre></div>
+
+
+</div>
 <p>後続の手順で、Visual Builder Studioからサンプルデータを登録するためにWalletファイルをVisual Builder StudioのGitレポジトリに登録します。</p>
 <div class="highlight"><pre><span></span><code>git add Wallet_tfOKEATPDB.zip
 </code></pre></div>
@@ -1382,6 +1345,14 @@
 </code></pre></div>
 
 
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>誤って作成してしまった場合等に削除する場合は以下のコマンドを実行。</p>
+<div class="codehilite"><pre><span></span><code><span class="err">kubectl delete secret &lt;secret名&gt;</span>
+</code></pre></div>
+
+
+</div>
 <p>以上で、ATPのユーザとパスワードの設定は完了です。</p>
 <p>続いて<a href="../WorkshopGuide700LoadData/">ATPへのサンプルデータ登録</a>に進んでください。</p>
                 

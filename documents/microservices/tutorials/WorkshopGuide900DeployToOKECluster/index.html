@@ -277,19 +277,6 @@
   
 
       
-        
-  
-  
-    <li class="md-tabs__item">
-      
-        <a href="../../../cloud-shell/" class="md-tabs__link">
-          Cloud Shellについて
-        </a>
-      
-    </li>
-  
-
-      
     </ul>
   </div>
 </nav>
@@ -1147,42 +1134,6 @@
   </li>
 
     
-      
-      
-      
-
-
-  <li class="md-nav__item md-nav__item--nested">
-    
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-8" type="checkbox" id="nav-8">
-    
-    <label class="md-nav__link" for="nav-8">
-      Cloud Shellについて
-    </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-8">
-        Cloud Shellについて
-      </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../../cloud-shell/" title="CLI環境にCloud Shellを利用する" class="md-nav__link">
-      CLI環境にCloud Shellを利用する
-    </a>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
-
-    
   </ul>
 </nav>
                   </div>
@@ -1267,8 +1218,12 @@
 <h3 id="1-yaml">1. yamlファイルの編集<a class="headerlink" href="#1-yaml" title="Permanent link">&para;</a></h3>
 <p>アプリケーションのデプロイを行うにあたって、<a href="../WorkshopGuide800CreateImageToOCIR/">Dockerイメージを作成とOCIRへの登録</a>にて
 登録したイメージをyamlに設定します。<br />
-<a href="../../../containers/common/#_4">ハンズオン共通手順</a>で作成したコンピュートインスタンスにログインします。
-oke-atp-workshopディレクトリに移動します。<br />
+<a href="../../../containers/common/#3-2-cloud-shell">Cloud Shellを起動</a>します。</p>
+<div class="admonition note">
+<p class="admonition-title">クライアント環境をご利用の方へ</p>
+<p>別途クライアント環境を作成された方は作成した環境にログインし、ホームディレクトリ(<code>/home/opc</code>)からコマンドを実行してください。</p>
+</div>
+<p>oke-atp-workshopディレクトリに移動します。<br />
 直下にある"oke-atp-helidon.yaml"をviなどで開きます。</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
