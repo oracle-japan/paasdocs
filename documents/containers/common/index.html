@@ -450,15 +450,8 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#3-1-oci" class="md-nav__link">
-    3-1. OCIコンソールにアクセスする
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#3-2-cloud-shell" class="md-nav__link">
-    3-2. Cloud Shellを起動する
+  <a href="#3-1-cloud-shell" class="md-nav__link">
+    3-1. Cloud Shellを起動する
   </a>
   
 </li>
@@ -1373,15 +1366,8 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#3-1-oci" class="md-nav__link">
-    3-1. OCIコンソールにアクセスする
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#3-2-cloud-shell" class="md-nav__link">
-    3-2. Cloud Shellを起動する
+  <a href="#3-1-cloud-shell" class="md-nav__link">
+    3-1. Cloud Shellを起動する
   </a>
   
 </li>
@@ -1578,7 +1564,15 @@
 <p>Oracle Cloud Infrastructure には、テナントの内部を仕切る「コンパートメント」という区画を作成し、その中にリソースを配置したり、コンパートメントに「ポリシー」を割り当てることを通じて権限を設定したりすることができます。
 詳細は<a href="https://docs.oracle.com/cd/E97706_01/Content/Identity/Concepts/overview.htm">こちら</a>をご確認ください。</p>
 </div>
-<p>はじめに、OCIコンソール画面左上のハンバーガーメニューを展開し、<code>アイデンティティ</code>⇒<code>ポリシー</code>を選択します。</p>
+<p>OCIコンソールにブラウザからアクセスします。お持ちのクラウドアカウントを使って<a href="https://cloud.oracle.com/ja_JP/home">サインイン</a>します。</p>
+<p><img alt="" src="images/01-01-1.png" /></p>
+<ul>
+<li>1．Sign Inをクリックします</li>
+<li>2．クラウドアカウント名（テナント名）を入力します</li>
+<li>3．「Next」をクリックします</li>
+<li>4．クラウドユーザー名とパスワードを入力して「サイン・イン」をクリックします</li>
+</ul>
+<p>ログインできたら、OCIコンソール画面左上のハンバーガーメニューを展開し、<code>アイデンティティ</code>⇒<code>ポリシー</code>を選択します。</p>
 <p><img alt="" src="images/01-01-policy.png" /></p>
 <p>任意のコンパートメントを選択し、<code>ポリシーの作成</code>ボタンをクリックします。</p>
 <p><img alt="" src="images/01-02-policy.png" /></p>
@@ -1649,16 +1643,7 @@
 <h2 id="3-clicloud-shell">3 . CLI実行環境(Cloud Shell)の準備<a class="headerlink" href="#3-clicloud-shell" title="Permanent link">&para;</a></h2>
 <p>つぎにOKEクラスターなどのCLIを実行するための環境を準備します。</p>
 <p><img alt="" src="images/01-01-02.png" /></p>
-<h3 id="3-1-oci">3-1. OCIコンソールにアクセスする<a class="headerlink" href="#3-1-oci" title="Permanent link">&para;</a></h3>
-<p>OCIコンソールにブラウザからアクセスします。お持ちのクラウドアカウントを使って<a href="https://cloud.oracle.com/ja_JP/home">サインイン</a>します。</p>
-<p><img alt="" src="images/01-01-1.png" /></p>
-<ul>
-<li>1．Sign Inをクリックします</li>
-<li>2．クラウドアカウント名（テナント名）を入力します</li>
-<li>3．「Next」をクリックします</li>
-<li>4．クラウドユーザー名とパスワードを入力して「サイン・イン」をクリックします</li>
-</ul>
-<h3 id="3-2-cloud-shell">3-2. Cloud Shellを起動する<a class="headerlink" href="#3-2-cloud-shell" title="Permanent link">&para;</a></h3>
+<h3 id="3-1-cloud-shell">3-1. Cloud Shellを起動する<a class="headerlink" href="#3-1-cloud-shell" title="Permanent link">&para;</a></h3>
 <p>本ハンズオンではOKEクラスターを操作するいくつかのCLIを実行するための環境としてCloud Shellと呼ばれるサービスを使用します。
 Cloud ShellはOracle CloudコンソールからアクセスできるWebブラウザベースのコンソールです。
 Cloud Shellには、OCI CLIをはじめとして、次のようないくつかの便利なツールおよびユーティリティの現在のバージョンがインストールされています。
