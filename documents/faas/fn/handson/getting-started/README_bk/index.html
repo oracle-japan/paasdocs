@@ -1225,9 +1225,8 @@ https://github.com/fnproject/cli/releases/download/0.5.82/fn.exe</li>
 <h4 id="fn-server">Fn Serverのセットアップ<a class="headerlink" href="#fn-server" title="Permanent link">&para;</a></h4>
 <p>Fn Projectsでは、Docker上のコンテナでコードを実行します<br />
 - Windows環境では、以下のコマンドを実行しDocker上にFn Serverを起動します。  </p>
-<div class="codehilite"><pre><span></span><code><span class="err">docker run --rm -i --name functions -v /var/run/docker.sock:/var/run/docker.sock -p 8080:8080 -v /mnt/docker/data:/app/data -v /mnt/docker/iofs:/iofs -e FN_IOFS_DOCKER_PATH=/mnt/docker/iofs -e FN_IOFS_PATH=/iofs fnproject/functions`</span>
+<div class="codehilite"><pre><span></span><code><span class="n">docker</span> <span class="n">run</span> <span class="o">--</span><span class="n">rm</span> <span class="o">-</span><span class="n">i</span> <span class="o">--</span><span class="n">name</span> <span class="n">functions</span> <span class="o">-</span><span class="n">v</span> <span class="o">/</span><span class="k">var</span><span class="o">/</span><span class="n">run</span><span class="o">/</span><span class="n">docker</span><span class="o">.</span><span class="n">sock</span><span class="p">:</span><span class="o">/</span><span class="k">var</span><span class="o">/</span><span class="n">run</span><span class="o">/</span><span class="n">docker</span><span class="o">.</span><span class="n">sock</span> <span class="o">-</span><span class="n">p</span> <span class="mi">8080</span><span class="p">:</span><span class="mi">8080</span> <span class="o">-</span><span class="n">v</span> <span class="o">/</span><span class="n">mnt</span><span class="o">/</span><span class="n">docker</span><span class="o">/</span><span class="n">data</span><span class="p">:</span><span class="o">/</span><span class="n">app</span><span class="o">/</span><span class="n">data</span> <span class="o">-</span><span class="n">v</span> <span class="o">/</span><span class="n">mnt</span><span class="o">/</span><span class="n">docker</span><span class="o">/</span><span class="n">iofs</span><span class="p">:</span><span class="o">/</span><span class="n">iofs</span> <span class="o">-</span><span class="n">e</span> <span class="n">FN_IOFS_DOCKER_PATH</span><span class="o">=/</span><span class="n">mnt</span><span class="o">/</span><span class="n">docker</span><span class="o">/</span><span class="n">iofs</span> <span class="o">-</span><span class="n">e</span> <span class="n">FN_IOFS_PATH</span><span class="o">=/</span><span class="n">iofs</span> <span class="n">fnproject</span><span class="o">/</span><span class="n">functions</span><span class="err">`</span>
 </code></pre></div>
-
 
 <p>※linux環境では<code>fn start</code>のみでServerの起動ができます</p>
 <h4 id="_3">セットアップの確認<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h4>
@@ -1401,11 +1400,9 @@ Trigger Endpoint: http://localhost:8080/t/java-app/javafn</p>
 <div class="codehilite"><pre><span></span><code><span class="err">curl http://localhost:8080/t/java-app/javafn</span>
 </code></pre></div>
 
-
 <p>fn invoke  </p>
 <div class="codehilite"><pre><span></span><code><span class="err">fn invoke java-app javafn</span>
 </code></pre></div>
-
 
 <ul>
 <li>

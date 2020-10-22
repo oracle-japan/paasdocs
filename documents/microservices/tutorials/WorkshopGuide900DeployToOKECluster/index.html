@@ -1300,7 +1300,6 @@
 <span class="l l-Scalar l-Scalar-Plain">(以下略)</span>
 </code></pre></div>
 </td></tr></table>
-
 <p>35行目にpullしてくるイメージのレジストリが設定されています。<br />
 この行を<a href="../WorkshopGuide800CreateImageToOCIR/">Dockerイメージを作成とOCIRへの登録</a>にて登録したイメージに設定します。<br />
 &lt;リージョンコード&gt;、&lt;オブジェクト・ストレージ・ネームスペース&gt;の部分をご自身の値に書き換えてください。  </p>
@@ -1308,12 +1307,10 @@
 また、イメージ名については、<a href="../WorkshopGuide800CreateImageToOCIR/#2-docker">OCIRリポジトリへの接続を構成する</a>にて指定したものになります。</p>
 <div class="highlight"><pre><span></span><code><span class="nt">image</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt;リージョンコード&gt;.ocir.io/&lt;オブジェクト・ストレージ・ネームスペース&gt;/workshop/&lt;ご自身が付与したイメージ名&gt;:latest</span>
 </code></pre></div>
-
 <p>次に、サンプルアプリケーションの設定ファイルに定義している接続識別子を変更します。  </p>
 <p>サンプルアプリケーションの設定ファイルを開きます。</p>
 <div class="highlight"><pre><span></span><code>vim src/main/resources/META-INF/microprofile-config.properties 
 </code></pre></div>
-
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -1383,12 +1380,10 @@
 <span class="l l-Scalar l-Scalar-Plain"># server.static.classpath.context=/static-cp</span>
 </code></pre></div>
 </td></tr></table>
-
 <p>25行目の設定値"javax.sql.DataSource.workshopDataSource.dataSource.url"の値の接続識別子部分"@sampledb_high"をATPのデータベース名に合わせて修正します。<br />
 今回は、ATPデータベース名を"tfOKEATPDB"にしているため、以下のように修正します。</p>
 <div class="highlight"><pre><span></span><code>jdbc:oracle:thin:@tfokeatpdb_high?TNS_ADMIN=/db-demo/creds
 </code></pre></div>
-
 <div class="admonition warning">
 <p class="admonition-title">注意事項: トライアル環境以外の環境をお使いの方へ</p>
 <p>集合ハンズオンなど同一の環境でハンズオンを実施されている方は、前手順でデータベース名が重複しない様に語尾に任意の文字列(名前のイニシャル等)を追加しておりますので、
@@ -1456,7 +1451,6 @@ kubectl get services oke-atp-helidon
 kubectl get pods
 kubectl describe pods
 </code></pre></div>
-
 <div class="admonition note">
 <p class="admonition-title">リージョン識別子について</p>
 <p>この手順で設定するリージョン識別子については、OKEをプロビジョニングしたリージョンのリージョン識別子を使用してください。</p>
@@ -1496,7 +1490,6 @@ kubectl describe pods
 <div class="highlight"><pre><span></span><code>NAME        STATUS   ROLES   AGE   VERSION   INTERNAL-IP   EXTERNAL-IP       OS-IMAGE                  KERNEL-VERSION                   CONTAINER-RUNTIME
 10.0.24.2   Ready    node    1d    v1.13.5   10.0.24.2     xxx.xxx.xxx.xxx   Oracle Linux Server 7.6   4.14.35-1902.2.0.el7uek.x86_64   docker://18.9.1
 </code></pre></div>
-
 <p>Webブラウザを起動し、<code>http://パブリックIP</code>にアクセスしてみましょう。</p>
 <p>Webアプリケーションが表示されたら成功です。</p>
 <p><img alt="" src="../images/1840.jpg" title="" /></p>

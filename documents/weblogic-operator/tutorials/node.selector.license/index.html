@@ -1244,7 +1244,6 @@ NAME             STATUS    ROLES     AGE       VERSION
 130.61.110.174   Ready     node      11d       v1.11.5
 130.61.52.240    Ready     node      11d       v1.11.5
 </code></pre></div>
-
 <p>OKEの場合、ノード名はパブリックIPアドレスやサブネットのCIDRブロックの最初のIPアドレスになることがあります。但し、明確にはノードを特定するユニークな文字列です。</p>
 <p><code>kubectl get pod -n sample-domain1-ns -o wide</code> を使い、Pod情報の詳細から現在のPodの配置をチェックします。</p>
 <div class="highlight"><pre><span></span><code>$ kubectl get pod -n sample-domain1-ns -o wide
@@ -1254,7 +1253,6 @@ sample-domain1-managed-server1   1/1       Running   0          1m        10.244
 sample-domain1-managed-server2   1/1       Running   0          1m        10.244.0.10   130.61.110.174   &lt;none&gt;
 sample-domain1-managed-server3   1/1       Running   0          1m        10.244.2.34   130.61.52.240     &lt;none&gt;
 </code></pre></div>
-
 <p>Kubernetesの結果から3つの管理対象サーバが2つのワーカー・ノードに配置されていることが確認できます。このシナリオではすべてのPodを移動する1つのノードを選択します。</p>
 <h6 id="_1">ラベルの設定<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h6>
 <p>今回はライセンスされたノードを <code>130.61.110.174</code> とします。</p>
@@ -1262,7 +1260,6 @@ sample-domain1-managed-server3   1/1       Running   0          1m        10.244
 <div class="highlight"><pre><span></span><code>$ kubectl label nodes 130.61.110.174 licensed-for-weblogic=true
 node/130.61.110.174 labeled
 </code></pre></div>
-
 <h6 id="_2">ドメイン・リソース定義の変更<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h6>
 <p>定義を変更する前に、一度ドメイン・リソース定義を削除します。
 以下のコマンドを実行してください。
@@ -1296,12 +1293,10 @@ sample-domain1-managed-server3   1/1       Running   0          4h        10.244
 <div class="highlight"><pre><span></span><code>$ kubectl label nodes 130.61.110.174 licensed-for-weblogic-
 node/130.61.110.174 labeled
 </code></pre></div>
-
 <p><code>domain.yaml</code> 内のノード配置の記述を削除、またはコメントアウトして適用してください。</p>
 <div class="highlight"><pre><span></span><code>$ kubectl apply -f /u01/domain.yaml
 domain.weblogic.oracle/sample-domain1 configured
 </code></pre></div>
-
 <p>Podはスケジューラの決定に基づいて再配置/再起動されます。</p>
 <p>以上で、WebLogic Operatorのハンズオンは終わりです。お疲れ様でした。</p>
                 

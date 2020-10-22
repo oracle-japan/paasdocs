@@ -1484,7 +1484,6 @@
 <div class="codehilite"><pre><span></span><code><span class="err">sudo apt-get update</span>
 </code></pre></div>
 
-
 <p>次に事前に必要なパッケージの導入を行うために以下のコマンドを実行します。</p>
 <div class="codehilite"><pre><span></span><code><span class="err">sudo apt-get install -y \</span>
 <span class="err">apt-transport-https \</span>
@@ -1493,16 +1492,13 @@
 <span class="err">software-properties-common</span>
 </code></pre></div>
 
-
 <p>GPG公開鍵のインストールを行うために以下のコマンドを実行します。</p>
-<div class="codehilite"><pre><span></span><code><span class="err">curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -</span>
+<div class="codehilite"><pre><span></span><code><span class="n">curl</span> <span class="o">-</span><span class="n">fsSL</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">download</span><span class="o">.</span><span class="n">docker</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">linux</span><span class="o">/</span><span class="n">ubuntu</span><span class="o">/</span><span class="n">gpg</span> <span class="o">|</span> <span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">key</span> <span class="n">add</span> <span class="o">-</span>
 </code></pre></div>
-
 
 <p>GPG公開鍵がインストールされたことを確認するために以下のコマンドを実行します。</p>
 <div class="codehilite"><pre><span></span><code><span class="err">sudo apt-key fingerprint 0EBFCD88</span>
 </code></pre></div>
-
 
 <p>以下のように表示されれば、GPG公開鍵がインストールされています。</p>
 <div class="codehilite"><pre><span></span><code><span class="n">pub</span><span class="w">   </span><span class="n">rsa4096</span><span class="w"> </span><span class="mi">2017</span><span class="o">-</span><span class="mi">02</span><span class="o">-</span><span class="mi">22</span><span class="w"> </span><span class="o">[</span><span class="n">SCEA</span><span class="o">]</span><span class="w"></span>
@@ -1511,55 +1507,48 @@
 <span class="n">sub</span><span class="w">   </span><span class="n">rsa4096</span><span class="w"> </span><span class="mi">2017</span><span class="o">-</span><span class="mi">02</span><span class="o">-</span><span class="mi">22</span><span class="w"> </span><span class="o">[</span><span class="n">S</span><span class="o">]</span><span class="w"></span>
 </code></pre></div>
 
-
 <p>リポジトリの追加を行うために以下のコマンドを実行します。</p>
-<div class="codehilite"><pre><span></span><code><span class="err"> sudo add-apt-repository \</span>
-<span class="err">    &quot;deb [arch=amd64] https://download.docker.com/linux/ubuntu \</span>
-<span class="err">    $(lsb_release -cs) \</span>
-<span class="err">    stable&quot;</span>
+<div class="codehilite"><pre><span></span><code> <span class="n">sudo</span> <span class="n">add</span><span class="o">-</span><span class="n">apt</span><span class="o">-</span><span class="n">repository</span> \
+    <span class="s2">&quot;deb [arch=amd64] https://download.docker.com/linux/ubuntu </span><span class="se">\</span>
+<span class="s2">    $(lsb_release -cs) </span><span class="se">\</span>
+<span class="s2">    stable&quot;</span>
 </code></pre></div>
-
 
 <p>再度、パッケージインデックスを更新します。</p>
 <div class="codehilite"><pre><span></span><code><span class="err">sudo apt-get update</span>
 </code></pre></div>
 
-
 <p>インストール可能なDockerバージョンをチェックします。</p>
 <div class="codehilite"><pre><span></span><code><span class="err">apt-cache madison docker-ce</span>
 </code></pre></div>
 
-
 <p>以下のように表示されます。本ハンズオンでは、"18.03.1"を使用します。</p>
-<div class="codehilite"><pre><span></span><code><span class="err">docker-ce | 5:19.03.1~3-0~ubuntu-bionic | https://download.docker.com/linux/ubuntu bionic/stable amd64 Packages</span>
-<span class="err">docker-ce | 5:19.03.0~3-0~ubuntu-bionic | https://download.docker.com/linux/ubuntu bionic/stable amd64 Packages</span>
-<span class="err">docker-ce | 5:18.09.8~3-0~ubuntu-bionic | https://download.docker.com/linux/ubuntu bionic/stable amd64 Packages</span>
-<span class="err">docker-ce | 5:18.09.7~3-0~ubuntu-bionic | https://download.docker.com/linux/ubuntu bionic/stable amd64 Packages</span>
-<span class="err">docker-ce | 5:18.09.6~3-0~ubuntu-bionic | https://download.docker.com/linux/ubuntu bionic/stable amd64 Packages</span>
-<span class="err">docker-ce | 5:18.09.5~3-0~ubuntu-bionic | https://download.docker.com/linux/ubuntu bionic/stable amd64 Packages</span>
-<span class="err">docker-ce | 5:18.09.4~3-0~ubuntu-bionic | https://download.docker.com/linux/ubuntu bionic/stable amd64 Packages</span>
-<span class="err">docker-ce | 5:18.09.3~3-0~ubuntu-bionic | https://download.docker.com/linux/ubuntu bionic/stable amd64 Packages</span>
-<span class="err">docker-ce | 5:18.09.2~3-0~ubuntu-bionic | https://download.docker.com/linux/ubuntu bionic/stable amd64 Packages</span>
-<span class="err">docker-ce | 5:18.09.1~3-0~ubuntu-bionic | https://download.docker.com/linux/ubuntu bionic/stable amd64 Packages</span>
-<span class="err">docker-ce | 5:18.09.0~3-0~ubuntu-bionic | https://download.docker.com/linux/ubuntu bionic/stable amd64 Packages</span>
-<span class="err">docker-ce | 18.06.3~ce~3-0~ubuntu | https://download.docker.com/linux/ubuntu bionic/stable amd64 Packages</span>
-<span class="err">docker-ce | 18.06.2~ce~3-0~ubuntu | https://download.docker.com/linux/ubuntu bionic/stable amd64 Packages</span>
-<span class="err">docker-ce | 18.06.1~ce~3-0~ubuntu | https://download.docker.com/linux/ubuntu bionic/stable amd64 Packages</span>
-<span class="err">docker-ce | 18.06.0~ce~3-0~ubuntu | https://download.docker.com/linux/ubuntu bionic/stable amd64 Packages</span>
-<span class="err">docker-ce | 18.03.1~ce~3-0~ubuntu | https://download.docker.com/linux/ubuntu bionic/stable amd64 Packages</span>
+<div class="codehilite"><pre><span></span><code><span class="n">docker</span><span class="o">-</span><span class="n">ce</span> <span class="o">|</span> <span class="mi">5</span><span class="p">:</span><span class="mf">19.03</span><span class="o">.</span><span class="mi">1</span><span class="o">~</span><span class="mi">3</span><span class="o">-</span><span class="mi">0</span><span class="o">~</span><span class="n">ubuntu</span><span class="o">-</span><span class="n">bionic</span> <span class="o">|</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">download</span><span class="o">.</span><span class="n">docker</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">linux</span><span class="o">/</span><span class="n">ubuntu</span> <span class="n">bionic</span><span class="o">/</span><span class="n">stable</span> <span class="n">amd64</span> <span class="n">Packages</span>
+<span class="n">docker</span><span class="o">-</span><span class="n">ce</span> <span class="o">|</span> <span class="mi">5</span><span class="p">:</span><span class="mf">19.03</span><span class="o">.</span><span class="mi">0</span><span class="o">~</span><span class="mi">3</span><span class="o">-</span><span class="mi">0</span><span class="o">~</span><span class="n">ubuntu</span><span class="o">-</span><span class="n">bionic</span> <span class="o">|</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">download</span><span class="o">.</span><span class="n">docker</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">linux</span><span class="o">/</span><span class="n">ubuntu</span> <span class="n">bionic</span><span class="o">/</span><span class="n">stable</span> <span class="n">amd64</span> <span class="n">Packages</span>
+<span class="n">docker</span><span class="o">-</span><span class="n">ce</span> <span class="o">|</span> <span class="mi">5</span><span class="p">:</span><span class="mf">18.09</span><span class="o">.</span><span class="mi">8</span><span class="o">~</span><span class="mi">3</span><span class="o">-</span><span class="mi">0</span><span class="o">~</span><span class="n">ubuntu</span><span class="o">-</span><span class="n">bionic</span> <span class="o">|</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">download</span><span class="o">.</span><span class="n">docker</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">linux</span><span class="o">/</span><span class="n">ubuntu</span> <span class="n">bionic</span><span class="o">/</span><span class="n">stable</span> <span class="n">amd64</span> <span class="n">Packages</span>
+<span class="n">docker</span><span class="o">-</span><span class="n">ce</span> <span class="o">|</span> <span class="mi">5</span><span class="p">:</span><span class="mf">18.09</span><span class="o">.</span><span class="mi">7</span><span class="o">~</span><span class="mi">3</span><span class="o">-</span><span class="mi">0</span><span class="o">~</span><span class="n">ubuntu</span><span class="o">-</span><span class="n">bionic</span> <span class="o">|</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">download</span><span class="o">.</span><span class="n">docker</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">linux</span><span class="o">/</span><span class="n">ubuntu</span> <span class="n">bionic</span><span class="o">/</span><span class="n">stable</span> <span class="n">amd64</span> <span class="n">Packages</span>
+<span class="n">docker</span><span class="o">-</span><span class="n">ce</span> <span class="o">|</span> <span class="mi">5</span><span class="p">:</span><span class="mf">18.09</span><span class="o">.</span><span class="mi">6</span><span class="o">~</span><span class="mi">3</span><span class="o">-</span><span class="mi">0</span><span class="o">~</span><span class="n">ubuntu</span><span class="o">-</span><span class="n">bionic</span> <span class="o">|</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">download</span><span class="o">.</span><span class="n">docker</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">linux</span><span class="o">/</span><span class="n">ubuntu</span> <span class="n">bionic</span><span class="o">/</span><span class="n">stable</span> <span class="n">amd64</span> <span class="n">Packages</span>
+<span class="n">docker</span><span class="o">-</span><span class="n">ce</span> <span class="o">|</span> <span class="mi">5</span><span class="p">:</span><span class="mf">18.09</span><span class="o">.</span><span class="mi">5</span><span class="o">~</span><span class="mi">3</span><span class="o">-</span><span class="mi">0</span><span class="o">~</span><span class="n">ubuntu</span><span class="o">-</span><span class="n">bionic</span> <span class="o">|</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">download</span><span class="o">.</span><span class="n">docker</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">linux</span><span class="o">/</span><span class="n">ubuntu</span> <span class="n">bionic</span><span class="o">/</span><span class="n">stable</span> <span class="n">amd64</span> <span class="n">Packages</span>
+<span class="n">docker</span><span class="o">-</span><span class="n">ce</span> <span class="o">|</span> <span class="mi">5</span><span class="p">:</span><span class="mf">18.09</span><span class="o">.</span><span class="mi">4</span><span class="o">~</span><span class="mi">3</span><span class="o">-</span><span class="mi">0</span><span class="o">~</span><span class="n">ubuntu</span><span class="o">-</span><span class="n">bionic</span> <span class="o">|</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">download</span><span class="o">.</span><span class="n">docker</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">linux</span><span class="o">/</span><span class="n">ubuntu</span> <span class="n">bionic</span><span class="o">/</span><span class="n">stable</span> <span class="n">amd64</span> <span class="n">Packages</span>
+<span class="n">docker</span><span class="o">-</span><span class="n">ce</span> <span class="o">|</span> <span class="mi">5</span><span class="p">:</span><span class="mf">18.09</span><span class="o">.</span><span class="mi">3</span><span class="o">~</span><span class="mi">3</span><span class="o">-</span><span class="mi">0</span><span class="o">~</span><span class="n">ubuntu</span><span class="o">-</span><span class="n">bionic</span> <span class="o">|</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">download</span><span class="o">.</span><span class="n">docker</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">linux</span><span class="o">/</span><span class="n">ubuntu</span> <span class="n">bionic</span><span class="o">/</span><span class="n">stable</span> <span class="n">amd64</span> <span class="n">Packages</span>
+<span class="n">docker</span><span class="o">-</span><span class="n">ce</span> <span class="o">|</span> <span class="mi">5</span><span class="p">:</span><span class="mf">18.09</span><span class="o">.</span><span class="mi">2</span><span class="o">~</span><span class="mi">3</span><span class="o">-</span><span class="mi">0</span><span class="o">~</span><span class="n">ubuntu</span><span class="o">-</span><span class="n">bionic</span> <span class="o">|</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">download</span><span class="o">.</span><span class="n">docker</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">linux</span><span class="o">/</span><span class="n">ubuntu</span> <span class="n">bionic</span><span class="o">/</span><span class="n">stable</span> <span class="n">amd64</span> <span class="n">Packages</span>
+<span class="n">docker</span><span class="o">-</span><span class="n">ce</span> <span class="o">|</span> <span class="mi">5</span><span class="p">:</span><span class="mf">18.09</span><span class="o">.</span><span class="mi">1</span><span class="o">~</span><span class="mi">3</span><span class="o">-</span><span class="mi">0</span><span class="o">~</span><span class="n">ubuntu</span><span class="o">-</span><span class="n">bionic</span> <span class="o">|</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">download</span><span class="o">.</span><span class="n">docker</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">linux</span><span class="o">/</span><span class="n">ubuntu</span> <span class="n">bionic</span><span class="o">/</span><span class="n">stable</span> <span class="n">amd64</span> <span class="n">Packages</span>
+<span class="n">docker</span><span class="o">-</span><span class="n">ce</span> <span class="o">|</span> <span class="mi">5</span><span class="p">:</span><span class="mf">18.09</span><span class="o">.</span><span class="mi">0</span><span class="o">~</span><span class="mi">3</span><span class="o">-</span><span class="mi">0</span><span class="o">~</span><span class="n">ubuntu</span><span class="o">-</span><span class="n">bionic</span> <span class="o">|</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">download</span><span class="o">.</span><span class="n">docker</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">linux</span><span class="o">/</span><span class="n">ubuntu</span> <span class="n">bionic</span><span class="o">/</span><span class="n">stable</span> <span class="n">amd64</span> <span class="n">Packages</span>
+<span class="n">docker</span><span class="o">-</span><span class="n">ce</span> <span class="o">|</span> <span class="mf">18.06</span><span class="o">.</span><span class="mi">3</span><span class="o">~</span><span class="n">ce</span><span class="o">~</span><span class="mi">3</span><span class="o">-</span><span class="mi">0</span><span class="o">~</span><span class="n">ubuntu</span> <span class="o">|</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">download</span><span class="o">.</span><span class="n">docker</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">linux</span><span class="o">/</span><span class="n">ubuntu</span> <span class="n">bionic</span><span class="o">/</span><span class="n">stable</span> <span class="n">amd64</span> <span class="n">Packages</span>
+<span class="n">docker</span><span class="o">-</span><span class="n">ce</span> <span class="o">|</span> <span class="mf">18.06</span><span class="o">.</span><span class="mi">2</span><span class="o">~</span><span class="n">ce</span><span class="o">~</span><span class="mi">3</span><span class="o">-</span><span class="mi">0</span><span class="o">~</span><span class="n">ubuntu</span> <span class="o">|</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">download</span><span class="o">.</span><span class="n">docker</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">linux</span><span class="o">/</span><span class="n">ubuntu</span> <span class="n">bionic</span><span class="o">/</span><span class="n">stable</span> <span class="n">amd64</span> <span class="n">Packages</span>
+<span class="n">docker</span><span class="o">-</span><span class="n">ce</span> <span class="o">|</span> <span class="mf">18.06</span><span class="o">.</span><span class="mi">1</span><span class="o">~</span><span class="n">ce</span><span class="o">~</span><span class="mi">3</span><span class="o">-</span><span class="mi">0</span><span class="o">~</span><span class="n">ubuntu</span> <span class="o">|</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">download</span><span class="o">.</span><span class="n">docker</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">linux</span><span class="o">/</span><span class="n">ubuntu</span> <span class="n">bionic</span><span class="o">/</span><span class="n">stable</span> <span class="n">amd64</span> <span class="n">Packages</span>
+<span class="n">docker</span><span class="o">-</span><span class="n">ce</span> <span class="o">|</span> <span class="mf">18.06</span><span class="o">.</span><span class="mi">0</span><span class="o">~</span><span class="n">ce</span><span class="o">~</span><span class="mi">3</span><span class="o">-</span><span class="mi">0</span><span class="o">~</span><span class="n">ubuntu</span> <span class="o">|</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">download</span><span class="o">.</span><span class="n">docker</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">linux</span><span class="o">/</span><span class="n">ubuntu</span> <span class="n">bionic</span><span class="o">/</span><span class="n">stable</span> <span class="n">amd64</span> <span class="n">Packages</span>
+<span class="n">docker</span><span class="o">-</span><span class="n">ce</span> <span class="o">|</span> <span class="mf">18.03</span><span class="o">.</span><span class="mi">1</span><span class="o">~</span><span class="n">ce</span><span class="o">~</span><span class="mi">3</span><span class="o">-</span><span class="mi">0</span><span class="o">~</span><span class="n">ubuntu</span> <span class="o">|</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">download</span><span class="o">.</span><span class="n">docker</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">linux</span><span class="o">/</span><span class="n">ubuntu</span> <span class="n">bionic</span><span class="o">/</span><span class="n">stable</span> <span class="n">amd64</span> <span class="n">Packages</span>
 </code></pre></div>
-
 
 <p>以下のコマンドでDockerをインストールします。</p>
 <div class="codehilite"><pre><span></span><code><span class="err">sudo apt-get install -y docker-ce=18.03.1~ce~3-0~ubuntu</span>
 </code></pre></div>
 
-
 <p>これでDockerのインストールは完了です。<br />
 Dockerは自動的に起動しているので、以下のコマンドで動作確認してみます。</p>
 <div class="codehilite"><pre><span></span><code><span class="err">sudo docker container run hello-world</span>
 </code></pre></div>
-
 
 <p>以下のように表示されれば、問題なく起動できています。</p>
 <div class="codehilite"><pre><span></span><code><span class="n">Hello</span> <span class="k">from</span> <span class="n">Docker</span><span class="o">!</span>
@@ -1584,17 +1573,14 @@ Dockerは自動的に起動しているので、以下のコマンドで動作�
 <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">docs</span><span class="p">.</span><span class="n">docker</span><span class="p">.</span><span class="n">com</span><span class="o">/</span><span class="k">get</span><span class="o">-</span><span class="n">started</span><span class="o">/</span>
 </code></pre></div>
 
-
 <p>Dockerは、rootユーザで利用することが奨励されていないので、ubuntuユーザで利用できるように以下のコマンドを実行します。</p>
 <div class="codehilite"><pre><span></span><code><span class="err">sudo usermod -aG docker ubuntu</span>
 </code></pre></div>
-
 
 <p>上記コマンドを実行したら<code>exit</code>コマンドでコンピュートインスタンスからログアウトし、ログインし直します。</p>
 <p>再ログイン後に、ubuntuユーザでDockerを利用できるかどうかを以下のコマンドで確認します。</p>
 <div class="codehilite"><pre><span></span><code><span class="err">docker container run hello-world</span>
 </code></pre></div>
-
 
 <p>先ほど実行した"sudo docker container run hello-world"の結果と同様になれば成功です。</p>
 <h3 id="2-3-fn-clifn-server">2-3. Fn CLIとFn Serverのインストール<a class="headerlink" href="#2-3-fn-clifn-server" title="Permanent link">&para;</a></h3>
@@ -1610,21 +1596,17 @@ Fn Server:0.5.74をインストールするためのインストールスクリ�
 <div class="codehilite"><pre><span></span><code><span class="err">git clone https://github.com/oracle-japan/faas-fnproject-handson</span>
 </code></pre></div>
 
-
 <p>cloneしたディレクトリに移動します。</p>
 <div class="codehilite"><pre><span></span><code><span class="err">cd faas-fnproject-handson</span>
 </code></pre></div>
-
 
 <p>以下のコマンドを実行し、スクリプトへの権限を付与します。</p>
 <div class="codehilite"><pre><span></span><code><span class="err"> chmod 755 install.sh</span>
 </code></pre></div>
 
-
 <p>以下のコマンドを実行し、Fn CLIをインストールします。</p>
 <div class="codehilite"><pre><span></span><code><span class="err"> sh install.sh</span>
 </code></pre></div>
-
 
 <p>インストールに成功すると以下のように表示されます。</p>
 <div class="codehilite"><pre><span></span><code><span class="err">fn version 0.5.74</span>
@@ -1635,7 +1617,6 @@ Fn Server:0.5.74をインストールするためのインストールスクリ�
 <span class="err">/_/   /_/ /_/`</span>
 </code></pre></div>
 
-
 <p>これで、Fn CLIのインストールは完了です。</p>
 <h4 id="2-3-2-fn-server">2-3-2. Fn Serverのインストール<a class="headerlink" href="#2-3-2-fn-server" title="Permanent link">&para;</a></h4>
 <p>次にFn Serverのインストールを行います。
@@ -1643,40 +1624,33 @@ Fn Server:0.3.694のコンテナイメージをpullするために以下のコ�
 <div class="codehilite"><pre><span></span><code><span class="err">docker image pull fnproject/fnserver:0.3.694</span>
 </code></pre></div>
 
-
 <p>先ほどpullしたコンテナイメージを確認するために以下のコマンドを実行します。</p>
 <div class="codehilite"><pre><span></span><code><span class="err">docker image ls</span>
 </code></pre></div>
-
 
 <p>以下のように、"fnproject/fnserver"というイメージが表示されていれば、Fn Serverのコンテナイメージをpullできています。</p>
 <div class="codehilite"><pre><span></span><code><span class="err">REPOSITORY           TAG                 IMAGE ID            CREATED             SIZE</span>
 <span class="err">fnproject/fnserver   0.3.694             c127f1aafb2f        3 weeks ago         161MB</span>
 </code></pre></div>
 
-
 <p>この後のFn Serverの起動の準備として、Fn Serverのコンテナイメージのタグを"latest"に変更しておきます。<br />
 タグの変更は以下のコマンドを使用します。</p>
 <div class="codehilite"><pre><span></span><code><span class="n">docker</span> <span class="n">image</span> <span class="n">tag</span> <span class="p">[</span><span class="n">IMAGE</span> <span class="n">ID</span><span class="p">]</span> <span class="p">[</span><span class="err">コンテナイメージ名</span><span class="p">]</span><span class="o">:</span><span class="n">latest</span>
 </code></pre></div>
 
-
 <p>このハンズオン手順では以下のようになります。</p>
 <div class="codehilite"><pre><span></span><code><span class="err">docker image tag c127f1aafb2f fnproject/fnserver:latest</span>
 </code></pre></div>
 
-
 <p>タグが変更されたことを確認するために以下のコマンドを実行します。</p>
 <div class="codehilite"><pre><span></span><code><span class="err">docker image ls</span>
 </code></pre></div>
-
 
 <p>以下のようにlatestタグのコンテナイメージが追加されていればOKです。</p>
 <div class="codehilite"><pre><span></span><code><span class="err">REPOSITORY           TAG                 IMAGE ID            CREATED             SIZE</span>
 <span class="err">fnproject/fnserver   0.3.694             c127f1aafb2f        3 weeks ago         161MB</span>
 <span class="err">fnproject/fnserver   latest              c127f1aafb2f        3 weeks ago         161MB</span>
 </code></pre></div>
-
 
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -1685,7 +1659,6 @@ Fn Server:0.3.694のコンテナイメージをpullするために以下のコ�
 <p>Fn Serverを起動するために以下のコマンドを実行します。</p>
 <div class="codehilite"><pre><span></span><code><span class="err">fn start</span>
 </code></pre></div>
-
 
 <p>以下のように表示されれば成功です。  </p>
 <div class="codehilite"><pre><span></span><code><span class="err">time=&quot;2019-07-16T09:38:19Z&quot; level=info msg=&quot;available memory&quot; cgroup_limit=9223372036854771712 head_room=1447603814 total_memory=14476038144</span>
@@ -1701,7 +1674,6 @@ Fn Server:0.3.694のコンテナイメージをpullするために以下のコ�
 <span class="err">time=&quot;2019-08-26T10:16:30Z&quot; level=info msg=&quot;Fn serving on `:8080`&quot; type=full version=0.3.694</span>
 </code></pre></div>
 
-
 <p>これでFn Serverが起動したので、このコンソールはこのままの状態にしておきます。<br />
 以上で、Fn Project実行環境の構築は終わりです。</p>
 <h2 id="3-function">3 . functionの作成と実行<a class="headerlink" href="#3-function" title="Permanent link">&para;</a></h2>
@@ -1713,14 +1685,12 @@ Fn Server:0.3.694のコンテナイメージをpullするために以下のコ�
 <div class="codehilite"><pre><span></span><code><span class="err">fn init --runtime java javafn</span>
 </code></pre></div>
 
-
 <p>ここではfunctionをJavaで記述しますので、<code>--runtime java</code>というオプションを指定しています。</p>
 <p>ひな形の作成が成功すると以下のように表示されます。</p>
 <div class="codehilite"><pre><span></span><code><span class="err">Creating function at: ./javafn</span>
 <span class="err">Function boilerplate generated.</span>
 <span class="err">func.yaml created.</span>
 </code></pre></div>
-
 
 <p>ここまでの時点で、"Hello World"と返すだけのシンプルなfunctionの作成が完了しています。</p>
 <div class="admonition note">
@@ -1737,7 +1707,6 @@ Fn Server:0.3.694のコンテナイメージをpullするために以下のコ�
 <p>作成したディレクトリに移動します。</p>
 <div class="codehilite"><pre><span></span><code><span class="err">cd javafn</span>
 </code></pre></div>
-
 
 <p>"javafn"ディレクトリ配下は以下のような構成になっています。</p>
 <div class="codehilite"><pre><span></span><code><span class="err">├── func.yaml</span>
@@ -1758,7 +1727,6 @@ Fn Server:0.3.694のコンテナイメージをpullするために以下のコ�
 <span class="err">11 directories, 4 files</span>
 </code></pre></div>
 
-
 <ul>
 <li>ディレクトリ配下の各項目の説明<ul>
 <li>func.yaml - functionを動作させる際の様々な定義を記載した設定ファイル。具体的な設定値は以降の手順で説明。</li>
@@ -1777,7 +1745,6 @@ Fn Server:0.3.694のコンテナイメージをpullするために以下のコ�
 <span class="n">cmd</span><span class="o">:</span> <span class="n">com</span><span class="o">.</span><span class="na">example</span><span class="o">.</span><span class="na">fn</span><span class="o">.</span><span class="na">HelloFunction</span><span class="o">::</span><span class="n">handleRequest</span>
 </code></pre></div>
 
-
 <ul>
 <li>func.yamlの各項目の説明<ul>
 <li>schema_version - このfunctionファイルのスキーマのバージョン</li>
@@ -1795,11 +1762,9 @@ Fn Server:0.3.694のコンテナイメージをpullするために以下のコ�
 <div class="codehilite"><pre><span></span><code><span class="err">fn create app hello-app</span>
 </code></pre></div>
 
-
 <p>次に、fn deployコマンドを使用してfunctionをデプロイします。</p>
 <div class="codehilite"><pre><span></span><code><span class="err">fn --verbose deploy --app hello-app --local</span>
 </code></pre></div>
-
 
 <p>以下のように表示されることを確認します。(しばらく時間がかかります)</p>
 <div class="codehilite"><pre><span></span><code><span class="n">Deploying</span> <span class="n">javafn</span> <span class="k">to</span> <span class="n">app</span><span class="p">:</span> <span class="n">hello</span><span class="o">-</span><span class="n">app</span>
@@ -1823,7 +1788,6 @@ Fn Server:0.3.694のコンテナイメージをpullするために以下のコ�
 <span class="n">Updating</span> <span class="k">function</span> <span class="n">javafn</span> <span class="k">using</span> <span class="n">image</span> <span class="n">javafn</span><span class="p">:</span><span class="mi">0</span><span class="p">.</span><span class="mi">0</span><span class="p">.</span><span class="mi">2</span><span class="p">...</span>
 <span class="n">Successfully</span> <span class="n">created</span> <span class="k">function</span><span class="p">:</span> <span class="n">javafn</span> <span class="k">with</span> <span class="n">javafn</span><span class="p">:</span><span class="mi">0</span><span class="p">.</span><span class="mi">0</span><span class="p">.</span><span class="mi">2</span>
 </code></pre></div>
-
 
 <div class="admonition note">
 <p class="admonition-title">fn deployコマンド</p>
@@ -1849,11 +1813,9 @@ Fn Server:0.3.694のコンテナイメージをpullするために以下のコ�
 <div class="codehilite"><pre><span></span><code><span class="err">fn invoke hello-app javafn</span>
 </code></pre></div>
 
-
 <p>以下のように表示されたら成功です。</p>
 <div class="codehilite"><pre><span></span><code><span class="err">Hello, World!</span>
 </code></pre></div>
-
 
 <p>以上で、Fn Projectのハンズオンは終了です。<br />
 Fn Projectの開発者エクスペリエンスをご体感頂けたでしょうか。</p>

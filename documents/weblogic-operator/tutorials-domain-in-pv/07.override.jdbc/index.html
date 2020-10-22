@@ -1212,7 +1212,6 @@
 <p>以下のように作成した構成マップを確認できます：</p>
 <div class="highlight"><pre><span></span><code>kubectl describe cm jdbccm -n sample-domain1-ns
 </code></pre></div>
-
 <div class="highlight"><pre><span></span><code>Name:         jdbccm
 Namespace:    sample-domain1-ns
 Labels:       weblogic.domainUID=sample-domain1
@@ -1244,7 +1243,6 @@ version.txt:
 
 Events:  &lt;none&gt;
 </code></pre></div>
-
 <p>最後に、JDBCユーザー名とURLパラメーターの値を含むシークレットを作成する必要があります。
 シークレットを作成するには、次の<code>kubectl</code>コマンドを実行します：</p>
 <p><div class="highlight"><pre><span></span><code>kubectl -n sample-domain1-ns create secret generic dbsecret --from-literal=username=scott2 --from-literal=url=jdbc:oracle:thin:@test.db.example.com:1521/ORCLCDB
@@ -1266,7 +1264,6 @@ Events:  &lt;none&gt;
   <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">dbsecret</span>
   <span class="nt">configOverrides</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">jdbccm</span>
 </code></pre></div>
-
 <p>ドメインリソースの変更を保存します。</p>
 <h4 id="weblogic">WebLogicドメインを再起動します<a class="headerlink" href="#weblogic" title="Permanent link">&para;</a></h4>
 <p>オーバーライドの変更には、すべてのWebLogicポッドを再起動する必要があります。</p>
@@ -1276,7 +1273,6 @@ Events:  &lt;none&gt;
 </ol>
 <div class="highlight"><pre><span></span><code>kubectl edit domain sample-domain1 -n sample-domain1-ns
 </code></pre></div>
-
 <ol>
 <li>ポッドの状態を確認します：</li>
 </ol>
@@ -1302,13 +1298,11 @@ sample-domain1-create-weblogic-sample-domain-job-djk84   0/1     Completed   0  
 </ol>
 <div class="highlight"><pre><span></span><code>kubectl edit domain sample-domain1 -n sample-domain1-ns
 </code></pre></div>
-
 <ol>
 <li>ポッドのステータスを定期的に確認し、すべてのポッドが起動して<code>Running</code>になるまで待ちます：</li>
 </ol>
 <div class="highlight"><pre><span></span><code>kubectl get po -n sample-domain1-ns
 </code></pre></div>
-
 <p><code>admin-server</code>と<code>managed-server</code>のポッドが<code>Running</code>になります。</p>
 <div class="highlight"><pre><span></span><code>NAME                                                     READY   STATUS      RESTARTS   AGE
 sample-domain1-admin-server                              1/1     Running     0          4m46s
@@ -1317,7 +1311,6 @@ sample-domain1-managed-server1                           1/1     Running     0  
 sample-domain1-managed-server2                           1/1     Running     0          3m52s
 sample-domain1-managed-server3                           1/1     Running     0          3m52s
 </code></pre></div>
-
 <p>デモWebアプリケーションを使用して、JDBCデータソースを再度確認します：</p>
 <p><code>http://EXTERNAL-IP/opdemo/?dsname=testDatasource</code></p>
 <p><img alt="" src="../images/override/add.datasource.12.png" /></p>
