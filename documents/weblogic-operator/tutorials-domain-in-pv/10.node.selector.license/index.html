@@ -1157,17 +1157,14 @@
 <p>最初に <code>kubectl get node</code> を使用してノード名を取得します。</p>
 <div class="highlight"><pre><span></span><code>kubectl get node
 </code></pre></div>
-
 <div class="highlight"><pre><span></span><code>NAME         STATUS   ROLES   AGE     VERSION
 10.0.10.2    Ready    node    7h20m   v1.14.8
 10.0.10.3    Ready    node    7h16m   v1.14.8
 </code></pre></div>
-
 <p>OKEの場合、ノード名はパブリックIPアドレスやサブネットのCIDRブロックの最初のIPアドレスになることがあります。但し、明確にはノードを特定するユニークな文字列です。</p>
 <p><code>kubectl get pod -n sample-domain1-ns -o wide</code> を使い、Pod情報の詳細から現在のPodの配置をチェックします。</p>
 <div class="highlight"><pre><span></span><code>kubectl get pod -n sample-domain1-ns -o wide
 </code></pre></div>
-
 <p>以下のような出力が得られます：</p>
 <div class="highlight"><pre><span></span><code>NAME                                                     READY   STATUS      RESTARTS   AGE     IP            NODE         NOMINATED NODE   READINESS GATES
 sample-domain1-admin-server                              1/1     Running     0          11m     10.244.3.31   10.0.10.3    &lt;none&gt;           &lt;none&gt;
@@ -1176,34 +1173,28 @@ sample-domain1-managed-server1                           1/1     Running     0  
 sample-domain1-managed-server2                           1/1     Running     0          10m     10.244.3.32   10.0.10.3    &lt;none&gt;           &lt;none&gt;
 sample-domain1-managed-server3                           1/1     Running     0          10m     10.244.2.15   10.0.10.2    &lt;none&gt;           &lt;none&gt;
 </code></pre></div>
-
 <p>Kubernetesの結果から3つの管理対象サーバーが2つのワーカー・ノードに配置されていることが確認できます。このシナリオではすべてのPodを移動する1つのノードを選択します。</p>
 <h6 id="_1">ラベルの設定<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h6>
 <p>今回はライセンスされたノードを <code>10.0.10.2</code> とします。</p>
 <p>このノードにラベルを設定します。任意のラベル名を指定できますが、ここでは <code>licensed-for-weblogic</code> を使用します。ノード名を正しく設定し <code>kubectl label nodes &lt;nodename&gt; &lt;labelname&gt;=true</code> コマンドを実行してください。</p>
 <div class="highlight"><pre><span></span><code>kubectl label nodes 10.0.10.2 licensed-for-weblogic=true
 </code></pre></div>
-
 <h6 id="_2">ドメイン・リソース定義の変更<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h6>
 <p>定義の変更を適用する前に、一度<code>admin-server</code>と<code>managed-server</code>のpodを削除します。
 以下のコマンドを実行してください。</p>
 <div class="highlight"><pre><span></span><code>kubectl edit domain sample-domain1 -n sample-domain1-ns
 </code></pre></div>
-
 <p><code>serverStartPolicy</code>を<code>NEVER</code>に設定して、保存します。</p>
 <p>以下のような出力が得られればpodが削除されています。</p>
 <div class="highlight"><pre><span></span><code>kubectl get po -n sample-domain1-ns -o wide
 </code></pre></div>
-
 <p>以下のような出力が得られます：</p>
 <div class="highlight"><pre><span></span><code>NAME                                                     READY   STATUS      RESTARTS   AGE     IP            NODE         NOMINATED NODE   READINESS GATES
 sample-domain1-create-weblogic-sample-domain-job-djk84   0/1     Completed   0          3h3m    10.244.3.8    10.0.10.3    &lt;none&gt;           &lt;none&gt;
 </code></pre></div>
-
 <p>再度ドメインリソースを修正します。以下のコマンドを実行してください。</p>
 <div class="highlight"><pre><span></span><code>kubectl edit domain sample-domain1 -n sample-domain1-ns
 </code></pre></div>
-
 <p><code>adminServer:</code>と<code>serverPod:</code> エントリを見つけ、中に新しいプロパティを追加します。</p>
 <div class="highlight"><pre><span></span><code><span class="nt">adminServer</span><span class="p">:</span>
   <span class="p p-Indicator">[</span><span class="nv">...</span><span class="p p-Indicator">]</span>
@@ -1211,20 +1202,17 @@ sample-domain1-create-weblogic-sample-domain-job-djk84   0/1     Completed   0  
     <span class="nt">nodeSelector</span><span class="p">:</span>
       <span class="nt">licensed-for-weblogic</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
 </code></pre></div>
-
 <div class="highlight"><pre><span></span><code><span class="nt">serverPod</span><span class="p">:</span>
   <span class="nt">env</span><span class="p">:</span>
   <span class="p p-Indicator">[</span><span class="nv">...</span><span class="p p-Indicator">]</span>
   <span class="nt">nodeSelector</span><span class="p">:</span>
     <span class="nt">licensed-for-weblogic</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
 </code></pre></div>
-
 <p>インデントに注意してください。文法についてはサンプル <a href="https://github.com/nagypeter/weblogic-operator-tutorial/blob/master/k8s/domain.yaml">domain.yaml</a> の同じ部分のコメント内の記述でダブルチェックできます。</p>
 <p>最後に<code>serverStartPolicy</code>を<code>IF_NEEDED</code>に設定して、保存します。</p>
 <p>Operatorは変更に従ってサーバーの再配置を開始します。繰り返し情報を更新して期待した結果が表示されるまで待ってください。</p>
 <div class="highlight"><pre><span></span><code>kubectl edit domain sample-domain1 -n sample-domain1-ns
 </code></pre></div>
-
 <p>最終的には以下のような出力が得られます：</p>
 <div class="highlight"><pre><span></span><code>NAME                                                     READY   STATUS      RESTARTS   AGE     IP            NODE         NOMINATED NODE   READINESS GATES
 sample-domain1-admin-server                              1/1     Running     0          4m9s    10.244.2.17   10.0.10.2    &lt;none&gt;           &lt;none&gt;
@@ -1233,16 +1221,13 @@ sample-domain1-managed-server1                           1/1     Running     0  
 sample-domain1-managed-server2                           1/1     Running     0          3m13s   10.244.2.20   10.0.10.2    &lt;none&gt;           &lt;none&gt;
 sample-domain1-managed-server3                           1/1     Running     0          3m13s   10.244.2.19   10.0.10.2    &lt;none&gt;           &lt;none&gt;
 </code></pre></div>
-
 <h5 id="nodeselector">ラベルと <code>nodeSelector</code> エントリの削除<a class="headerlink" href="#nodeselector" title="Permanent link">&para;</a></h5>
 <p>ノード配置を削除するために、ノード名を適切に指定して各ノードのラベルを <code>kubectl label node &lt;nodename&gt; &lt;labelname&gt;-</code> コマンドを使って削除してください。</p>
 <div class="highlight"><pre><span></span><code>kubectl label nodes <span class="m">10</span>.0.10.2 licensed-for-weblogic-
 </code></pre></div>
-
 <p>ドメインリソース 内のノード配置の記述を削除、またはコメントアウトしてください。</p>
 <div class="highlight"><pre><span></span><code>kubectl edit domain sample-domain1 -n sample-domain1-ns
 </code></pre></div>
-
 <p>一度<code>serverStartPolicy</code>を<code>NEVER</code>に設定して、保存します。</p>
 <p>そのあと、<code>serverStartPolicy</code>を<code>IF_NEEDED</code>に設定して、保存します。Podはスケジューラの決定に基づいて再配置/再起動されます。</p>
 <p>以上で、WebLogic Operatorのハンズオンは終わりです。お疲れ様でした。</p>

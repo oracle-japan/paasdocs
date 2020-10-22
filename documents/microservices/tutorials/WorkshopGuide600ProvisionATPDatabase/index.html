@@ -1266,20 +1266,16 @@
 <div class="codehilite"><pre><span></span><code><span class="err">cd oke_atp_workshop</span>
 </code></pre></div>
 
-
 <p>以下のコマンドを実行します。</p>
 <div class="highlight"><pre><span></span><code>oci db autonomous-database generate-wallet --autonomous-database-id <span class="o">[</span>ATPのOCID<span class="o">]</span> --password <span class="o">[</span>Walletのパスワード<span class="o">]</span> --file <span class="o">[</span>Walletファイル名<span class="o">]</span>
 </code></pre></div>
-
 <p>今回は以下のように実行します。[ATPのOCID]は、<a href="#1-ociatp">1. OCIコンソールからATPをプロビジョニングする</a>でコピーしたATPのOCIDに書き換えてください。</p>
 <div class="highlight"><pre><span></span><code>oci db autonomous-database generate-wallet --autonomous-database-id <span class="o">[</span>ATPのOCID<span class="o">]</span> --password TFWorkshop__2000 --file Wallet_tfOKEATPDB.zip
 </code></pre></div>
-
 <p>カレントディレクトリにWalletファイルが作成されます。</p>
 <p>以下のコマンドで解凍します。</p>
 <div class="highlight"><pre><span></span><code>unzip Wallet_tfOKEATPDB.zip -d  Wallet_tfOKEATPDB
 </code></pre></div>
-
 <p>OKEにでデプロイするアプリケーションからWalletファイルを読み込むために解凍したディレクトリをKubernetesをConfigmapリソースとして登録します。</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -1287,22 +1283,18 @@
 </div>
 <div class="highlight"><pre><span></span><code>kubectl create configmap okeatp --from-file<span class="o">=</span>Wallet_tfOKEATPDB
 </code></pre></div>
-
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>誤って作成してしまった場合等に削除する場合は以下のコマンドを実行。</p>
 <div class="codehilite"><pre><span></span><code><span class="err">kubectl delete configmap &lt;configmap名&gt;</span>
 </code></pre></div>
 
-
 </div>
 <p>後続の手順で、Visual Builder Studioからサンプルデータを登録するためにWalletファイルをVisual Builder StudioのGitレポジトリに登録します。</p>
 <div class="highlight"><pre><span></span><code>git add Wallet_tfOKEATPDB.zip
 </code></pre></div>
-
 <div class="highlight"><pre><span></span><code>git commit -m <span class="s2">&quot;Walletファイルの追加&quot;</span> 
 </code></pre></div>
-
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>コミットする際に以下のようなメッセージが表示されることがあります。
@@ -1323,11 +1315,9 @@
 </div>
 <div class="highlight"><pre><span></span><code>git push
 </code></pre></div>
-
 <p>先ほど解凍したWalletファイルについては不要なので、削除しておきます。</p>
 <div class="highlight"><pre><span></span><code>rm -rf Wallet_tfOKEATPDB
 </code></pre></div>
-
 <h3 id="3atp">3.ATPのユーザの作成<a class="headerlink" href="#3atp" title="Permanent link">&para;</a></h3>
 <p><a href="#1-ociatp">1. OCIコンソールからATPをプロビジョニングする</a>では、デフォルトユーザとして"Admin"ユーザでデータベースが作成されます。  </p>
 <p>ほとんどの場合、アプリケーションがデータベースを利用する際は"Admin"ではなく、別ユーザを作成します。<br />
@@ -1344,13 +1334,11 @@
 <span class="err">--from-literal=password=Welcome12345</span>
 </code></pre></div>
 
-
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>誤って作成してしまった場合等に削除する場合は以下のコマンドを実行。</p>
 <div class="codehilite"><pre><span></span><code><span class="err">kubectl delete secret &lt;secret名&gt;</span>
 </code></pre></div>
-
 
 </div>
 <p>以上で、ATPのユーザとパスワードの設定は完了です。</p>

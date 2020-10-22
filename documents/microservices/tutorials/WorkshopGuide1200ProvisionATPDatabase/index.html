@@ -1214,14 +1214,12 @@
 <p>ServiceBrokerを利用するためにhelmをインストールします。</p>
 <div class="highlight"><pre><span></span><code>curl https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3 | bash
 </code></pre></div>
-
 <p>helmバージョン情報を確認します。</p>
 <p><div class="highlight"><pre><span></span><code>helm version
 </code></pre></div>
 以下のように表示されていれば、helmがインストールされています。</p>
 <div class="highlight"><pre><span></span><code>version.BuildInfo{Version:&quot;v3.0.2&quot;, GitCommit:&quot;19e47ee3283ae98139d98460de796c1be1e3975f&quot;, GitTreeState:&quot;clean&quot;, GoVersion:&quot;go1.13.5&quot;}
 </code></pre></div>
-
 <p>これで、helmのインストールは完了しました。</p>
 <h3 id="2-service-catalogsvcat">2. Service Catalogとsvcatツールをインストールする<a class="headerlink" href="#2-service-catalogsvcat" title="Permanent link">&para;</a></h3>
 <p>以下の図の赤枠部分をインストールします。</p>
@@ -1233,30 +1231,23 @@
 </div>
 <div class="highlight"><pre><span></span><code>helm repo add svc-cat https://svc-catalog-charts.storage.googleapis.com
 </code></pre></div>
-
 <p>Service Catalogをインストールします。</p>
 <div class="highlight"><pre><span></span><code>helm install catalog svc-cat/catalog --set controllerManager.verbosity=&quot;4&quot; --timeout 300s
 </code></pre></div>
-
 <p>svcatツールをインストールします。<br />
 "svcat"は、Service Catalogリソースを操作するためのコマンドラインインターフェイス（CLI）です。</p>
 <div class="highlight"><pre><span></span><code>curl -sLO https://download.svcat.sh/cli/latest/linux/amd64/svcat
 </code></pre></div>
-
 <div class="highlight"><pre><span></span><code>chmod +x ./svcat
 </code></pre></div>
-
 <div class="highlight"><pre><span></span><code>sudo mv ./svcat /usr/local/bin/
 </code></pre></div>
-
 <p>svcatツールのクライアントバージョン情報を確認します。</p>
 <div class="highlight"><pre><span></span><code>svcat version --client
 </code></pre></div>
-
 <p>svcatのクライアントバージョン情報が出力されることを確認します。</p>
 <div class="highlight"><pre><span></span><code>Client Version: v0.3.0-beta.2
 </code></pre></div>
-
 <p>これで、Service Catalogとsvcatツールのインストールは完了しました。</p>
 <h3 id="3-oci-service-broker">3. OCI Service Brokerをインストールする<a class="headerlink" href="#3-oci-service-broker" title="Permanent link">&para;</a></h3>
 <p>以下の図の赤枠部分をインストールします。</p>
@@ -1264,11 +1255,9 @@
 <p>oke-atp-workshopディレクトリに移動して、OCI Service Brokerリポジトリのクローンを実行します。</p>
 <div class="highlight"><pre><span></span><code>git clone https://github.com/oracle/oci-service-broker.git
 </code></pre></div>
-
 <p><code>oci-service-broker</code>ディレクトリに移動します。</p>
 <div class="highlight"><pre><span></span><code>cd oci-service-broker
 </code></pre></div>
-
 <p>OCI Service Brokerをインストールするのは、ociアカウント情報などが含まれるSecretを作成する必要があります。該当Secretを作成します。</p>
 <div class="highlight"><pre><span></span><code>kubectl create secret generic ocicredentials \
   --from-literal=tenancy=&lt;tenancy_ocid&gt; \
@@ -1278,7 +1267,6 @@
   --from-literal=passphrase=&lt;passphrase&gt; \
   --from-file=privatekey=&lt;private_key_path&gt;
 </code></pre></div>
-
 <p>対象のパラメータは以下のとおりです。</p>
 <table>
 <thead>
@@ -1320,29 +1308,23 @@
     --set storage.etcd.useEmbedded=true \
     --set tls.enabled=false
 </code></pre></div>
-
 <p>OCI Service Brokerの登録先のnamespaceを設定します。今回は、defaultのnamespaceに登録します。</p>
 <div class="highlight"><pre><span></span><code>sed -i -e &#39;s/&lt;NAMESPACE_OF_OCI_SERVICE_BROKER&gt;/default/g&#39; ./charts/oci-service-broker/samples/oci-service-broker.yaml
 </code></pre></div>
-
 <p>OCI Service Brokerの登録を実行します。</p>
 <div class="highlight"><pre><span></span><code>kubectl create -f ./charts/oci-service-broker/samples/oci-service-broker.yaml
 </code></pre></div>
-
 <p>Service Brokerの情報を確認します。</p>
 <div class="highlight"><pre><span></span><code>svcat get brokers
 </code></pre></div>
-
 <p>Service Brokerの情報が表示されることを確認します。ステータスが"Ready"になります。("Readyになるまで、3~5分かかる場合があります")</p>
 <div class="highlight"><pre><span></span><code>         NAME          NAMESPACE                    URL                     STATUS  
 +--------------------+-----------+----------------------------------------+--------+
   oci-service-broker               http://oci-service-broker.default:8080   Ready 
 </code></pre></div>
-
 <p>OCI Service Brokerで利用できるサービスの一覧を確認します。</p>
 <div class="highlight"><pre><span></span><code>svcat get classes
 </code></pre></div>
-
 <p>利用できるOCIサービスが表示されます。</p>
 <div class="highlight"><pre><span></span><code>          NAME           NAMESPACE                 DESCRIPTION                 
 +----------------------+-----------+------------------------------------------+
@@ -1353,11 +1335,9 @@
                                      Service                                   
   oss-service                        Oracle Streaming Service
 </code></pre></div>
-
 <p>それぞれのサービスで利用可能なプランを確認します。</p>
 <div class="highlight"><pre><span></span><code>svcat get plans
 </code></pre></div>
-
 <p>OCI Service Brokerが提供するサービスのプランが表示されます。</p>
 <div class="highlight"><pre><span></span><code>    NAME     NAMESPACE          CLASS                    DESCRIPTION            
 +----------+-----------+----------------------+--------------------------------+
@@ -1368,7 +1348,6 @@
   standard               adw-service            OCI Autonomous Data Warehouse   
   standard               oss-service            Oracle Streaming Service
 </code></pre></div>
-
 <p>これで、OCI Service Brokerのインストールは完了しました。</p>
 <h3 id="4-atp">4. ATPをプロビジョニングする<a class="headerlink" href="#4-atp" title="Permanent link">&para;</a></h3>
 <div class="admonition note">
@@ -1380,65 +1359,51 @@
 <p>&lt;コンパートメントOCID&gt;を各自のコンパートメントOCIDへ変更してください。</p>
 <div class="highlight"><pre><span></span><code>sed -i -e &#39;s/CHANGE_COMPARTMENT_OCID_HERE/&lt;コンパートメントOCID&gt;/g&#39; ./charts/oci-service-broker/samples/atp/atp-instance-plain.yaml
 </code></pre></div>
-
 <p>サンプルファイルにあるATPの名称を更新します。今回は、"tfOKEATPDB"とします。</p>
 <div class="highlight"><pre><span></span><code>sed -i -e &#39;s/osbdemo/tfOKEATPDB/g&#39; ./charts/oci-service-broker/samples/atp/atp-instance-plain.yaml
 </code></pre></div>
-
 <p>サンプルファイルにあるATPのパスワードを更新します。今回は、"TFWorkshop__2000"とします。</p>
 <div class="highlight"><pre><span></span><code>sed -i -e &#39;s/s123456789S@/TFWorkshop__2000/g&#39; ./charts/oci-service-broker/samples/atp/atp-instance-plain.yaml
 </code></pre></div>
-
 <p>ATPをプロビジョニングします。</p>
 <div class="highlight"><pre><span></span><code>kubectl create -f ./charts/oci-service-broker/samples/atp/atp-instance-plain.yaml
 </code></pre></div>
-
 <p>プロビジョニング状況を確認します。</p>
 <div class="highlight"><pre><span></span><code>svcat get instances --all-namespaces
 </code></pre></div>
-
 <p>プロビジョニング直後は、ステータスは"Provisioning"になります。</p>
 <div class="highlight"><pre><span></span><code>       NAME        NAMESPACE      CLASS        PLAN        STATUS     
 +----------------+-----------+-------------+----------+--------------+
   osb-atp-demo-1   default     atp-service   standard   Provisioning
 </code></pre></div>
-
 <p>5分程度経過するとステータスは"Ready"になります。</p>
 <div class="highlight"><pre><span></span><code>       NAME        NAMESPACE      CLASS        PLAN     STATUS  
 +----------------+-----------+-------------+----------+--------+
   osb-atp-demo-1   default     atp-service   standard   Ready
 </code></pre></div>
-
 <p>ATPへアクセスするためのCredencialを作成します。</p>
 <div class="highlight"><pre><span></span><code>kubectl create -f ./charts/oci-service-broker/samples/atp/atp-binding-plain.yaml
 </code></pre></div>
-
 <p>Credencialの情報を確認します。</p>
 <div class="highlight"><pre><span></span><code>svcat get bindings
 </code></pre></div>
-
 <p>Credencialの情報が表示されることを確認します。(以下では"atp-demo-binding")</p>
 <div class="highlight"><pre><span></span><code>        NAME         NAMESPACE      INSTANCE      STATUS  
 +------------------+-----------+----------------+--------+
   atp-demo-binding   default     osb-atp-demo-1   Ready
 </code></pre></div>
-
 <p>CredencialはSecretとして管理されており、ATPにアクセスするためのWalletファイルが含まれています。</p>
 <div class="highlight"><pre><span></span><code>kubectl get secrets atp-demo-binding -o yaml
 </code></pre></div>
-
 <p>ATPのパスワードが格納されるSecretを作成します。
 サンプルファイルにあるプレーンテキストと暗号化テキスト両方を更新します。(パスワードはbase64で暗号化します)</p>
 <div class="highlight"><pre><span></span><code>sed -i -e &#39;s/s123456789S@/TFWorkshop__2000/g&#39; ./charts/oci-service-broker/samples/atp/atp-demo-secret.yaml
 </code></pre></div>
-
 <div class="highlight"><pre><span></span><code>sed -i -e &#39;s/czEyMzQ1Njc4OVNACg==/VEZXb3Jrc2hvcF9fMjAwMAo=/g&#39; ./charts/oci-service-broker/samples/atp/atp-demo-secret.yaml
 </code></pre></div>
-
 <p>Secretを作成します。</p>
 <div class="highlight"><pre><span></span><code>kubectl create -f ./charts/oci-service-broker/samples/atp/atp-demo-secret.yaml
 </code></pre></div>
-
 <p>これで、OKEからのATPのプロビジョニングが完了しました。</p>
                 
                   

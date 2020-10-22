@@ -1308,17 +1308,14 @@ CLIセットアップ時にデフォルト値(角括弧内の値)でも問題な
 <span class="n">Enter</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">location</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">your</span><span class="w"> </span><span class="n">config</span><span class="w"> </span><span class="o">[</span><span class="n">/home/opc/.oci/config</span><span class="o">]</span><span class="err">:</span><span class="w"></span>
 </code></pre></div>
 
-
 <p>設定ファイルの場所についてはデフォルト値を利用するので、そのままEnterを押してください。User OCIDとTenancy OCIDを入力してください。</p>
 <div class="codehilite"><pre><span></span><code><span class="err">Enter a user OCID: &lt;YOUR_USER_OCID&gt;</span>
 <span class="err">Enter a tenancy OCID: &lt;YOUR_TENANCY_OCID&gt;</span>
 </code></pre></div>
 
-
 <p>利用しているリージョン（たとえば、ap-tokyo-1）を入力してください。リージョンは、OCIコンソールの右上で確認できます。何も入力しない場合は、<em>eu-frankfurt-1</em>になります。</p>
 <div class="codehilite"><pre><span></span><code><span class="err">Enter a region (e.g. ap-mumbai-1, ap-seoul-1, ap-sydney-1, ap-tokyo-1, ca-toronto-1, eu-frankfurt-1, eu-zurich-1, sa-saopaulo-1, uk-london-1, us-ashburn-1, us-gov-ashburn-1, us-gov-chicago-1, us-gov-phoenix-1, us-langley-1, us-luke-1, us-phoenix-1):  &lt;YOUR_REGION&gt;</span>
 </code></pre></div>
-
 
 <p>API署名キーを作成します。デフォルト値を利用するので、そのままEnterを押してください。秘密鍵のpassphraseは入力しないでください。</p>
 <div class="codehilite"><pre><span></span><code><span class="n">Do</span><span class="w"> </span><span class="n">you</span><span class="w"> </span><span class="n">want</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="n">generate</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">RSA</span><span class="w"> </span><span class="k">key</span><span class="w"> </span><span class="n">pair</span><span class="vm">?</span><span class="w"> </span><span class="p">(</span><span class="k">If</span><span class="w"> </span><span class="n">you</span><span class="w"> </span><span class="n">decline</span><span class="w"> </span><span class="n">you</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">asked</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="n">supply</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="k">path</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="n">existing</span><span class="w"> </span><span class="k">key</span><span class="p">.)</span><span class="w"> </span><span class="o">[</span><span class="n">Y/n</span><span class="o">]</span><span class="err">:</span><span class="w"> </span><span class="n">Y</span><span class="w"></span>
@@ -1337,7 +1334,6 @@ CLIセットアップ時にデフォルト値(角括弧内の値)でも問題な
 
 <span class="w">        </span><span class="nl">https</span><span class="p">:</span><span class="o">//</span><span class="n">docs</span><span class="p">.</span><span class="n">cloud</span><span class="p">.</span><span class="n">oracle</span><span class="p">.</span><span class="n">com</span><span class="o">/</span><span class="n">Content</span><span class="o">/</span><span class="n">API</span><span class="o">/</span><span class="n">Concepts</span><span class="o">/</span><span class="n">apisigningkey</span><span class="p">.</span><span class="n">htm#How2</span><span class="w"></span>
 </code></pre></div>
-
 
 <h5 id="api">API署名キーペアの公開鍵のアップロード<a class="headerlink" href="#api" title="Permanent link">&para;</a></h5>
 <p>OCI CLIセットアップの最後の手順は、先ほど作成した公開鍵のアップロードになります。公開鍵は、(デフォルトから変更していなければ)OCI CLIセットアップ時に<code>/home/oracle/.oci/</code>ディレクトリの<code>oci_api_key_public.pem</code>という名前で作成されています。好みの方法で、公開鍵の内容をクリックボードにコピーしてください。<br />
@@ -1363,10 +1359,8 @@ OCIコンソールの右上の人型マークをクリックし、ユーザー�
 <p>Kubernetes設定ファイルを作成するためのCLIコマンド(上の画像の赤枠部分)をコピーし、実行します。以下に例を示します。</p>
 <div class="highlight"><pre><span></span><code>mkdir -p <span class="nv">$HOME</span>/.kube
 </code></pre></div>
-
 <div class="highlight"><pre><span></span><code>oci ce cluster create-kubeconfig --cluster-id ocid1.cluster.oc1.ap-tokyo-1.aaaaaaaaxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx --file <span class="nv">$HOME</span>/.kube/config --region ap-tokyo-1 --token-version <span class="m">2</span>.0.0
 </code></pre></div>
-
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p><code>kubectl</code>はデフォルトで<code>$HOME/.kube/config</code>で設定ファイルを読み込もうとします。異なるディレクトリでKubernetes設定ファイルを設定したい場合は、環境変数<code>KUBECOINFIG</code>を設定することを忘れないでください。<br />
@@ -1374,17 +1368,14 @@ OCIコンソールの右上の人型マークをクリックし、ユーザー�
 </div>
 <div class="highlight"><pre><span></span><code><span class="nb">export</span> <span class="nv">KUBECONFIG</span><span class="o">=</span>another_folder_path/kubernetes_config_file_name
 </code></pre></div>
-
 <p><code>kubectl</code>が動作することを確認しましょう。例として、今回は<code>get node</code>コマンドを使用します。</p>
 <div class="highlight"><pre><span></span><code>kubectl get node
 </code></pre></div>
-
 <p>以下のような出力が得られます：</p>
 <div class="codehilite"><pre><span></span><code><span class="err">NAME        STATUS   ROLES   AGE   VERSION</span>
 <span class="err">10.0.10.2   Ready    node    38m   v1.14.8</span>
 <span class="err">10.0.10.3   Ready    node    37m   v1.14.8</span>
 </code></pre></div>
-
 
 <p>nodeの情報が確認できたら、成功です。NAMEカラムにはCluster内でのみ利用可能なIPアドレス(Cluster IP)が表示されます。</p>
 <h5 id="okerbac">OKEクラスタへのRBACポリシーの作成<a class="headerlink" href="#okerbac" title="Permanent link">&para;</a></h5>
@@ -1393,11 +1384,9 @@ OCIコンソールの右上の人型マークをクリックし、ユーザー�
 <p>user OCIDを利用してcluster role bindingコマンドを実行します。</p>
 <div class="highlight"><pre><span></span><code>kubectl create clusterrolebinding my-cluster-admin-binding --clusterrole<span class="o">=</span>cluster-admin --user<span class="o">=</span>&lt;YOUR_USER_OCID&gt;
 </code></pre></div>
-
 <p>以下のように表示されます：</p>
 <div class="codehilite"><pre><span></span><code><span class="err">clusterrolebinding &quot;my-cluster-admin-binding&quot; created</span>
 </code></pre></div>
-
 
 <p>以上で、WebLogicドメインをデプロイするためのOKE環境の準備が整いました。</p>
 <p>続いて、<a href="../03.install.operator/">WebLogic Operatorのインストール</a>に進んでください。</p>

@@ -1187,7 +1187,6 @@
 <div class="codehilite"><pre><span></span><code><span class="err">cd /u01/content/weblogic-kubernetes-operator/</span>
 </code></pre></div>
 
-
 <p>traefikネームスペースにTraefik operatorをインストールするために以下のコマンドを実行します:</p>
 <div class="codehilite"><pre><span></span><code><span class="err">helm install stable/traefik \</span>
 <span class="err">--name traefik-operator \</span>
@@ -1197,69 +1196,67 @@
 <span class="err">--set &quot;serviceType=LoadBalancer&quot;</span>
 </code></pre></div>
 
-
 <p>以下のような出力を得られます:</p>
-<div class="codehilite"><pre><span></span><code> <span class="n">NAME</span><span class="p">:</span>   <span class="n">traefik</span><span class="o">-</span><span class="k">operator</span>
- <span class="k">LAST</span> <span class="n">DEPLOYED</span><span class="p">:</span> <span class="n">Mon</span> <span class="n">Feb</span>  <span class="mi">4</span> <span class="mi">10</span><span class="p">:</span><span class="mi">58</span><span class="p">:</span><span class="mi">41</span> <span class="mi">2019</span>
+<div class="codehilite"><pre><span></span><code> <span class="n">NAME</span><span class="p">:</span>   <span class="n">traefik</span><span class="o">-</span><span class="n">operator</span>
+ <span class="n">LAST</span> <span class="n">DEPLOYED</span><span class="p">:</span> <span class="n">Mon</span> <span class="n">Feb</span>  <span class="mi">4</span> <span class="mi">10</span><span class="p">:</span><span class="mi">58</span><span class="p">:</span><span class="mi">41</span> <span class="mi">2019</span>
  <span class="n">NAMESPACE</span><span class="p">:</span> <span class="n">traefik</span>
  <span class="n">STATUS</span><span class="p">:</span> <span class="n">DEPLOYED</span>
 
  <span class="n">RESOURCES</span><span class="p">:</span>
  <span class="o">==&gt;</span> <span class="n">v1</span><span class="o">/</span><span class="n">ConfigMap</span>
- <span class="n">NAME</span>              <span class="k">DATA</span>  <span class="n">AGE</span>
- <span class="n">traefik</span><span class="o">-</span><span class="k">operator</span>  <span class="mi">1</span>     <span class="mi">24</span><span class="n">s</span>
+ <span class="n">NAME</span>              <span class="n">DATA</span>  <span class="n">AGE</span>
+ <span class="n">traefik</span><span class="o">-</span><span class="n">operator</span>  <span class="mi">1</span>     <span class="mi">24</span><span class="n">s</span>
 
  <span class="o">==&gt;</span> <span class="n">v1</span><span class="o">/</span><span class="n">ClusterRole</span>
  <span class="n">NAME</span>              <span class="n">AGE</span>
- <span class="n">traefik</span><span class="o">-</span><span class="k">operator</span>  <span class="mi">23</span><span class="n">s</span>
+ <span class="n">traefik</span><span class="o">-</span><span class="n">operator</span>  <span class="mi">23</span><span class="n">s</span>
 
  <span class="o">==&gt;</span> <span class="n">v1</span><span class="o">/</span><span class="n">Service</span>
- <span class="n">NAME</span>                        <span class="k">TYPE</span>          <span class="k">CLUSTER</span><span class="o">-</span><span class="n">IP</span>     <span class="k">EXTERNAL</span><span class="o">-</span><span class="n">IP</span>     <span class="n">PORT</span><span class="p">(</span><span class="n">S</span><span class="p">)</span>                     <span class="n">AGE</span>
- <span class="n">traefik</span><span class="o">-</span><span class="k">operator</span><span class="o">-</span><span class="n">dashboard</span>  <span class="n">ClusterIP</span>     <span class="mi">10</span><span class="p">.</span><span class="mi">96</span><span class="p">.</span><span class="mi">202</span><span class="p">.</span><span class="mi">131</span>  <span class="o">&lt;</span><span class="k">none</span><span class="o">&gt;</span>          <span class="mi">80</span><span class="o">/</span><span class="n">TCP</span>                      <span class="mi">23</span><span class="n">s</span>
- <span class="n">traefik</span><span class="o">-</span><span class="k">operator</span>            <span class="n">LoadBalancer</span>  <span class="mi">10</span><span class="p">.</span><span class="mi">96</span><span class="p">.</span><span class="mi">154</span><span class="p">.</span><span class="mi">112</span>  <span class="mi">129</span><span class="p">.</span><span class="mi">213</span><span class="p">.</span><span class="mi">172</span><span class="p">.</span><span class="mi">44</span>  <span class="mi">80</span><span class="p">:</span><span class="mi">32396</span><span class="o">/</span><span class="n">TCP</span><span class="p">,</span><span class="mi">443</span><span class="p">:</span><span class="mi">32736</span><span class="o">/</span><span class="n">TCP</span>  <span class="mi">23</span><span class="n">s</span>
+ <span class="n">NAME</span>                        <span class="n">TYPE</span>          <span class="n">CLUSTER</span><span class="o">-</span><span class="n">IP</span>     <span class="n">EXTERNAL</span><span class="o">-</span><span class="n">IP</span>     <span class="n">PORT</span><span class="p">(</span><span class="n">S</span><span class="p">)</span>                     <span class="n">AGE</span>
+ <span class="n">traefik</span><span class="o">-</span><span class="n">operator</span><span class="o">-</span><span class="n">dashboard</span>  <span class="n">ClusterIP</span>     <span class="mf">10.96</span><span class="o">.</span><span class="mf">202.131</span>  <span class="o">&lt;</span><span class="n">none</span><span class="o">&gt;</span>          <span class="mi">80</span><span class="o">/</span><span class="n">TCP</span>                      <span class="mi">23</span><span class="n">s</span>
+ <span class="n">traefik</span><span class="o">-</span><span class="n">operator</span>            <span class="n">LoadBalancer</span>  <span class="mf">10.96</span><span class="o">.</span><span class="mf">154.112</span>  <span class="mf">129.213</span><span class="o">.</span><span class="mf">172.44</span>  <span class="mi">80</span><span class="p">:</span><span class="mi">32396</span><span class="o">/</span><span class="n">TCP</span><span class="p">,</span><span class="mi">443</span><span class="p">:</span><span class="mi">32736</span><span class="o">/</span><span class="n">TCP</span>  <span class="mi">23</span><span class="n">s</span>
 
  <span class="o">==&gt;</span> <span class="n">v1beta1</span><span class="o">/</span><span class="n">Ingress</span>
  <span class="n">NAME</span>                        <span class="n">HOSTS</span>                <span class="n">ADDRESS</span>  <span class="n">PORTS</span>  <span class="n">AGE</span>
- <span class="n">traefik</span><span class="o">-</span><span class="k">operator</span><span class="o">-</span><span class="n">dashboard</span>  <span class="n">traefik</span><span class="p">.</span><span class="n">example</span><span class="p">.</span><span class="n">com</span>  <span class="mi">80</span>       <span class="mi">23</span><span class="n">s</span>
+ <span class="n">traefik</span><span class="o">-</span><span class="n">operator</span><span class="o">-</span><span class="n">dashboard</span>  <span class="n">traefik</span><span class="o">.</span><span class="n">example</span><span class="o">.</span><span class="n">com</span>  <span class="mi">80</span>       <span class="mi">23</span><span class="n">s</span>
 
  <span class="o">==&gt;</span> <span class="n">v1</span><span class="o">/</span><span class="n">Pod</span><span class="p">(</span><span class="n">related</span><span class="p">)</span>
  <span class="n">NAME</span>                               <span class="n">READY</span>  <span class="n">STATUS</span>   <span class="n">RESTARTS</span>  <span class="n">AGE</span>
- <span class="n">traefik</span><span class="o">-</span><span class="k">operator</span><span class="o">-</span><span class="mi">8486</span><span class="n">f75bbd</span><span class="o">-</span><span class="n">q6pz5</span>  <span class="mi">1</span><span class="o">/</span><span class="mi">1</span>    <span class="n">Running</span>  <span class="mi">0</span>         <span class="mi">23</span><span class="n">s</span>
+ <span class="n">traefik</span><span class="o">-</span><span class="n">operator</span><span class="o">-</span><span class="mi">8486</span><span class="n">f75bbd</span><span class="o">-</span><span class="n">q6pz5</span>  <span class="mi">1</span><span class="o">/</span><span class="mi">1</span>    <span class="n">Running</span>  <span class="mi">0</span>         <span class="mi">23</span><span class="n">s</span>
 
  <span class="o">==&gt;</span> <span class="n">v1</span><span class="o">/</span><span class="n">Secret</span>
- <span class="n">NAME</span>                           <span class="k">TYPE</span>    <span class="k">DATA</span>  <span class="n">AGE</span>
- <span class="n">traefik</span><span class="o">-</span><span class="k">operator</span><span class="o">-</span><span class="k">default</span><span class="o">-</span><span class="n">cert</span>  <span class="n">Opaque</span>  <span class="mi">2</span>     <span class="mi">24</span><span class="n">s</span>
+ <span class="n">NAME</span>                           <span class="n">TYPE</span>    <span class="n">DATA</span>  <span class="n">AGE</span>
+ <span class="n">traefik</span><span class="o">-</span><span class="n">operator</span><span class="o">-</span><span class="n">default</span><span class="o">-</span><span class="n">cert</span>  <span class="n">Opaque</span>  <span class="mi">2</span>     <span class="mi">24</span><span class="n">s</span>
 
  <span class="o">==&gt;</span> <span class="n">v1</span><span class="o">/</span><span class="n">ServiceAccount</span>
  <span class="n">NAME</span>              <span class="n">SECRETS</span>  <span class="n">AGE</span>
- <span class="n">traefik</span><span class="o">-</span><span class="k">operator</span>  <span class="mi">1</span>        <span class="mi">23</span><span class="n">s</span>
+ <span class="n">traefik</span><span class="o">-</span><span class="n">operator</span>  <span class="mi">1</span>        <span class="mi">23</span><span class="n">s</span>
 
  <span class="o">==&gt;</span> <span class="n">v1</span><span class="o">/</span><span class="n">ClusterRoleBinding</span>
  <span class="n">NAME</span>              <span class="n">AGE</span>
- <span class="n">traefik</span><span class="o">-</span><span class="k">operator</span>  <span class="mi">23</span><span class="n">s</span>
+ <span class="n">traefik</span><span class="o">-</span><span class="n">operator</span>  <span class="mi">23</span><span class="n">s</span>
 
  <span class="o">==&gt;</span> <span class="n">v1</span><span class="o">/</span><span class="n">Deployment</span>
- <span class="n">NAME</span>              <span class="n">DESIRED</span>  <span class="k">CURRENT</span>  <span class="n">UP</span><span class="o">-</span><span class="k">TO</span><span class="o">-</span><span class="nb">DATE</span>  <span class="n">AVAILABLE</span>  <span class="n">AGE</span>
- <span class="n">traefik</span><span class="o">-</span><span class="k">operator</span>  <span class="mi">1</span>        <span class="mi">1</span>        <span class="mi">1</span>           <span class="mi">1</span>          <span class="mi">23</span><span class="n">s</span>
+ <span class="n">NAME</span>              <span class="n">DESIRED</span>  <span class="n">CURRENT</span>  <span class="n">UP</span><span class="o">-</span><span class="n">TO</span><span class="o">-</span><span class="n">DATE</span>  <span class="n">AVAILABLE</span>  <span class="n">AGE</span>
+ <span class="n">traefik</span><span class="o">-</span><span class="n">operator</span>  <span class="mi">1</span>        <span class="mi">1</span>        <span class="mi">1</span>           <span class="mi">1</span>          <span class="mi">23</span><span class="n">s</span>
 
 
  <span class="n">NOTES</span><span class="p">:</span>
 
- <span class="mi">1</span><span class="p">.</span> <span class="k">Get</span> <span class="n">Traefik</span><span class="s1">&#39;s load balancer IP/hostname:</span>
+ <span class="mf">1.</span> <span class="n">Get</span> <span class="n">Traefik</span><span class="s1">&#39;s load balancer IP/hostname:</span>
 
-<span class="s1">      NOTE: It may take a few minutes for this to become available.</span>
+      <span class="n">NOTE</span><span class="p">:</span> <span class="n">It</span> <span class="n">may</span> <span class="n">take</span> <span class="n">a</span> <span class="n">few</span> <span class="n">minutes</span> <span class="k">for</span> <span class="n">this</span> <span class="n">to</span> <span class="n">become</span> <span class="n">available</span><span class="o">.</span>
 
-<span class="s1">      You can watch the status by running:</span>
+      <span class="n">You</span> <span class="n">can</span> <span class="n">watch</span> <span class="n">the</span> <span class="n">status</span> <span class="n">by</span> <span class="n">running</span><span class="p">:</span>
 
-<span class="s1">          $ kubectl get svc traefik-operator --namespace traefik -w</span>
+          <span class="o">$</span> <span class="n">kubectl</span> <span class="n">get</span> <span class="n">svc</span> <span class="n">traefik</span><span class="o">-</span><span class="n">operator</span> <span class="o">--</span><span class="n">namespace</span> <span class="n">traefik</span> <span class="o">-</span><span class="n">w</span>
 
-<span class="s1">      Once &#39;</span><span class="k">EXTERNAL</span><span class="o">-</span><span class="n">IP</span><span class="s1">&#39; is no longer &#39;</span><span class="o">&lt;</span><span class="n">pending</span><span class="o">&gt;</span><span class="s1">&#39;:</span>
+      <span class="n">Once</span> <span class="s1">&#39;EXTERNAL-IP&#39;</span> <span class="k">is</span> <span class="n">no</span> <span class="n">longer</span> <span class="s1">&#39;&lt;pending&gt;&#39;</span><span class="p">:</span>
 
-<span class="s1">          $ kubectl describe svc traefik-operator --namespace traefik | grep Ingress | awk &#39;</span><span class="err">{</span><span class="n">print</span> <span class="err">$</span><span class="mi">3</span><span class="err">}&#39;</span>
+          <span class="o">$</span> <span class="n">kubectl</span> <span class="n">describe</span> <span class="n">svc</span> <span class="n">traefik</span><span class="o">-</span><span class="n">operator</span> <span class="o">--</span><span class="n">namespace</span> <span class="n">traefik</span> <span class="o">|</span> <span class="n">grep</span> <span class="n">Ingress</span> <span class="o">|</span> <span class="n">awk</span> <span class="s1">&#39;{print $3}&#39;</span>
 
- <span class="mi">2</span><span class="p">.</span> <span class="n">Configure</span> <span class="n">DNS</span> <span class="n">records</span> <span class="n">corresponding</span> <span class="k">to</span> <span class="n">Kubernetes</span> <span class="n">ingress</span> <span class="n">resources</span> <span class="k">to</span> <span class="n">point</span> <span class="k">to</span> <span class="n">the</span> <span class="k">load</span> <span class="n">balancer</span> <span class="n">IP</span><span class="o">/</span><span class="n">hostname</span> <span class="k">found</span> <span class="k">in</span> <span class="n">step</span> <span class="mi">1</span>
+ <span class="mf">2.</span> <span class="n">Configure</span> <span class="n">DNS</span> <span class="n">records</span> <span class="n">corresponding</span> <span class="n">to</span> <span class="n">Kubernetes</span> <span class="n">ingress</span> <span class="n">resources</span> <span class="n">to</span> <span class="n">point</span> <span class="n">to</span> <span class="n">the</span> <span class="nb">load</span> <span class="n">balancer</span> <span class="n">IP</span><span class="o">/</span><span class="n">hostname</span> <span class="n">found</span> <span class="ow">in</span> <span class="n">step</span> <span class="mi">1</span>
 </code></pre></div>
-
 
 <p>以上で、Traefikのインストールは完了です。Traefik (Loadbalancer) サービスを確認しましょう:
 <div class="highlight"><pre><span></span><code>kubectl get service -n traefik
@@ -1279,17 +1276,14 @@ sample-weblogic-operator        <span class="m">1</span>               Tue Nov <
 traefik-operator                <span class="m">1</span>               Tue Nov <span class="m">19</span> <span class="m">06</span>:35:13 <span class="m">2019</span>        DEPLOYED        traefik-1.79.0          <span class="m">1</span>.7.14          traefik
 </code></pre></div>
 
-
 <p><code>curl</code>を使って、Traefik's dashboardを確認することもできます。上記で確認したパブリックIPアドレス(EXTERNAL_IP_ADDRESS)を使います:</p>
 <div class="codehilite"><pre><span></span><code><span class="err">curl -H &#39;host: traefik.example.com&#39; http://EXTERNAL_IP_ADDRESS</span>
 </code></pre></div>
-
 
 <p>以下のように表示されます:</p>
 <div class="codehilite"><pre><span></span><code>$ curl -H &#39;host: traefik.example.com&#39; http://129.213.172.44
 <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">&quot;/dashboard/&quot;</span><span class="nt">&gt;</span>Found<span class="nt">&lt;/a&gt;</span>.
 </code></pre></div>
-
 
 <p>続いて、<a href="../deploy.weblogic_short/">WebLogic Domainのデプロイ</a>に進んでください。</p>
                 

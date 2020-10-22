@@ -1157,7 +1157,6 @@
 <h3 id="1-git-repositoryterraform_oke">1. 新しいターミナルウィンドウを開き、git repositoryフォルダーのterraform_okeフォルダーに移動する<a class="headerlink" href="#1-git-repositoryterraform_oke" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code>cd terraform_oke
 </code></pre></div>
-
 <h3 id="2-terraformtfvarsocid">2. terraform.tfvarsを編集し、収集したOCIDなどの情報を入力する<a class="headerlink" href="#2-terraformtfvarsocid" title="Permanent link">&para;</a></h3>
 <p>OKEクラスタの構成を、Terraformのパラメータファイル<code>terraform.tfvars</code>に記述する設定によって変更することができます。（※ワークショップでは、できる限りデフォルト値を設定し、変更する必要なパラメータを少なめにしました）</p>
 <p>ベースとなるパラメータファイルをコピーして、これを編集していきます。<a href="../WorkshopGuide200GatherInformation/">ステップ2</a>で収集した情報を使用して、OCIDなどの情報を入力します。</p>
@@ -1210,7 +1209,6 @@
 <span class="na">user_ocid</span> <span class="o">=</span> <span class="s">&quot;ocid1.user.oc1..xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx&quot;</span>
 <span class="na">region</span> <span class="o">=</span> <span class="s">&quot;ap-tokyo-1&quot;</span>
 </code></pre></div>
-
 <h3 id="3-terraform-initterraform-planterraform-applyoke">3. terraform init、terraform plan、terraform applyを実行して、OKEクラスタを取得する<a class="headerlink" href="#3-terraform-initterraform-planterraform-applyoke" title="Permanent link">&para;</a></h3>
 <p>このディレクトリで<code>terraform init</code>を実行すると、すべての依存関係がダウンロードされます。</p>
 <p><code>terraform plan</code>を実行して構成を検証します。</p>
@@ -1225,12 +1223,10 @@
 <p>kubectlコマンドを使用してOKEクラスタが作成されているか検証します。</p>
 <div class="highlight"><pre><span></span><code>kubectl get nodes --kubeconfig=workshop_cluster_kubeconfig
 </code></pre></div>
-
 <p>数分待って、以下のような内容が表示されます。</p>
 <div class="highlight"><pre><span></span><code>NAME        STATUS   ROLES   AGE    VERSION
 10.0.24.2   Ready    node    5m   v1.13.5
 </code></pre></div>
-
 <p>これで、OKEクラスタの作成は完了しました。</p>
 <h5 id="kubeconfig">補足：ブラウザからkubeconfigを取得する方法<a class="headerlink" href="#kubeconfig" title="Permanent link">&para;</a></h5>
 <p>OKEクラスタへアプリケーションをデプロイするためにはkubeconfigファイルが必要です。kubeconfigファイルは先ほどTerraformで作成した<code>workshop_cluster_kubeconfig</code>ファイルを利用する以外に、ブラウザからもkubeconfigを取得することが可能です。</p>

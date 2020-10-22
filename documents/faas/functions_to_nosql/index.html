@@ -1369,7 +1369,6 @@
 <p>Oracle OCIコンソールの左上にあるハンバーガーメニューをクリックして、[アイデンティティ]⇒[ポリシー]に移動します。ご利用するコンパートメントを選択して、次のポリシー文を使用して新しいポリシーを作成します。（もしくは、既存のポリシーに追加します。）</p>
 <div class="highlight"><pre><span></span><code>allow dynamic-group &lt;dynamic-group-name&gt; to manage nosql-family in compartment &lt;compartment-name&gt;
 </code></pre></div>
-
 <ul>
 <li>dynamic-group-name：動的グループの名前。今回は、<code>func_dyn_grp</code></li>
 <li>compartment-name：利用するコンパートメントを指定。今回は、ルートコンパートメント</li>
@@ -1394,14 +1393,11 @@
 <p><a href="../oraclefunctions/handson/getting-started/">Oracle Functionsことはじめ</a>で作成したコンピュートインスタンスにログインし、ユーザーホームディレクトリに移動します。</p>
 <div class="highlight"><pre><span></span><code><span class="nb">cd</span> <span class="nv">$HOME</span>
 </code></pre></div>
-
 <p>ソースコードをcloneし、ディレクトリに移動します。</p>
 <div class="highlight"><pre><span></span><code>git clone https://github.com/oracle-japan/connect-to-nosql-with-functions.git
 </code></pre></div>
-
 <div class="highlight"><pre><span></span><code><span class="nb">cd</span> connect-to-nosql-with-functions
 </code></pre></div>
-
 <p>今回のサンプルアプリケーションは、Oracle NoSQL Database Cloud Serviceに接続後、テーブル作成⇒データインサート⇒データ検索を行い、検索結果を応答として出力されます。</p>
 <div class="highlight"><pre><span></span><code>    <span class="kd">public</span> <span class="n">String</span> <span class="nf">handleRequest</span><span class="p">(</span><span class="n">String</span> <span class="n">input</span><span class="p">)</span> <span class="kd">throws</span> <span class="n">Exception</span> <span class="p">{</span>
 
@@ -1419,21 +1415,17 @@
         <span class="p">}</span>
     <span class="p">}</span>
 </code></pre></div>
-
 <p>以下のコマンドを実行し、<code>fn-connect-to-nosql</code>というJava言語のFunctionをデプロイします。</p>
 <div class="highlight"><pre><span></span><code>fn -v deploy --app fn-samples-app
 </code></pre></div>
-
 <p>Functionsを実行するために環境変数を設定します。</p>
 <div class="highlight"><pre><span></span><code>fn config app fn-samples-app COMPARTMENT_ID [your_compartment_ocid]
 </code></pre></div>
-
 <ul>
 <li>your_compartment_ocid：利用するコンパートメントのOCID。今回はルートコンパートメントのOCID。</li>
 </ul>
 <div class="highlight"><pre><span></span><code>fn config app fn-samples-app REGION_ID [region_id]
 </code></pre></div>
-
 <ul>
 <li>region_id：Functionsをデプロイしたリージョンを指定。今回は、<code>us-ashburn-1</code></li>
 </ul>
@@ -1444,11 +1436,9 @@
 <p>以下のコマンドを実行し、デプロイしたFunctionsを実行します。</p>
 <div class="highlight"><pre><span></span><code>fn invoke fn-samples-app fn-connect-to-nosql
 </code></pre></div>
-
 <p>以下の出力が表示されます。</p>
 <div class="highlight"><pre><span></span><code>{id=1, content={&quot;hello&quot;:&quot;world&quot;}}
 </code></pre></div>
-
 <h3 id="3-2-oracle-nosql-database-cloud-service">3-2. Oracle NoSQL Database Cloud Serviceでの確認<a class="headerlink" href="#3-2-oracle-nosql-database-cloud-service" title="Permanent link">&para;</a></h3>
 <p>Oracle OCIコンソールの左上にあるハンバーガーメニューをクリックして、[NoSQLデータベース]に移動します。</p>
 <p>"hello_world"というテーブルが作成され、表示されます。</p>

@@ -1572,10 +1572,20 @@
 <li>3．「Next」をクリックします</li>
 <li>4．クラウドユーザー名とパスワードを入力して「サイン・イン」をクリックします</li>
 </ul>
+<div class="admonition warning">
+<p class="admonition-title">ログイン後はじめにご確認ください</p>
+<p>右上の人型アイコンをクリックして、直下に表示されるユーザー名が以下のようになっているか確認してください。</p>
+<div class="codehilite"><pre><span></span><code><span class="err">oracleidentitycloudservice/ユーザー名</span>
+</code></pre></div>
+
+<p><img alt="" src="images/01-01-2.png" /></p>
+</div>
 <p>ログインできたら、OCIコンソール画面左上のハンバーガーメニューを展開し、<code>アイデンティティ</code>⇒<code>ポリシー</code>を選択します。</p>
 <p><img alt="" src="images/01-01-policy.png" /></p>
 <p>任意のコンパートメントを選択し、<code>ポリシーの作成</code>ボタンをクリックします。</p>
 <p><img alt="" src="images/01-02-policy.png" /></p>
+<p>カスタマイズ(拡張)をクリックします。
+<img alt="" src="images/01-03-policy-01.png" /></p>
 <p>下記項目を入力して、「作成」をクリックします。</p>
 <table>
 <thead>
@@ -1594,7 +1604,7 @@
 <td>OKE_Policy</td>
 </tr>
 <tr>
-<td>ステートメント</td>
+<td>ポリシー・ビルダー</td>
 <td>トライアル環境もしくはOracle Cloud契約済の環境で管理者権限をお持ちの方(Administratorグループまたはそれに準ずるグループにお使いのユーザが含まれている方)<br><code>Allow service OKE to manage all-resources in tenancy</code><br>Oracle Cloud契約済の環境で管理者権限をお持ちでない方(Administratorグループまたはそれに準ずるグループにお使いのユーザが含まれていない方)は<br><code>Allow service OKE to manage all-resources in &lt;ご自身の許可されているコンパートメント名&gt;</code><br></td>
 </tr>
 </tbody>
@@ -1698,7 +1708,6 @@ Cloud Shellには、OCI CLIをはじめとして、次のようないくつか�
 <p>必要なCLIはこの時点でインストール済みですので、例えば以下のようなコマンドを実行することが可能です。</p>
 <div class="highlight"><pre><span></span><code>kubectl version --client --short
 </code></pre></div>
-
 <p>以下のような結果となれば、kubectlは正常にインストールされています。
 <div class="highlight"><pre><span></span><code>Client Version: vX.XX.X
 </code></pre></div></p>
@@ -1800,7 +1809,6 @@ OCIコンソール画面右上の人型のアイコンをクリックし、展�
 <div class="codehilite"><pre><span></span><code><span class="err">cat ~/.oci/oci_api_key_public.pem</span>
 </code></pre></div>
 
-
 <p>続いてコンソールに移り、ログイン中のユーザーアカウントのアカウント名部分をクリックしてください。</p>
 <p><img alt="" src="images/03-04.png" /></p>
 <p>ユーザーの詳細画面をスクロールして<code>公開キーの追加</code>をクリックします。</p>
@@ -1841,7 +1849,6 @@ Cloud Shellの起動はダイアログに表示されている「Cloud Shellの�
 <div class="codehilite"><pre><span></span><code><span class="err">oci ce cluster create-kubeconfig --cluster-id ocid1.cluster.oc1.iad.xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx --file $HOME/.kube/config --region ap-tokyo-1 --token-version 2.0.0</span>
 </code></pre></div>
 
-
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>kubectlコマンドはデフォルトで<code>$HOME/.kube/config</code>というパスのファイルを読み込む仕様になっています。設定ファイルの名前や配置先を変更したい場合には、上記2つのコマンドのオプションを変更した上で、kubectlが指定のパスのファイルを読み込むように設定する必要があります。</p>
@@ -1851,12 +1858,10 @@ Cloud Shellの起動はダイアログに表示されている「Cloud Shellの�
 <div class="codehilite"><pre><span></span><code><span class="err">kubectl get nodes</span>
 </code></pre></div>
 
-
 <p>以下のような実行結果になれば、正常にクラスターにアクセスできています。</p>
 <div class="codehilite"><pre><span></span><code><span class="err">NAME        STATUS   ROLES   AGE   VERSION</span>
 <span class="err">10.0.10.2   Ready    node    20s   v1.13.5</span>
 </code></pre></div>
-
 
 <p>以上で、OKEでKubernetesクラスターをプロビジョニングし、利用を開始するまでの手順は完了です。<br />
 この後はそれぞれ実施するハンズオンの手順に従ってください。</p>
@@ -1968,11 +1973,9 @@ OKEを操作するためのクライアントを、Cloud ShellではなくVMイ�
 <span class="err">[opc@oke-client ~]$</span>
 </code></pre></div>
 
-
 <p>必要なCLIはこの時点でインストール済みですので、例えば以下のようなコマンドを実行することが可能です。</p>
 <div class="highlight"><pre><span></span><code>kubectl version --client --short
 </code></pre></div>
-
 <p>以下のような結果となれば、kubectlは正常にインストールされています。
 <div class="highlight"><pre><span></span><code>Client Version: vX.XX.X
 </code></pre></div></p>

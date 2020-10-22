@@ -1309,34 +1309,27 @@
 <p><a href="../oraclefunctions/handson/getting-started/">Oracle Functionsことはじめ</a>で作成したコンピュートインスタンスにログインし、ユーザーホームディレクトリに移動します。</p>
 <div class="highlight"><pre><span></span><code><span class="nb">cd</span> <span class="nv">$HOME</span>
 </code></pre></div>
-
 <p>ソースコードをcloneし、ディレクトリに移動します。</p>
 <div class="highlight"><pre><span></span><code>git clone https://github.com/oracle-japan/function-authorizer-for-apigw.git
 </code></pre></div>
-
 <div class="highlight"><pre><span></span><code><span class="nb">cd</span> <span class="k">function</span>-authorizer-for-apigw
 </code></pre></div>
-
 <p>以下のコマンドを実行して、<code>fn-authorizer</code>というFunctionをデプロイします。</p>
 <div class="highlight"><pre><span></span><code>fn -v deploy --app fn-samples-app
 </code></pre></div>
-
 <p>今回は、Functionsに環境変数として、チェック対象となるクライアントシークレット(正規のクライアントシークレット)を設定します。  </p>
 <div class="highlight"><pre><span></span><code>fn config app fn-samples-app SECRET_TOKEN &lt;your_token&gt;
 </code></pre></div>
-
 <ul>
 <li>your_token：任意。今回は、<code>my_secret_token</code></li>
 </ul>
 <div class="highlight"><pre><span></span><code>fn config app fn-samples-app SECRET_TOKEN my_secret_token
 </code></pre></div>
-
 <h3 id="13">1.3.簡易動作確認<a class="headerlink" href="#13" title="Permanent link">&para;</a></h3>
 <p>デプロイしたOracle Functionsの軽い動作確認を行います。  </p>
 <p>以下のコマンドを実行してOracle Functionsを呼び出します。</p>
 <div class="highlight"><pre><span></span><code><span class="nb">echo</span> <span class="s2">&quot;{\&quot;type\&quot;:\&quot;TOKEN\&quot;,\&quot;token\&quot;:\&quot;my_secret_token\&quot;}&quot;</span> <span class="p">|</span> fn invoke fn-samples-app fn-authorizer
 </code></pre></div>
-
 <p>上記の場合は、正しいクライアントシークレット(<code>my_secret_token</code>)を設定しているので、正常に認証されています。</p>
 <div class="highlight"><pre><span></span><code>{
     &quot;active&quot;: true,
@@ -1357,7 +1350,6 @@
     }
 }
 </code></pre></div>
-
 <h2 id="2oci-api-gateway">2.OCI API Gatewayの設定<a class="headerlink" href="#2oci-api-gateway" title="Permanent link">&para;</a></h2>
 <p>ここでは、Oracle Functionsを利用してOCI API Gatewayで認証が行えるように設定を行います。</p>
 <p>Oracle OCIコンソールの左上にあるハンバーガーメニューをクリックして、[開発者サービス]⇒[APIゲートウェイ]に移動して、次の操作を行います。</p>
@@ -1431,7 +1423,6 @@
 <p>認証が成功すると、バックエンドが呼び出されて、以下のような出力が得られます。</p>
 <div class="highlight"><pre><span></span><code>{&quot;status&quot;:&quot;ok&quot;}
 </code></pre></div>
-
 <p>次に、誤った認証情報を入力して、[Send]をクリックします。</p>
 <ul>
 <li>token：今回は、<code>xxxxxx</code></li>
@@ -1443,7 +1434,6 @@
     &quot;code&quot;: 401
 }
 </code></pre></div>
-
 <p>以上で、Oracle Functionsを利用したOCI API Gatewayでの認証ができました！<br />
 お疲れ様でした！</p>
                 

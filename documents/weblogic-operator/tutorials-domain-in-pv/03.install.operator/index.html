@@ -1131,7 +1131,6 @@ Oracle WebLogic Server Kubernetes Operator ("operator"と呼びます)は、WebL
 </div>
 <div class="highlight"><pre><span></span><code>curl -LSs https://github.com/oracle-japan/weblogic-operator-handson/master/setup-operator-workshop.sh <span class="p">|</span> bash
 </code></pre></div>
-
 <p>​    この手順はスキップしてください。<br />
 ​    そうではない方は、以下のコマンドを実行し、ディレクトリの作成とgit repositoryのcloneを行ってください。</p>
 <p><div class="highlight"><pre><span></span><code>mkdir -p /u01/content/
@@ -1158,30 +1157,24 @@ Oracle WebLogic Server Kubernetes Operator ("operator"と呼びます)は、WebL
 <span class="s">  namespace: kube-system</span>
 <span class="s">EOF</span>
 </code></pre></div>
-
 <p>以下のような出力が確認できます。</p>
 <div class="codehilite"><pre><span></span><code><span class="err">clusterrolebinding.rbac.authorization.k8s.io/helm-user-cluster-admin-role created</span>
 </code></pre></div>
-
 
 <p>Kubernetesは、様々な理由でユーザーアカウントとサービスアカウントの概念を区別しています。主な理由は、ユーザーアカウントはユーザー用、サービスアカウントはpodで実行されるプロセス用になっているためです。WebLogic Operatorにはサービスアカウントも必要です。サービスアカウントが指定されていない場合、デフォルトが指定されます。(たとえば、ネームスペースのデフォルトサービスアカウントになります)<br />
 別のサービスアカウントを使用する場合は、オペレーターのHelm chartをインストールする前に、オペレーター用のネームスペースとサービスアカウントを作成する必要があります。</p>
 <p>以下のように、事前にoperatorのネームスペースを作成しておきます。</p>
 <div class="highlight"><pre><span></span><code>kubectl create namespace sample-weblogic-operator-ns
 </code></pre></div>
-
 <p>サービスアカウントを作成します。</p>
 <div class="highlight"><pre><span></span><code>kubectl create serviceaccount -n sample-weblogic-operator-ns sample-weblogic-operator-sa
 </code></pre></div>
-
 <p>operatorの<code>helm</code>インストールを実行するためにカレントディレクトリがWebLogic OperatorのローカルGitレポジトリが存在するディレクトリになっていることを確認してください。</p>
 <div class="highlight"><pre><span></span><code><span class="nb">cd</span> /u01/content/weblogic-kubernetes-operator/
 </code></pre></div>
-
 <p>helmを使い始める前にサーバサイドのTillerサービスをアップグレードしておくことをお勧めします。以下のコマンドを実行してください。</p>
 <div class="highlight"><pre><span></span><code>helm init --upgrade
 </code></pre></div>
-
 <p>operatorのHelm chartをインストールするために<code>helm install</code>を使用します。ここでは、operatorで使用する"release"名を決める必要があります。</p>
 <p>以下のいずれかによって、operatorのHelm chartにおけるデフォルト設定の上書きを行います。</p>
 <ul>
@@ -1259,7 +1252,6 @@ weblogic-operator  0s
 <p>podを確認してみましょう：</p>
 <div class="highlight"><pre><span></span><code>kubectl get po -n sample-weblogic-operator-ns
 </code></pre></div>
-
 <p>以下のような出力が得られます：</p>
 <p><div class="highlight"><pre><span></span><code>NAME                                 READY   STATUS    RESTARTS   AGE
 weblogic-operator-7f7784766c-z7v4z   1/1     Running   0          2m33s
@@ -1267,12 +1259,10 @@ weblogic-operator-7f7784766c-z7v4z   1/1     Running   0          2m33s
 operatorのhelm chartを確認してみましょう：</p>
 <div class="highlight"><pre><span></span><code>helm list sample-weblogic-operator
 </code></pre></div>
-
 <p>以下のような出力が得られます：</p>
 <div class="highlight"><pre><span></span><code>NAME                            REVISION        UPDATED                         STATUS          CHART                   APP VERSION     NAMESPACE
 sample-weblogic-operator        1               Wed Feb 12 09:04:31 2020        DEPLOYED        weblogic-operator-2.4.0                 sample-weblogic-operator-ns
 </code></pre></div>
-
 <p>以上で、WebLogic Operatorがインストールされました。</p>
 <p>続いて、<a href="../04.install.traefik/">Traefik Software Loadbalancerのインストール</a>に進んでください。</p>
                 

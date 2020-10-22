@@ -1300,7 +1300,6 @@ node/130.61.110.174 labeled
 $ kubectl label nodes 130.61.52.240 wlservers2=true
 node/130.61.52.240 labeled
 </code></pre></div>
-
 <h6 id="_4">ドメイン・リソース定義の変更<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h6>
 <p>定義の変更を適用する前に、一度ドメイン・リソース定義を削除します。<br />
 以下のコマンドを実行してください。
@@ -1317,7 +1316,6 @@ No resources found in sample-domain1-ns namespace.
     nodeSelector:
       wlservers2: true
 </code></pre></div>
-
 <p>文法については <a href="https://github.com/nagypeter/weblogic-operator-tutorial/blob/master/k8s/domain.yaml">domain.yaml</a> のコメント内の記述でダブルチェックできます。</p>
 <p>管理対象サーバの場合は <code>adminServer:</code> と同じインデントのレベルで <code>managedServers:</code> を挿入する必要があります。このプロパティにはPodを識別するためにWebLogicサーバ名を使用する必要があります。サーバ名はWebLogicイメージを作成する際に定義したもので、このチュートリアルに従っている場合は <code>managed-serverX</code> になります。</p>
 <div class="highlight"><pre><span></span><code>spec:
@@ -1337,7 +1335,6 @@ No resources found in sample-domain1-ns namespace.
         wlservers1: true
   [...]
 </code></pre></div>
-
 <p>設定を変更したら、ドメイン・リソース定義を適用します。
 <div class="highlight"><pre><span></span><code>$ kubectl apply -f /u01/domain.yaml
 </code></pre></div></p>
@@ -1349,7 +1346,6 @@ sample-domain1-managed-server1   1/1       Running       0          55m       10
 sample-domain1-managed-server2   1/1       Running       0          56s       10.244.1.9    130.61.52.240    &lt;none&gt;
 sample-domain1-managed-server3   1/1       Running       0          2m        10.244.2.37   130.61.110.174   &lt;none&gt;
 </code></pre></div>
-
 <h5 id="domainyaml-nodeselector"><code>domain.yaml</code> 内のラベルと <code>nodeSelector</code> エントリの削除<a class="headerlink" href="#domainyaml-nodeselector" title="Permanent link">&para;</a></h5>
 <p>ノードの配置を削除するために、ノード名を適切に指定して各ノードのラベルを <code>kubectl label node &lt;nodename&gt; &lt;labelname&gt;-</code> コマンドを使って削除してください。</p>
 <div class="highlight"><pre><span></span><code>$ kubectl label nodes 130.61.110.174 wlservers1-
@@ -1357,7 +1353,6 @@ node/130.61.110.174 labeled
 $ kubectl label nodes 130.61.52.240 wlservers2-
 node/130.61.52.240 labeled
 </code></pre></div>
-
 <p><code>domain.yaml</code> 内のノード配置の記述を削除、またはコメントアウトして適用してください。</p>
 <p><div class="highlight"><pre><span></span><code>$ kubectl apply -f /u01/domain.yaml
 domain.weblogic.oracle/sample-domain1 configured

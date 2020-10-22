@@ -1695,7 +1695,7 @@ Oracle Functionsの動作のイメージをより理解するためにFn Project
 <p><img alt="" src="images/01-12.png" /></p>
 <p>"ネットワーキングQuickStart"をクリックします。</p>
 <p><img alt="" src="images/01-02.png" /></p>
-<p>"VPN接続およびインターネット接続性を持つVCN"を選択し、"ワークフローの起動"をクリックします。</p>
+<p>"インターネット接続性を持つVCN"を選択し、"ワークフローの起動"をクリックします。</p>
 <p><img alt="" src="images/01-03.png" /></p>
 <p>以下の情報を入力し、"次"をクリックします。</p>
 <p><img alt="" src="images/01-04.png" /></p>
@@ -1775,12 +1775,10 @@ Oracle Functionsの動作のイメージをより理解するためにFn Project
 <div class="codehilite"><pre><span></span><code><span class="err">sudo usermod -aG docker opc</span>
 </code></pre></div>
 
-
 <p>上記コマンドを実行したら<code>exit</code>コマンドでコンピュートインスタンスからログアウトし、ログインし直します。</p>
 <p>再ログインしたら、以下のコマンドを実行してfnをインストールします。</p>
 <div class="codehilite"><pre><span></span><code><span class="err">curl -LSs https://raw.githubusercontent.com/fnproject/cli/master/install | sh</span>
 </code></pre></div>
-
 
 <p>インストールに成功すると以下のように表示されます。(fn versionは同一でなくても問題ありません。)</p>
 <div class="codehilite"><pre><span></span><code><span class="err">fn version 0.4.87</span>
@@ -1791,11 +1789,9 @@ Oracle Functionsの動作のイメージをより理解するためにFn Project
 <span class="err">/_/   /_/ /_/`</span>
 </code></pre></div>
 
-
 <p>fnがインストールされたことを確認するために以下のコマンドを実行します。</p>
 <div class="codehilite"><pre><span></span><code><span class="err">fn start</span>
 </code></pre></div>
-
 
 <p>以下のように表示されれば成功です。  </p>
 <div class="codehilite"><pre><span></span><code><span class="err">time=&quot;2019-07-16T09:38:19Z&quot; level=info msg=&quot;available memory&quot; cgroup_limit=9223372036854771712 head_room=1447603814 total_memory=14476038144</span>
@@ -1810,7 +1806,6 @@ Oracle Functionsの動作のイメージをより理解するためにFn Project
 <span class="err">    v0.3.721</span>
 <span class="err">time=&quot;2019-07-16T09:38:19Z&quot; level=info msg=&quot;Fn serving on `:8080`&quot; type=full version=0.3.721</span>
 </code></pre></div>
-
 
 <p>上記が確認出来たら、Ctrl + CでFn Serverを停止させてください。</p>
 <p>以上で、Fn Project実行環境の構築は終わりです。</p>
@@ -1849,7 +1844,6 @@ OCIDの値の右にある"コピー"をクリックすると、クリップボ�
 <p>rootユーザーであることを確認し、以下のコマンドを実行します。</p>
 <div class="codehilite"><pre><span></span><code><span class="err">oci setup config</span>
 </code></pre></div>
-
 
 <p>いくつかの質問がされますので、下表のように設定してください。</p>
 <table>
@@ -1901,7 +1895,6 @@ OCIDの値の右にある"コピー"をクリックすると、クリップボ�
 <div class="codehilite"><pre><span></span><code><span class="err">cat /root/.oci/oci_api_key_public.pem</span>
 </code></pre></div>
 
-
 <p>OCIのコンソールに移り、画面右上の人型のマークが表示されている箇所をクリックします。<br />
 さらに、展開されたメニューのユーザー名部分(下記の場合は"oracleidentitycloudservice/takuya2230@gmail.com")をクリックします。
 <img alt="" src="images/03-01.png" /></p>
@@ -1940,7 +1933,6 @@ OCIDの値の右にある"コピー"をクリックすると、クリップボ�
 <div class="codehilite"><pre><span></span><code><span class="err">fn create context [my-context] --provider oracle</span>
 </code></pre></div>
 
-
 <p>[my-context]には、context名を任意に指定します。<br />
 "--provider oracle"をオプションに指定することで、Oracle Function用の環境を作成できます。</p>
 <p>今回は、"functions-handson"という名前で作成します。
@@ -1948,17 +1940,14 @@ OCIDの値の右にある"コピー"をクリックすると、クリップボ�
 <div class="codehilite"><pre><span></span><code><span class="err">fn create context &quot;functions-handson&quot; --provider oracle</span>
 </code></pre></div>
 
-
 <h5 id="3-2-3-2">3-2-3-2 開発環境の切り替え<a class="headerlink" href="#3-2-3-2" title="Permanent link">&para;</a></h5>
 <p>fn useコマンドを使用して、作成した環境に切り替えます。</p>
 <div class="codehilite"><pre><span></span><code><span class="err">fn use context [my-context]</span>
 </code></pre></div>
 
-
 <p>今回は、"functions-handson"という名前で作成したので、以下のコマンドを実行します。</p>
 <div class="codehilite"><pre><span></span><code><span class="err">fn use context &quot;functions-handson&quot;</span>
 </code></pre></div>
-
 
 <h5 id="3-2-3-2_1">3-2-3-2 開発環境の設定<a class="headerlink" href="#3-2-3-2_1" title="Permanent link">&para;</a></h5>
 <p>開発環境にコンパートメントID、APIエンドポイント、OCIR(Oracleが提供するプライベートDockerレジストリであり、Oracle Functionsの管理を行うサービス)の設定を行います。<br />
@@ -1967,17 +1956,14 @@ OCIDの値の右にある"コピー"をクリックすると、クリップボ�
 <div class="codehilite"><pre><span></span><code><span class="err">fn update context oracle.compartment-id [compartment-ocid]</span>
 </code></pre></div>
 
-
 <p>以下のコマンドを実行し、Oracle Functionsを呼び出す際のAPIエンドポイントを設定します。(本ハンズオンではashburnのAPIエンドポイントを使用)<br />
 APIエンドポイントにおけるリージョン(下記であれば"us-ashburn-1"部分)自身のトライアル環境に対応した値を使用してください。</p>
 <div class="codehilite"><pre><span></span><code><span class="err">fn update context api-url https://functions.us-ashburn-1.oraclecloud.com</span>
 </code></pre></div>
 
-
 <p>以下のコマンドを実行し、OCIRを設定します。  </p>
 <div class="codehilite"><pre><span></span><code><span class="err">fn update context registry [region-code].ocir.io/[tenancy-namespace]/[repo-name]</span>
 </code></pre></div>
-
 
 <p>今回は以下のコマンドを実行し、OCIRを設定します。(本ハンズオンではashburnリージョンを使用)<br />
 [region-code] (下記であれば"iad"部分)については、自身のトライアル環境に対応した値を使用してください。<br />
@@ -1985,19 +1971,16 @@ APIエンドポイントにおけるリージョン(下記であれば"us-ashbur
 <div class="codehilite"><pre><span></span><code><span class="err">fn update context registry iad.ocir.io/[tenancy-namespace]/functions-handson</span>
 </code></pre></div>
 
-
 <p>以下のコマンドを実行し、Oracle Functionsで使用するprofile名を設定します。<br />
 profile名は、今回"DEFAULT"(OCI CLIセットアップ時に設定されるデフォルトのprofile名)を入力します。 </p>
 <div class="codehilite"><pre><span></span><code><span class="err">fn update context oracle.profile &quot;DEFAULT&quot;</span>
 </code></pre></div>
-
 
 <p>以下のコマンドを実行し、OCIRにログインできることを確認します。(本ハンズオンでは、ashburnを使用しているので、"iad")<br />
 ログインの際にユーザー名とパスワードを聞かれるので、下表のように応答します。<br />
 OCIRのURIにおけるリージョンコード(下記であれば"iad"部分)については、自身のトライアル環境に対応した値を使用してください。</p>
 <div class="codehilite"><pre><span></span><code><span class="err">docker login iad.ocir.io</span>
 </code></pre></div>
-
 
 <table>
 <thead>
@@ -2023,7 +2006,6 @@ OCIRのURIにおけるリージョンコード(下記であれば"iad"部分)に
 <p>ログインに成功すると以下のように表示されます。</p>
 <div class="codehilite"><pre><span></span><code><span class="err">Login Succeeded</span>
 </code></pre></div>
-
 
 <p>以上で、Oracle Functions開発環境の作成は完了です。</p>
 <h4 id="3-2-4-oracle-functions">3-2-4. Oracle Functionsのアプリケーション作成<a class="headerlink" href="#3-2-4-oracle-functions" title="Permanent link">&para;</a></h4>
@@ -2063,20 +2045,17 @@ OCIRのURIにおけるリージョンコード(下記であれば"iad"部分)に
 <div class="codehilite"><pre><span></span><code><span class="err">fn init --runtime java helloworld-func</span>
 </code></pre></div>
 
-
 <h3 id="4-2">4-2. ファンクションのデプロイ<a class="headerlink" href="#4-2" title="Permanent link">&para;</a></h3>
 <p>4-1で作成したファンクションのデプロイを行います。  </p>
 <p>以下のコマンドを実行し、ファンクションプロジェクトに移動します。</p>
 <div class="codehilite"><pre><span></span><code><span class="err">cd helloworld-func</span>
 </code></pre></div>
 
-
 <p>以下のコマンドを実行し、ファンクションをデプロイします。<br />
 --appでアプリケーション名を指定します。<br />
 指定するアプリケーションは、3-2-4で作成したアプリケーション名です。</p>
 <div class="codehilite"><pre><span></span><code><span class="err">fn deploy --app helloworld-app</span>
 </code></pre></div>
-
 
 <p>ファンクションがデプロイされていることを確認します。<br />
 OCIのコンソールに移り、"開発者サービス"の"レジストリ(OCIR)"をクリックします。
@@ -2097,7 +2076,6 @@ OCIのコンソールに移り、"開発者サービス"の"ファンクショ�
 引数は[Oracle Functionsアプリケーション名] [ファンクション名]の順に指定します。</p>
 <div class="codehilite"><pre><span></span><code><span class="err">fn invoke helloworld-app helloworld-func</span>
 </code></pre></div>
-
 
 <p>以下のように表示されれば成功です。</p>
 <div class="codehilite"><pre><span></span><code><span class="err">Hello, World!</span>

@@ -1309,18 +1309,14 @@
 <p><a href="../oraclefunctions/handson/getting-started/">Oracle Functionsことはじめ</a>で作成したコンピュートインスタンスにログインし、ユーザーホームディレクトリに移動します。</p>
 <div class="highlight"><pre><span></span><code><span class="nb">cd</span> <span class="nv">$HOME</span>
 </code></pre></div>
-
 <p>ワークショップ用のコンテンツをクローニングします。</p>
 <div class="highlight"><pre><span></span><code>git clone https://github.com/oracle-japan/functions_resize_vmshape.git
 </code></pre></div>
-
 <div class="highlight"><pre><span></span><code><span class="nb">cd</span> functions_resize_vmshape/fn-resize-vm
 </code></pre></div>
-
 <p>次を入力して、<code>fn-resize-vm</code>というPython言語で作成されたFunctionをデプロイします。</p>
 <div class="highlight"><pre><span></span><code>fn -v deploy --app fn-resize-vm
 </code></pre></div>
-
 <p>これで、Function作成とデプロイは完了しました。</p>
 <h2 id="3">3.アラームの作成<a class="headerlink" href="#3" title="Permanent link">&para;</a></h2>
 <p>このステップでは、OCIコンソールを使用してアラームを作成していきます。</p>
@@ -1427,7 +1423,6 @@
 <p>以下のコマンドをコンピュートインスタンス上で実行し、メモリ使用率を徐々にあげていきます。</p>
 <div class="highlight"><pre><span></span><code>/dev/null &lt; $(yes) &amp;
 </code></pre></div>
-
 <p>以下のように10プロセス程度をバックグランド実行で起動します。
 <div class="highlight"><pre><span></span><code>[opc@instance]$ 
 [opc@instance]$ /dev/null &lt; $(yes) &amp;
@@ -1456,7 +1451,6 @@
 3秒間隔で表示されますが、徐々に空きメモリが減っていくことが確認できます。</p>
 <div class="highlight"><pre><span></span><code>free -h -s 3 
 </code></pre></div>
-
 <div class="highlight"><pre><span></span><code>              total        used        free      shared  buff/cache   available
 Mem:            14G        5.5G        8.6G         16M        288M        8.7G
 Swap:          8.0G          0B        8.0G
@@ -1497,7 +1491,6 @@ Swap:          8.0G          0B        8.0G
 Mem:            14G        6.5G        7.6G         16M        288M        7.7G
 Swap:          8.0G          0B        8.0G
 </code></pre></div>
-
 <p>5分～10分程度経つと、メモリ使用率が90%を超えて、アラームメールが送信されます。</p>
 <p><img alt="" src="images/alert-detail.png" /></p>
 <p>こちらは受信したアラームメールのサンプルです。</p>
