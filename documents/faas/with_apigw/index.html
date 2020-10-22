@@ -1336,29 +1336,24 @@
 <p>ルートユーザに変更します。</p>
 <div class="highlight"><pre><span></span><code>sudo su - 
 </code></pre></div>
-
 <p>以下のコマンドを実行します。
 <div class="highlight"><pre><span></span><code>git clone https://github.com/oracle-japan/apigw-functions-handson.git
 </code></pre></div></p>
 <p>apigw-functions-handsonディレクトリに移動します。</p>
 <div class="highlight"><pre><span></span><code><span class="nb">cd</span> apigw-functions-handson
 </code></pre></div>
-
 <p>Oracle Functionsを使用してFunctionをデプロイします。<br />
 fn-generate-qrcodeディレクトリに移動します。</p>
 <div class="highlight"><pre><span></span><code><span class="nb">cd</span> fn-generate-qrcode
 </code></pre></div>
-
 <p>fn-generate-qrcodeをデプロイします。</p>
 <div class="highlight"><pre><span></span><code>fn -v deploy --app helloworld-app
 </code></pre></div>
-
 <p>最後に以下のような出力が得られます：</p>
 <div class="highlight"><pre><span></span><code>~~~略~~~
 Updating function fn-generate-qrcode using image nrt.ocir.io/xxxxxxxx/workshop/fn-generate-qrcode:0.0.2...
 Successfully created function: fn-generate-qrcode with nrt.ocir.io/xxxxxxxx/workshop/fn-generate-qrcode:0.0.2
 </code></pre></div>
-
 <p>これで、Functionsのデプロイは完了です。</p>
 <h2 id="2oci-api-gateway">2.OCI API Gatewayプロビジョニングの事前準備<a class="headerlink" href="#2oci-api-gateway" title="Permanent link">&para;</a></h2>
 <p>ここでは、OCI API Gatewayをプロビジョニングするための事前準備を行います。</p>
@@ -1494,7 +1489,6 @@ VCNは<a href="../oraclefunctions/handson/getting-started/">Oracle Functionsこ�
 <p>エンドポイントは以下のようになります。</p>
 <div class="highlight"><pre><span></span><code>https://xxxxxxxxxxxxxxxxxxxxxxxxxxxxx.apigateway.ap-tokyo-1.oci.customer-oci.com/v1
 </code></pre></div>
-
 <h3 id="3-3">3-3.動作確認<a class="headerlink" href="#3-3" title="Permanent link">&para;</a></h3>
 <p>今回のハンズオンでは、サンプルアプリケーションを利用して、OCI API Gateway経由でOracle Functionsを呼び出します。
 先ほどgithubからcloneした資材を利用します。<br />
@@ -1502,15 +1496,12 @@ VCNは<a href="../oraclefunctions/handson/getting-started/">Oracle Functionsこ�
 <p>ルートユーザに変更します。</p>
 <div class="highlight"><pre><span></span><code>sudo su - 
 </code></pre></div>
-
 <p>apigw-functions-handsonディレクトリ(git cloneした資材ディレクトリ)に移動します。</p>
 <div class="highlight"><pre><span></span><code><span class="nb">cd</span> apigw-functions-handson/front-app
 </code></pre></div>
-
 <p>サンプルアプリケーションの<code>main.js</code>にある<code>API_URL</code>を修正します。</p>
 <div class="highlight"><pre><span></span><code>vi js/main.js
 </code></pre></div>
-
 <p>3行目の<code>API_URL</code>を修正します。</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
@@ -1546,7 +1537,7 @@ VCNは<a href="../oraclefunctions/handson/getting-started/">Oracle Functionsこ�
             <span class="nx">canvas</span><span class="p">.</span><span class="nx">width</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">naturalWidth</span><span class="p">;</span>
             <span class="nx">canvas</span><span class="p">.</span><span class="nx">height</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">naturalHeight</span><span class="p">;</span>
 
-            <span class="nx">canvas</span><span class="p">.</span><span class="nx">getContext</span><span class="p">(</span><span class="s1">&#39;2d&#39;</span><span class="p">).</span><span class="nx">drawImage</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+            <span class="nx">canvas</span><span class="p">.</span><span class="nx">getContext</span><span class="p">(</span><span class="s1">&#39;2d&#39;</span><span class="p">).</span><span class="nx">drawImage</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="mf">0</span><span class="p">,</span> <span class="mf">0</span><span class="p">);</span>
             <span class="nx">callback</span><span class="p">(</span><span class="nx">canvas</span><span class="p">.</span><span class="nx">toDataURL</span><span class="p">(</span><span class="s1">&#39;image/png&#39;</span><span class="p">));</span>
         <span class="p">}</span>
     <span class="p">}</span>
@@ -1555,29 +1546,23 @@ VCNは<a href="../oraclefunctions/handson/getting-started/">Oracle Functionsこ�
 <span class="p">(</span><span class="nx">以下略</span><span class="p">)</span>
 </code></pre></div>
 </td></tr></table>
-
 <p><code>API_URL</code>は<code>https://&lt;OCI API Gatewayのエンドポイント&gt;/&lt;パス接頭辞&gt;/&lt;APIのパス&gt;</code>の形式になります。<br />
 今回は以下の形式になります。<code>&lt;APIデプロイメントのエンドポイント&gt;</code>を手順3－2でコピーしたエンドポイントに修正してください。</p>
 <div class="highlight"><pre><span></span><code><span class="kr">const</span> <span class="nx">sampleURL</span> <span class="o">=</span> <span class="s2">&quot;&lt;APIデプロイメントのエンドポイント&gt;/fn-generate-qrcode?contents=&quot;</span><span class="p">;</span>
 </code></pre></div>
-
 <p>例えば以下のようになります。(XXXXの部分は各自のOCI API Gatewayのエンドポイントにより異なります)</p>
 <div class="highlight"><pre><span></span><code><span class="kr">const</span> <span class="nx">sampleURL</span> <span class="o">=</span> <span class="s2">&quot;https://XXXXXXXXXXXXXXXXXXXXXXXXX.apigateway.ap-tokyo-1.oci.customer-oci.com/v1/fn-generate-qrcode?contents=&quot;</span><span class="p">;</span>
 </code></pre></div>
-
 <p>サンプルアプリケーションをHTTPサーバーへデプロイします。</p>
 <p>HTTPサーバーをインストールします。</p>
 <div class="highlight"><pre><span></span><code>sudo yum install -y httpd
 </code></pre></div>
-
 <p>サンプルアプリケーションを<code>/var/www/html</code>へコピーします。</p>
 <div class="highlight"><pre><span></span><code>sudo cp -r ./* /var/www/html/
 </code></pre></div>
-
 <p>HTTPサーバーを起動します。</p>
 <div class="highlight"><pre><span></span><code>sudo systemctl start httpd
 </code></pre></div>
-
 <p>HTTPサーバーのデフォルトポート80で通信を行うようにするためにイングレスルールを追加します。</p>
 <p>OCIコンソールにログインし、[ネットワーキング]に移動して、[仮想クラウド・ネットワーク]をクリックします。</p>
 <p><img alt="" src="images/image-add-security-rule-01.png" /></p>
@@ -1604,10 +1589,8 @@ VCNは<a href="../oraclefunctions/handson/getting-started/">Oracle Functionsこ�
 <p>また、コンピュートインスタンス側ののFirewallについてもポート80で通信できるように設定します。</p>
 <div class="highlight"><pre><span></span><code>sudo firewall-cmd --add-port<span class="o">=</span><span class="m">80</span>/tcp --permanent
 </code></pre></div>
-
 <div class="highlight"><pre><span></span><code>sudo firewall-cmd --reload
 </code></pre></div>
-
 <p>ブラウザーを開き、コンピュートインスタンスのパブリックIPでアクセスします。サンプルアプリケーションが表示されます。</p>
 <p><img alt="" src="images/image-15.png" /></p>
 <p>QRコードを作成してみます。以下項目にそれぞれのテスト内容を入力して、それぞれの[QAコード生成]をクリックします。</p>

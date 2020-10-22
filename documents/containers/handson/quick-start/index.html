@@ -1462,11 +1462,9 @@
 <span class="err">[opc@oke-client ~]$</span>
 </code></pre></div>
 
-
 <p>ハンズオンに必要なCLIツールはこの時点でインストール済みですので、例えば以下のようなコマンドを実行することが可能です。</p>
 <div class="highlight"><pre><span></span><code>kubectl version --client --short
 </code></pre></div>
-
 <p>以下のような結果となれば、kubectlは正常にインストールされています。
 <div class="highlight"><pre><span></span><code>Client Version: v1.15.1
 </code></pre></div></p>
@@ -1524,7 +1522,6 @@
 <div class="codehilite"><pre><span></span><code><span class="err">oci setup config</span>
 </code></pre></div>
 
-
 <p>セットアップをおこなうためのインタラクションが開始されますので、提示される質問に対して、下表のように入力してください。</p>
 <table>
 <thead>
@@ -1574,7 +1571,6 @@
 <div class="codehilite"><pre><span></span><code><span class="err">cat ~/.oci/oci_api_key_public.pem</span>
 </code></pre></div>
 
-
 <p>続いてコンソールに移り、ログイン中のユーザーアカウントのアカウント名部分をクリックしてください。</p>
 <p><img alt="" src="images/03-04.png" /></p>
 <p>ユーザーの詳細画面をスクロールして<code>公開キーの追加</code>をクリックします。</p>
@@ -1600,11 +1596,9 @@
 <div class="codehilite"><pre><span></span><code><span class="err">mkdir -p $HOME/.kube</span>
 </code></pre></div>
 
-
 <p>2つ目のコマンドは、OCI CLIの設定ファイル取得用のコマンドを実行しています（以下の例はダミーの値で埋めたものですので、実際のコマンドはダイアログからコピーしてください）。</p>
 <div class="codehilite"><pre><span></span><code><span class="err">oci ce cluster create-kubeconfig --cluster-id ocid1.cluster.oc1.iad.xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx --file $HOME/.kube/config</span>
 </code></pre></div>
-
 
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -1615,14 +1609,12 @@
 <div class="codehilite"><pre><span></span><code><span class="err">kubectl get nodes</span>
 </code></pre></div>
 
-
 <p>以下のような実行結果になれば、正常にクラスターにアクセスできています。</p>
 <div class="codehilite"><pre><span></span><code><span class="err">NAME        STATUS   ROLES   AGE   VERSION</span>
 <span class="err">10.0.10.2   Ready    node    20s   v1.12.7</span>
 <span class="err">10.0.11.2   Ready    node    47s   v1.12.7</span>
 <span class="err">10.0.12.2   Ready    node    47s   v1.12.7</span>
 </code></pre></div>
-
 
 <p>以上で、OKEでKubernetesクラスターをプロビジョニングし、利用を開始するまでの手順は完了です。</p>
 <h2 id="4-kubernetes">4 . Kubernetesの基本的な操作を体験する<a class="headerlink" href="#4-kubernetes" title="Permanent link">&para;</a></h2>
@@ -1635,11 +1627,9 @@
 <div class="codehilite"><pre><span></span><code><span class="err">git clone https://github.com/oracle-japan/cowweb-for-wercker-demo.git</span>
 </code></pre></div>
 
-
 <p>上記コマンドでできたディレクトリをカレントにしておきます。</p>
 <div class="codehilite"><pre><span></span><code><span class="err">cd cowweb-for-wercker-demo</span>
 </code></pre></div>
-
 
 <h4 id="4-1-2">4-1-2. アプリケーションをデプロイする<a class="headerlink" href="#4-1-2" title="Permanent link">&para;</a></h4>
 <p>それでは、いよいよOKEクラスターにアプリケーションのコンテナをデプロイします。</p>
@@ -1647,7 +1637,6 @@
 <p>サンプルアプリケーションのコードには作成済みのmanifestファイルが含まれていますので、その内容を確認してみます。以下のコマンドを実行してください。</p>
 <div class="highlight"><pre><span></span><code>cat ./kubernetes/cowweb.yaml
 </code></pre></div>
-
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -1701,7 +1690,6 @@
 <span class="l l-Scalar l-Scalar-Plain">...（以下略）...</span>
 </code></pre></div>
 </td></tr></table>
-
 <p>このファイルによって、サンプルアプリケーションのコンテナが、クラスター上にどのように配置されるかが定義されています。例えば、6行目にある<code>replicas:2</code>という記述は、このコンテナが、2つ立ち上げられて冗長構成を取るということを意味しています。</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -1711,7 +1699,6 @@
 <p>次に、cowweb-service.yamlというmanifestファイルの内容を確認してみます。</p>
 <div class="highlight"><pre><span></span><code>cat kubernetes/cowweb-service.yaml
 </code></pre></div>
-
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -1737,7 +1724,6 @@
 <span class="hll">  <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">LoadBalancer</span>
 </span></code></pre></div>
 </td></tr></table>
-
 <p>このmanifestファイルは、クラスターに対するリクエストのトラフィックを受け付ける際のルールを定義しています。<code>type: LoadBalancer</code>という記述は、クラスターがホストされているクラウドサービスのロードバランサーを自動プロビジョニングし、そのLBに来たトラフィックをコンテナに届けるという意味です。</p>
 <p>それでは、Kubernetes上でサンプルアプリケーションのコンテナを動かしてみます。以下のコマンドを実行してmanifestファイルをクラスターに適用し、PodやServiceをクラスター内に作成します。</p>
 <p><div class="highlight"><pre><span></span><code>kubectl apply -f ./kubernetes/cowweb.yaml
@@ -1748,7 +1734,6 @@
 <div class="codehilite"><pre><span></span><code><span class="err">kubectl get pod,service</span>
 </code></pre></div>
 
-
 <p>すべてのPodの<code>STATUS</code>が<code>Runnig</code>であることと、cowwebという名前のServiceがあることが確認できれば、リソースの作成は完了です（Serviceの<code>EXTERNAL-IP</code>は、ロードバランサーが実際に作成されるまで表示されません。その場合は少し時間を置いて上記コマンドを再実行してください）。</p>
 <div class="highlight"><pre><span></span><code>NAME                          READY   STATUS    RESTARTS   AGE
 pod/cowweb-67657b78bc-gdpmp   1/1     Running   0          6s
@@ -1758,12 +1743,10 @@ NAME                 TYPE           CLUSTER-IP      EXTERNAL-IP      PORT(S)    
 service/cowweb       LoadBalancer   10.96.226.194   150.136.201.41   80:30691/TCP   88m
 service/kubernetes   ClusterIP      10.96.0.1       &lt;none&gt;           443/TCP        3h18m
 </code></pre></div>
-
 <p>上の例では、IPアドレス<code>150.136.201.41</code>の80番ポートでロードバランサーが公開されており、ここにリクエストを送信するとアプリケーションにアクセスできることを意味しています。このIPアドレスをテキストエディタ等に控えておいてください。</p>
 <p>これでクラスターへのデプロイは完了しましたので、実際に動作確認してみます。以下のコマンドを実行してください。</p>
 <div class="codehilite"><pre><span></span><code><span class="err">curl &quot;http://[ロードバランサーのIP]/cowsay/say&quot;</span>
 </code></pre></div>
-
 
 <p>以下のようなアスキーアートが表示されれば、アプリケーションが正常に動作しています。</p>
 <div class="highlight"><pre><span></span><code> ______
@@ -1775,7 +1758,6 @@ service/kubernetes   ClusterIP      10.96.0.1       &lt;none&gt;           443/T
                 ||--WWW |
                 ||     ||
 </code></pre></div>
-
 <h3 id="4-2">4-2. アプリケーションのスケールアウト<a class="headerlink" href="#4-2" title="Permanent link">&para;</a></h3>
 <p>ここでは、Deploymentのレプリカ数の値を変更することによって、Podのスケールアウトを試してみます。</p>
 <h4 id="4-2-1">4-2-1. スケールアウト<a class="headerlink" href="#4-2-1" title="Permanent link">&para;</a></h4>
@@ -1783,7 +1765,6 @@ service/kubernetes   ClusterIP      10.96.0.1       &lt;none&gt;           443/T
 <p>まず、テキストエディタで<code>./kubernetes/cowweb.yaml</code>を編集し、replica数を4に変更してください。</p>
 <div class="highlight"><pre><span></span><code>vim ./kubernetes/cowweb.yaml
 </code></pre></div>
-
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -1805,11 +1786,9 @@ service/kubernetes   ClusterIP      10.96.0.1       &lt;none&gt;           443/T
 <span class="l l-Scalar l-Scalar-Plain">...（以下略）...</span>
 </code></pre></div>
 </td></tr></table>
-
 <p>編集が完了したら、manifestファイルを再度クラスターに適用します。</p>
 <div class="codehilite"><pre><span></span><code><span class="err">kubectl apply -f ./kubernetes/cowweb.yaml</span>
 </code></pre></div>
-
 
 <p>以下のコマンドを実行してPodの一覧を表示してみると、4つのPodが構成されていることがわかります。</p>
 <p><div class="highlight"><pre><span></span><code>kubectl get pods
@@ -1827,7 +1806,6 @@ cowweb-67657b78bc-vpjwg   0/1     Running   0          13s
 <p>動作確認で実行したcurlコマンドのURLに<code>?say=HOSTNAME</code>というクエリを追加して、以下のようなコマンドを実行してみてください。</p>
 <div class="codehilite"><pre><span></span><code><span class="err">curl &quot;http://[ロードバランサーのIP]/cowsay/say?say=HOSTNAME&quot;</span>
 </code></pre></div>
-
 
 <p>このコマンドを何度か繰り返すと、その度に異なるホスト名が返ってくることがわかります。</p>
 <p><div class="highlight"><pre><span></span><code> _________________________
@@ -1855,7 +1833,6 @@ cowweb-67657b78bc-vpjwg   0/1     Running   0          13s
 <p>テキストエディタで<code>./kubernetes/cowweb.yaml</code>を編集し、コンテナイメージのバージョンをv1.1に変更してください。</p>
 <div class="highlight"><pre><span></span><code>vim ./kubernetes/cowweb.yaml
 </code></pre></div>
-
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -1909,11 +1886,9 @@ cowweb-67657b78bc-vpjwg   0/1     Running   0          13s
 <span class="l l-Scalar l-Scalar-Plain">...（以下略）...</span>
 </code></pre></div>
 </td></tr></table>
-
 <p>編集が完了したら、manifestファイルを再度クラスターに適用します。</p>
 <div class="codehilite"><pre><span></span><code><span class="err">kubectl apply -f ./kubernetes/cowweb.yaml</span>
 </code></pre></div>
-
 
 <p><code>kubectl get pods</code>を繰り返し実行すると、古いPodの削除と新しいPodの作成が徐々に行われていく様子が確認できます。</p>
 <p>しばらくして再び4つのPodが<code>Runnnig</code>の状態になったら、以下のコマンドを実行してPodのアップデートの履歴を確認してみましょう。</p>
@@ -1940,7 +1915,6 @@ Events:
 <p>最後に、アップデートされたアプリケーションにアクセスして、結果を確認してみましょう。</p>
 <div class="codehilite"><pre><span></span><code><span class="err">curl &quot;http://[ロードバランサーのIP]/cowsay/say&quot;</span>
 </code></pre></div>
-
 
 <p>どのような結果となるでしょうか…？</p>
 <hr />

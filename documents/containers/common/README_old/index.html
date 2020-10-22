@@ -1408,11 +1408,9 @@
 <span class="err">[opc@oke-client ~]$</span>
 </code></pre></div>
 
-
 <p>必要なCLIはこの時点でインストール済みですので、例えば以下のようなコマンドを実行することが可能です。</p>
 <div class="highlight"><pre><span></span><code>kubectl version --client --short
 </code></pre></div>
-
 <p>以下のような結果となれば、kubectlは正常にインストールされています。
 <div class="highlight"><pre><span></span><code>Client Version: vX.XX.X
 </code></pre></div></p>
@@ -1500,7 +1498,6 @@ OCIコンソール画面右上の人型のアイコンをクリックし、展�
 <div class="codehilite"><pre><span></span><code><span class="err">oci setup config</span>
 </code></pre></div>
 
-
 <p>セットアップをおこなうためのインタラクションが開始されますので、提示される質問に対して、下表のように入力してください。</p>
 <table>
 <thead>
@@ -1550,7 +1547,6 @@ OCIコンソール画面右上の人型のアイコンをクリックし、展�
 <div class="codehilite"><pre><span></span><code><span class="err">cat ~/.oci/oci_api_key_public.pem</span>
 </code></pre></div>
 
-
 <p>続いてコンソールに移り、ログイン中のユーザーアカウントのアカウント名部分をクリックしてください。</p>
 <p><img alt="" src="../images/03-04.png" /></p>
 <p>ユーザーの詳細画面をスクロールして<code>公開キーの追加</code>をクリックします。</p>
@@ -1589,18 +1585,15 @@ OKEへのアクセス方法は「Cloud Shellアクセス」と「ローカル・
 <div class="codehilite"><pre><span></span><code><span class="err">oci -v</span>
 </code></pre></div>
 
-
 <p>2つ目のコマンドは、設定ファイルを格納するためのディレクトリの作成です。<br />
 右端の「コピー」をクリックしてコピーします。</p>
 <div class="codehilite"><pre><span></span><code><span class="err">mkdir -p $HOME/.kube</span>
 </code></pre></div>
 
-
 <p>3つ目のコマンドは、OCI CLIの設定ファイル取得用のコマンドを実行しています（以下の例はダミーの値で埋めたものですので、実際のコマンドはダイアログからコピーしてください）。<br />
 右端の「コピー」をクリックしてコピーします。</p>
 <div class="codehilite"><pre><span></span><code><span class="err">oci ce cluster create-kubeconfig --cluster-id ocid1.cluster.oc1.iad.xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx --file $HOME/.kube/config --region ap-tokyo-1 --token-version 2.0.0</span>
 </code></pre></div>
-
 
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -1611,12 +1604,10 @@ OKEへのアクセス方法は「Cloud Shellアクセス」と「ローカル・
 <div class="codehilite"><pre><span></span><code><span class="err">kubectl get nodes</span>
 </code></pre></div>
 
-
 <p>以下のような実行結果になれば、正常にクラスターにアクセスできています。</p>
 <div class="codehilite"><pre><span></span><code><span class="err">NAME        STATUS   ROLES   AGE   VERSION</span>
 <span class="err">10.0.10.2   Ready    node    20s   v1.13.5</span>
 </code></pre></div>
-
 
 <p>以上で、OKEでKubernetesクラスターをプロビジョニングし、利用を開始するまでの手順は完了です。<br />
 この後はそれぞれ実施するハンズオンの手順に従ってください。</p>

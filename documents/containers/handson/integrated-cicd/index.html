@@ -1318,7 +1318,6 @@
 <div class="codehilite"><pre><span></span><code><span class="err">kubectl create serviceaccount -n handson wercker-user</span>
 </code></pre></div>
 
-
 <h3 id="12-cluster-role-binding">1.2 Cluster Role Bindingの作成<a class="headerlink" href="#12-cluster-role-binding" title="Permanent link">&para;</a></h3>
 <p>次に1.1で作成したService Accountに対して権限を設定します。
 今回は管理者権限同等の<code>cluster-admin</code>の権限を付与します。</p>
@@ -1329,7 +1328,6 @@
 <p>以下のコマンドを実行します。</p>
 <div class="codehilite"><pre><span></span><code><span class="err">kubectl apply -f ./kubernetes/cowweb-cluster_role_binding.yaml</span>
 </code></pre></div>
-
 
 <p>ファイルの内容はお好みのエディタで確認してください。
 <div class="highlight"><pre><span></span><code>apiVersion: rbac.authorization.k8s.io/v1
@@ -1352,7 +1350,6 @@ subjects:
 <div class="codehilite"><pre><span></span><code><span class="err">kubectl get secrets -n handson</span>
 </code></pre></div>
 
-
 <p>wercker-user-token-xxxxxが作成したService Accountのsecretです。
 この値を手元のテキストエディタ等に控えておいてください。
 <div class="highlight"><pre><span></span><code>[opc@oke-client ~]$ kubectl get secrets -n handson
@@ -1366,11 +1363,9 @@ wercker-user-token-px4mx   kubernetes.io/service-account-token   3      49m
 <div class="codehilite"><pre><span></span><code><span class="err">kubectl describe secret [wercker-user-token-xxxxx] -n handson</span>
 </code></pre></div>
 
-
 <p>例えば、以下のように実行します。</p>
 <div class="codehilite"><pre><span></span><code><span class="err">kubectl describe secret wercker-user-token-px4mx -n handson</span>
 </code></pre></div>
-
 
 <p>実行すると以下のように表示されます。
 <div class="highlight"><pre><span></span><code>[opc@oke-client ~]$ kubectl describe secret wercker-user-token-px4mx -n handson
@@ -1399,7 +1394,6 @@ namespace:  7 bytes
 <p>wercker.ymlについてもすでに作成済みのファイルがありますので、内容を確認してみます。</p>
 <div class="highlight"><pre><span></span><code>cat ./wercker.yml
 </code></pre></div>
-
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -1537,7 +1531,6 @@ namespace:  7 bytes
         <span class="nt">command</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">get service -o jsonpath=&#39;{.items[*].status.loadBalancer.ingress[*].ip}&#39; --namespace=$COWWEB_NAMESPACE</span>
 </code></pre></div>
 </td></tr></table>
-
 <p>ここでは、記述内容の詳細については省略しますが、ポイントとしては以下のような点が挙げられます。</p>
 <ul>
 <li><code>build</code>、<code>integration-test</code>などの最上位層の項目があり、その直下の<code>Steps:</code>に続く形で複数のStepが定義されている</li>
@@ -1633,7 +1626,6 @@ namespace:  7 bytes
 <p>OKEクラスターの認証情報等の入力が必要なため、以下のコマンドでkubectlが使っているクラスターへのアクセス情報を表示しておきます。</p>
 <div class="highlight"><pre><span></span><code>cat $HOME/.kube/config
 </code></pre></div>
-
 <p>Werckerの画面において、以下のようなKey/Valueの設定を行ってください。</p>
 <table>
 <thead>
@@ -1706,7 +1698,6 @@ namespace:  7 bytes
 <div class="codehilite"><pre><span></span><code><span class="n">curl</span><span class="w"> </span><span class="ss">&quot;http://[マシンのIP]:[ServceのPort]/cowsay/say&quot;</span><span class="w"></span>
 </code></pre></div>
 
-
 <div class="highlight"><pre><span></span><code> ______
 &lt; Moo! &gt;
  ------
@@ -1716,7 +1707,6 @@ namespace:  7 bytes
                 ||--WWW |
                 ||     ||
 </code></pre></div>
-
 <h2 id="4">4 . アプリケーションの更新とプルリクエストの発行<a class="headerlink" href="#4" title="Permanent link">&para;</a></h2>
 <p>ここでは、実際のアプリケーションの開発場面を想定して、アプリケーションのソースコードの更新を行ってみます。</p>
 <h3 id="41-github">4.1. GitHub上でアプリケーションのコードを更新する<a class="headerlink" href="#41-github" title="Permanent link">&para;</a></h3>
@@ -1749,7 +1739,6 @@ namespace:  7 bytes
 <p>最後に、以下のコマンドを実行して、アプリケーションにアクセスしてみます。</p>
 <div class="codehilite"><pre><span></span><code><span class="n">curl</span><span class="w"> </span><span class="ss">&quot;http://[マシンのIP]:[ServceのPort]/cowsay/say&quot;</span><span class="w"></span>
 </code></pre></div>
-
 
 <p>何度かコマンドを実行してみて、返される結果がどのように変わるか確認してみてください。
 無事にアプリケーションは更新されているでしょうか。</p>

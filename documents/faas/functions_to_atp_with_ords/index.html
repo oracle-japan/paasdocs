@@ -1347,7 +1347,6 @@ ORDS(Oracle REST Data Services)の詳細については<a href="https://docs.ora
 <p>以下のコマンドを入力して、「スクリプトの実行」(またはF5)をクリックして、新しいユーザーを作成します。</p>
 <div class="highlight"><pre><span></span><code>CREATE USER usersvc IDENTIFIED BY [PASSWORD];
 </code></pre></div>
-
 <p>今回は、
 <div class="highlight"><pre><span></span><code>CREATE USER usersvc IDENTIFIED BY PasswOrd__8080;
 </code></pre></div></p>
@@ -1372,7 +1371,6 @@ GRANT UNLIMITED TABLESPACE TO usersvc;
 CONSTRAINT &quot;USER_PK&quot; PRIMARY KEY ( &quot;ID&quot; )
 );
 </code></pre></div>
-
 <p>サンプルデータを登録します。</p>
 <div class="highlight"><pre><span></span><code>INSERT INTO users VALUES (
     &#39;8C561D58E856DD25E0532010000AF462&#39;,
@@ -1392,7 +1390,6 @@ INSERT INTO users VALUES (
 
 COMMIT;
 </code></pre></div>
-
 <p>ここからは、ORDSに関する設定を行っていきます。  </p>
 <p>作業するスキーマに対してRESTアクセスを有効にします。</p>
 <div class="highlight"><pre><span></span><code>BEGIN
@@ -1407,7 +1404,6 @@ COMMIT;
     COMMIT;
 END;
 </code></pre></div>
-
 <p>呼び出しの認証トークンを生成できるように、必要な権限を作成します。<br />
 今回はRoleにSQL Developerを利用します。</p>
 <div class="highlight"><pre><span></span><code>DECLARE
@@ -1429,7 +1425,6 @@ BEGIN
     COMMIT;
 END;
 </code></pre></div>
-
 <p>権限に関連付けられたOAuthクライアントを作成します。</p>
 <div class="highlight"><pre><span></span><code><span class="k">BEGIN</span><span class="w"></span>
 <span class="w">    </span><span class="n">oauth</span><span class="p">.</span><span class="n">create_client</span><span class="p">(</span><span class="w"> </span>
@@ -1444,7 +1439,6 @@ END;
 <span class="w">    </span><span class="k">COMMIT</span><span class="p">;</span><span class="w"></span>
 <span class="k">END</span><span class="p">;</span><span class="w"></span>
 </code></pre></div>
-
 <p>今回は、</p>
 <div class="highlight"><pre><span></span><code><span class="k">BEGIN</span><span class="w"></span>
 <span class="w">    </span><span class="n">oauth</span><span class="p">.</span><span class="n">create_client</span><span class="p">(</span><span class="w"></span>
@@ -1459,7 +1453,6 @@ END;
 <span class="w">    </span><span class="k">COMMIT</span><span class="p">;</span><span class="w"></span>
 <span class="k">END</span><span class="p">;</span><span class="w"></span>
 </code></pre></div>
-
 <p>とします。</p>
 <p>クライアントアプリケーション用にロールを作成し、権限を付与します。<br />
 今回はRoleにSQL Developerを利用します。</p>
@@ -1471,12 +1464,10 @@ END;
 <span class="w">    </span><span class="k">COMMIT</span><span class="p">;</span><span class="w"></span>
 <span class="k">END</span><span class="p">;</span><span class="w"></span>
 </code></pre></div>
-
 <p>これで、次のものを取得できます：<code>client_id</code>　<code>client_secret</code></p>
 <div class="highlight"><pre><span></span><code><span class="k">SELECT</span> <span class="n">id</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">client_id</span><span class="p">,</span> <span class="n">client_secret</span>
 <span class="k">FROM</span>   <span class="n">user_ords_clients</span><span class="p">;</span>
 </code></pre></div>
-
 <p><code>client_id</code>および<code>client_secret</code>は、REST呼び出し用の認証トークンを生成するために使用します。<br />
 これらの値については、後続の手順で使用するので、テキストエディタなどに保存しておいてください。  </p>
 <p>次にテーブルへのORDSアクセスを有効にします。</p>
@@ -1492,7 +1483,6 @@ END;
     COMMIT;
 END;
 </code></pre></div>
-
 <p>今回は、以下のエンドポイントを作成して、<code>username</code>でユーザ情報を取得するよう定義します。</p>
 <div class="highlight"><pre><span></span><code><span class="k">BEGIN</span><span class="w"></span>
 <span class="w">    </span><span class="n">ords</span><span class="p">.</span><span class="n">define_service</span><span class="p">(</span><span class="w"></span>
@@ -1506,7 +1496,6 @@ END;
 <span class="w">    </span><span class="k">COMMIT</span><span class="p">;</span><span class="w"></span>
 <span class="k">END</span><span class="p">;</span><span class="w"></span>
 </code></pre></div>
-
 <p>これで、ORDSサービスの設定は完了です。</p>
 <h2 id="3oracle-functions">3.Oracle Functionsの作成<a class="headerlink" href="#3oracle-functions" title="Permanent link">&para;</a></h2>
 <p>ここでは、Oracle Functionsの作成とデプロイを行います。</p>
@@ -1525,19 +1514,16 @@ END;
 <p>デプロイ前にFunctionsを実行するために環境変数をいくつか設定します。</p>
 <div class="highlight"><pre><span></span><code>fn config app fn-connect-to-atp client_id [client_id]
 </code></pre></div>
-
 <ul>
 <li><code>client_id</code>：クライアントID。2-3で取得した値を使用します</li>
 </ul>
 <div class="highlight"><pre><span></span><code>fn config app fn-connect-to-atp client_secret [client_secret]
 </code></pre></div>
-
 <ul>
 <li><code>client_secret</code>：クライアントシークレット。<a href="#2-3ords">2-3.ORDSサービスの有効化</a>で取得した値を使用します</li>
 </ul>
 <div class="highlight"><pre><span></span><code>fn config app fn-connect-to-atp ords_base_url [ords_base_url][p_url_mapping_pattern]
 </code></pre></div>
-
 <ul>
 <li><code>ords_base_url</code>：ORDSサービスのベースURL。<a href="#2-3ords">2-3.ORDSサービスの有効化</a>で取得した値を使用します</li>
 <li><code>p_url_mapping_pattern</code>：今回は、<code>usersvc</code></li>
@@ -1548,29 +1534,23 @@ END;
 </div>
 <div class="highlight"><pre><span></span><code><span class="nb">cd</span> <span class="nv">$HOME</span>
 </code></pre></div>
-
 <p>ワークショップ用のコンテンツをcloneし、ディレクトリに移動します。</p>
 <div class="highlight"><pre><span></span><code>git clone https://github.com/oracle-japan/connect-to-atp-with-functions.git
 </code></pre></div>
-
 <div class="highlight"><pre><span></span><code><span class="nb">cd</span> connect-to-atp-with-functions
 </code></pre></div>
-
 <p>以下のコマンドを実行して、<code>fn-connect-to-atp</code>というFunctionをデプロイします。</p>
 <div class="highlight"><pre><span></span><code>fn -v deploy --app fn-connect-to-atp
 </code></pre></div>
-
 <p>これで、Function作成とデプロイは完了です。</p>
 <h2 id="4atp">4.ATPへのアクセス確認<a class="headerlink" href="#4atp" title="Permanent link">&para;</a></h2>
 <p>ここでは、デプロイしたFunctionsを利用してATPへのアクセス確認を行います。</p>
 <p>今回は、Functionsにデータ検索条件としてユーザー名を渡して実行します。</p>
 <div class="highlight"><pre><span></span><code>echo -n &quot;tsharp&quot; | fn invoke fn-connect-to-atp fn-connect-to-atp
 </code></pre></div>
-
 <p>以下のような出力を得られます。</p>
 <div class="highlight"><pre><span></span><code>{&quot;id&quot;:&quot;8C561D58E856DD25E0532010000AF462&quot;,&quot;username&quot;:&quot;tsharp&quot;,&quot;firstName&quot;:&quot;todd&quot;,&quot;lastName&quot;:&quot;sharp&quot;,&quot;createdOn&quot;:1586772847781}
 </code></pre></div>
-
 <p>これで、ORDSを利用してATPへのアクセスを行うことができました！<br />
 お疲れ様でした！</p>
                 

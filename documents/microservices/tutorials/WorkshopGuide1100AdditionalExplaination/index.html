@@ -1112,7 +1112,6 @@
 <div class="codehilite"><pre><span></span><code><span class="err">oke-atp-helidon-handson/oke-atp-helidon.yaml</span>
 </code></pre></div>
 
-
 <p>上記manifestファイルは以下のようになっています。  </p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
@@ -1231,7 +1230,6 @@
         <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">okeatp</span>
 </code></pre></div>
 </td></tr></table>
-
 <p>色がついている部分に注目してみましょう。
 以下の行は、データベースのユーザとパスワードをコンテナにおける環境変数として設定しており、その値をcustomized-db-credというSecretから読み込んでいます。</p>
 <div class="highlight"><pre><span></span><code>    <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">javax_sql_DataSource_workshopDataSource_dataSource_user</span>
@@ -1245,7 +1243,6 @@
         <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">customized-db-cred</span>
         <span class="nt">key</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">password</span>
 </code></pre></div>
-
 <p>今回の場合は、ユーザ名を<code>javax_sql_DataSource_workshopDataSource_dataSource_user</code>、パスワードを<code>javax_sql_DataSource_workshopDataSource_dataSource_password</code>という名前の環境変数としてそれぞれSecretリソースから読み込んでいます。  </p>
 <p>今回は"customized-db-cred"というSecretリソースを<a href="../WorkshopGuide600ProvisionATPDatabase/#3atp">ATPユーザの作成</a>の手順で作成しました。</p>
 <p>このようにkubernetesでは、アプリケーションで使用する機密情報をSecretリソースとして隠蔽し、その値を環境変数として読み込ませることができます。<br />
@@ -1365,7 +1362,6 @@
 </span><span class="hll">        <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">okeatp</span>
 </span></code></pre></div>
 </td></tr></table>
-
 <p>色がついている部分に注目してみましょう。</p>
 <div class="highlight"><pre><span></span><code>    <span class="nt">volumeMounts</span><span class="p">:</span>
         <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">handson</span>
@@ -1375,7 +1371,6 @@
         <span class="l l-Scalar l-Scalar-Plain">configMap</span><span class="p p-Indicator">:</span>
         <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">okeatp</span>
 </code></pre></div>
-
 <p>今回は"okeatp"というConfigmapリソースを<a href="../WorkshopGuide600ProvisionATPDatabase/#2-atpwallet">ATPユーザの作成</a>の手順で作成しました。<br />
 ここで作成したリソースを53-56行目で"handson"という名前でPodのボリュームに保持しています。  </p>
 <p>また、50-52行目では、上記で設定した"handson"リソースをコンテナ上の"/db-demo/creds"というパスにマウントしています。  </p>
@@ -1415,11 +1410,9 @@ server.static.classpath.welcome=index.html
 # static content path - default is &quot;/&quot;
 # server.static.classpath.context=/static-cp
 </code></pre></div>
-
 <p>色がついている部分に注目してみましょう。</p>
 <div class="highlight"><pre><span></span><code>javax.sql.DataSource.workshopDataSource.dataSource.url=jdbc:oracle:thin:@Demo_HIGH?TNS_ADMIN=/db-demo/creds
 </code></pre></div>
-
 <p><code>jdbc:oracle:thin:@Demo_HIGH?TNS_ADMIN=/db-demo/creds</code>がWalletファイルを読み込んでいる部分になります。<br />
 ここに先ほどmanifestでマウントしたパスが設定されています。<br />
 これでアプリケーションからKubernetesのConfigmapに設定したWalletファイルを利用することができます。</p>

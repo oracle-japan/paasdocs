@@ -1249,7 +1249,6 @@
 <p>開発を始める前に、<a href="https://github.com/wercker/getting-started-golang.git">サンプルアプリケーション</a>をご自身のGitHubアカウントにフォークし、さらにローカル開発環境にクローンしておく必要があります。それを完了したら、プロジェクトディレクトリに移動（cd）してください。</p>
 <div class="highlight"><pre><span></span><code>getting-started-golang/
 </code></pre></div>
-
 <p>次に、アプリケーションをビルドして実行し、問題なく機能していることを確認します。</p>
 <p><div class="highlight"><pre><span></span><code>go build
 </code></pre></div>
@@ -1258,7 +1257,6 @@
 <p>ブラウザでlocalhost:5000/cities.jsonにアクセスすると、次のjsonが表示されます。</p>
 <div class="highlight"><pre><span></span><code><span class="o">{</span><span class="s2">&quot;cities&quot;</span>:<span class="o">[</span><span class="s2">&quot;Amsterdam&quot;</span>,<span class="s2">&quot;Berlin&quot;</span>,<span class="s2">&quot;New York&quot;</span>,<span class="s2">&quot;San Francisco&quot;</span>,<span class="s2">&quot;Tokyo&quot;</span><span class="o">]}</span>
 </code></pre></div>
-
 <h2 id="_3">アプリケーションの開発<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
 <p>アプリケーションのセットアップが完了したので、開発を始めることができます。現在の都市リストはちょっと短いので、そこに別の都市を追加してみませんか？しかしこれを行う前に、まずプロジェクトフォルダに含まれているwercker.ymlファイルを見てみましょう。</p>
 <h3 id="werckeryml">wercker.yml<a class="headerlink" href="#werckeryml" title="Permanent link">&para;</a></h3>
@@ -1270,7 +1268,6 @@ box:
   ports:
     - <span class="s2">&quot;5000&quot;</span>
 </code></pre></div>
-
 <p>この最初のboxセクションでは、2つのことを定義します。 idプロパティは、プロジェクトに使用するコンテナイメージを示します。このサンプルでGoを使って開発しているので、デフォルトのgolangイメージを使用しています。この例のようにイメージ名だけを指定すると、Docker Hubから取得されます。portsプロパティは、実行中のコンテナに公開するポートを指定します。この例では、一つのポートしか必要としませんが、ここに複数のポートを指定できます。</p>
 <p>さて、devのセクションを見てみましょう。</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># Defining the dev pipeline</span>
@@ -1283,7 +1280,6 @@ dev:
           ./source
         reload: <span class="nb">true</span>
 </code></pre></div>
-
 <p>ここでは、devパイプラインで何を実施するかを定義します。この場合、internal/watchという1つのステップが記述されています。internal/watchのステップでファイルの変更を監視し、reloadがtrueに設定されている場合は、変更がすぐに反映されるようにアプリケーションを再起動します。これは、今回のようにWebアプリケーションを開発しているときに特に便利です。ステップの実体は、werckerまたはコミュニティのいずれかが作成したbashスクリプトです。ステップについての詳細は<a href="https://devcenter.wercker.com/development/steps/">こちら</a>で確認することができます。</p>
 <p>次はこれらのステップの動きを見るので、devパイプラインを起動しましょう。</p>
 <h2 id="wercker-dev">Wercker dev<a class="headerlink" href="#wercker-dev" title="Permanent link">&para;</a></h2>
@@ -1321,7 +1317,6 @@ Status: Image is up to date <span class="k">for</span> golang:latest
 <p>再度localhost:5000/cities.jsonにアクセスすると、以前と同じ出力が表示されます。実際のリロードの動きを見てみましょう。 main.go:15で新しい都市を配列に追加します。</p>
 <div class="highlight"><pre><span></span><code>Cities: <span class="o">[]</span>string<span class="o">{</span><span class="s2">&quot;Amsterdam&quot;</span>,<span class="s2">&quot;Berlin&quot;</span>,<span class="s2">&quot;New York&quot;</span>,<span class="s2">&quot;San Francisco&quot;</span>,<span class="s2">&quot;Tokyo&quot;</span>,<span class="s2">&quot;London&quot;</span><span class="o">}}</span>
 </code></pre></div>
-
 <p>変更を保存すると、アプリケーションは自動的にリロードされます。ページをリフレッシュしたら、新しい都市がそこにあるはずです！万歳！</p>
 <p>実際のアプリケーションの開発ではさらに多くのステップが必要です。探してみて、使いたいステップを見つけられなければ、あなた自身で作成することもできます。</p>
 <p>開発が完了したので、次はアプリケーションをビルドして、デプロイしていきます。</p>
@@ -1356,7 +1351,6 @@ build:
         code: <span class="p">|</span>
           go <span class="nb">test</span> ./...
 </code></pre></div>
-
 <h3 id="_5">パイプラインのビルド<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
 <p>次はbuildパイプラインで何が起きるかに注目しましょう。wercker/golintのステップから始まる、いくつかの新しいステップを追加しました。wercker/golintステップはコードをチェックし、良い仕事でないと判断されれば失敗させます。また、scriptステップという新しいステップも追加しました。scriptステップは、テストを実行するために使用しているインラインbashコードです。このようなステップを作成して、Werckerのリポジトリにステップを登録することで、コミュニティへ共有することができます。残りのステップはおそらく自明でしょう。ビルドとテストのためのステップです。</p>
 <h2 id="wercker_1">Werckerビルド<a class="headerlink" href="#wercker_1" title="Permanent link">&para;</a></h2>
