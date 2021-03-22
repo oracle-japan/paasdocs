@@ -1503,30 +1503,30 @@ VCNは<a href="../oraclefunctions/handson/getting-started/">Oracle Functionsこ�
 <div class="highlight"><pre><span></span><code>vi js/main.js
 </code></pre></div>
 <p>3行目の<code>API_URL</code>を修正します。</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="nx">$</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span></pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="nx">$</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
 
-<span class="hll">    <span class="kr">const</span> <span class="nx">sampleURL</span> <span class="o">=</span> <span class="s2">&quot;API_URL?contents=&quot;</span><span class="p">;</span>
-</span>    <span class="kr">const</span> <span class="nx">qrName</span> <span class="o">=</span> <span class="s2">&quot;qr.png&quot;</span><span class="p">;</span>
+<span class="hll">    <span class="kd">const</span> <span class="nx">sampleURL</span> <span class="o">=</span> <span class="s2">&quot;API_URL?contents=&quot;</span><span class="p">;</span>
+</span>    <span class="kd">const</span> <span class="nx">qrName</span> <span class="o">=</span> <span class="s2">&quot;qr.png&quot;</span><span class="p">;</span>
 
     <span class="kd">function</span> <span class="nx">getDataUrl</span><span class="p">(</span><span class="nx">url</span><span class="p">,</span> <span class="nx">callback</span><span class="p">)</span> <span class="p">{</span>
         <span class="kd">let</span> <span class="nx">image</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Image</span><span class="p">();</span>
@@ -1548,10 +1548,10 @@ VCNは<a href="../oraclefunctions/handson/getting-started/">Oracle Functionsこ�
 </td></tr></table>
 <p><code>API_URL</code>は<code>https://&lt;OCI API Gatewayのエンドポイント&gt;/&lt;パス接頭辞&gt;/&lt;APIのパス&gt;</code>の形式になります。<br />
 今回は以下の形式になります。<code>&lt;APIデプロイメントのエンドポイント&gt;</code>を手順3－2でコピーしたエンドポイントに修正してください。</p>
-<div class="highlight"><pre><span></span><code><span class="kr">const</span> <span class="nx">sampleURL</span> <span class="o">=</span> <span class="s2">&quot;&lt;APIデプロイメントのエンドポイント&gt;/fn-generate-qrcode?contents=&quot;</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code><span class="kd">const</span> <span class="nx">sampleURL</span> <span class="o">=</span> <span class="s2">&quot;&lt;APIデプロイメントのエンドポイント&gt;/fn-generate-qrcode?contents=&quot;</span><span class="p">;</span>
 </code></pre></div>
 <p>例えば以下のようになります。(XXXXの部分は各自のOCI API Gatewayのエンドポイントにより異なります)</p>
-<div class="highlight"><pre><span></span><code><span class="kr">const</span> <span class="nx">sampleURL</span> <span class="o">=</span> <span class="s2">&quot;https://XXXXXXXXXXXXXXXXXXXXXXXXX.apigateway.ap-tokyo-1.oci.customer-oci.com/v1/fn-generate-qrcode?contents=&quot;</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code><span class="kd">const</span> <span class="nx">sampleURL</span> <span class="o">=</span> <span class="s2">&quot;https://XXXXXXXXXXXXXXXXXXXXXXXXX.apigateway.ap-tokyo-1.oci.customer-oci.com/v1/fn-generate-qrcode?contents=&quot;</span><span class="p">;</span>
 </code></pre></div>
 <p>サンプルアプリケーションをHTTPサーバーへデプロイします。</p>
 <p>HTTPサーバーをインストールします。</p>

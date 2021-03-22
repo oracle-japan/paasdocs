@@ -1403,11 +1403,11 @@ Oracle Cloud Infrastructureのテナント名を入力し次へ進みます。</
 <p>OKEクラスターへのアクセスに必要なkubectlの設定情報を得るには、予めOCI CLIをインストールしておく必要があります。</p>
 <p>OCI CLIをインストールするには、Pythonの2.7.5以上 または 3.5以上がインストールされている必要があります。Pythonのバージョンを確認するには、ターミナルで以下のコマンドを実行します。</p>
 <p>Python 2.x 系の場合</p>
-<div class="codehilite"><pre><span></span><code><span class="err">python --version</span>
+<div class="codehilite"><pre><span></span><code>python --version
 </code></pre></div>
 
 <p>Python 3.x 系の場合</p>
-<div class="codehilite"><pre><span></span><code><span class="err">python3 --version</span>
+<div class="codehilite"><pre><span></span><code>python3 --version
 </code></pre></div>
 
 <p>もし上述の条件を満たしていない場合は、ここでPythonのインストール／アップデートを行ってください。</p>
@@ -1424,7 +1424,7 @@ Oracle Cloud Infrastructureのテナント名を入力し次へ進みます。</
 <p><img alt="" src="images/03-04.png" /></p>
 <h4 id="3-2-2-oci-cli">3-2-2. OCI CLIのセットアップ<a class="headerlink" href="#3-2-2-oci-cli" title="Permanent link">&para;</a></h4>
 <p>OCI CLIをインストールするには、以下のコマンドを実行します。</p>
-<div class="codehilite"><pre><span></span><code><span class="err">bash -c &quot;$(curl -L https://raw.githubusercontent.com/oracle/oci-cli/master/scripts/install/install.sh)&quot;</span>
+<div class="codehilite"><pre><span></span><code>bash -c &quot;$(curl -L https://raw.githubusercontent.com/oracle/oci-cli/master/scripts/install/install.sh)&quot;
 </code></pre></div>
 
 <p>CLIのバイナリの配置先などを設定するインタラクションがあります。自身の環境に合わせて、好みの設定を行ってください（全てデフォルトのままで進めても問題ありません）。</p>
@@ -1437,7 +1437,7 @@ Oracle Cloud Infrastructureのテナント名を入力し次へ進みます。</
 </ul>
 </div>
 <p>インストールが完了したら、OCI CLIの初期セットアップを行います。以下のコマンドを実行してください。</p>
-<div class="codehilite"><pre><span></span><code><span class="err">oci setup config</span>
+<div class="codehilite"><pre><span></span><code>oci setup config
 </code></pre></div>
 
 <p>ここでも設定をおこなうためのインタラクションがあります。ここでは、下表のように入力してください。この例では、インタラクションの途中でAPIキーを生成しますが、もし別途用意していあるAPIキーを使用する場合は"Do you want to generate a new RSA key pair?"という質問に<code>N + [Return]</code>と答えてください。</p>
@@ -1486,7 +1486,7 @@ Oracle Cloud Infrastructureのテナント名を入力し次へ進みます。</
 <p>CLIからOCIに対してアクセスを行う際には、OCIのAPIの認証が行われます。このため予め認証をパスするのに必要なAPIキーを、ユーザー毎にOCIにアップロードしておく必要があります。</p>
 <p>OCI CLIの初期セットアップの際に作成した鍵ペアのうち、公開鍵の方を、管理コンソールからアップロードします。</p>
 <p>まず、以下のターミナルで以下のコマンドを実行し、公開鍵を表示しておきます。</p>
-<div class="codehilite"><pre><span></span><code><span class="err">cat ~/.oci/oci_api_key_public.pem</span>
+<div class="codehilite"><pre><span></span><code>cat ~/.oci/oci_api_key_public.pem
 </code></pre></div>
 
 <p>続いてOCIのコンソールに移り、画面右上の現在ログイン中のユーザー名が表示されている箇所をクリックします。さらに、展開されたメニューの"User Settings"をクリックします。</p>
@@ -1507,11 +1507,11 @@ OCIのコンソールで、画面右上のタブから"Developer Services"をク
 <p>”How to Access Kubeconfig"ダイアログに、kubetctlの設定ファイルを取得するためのコマンドが表示されますので、これらを順次実行していきます。</p>
 <p><img alt="" src="images/03-11.png" /></p>
 <p>1つ目のコマンドは、設定ファイルを格納するためのディレクトリの作成です。</p>
-<div class="codehilite"><pre><span></span><code><span class="err">mkdir -p $HOME/.kube</span>
+<div class="codehilite"><pre><span></span><code>mkdir -p $HOME/.kube
 </code></pre></div>
 
 <p>2つ目のコマンドは、OCI CLIの設定ファイル取得用のコマンドを実行しています（以下の例はダミーの値で埋めたものですので、実際のコマンドはダイアログからコピーしてください）。</p>
-<div class="codehilite"><pre><span></span><code><span class="err">oci ce cluster create-kubeconfig --cluster-id ocid1.cluster.oc1.iad.xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx --file $HOME/.kube/config</span>
+<div class="codehilite"><pre><span></span><code>oci ce cluster create-kubeconfig --cluster-id ocid1.cluster.oc1.iad.xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx --file $HOME/.kube/config
 </code></pre></div>
 
 <div class="admonition note">
@@ -1520,14 +1520,14 @@ OCIのコンソールで、画面右上のタブから"Developer Services"をク
 詳細は、<a href="https://kubernetes.io/docs/tasks/access-application-cluster/configure-access-multiple-clusters/#set-the-kubeconfig-environment-variable">公式ドキュメントの記載</a>を”参照ください</p>
 </div>
 <p>最後に、以下のコマンドを実行して、kubectlの動作確認をしてみます。</p>
-<div class="codehilite"><pre><span></span><code><span class="err">kubectl get nodes</span>
+<div class="codehilite"><pre><span></span><code>kubectl get nodes
 </code></pre></div>
 
 <p>以下のような実行結果になれば、正常にクラスターにアクセスできています。</p>
-<div class="codehilite"><pre><span></span><code><span class="err">NAME              STATUS    ROLES     AGE       VERSION</span>
-<span class="err">129.213.100.157   Ready     node      3d        v1.11.1</span>
-<span class="err">129.213.118.118   Ready     node      3d        v1.11.1</span>
-<span class="err">129.213.95.69     Ready     node      3d        v1.11.1</span>
+<div class="codehilite"><pre><span></span><code>NAME              STATUS    ROLES     AGE       VERSION
+129.213.100.157   Ready     node      3d        v1.11.1
+129.213.118.118   Ready     node      3d        v1.11.1
+129.213.95.69     Ready     node      3d        v1.11.1
 </code></pre></div>
 
 <p>以上で、OKEでKubernetesクラスターをプロビジョニングし、利用を開始するまでの手順は完了です。</p>

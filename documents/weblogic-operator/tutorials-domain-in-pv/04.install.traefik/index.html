@@ -1218,9 +1218,9 @@ traefik-operator-dashboard   ClusterIP      10.96.53.103   &lt;none&gt;         
 <div class="highlight"><pre><span></span><code>helm list
 </code></pre></div>
 <p>以下のような結果を得られます：</p>
-<div class="codehilite"><pre><span></span><code><span class="err">NAME                            REVISION        UPDATED                         STATUS          CHART                   APP VERSION     NAMESPACE</span>
-<span class="err">sample-weblogic-operator        1               Wed Feb 12 09:04:31 2020        DEPLOYED        weblogic-operator-2.4.0                 sample-weblogic-operator-ns</span>
-<span class="err">traefik-operator                1               Wed Feb 12 09:08:33 2020        DEPLOYED        traefik-1.86.1          1.7.20          traefik</span>
+<div class="codehilite"><pre><span></span><code>NAME                            REVISION        UPDATED                         STATUS          CHART                   APP VERSION     NAMESPACE
+sample-weblogic-operator        1               Wed Feb 12 09:04:31 2020        DEPLOYED        weblogic-operator-2.4.0                 sample-weblogic-operator-ns
+traefik-operator                1               Wed Feb 12 09:08:33 2020        DEPLOYED        traefik-1.86.1          1.7.20          traefik
 </code></pre></div>
 
 <p><code>curl</code>を使って、Traefik's dashboardを確認することもできます。上記で確認したパブリックIPアドレス(EXTERNAL_IP_ADDRESS)を使います：</p>

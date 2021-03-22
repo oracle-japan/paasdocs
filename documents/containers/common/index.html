@@ -1567,15 +1567,15 @@
 <p>OCIコンソールにブラウザからアクセスします。お持ちのクラウドアカウントを使って<a href="https://cloud.oracle.com/ja_JP/home">サインイン</a>します。</p>
 <p><img alt="" src="images/01-01-1.png" /></p>
 <ul>
-<li>1．Sign Inをクリックします</li>
-<li>2．クラウドアカウント名（テナント名）を入力します</li>
-<li>3．「Next」をクリックします</li>
+<li>1．クラウドアカウント名（テナント名）を入力し、「Next」をクリックします</li>
+<li>2．Identity Providersで「pracleidentitycloudservice」を選択します</li>
+<li>3．「Continue」をクリックします</li>
 <li>4．クラウドユーザー名とパスワードを入力して「サイン・イン」をクリックします</li>
 </ul>
 <div class="admonition warning">
 <p class="admonition-title">ログイン後はじめにご確認ください</p>
 <p>右上の人型アイコンをクリックして、直下に表示されるユーザー名が以下のようになっているか確認してください。</p>
-<div class="codehilite"><pre><span></span><code><span class="err">oracleidentitycloudservice/ユーザー名</span>
+<div class="codehilite"><pre><span></span><code>oracleidentitycloudservice/ユーザー名
 </code></pre></div>
 
 <p><img alt="" src="images/01-01-2.png" /></p>
@@ -1584,8 +1584,8 @@
 <p><img alt="" src="images/01-01-policy.png" /></p>
 <p>任意のコンパートメントを選択し、<code>ポリシーの作成</code>ボタンをクリックします。</p>
 <p><img alt="" src="images/01-02-policy.png" /></p>
-<p>カスタマイズ(拡張)をクリックします。
-<img alt="" src="images/01-03-policy-01.png" /></p>
+<p>手動エディタの表示をオンにします。</p>
+<p><img alt="" src="images/01-03-policy-01.png" /></p>
 <p>下記項目を入力して、「作成」をクリックします。</p>
 <table>
 <thead>
@@ -1621,11 +1621,16 @@
 <p>次のダイアログで<code>クイック作成</code>を選択し、<code>ワークフローの起動</code>をクリックします。</p>
 <p><img alt="" src="images/02-03-2.png" /></p>
 <p>次のダイアログで、任意の名前を入力し、バージョンを選択します。ここではデフォルトのまま進めていきます。</p>
-<p><code>可視性のタイプ</code>には今回<code>プライベート</code>を選択します。これは、
+<p><code>Kubernetes APIエンドポイント</code>には今回はデフォルトの<code>パブリック・エンドポイント</code>を選択します。</p>
+<div class="admonition note">
+<p class="admonition-title">Kubernetes APIエンドポイントについて</p>
+<p>管理者は、クラスタのKubernetes APIエンドポイントを、プライベート・サブネットまたはパブリック・サブネットに構成することができます。VCNルーティングとファイアウォール・ルールを使うことで、Kubernetes APIエンドポイントへのアクセスを制御し、オンプレミスもしくは同一VCN上に構築した踏み台サーバからのみアクセス可能にすることができます。</p>
+</div>
+<p><code>Kubernetesワーカー・ノード</code>には今回<code>プライベート</code>を選択します。これは、
 ワークロードに応じて、ワーカーノードにパブリックIPを付与する必要がある場合は、<code>パブリック</code>を選択してください。</p>
 <div class="admonition note">
-<p class="admonition-title">可視性のタイプについて</p>
-<p><code>可視性のタイプ</code>によって、ワーカーノードに付与されるIPアドレスの種類が変わります。プライベートは、ワーカーノードがプライベートIPのみを付与された状態でプロビジョニングを行うタイプです。<br />
+<p class="admonition-title">Kubernetesワーカー・ノードについて</p>
+<p>プライベートかパブリックによって、ワーカーノードに付与されるIPアドレスの種類が変わります。プライベートは、ワーカーノードがプライベートIPのみを付与された状態でプロビジョニングを行います。<br />
 ワーカーノードにパブリックIPを付与する必要がある場合は、<code>パブリック</code>を選択してください。</p>
 </div>
 <p><code>シェイプ</code>には、今回<code>VM.Standard2.1</code>を選択します。</p>
@@ -1755,10 +1760,12 @@ OCIコンソール画面右上の人型のアイコンをクリックし、展�
 <p>それでは、OCI CLIのセットアップを行います。
 <a href="./#3-2-cloud-shell">Cloud Shellを起動</a>し、以下
 のコマンドを実行してください。</p>
+<div class="codehilite"><pre><span></span><code>oci setup config
+</code></pre></div>
+
 <div class="admonition note">
 <p class="admonition-title">クライアント環境をご利用の方へ</p>
 <p>別途クライアント環境を作成された方は作成した環境にログインし、ホームディレクトリ(<code>/home/opc</code>)からコマンドを実行してください。</p>
-<p>oci setup config</p>
 </div>
 <p>セットアップをおこなうためのインタラクションが開始されますので、提示される質問に対して、下表のように入力してください。</p>
 <table>
@@ -1806,12 +1813,14 @@ OCIコンソール画面右上の人型のアイコンをクリックし、展�
 <p>CLIからOracle Cloud環境の操作をおこなう際は、コマンドの実行の度に認証が行われます。この認証のための鍵はあらかじめOracle Cloud上のユーザーアカウントに設定しておく必要があります。</p>
 <p>上記のOCI CLIのセットアップの中で鍵ペアが作成されていますので、公開鍵をユーザーアカウントに設定していきます。</p>
 <p>まず、Tera Termで以下のコマンドを実行し、公開鍵を表示しておきます。</p>
-<div class="codehilite"><pre><span></span><code><span class="err">cat ~/.oci/oci_api_key_public.pem</span>
+<div class="codehilite"><pre><span></span><code>cat ~/.oci/oci_api_key_public.pem
 </code></pre></div>
 
-<p>続いてコンソールに移り、ログイン中のユーザーアカウントのアカウント名部分をクリックしてください。</p>
-<p><img alt="" src="images/03-04.png" /></p>
-<p>ユーザーの詳細画面をスクロールして<code>公開キーの追加</code>をクリックします。</p>
+<p>続いてコンソールに移り、ユーザー詳細画面へ遷移します。</p>
+<p><img alt="" src="images/03-02.png" /></p>
+<p>ユーザーの詳細画面をスクロールして<code>APIキー</code>をクリックします。</p>
+<p><img alt="" src="images/03-05-01.png" /></p>
+<p><code>公開キーの追加</code>をクリックします。</p>
 <p><img alt="" src="images/03-05.png" /></p>
 <p>「公開キーの追加」ダイアログの入力欄が表示されます。<br />
 今回は、<code>公開キーの貼付け</code>をクリックし、先ほとTera Termに表示した公開鍵をペーストし、<code>追加</code>ボタンをクリックします（<code>-----BEGIN PUBLIC KEY-----</code>と<code>-----END PUBLIC KEY-----</code>の行も含めてペーストします）。<br />
@@ -1846,7 +1855,7 @@ Cloud Shellの起動はダイアログに表示されている「Cloud Shellの�
 </div>
 <p>次に②のコマンドですが、こちらはOCI CLIの設定ファイル取得用のコマンドを実行しています（以下の例はダミーの値で埋めたものですので、実際のコマンドはダイアログからコピーしてください）。<br />
 右端の「コピー」をクリックしてコピーし、Cloud Shellにペースとして実行します。</p>
-<div class="codehilite"><pre><span></span><code><span class="err">oci ce cluster create-kubeconfig --cluster-id ocid1.cluster.oc1.iad.xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx --file $HOME/.kube/config --region ap-tokyo-1 --token-version 2.0.0</span>
+<div class="codehilite"><pre><span></span><code><span class="n">oci</span> <span class="n">ce</span> <span class="n">cluster</span> <span class="n">create</span><span class="o">-</span><span class="n">kubeconfig</span> <span class="o">--</span><span class="n">cluster</span><span class="o">-</span><span class="n">id</span> <span class="n">ocid1</span><span class="p">.</span><span class="n">cluster</span><span class="p">.</span><span class="n">oc1</span><span class="p">.</span><span class="n">iad</span><span class="p">.</span><span class="n">xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</span> <span class="o">--</span><span class="n">file</span> <span class="n">$HOME</span><span class="o">/</span><span class="p">.</span><span class="n">kube</span><span class="o">/</span><span class="n">config</span> <span class="o">--</span><span class="n">region</span> <span class="n">ap</span><span class="o">-</span><span class="n">tokyo</span><span class="o">-</span><span class="mh">1</span> <span class="o">--</span><span class="n">token</span><span class="o">-</span><span class="n">version</span> <span class="mf">2.0.0</span>
 </code></pre></div>
 
 <div class="admonition note">
@@ -1855,12 +1864,12 @@ Cloud Shellの起動はダイアログに表示されている「Cloud Shellの�
 <p>詳細は、kubectlコマンドに関する <i class="fa fa-external-link"></i> <a href="https://kubernetes.io/docs/tasks/access-application-cluster/configure-access-multiple-clusters/#set-the-kubeconfig-environment-variable">公式ドキュメントの記載</a>を参照ください。</p>
 </div>
 <p>最後に、以下のコマンドを実行して、kubectlの動作確認をしてみます。</p>
-<div class="codehilite"><pre><span></span><code><span class="err">kubectl get nodes</span>
+<div class="codehilite"><pre><span></span><code>kubectl get nodes
 </code></pre></div>
 
 <p>以下のような実行結果になれば、正常にクラスターにアクセスできています。</p>
-<div class="codehilite"><pre><span></span><code><span class="err">NAME        STATUS   ROLES   AGE   VERSION</span>
-<span class="err">10.0.10.2   Ready    node    20s   v1.13.5</span>
+<div class="codehilite"><pre><span></span><code>NAME        STATUS   ROLES   AGE   VERSION
+10.0.10.2   Ready    node    20s   v1.13.5
 </code></pre></div>
 
 <p>以上で、OKEでKubernetesクラスターをプロビジョニングし、利用を開始するまでの手順は完了です。<br />
@@ -1969,8 +1978,8 @@ OKEを操作するためのクライアントを、Cloud ShellではなくVMイ�
 </table>
 <p><img alt="" src="images/01-20.png" /></p>
 <p>CLI実行環境への接続が成功すると、以下のようなコンソール出力が表示されます。</p>
-<div class="codehilite"><pre><span></span><code><span class="err">Last login: Fri Aug  2 04:21:15 2019 from 156.151.8.3</span>
-<span class="err">[opc@oke-client ~]$</span>
+<div class="codehilite"><pre><span></span><code><span class="k">Last</span><span class="w"> </span><span class="nl">login</span><span class="p">:</span><span class="w"> </span><span class="n">Fri</span><span class="w"> </span><span class="n">Aug</span><span class="w">  </span><span class="mi">2</span><span class="w"> </span><span class="mi">04</span><span class="err">:</span><span class="mi">21</span><span class="err">:</span><span class="mi">15</span><span class="w"> </span><span class="mi">2019</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="mf">156.151.8.3</span><span class="w"></span>
+<span class="o">[</span><span class="n">opc@oke-client ~</span><span class="o">]</span><span class="err">$</span><span class="w"></span>
 </code></pre></div>
 
 <p>必要なCLIはこの時点でインストール済みですので、例えば以下のようなコマンドを実行することが可能です。</p>

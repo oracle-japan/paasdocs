@@ -1158,7 +1158,7 @@ Oracle WebLogic Server Kubernetes Operator ("operator"と呼びます)は、WebL
 <span class="s">EOF</span>
 </code></pre></div>
 <p>以下のような出力が確認できます。</p>
-<div class="codehilite"><pre><span></span><code><span class="err">clusterrolebinding.rbac.authorization.k8s.io/helm-user-cluster-admin-role created</span>
+<div class="codehilite"><pre><span></span><code>clusterrolebinding.rbac.authorization.k8s.io/helm-user-cluster-admin-role created
 </code></pre></div>
 
 <p>Kubernetesは、様々な理由でユーザーアカウントとサービスアカウントの概念を区別しています。主な理由は、ユーザーアカウントはユーザー用、サービスアカウントはpodで実行されるプロセス用になっているためです。WebLogic Operatorにはサービスアカウントも必要です。サービスアカウントが指定されていない場合、デフォルトが指定されます。(たとえば、ネームスペースのデフォルトサービスアカウントになります)<br />

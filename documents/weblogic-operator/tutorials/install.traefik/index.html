@@ -1184,16 +1184,16 @@
 <p><img alt="" src="../images/image_3.png" /></p>
 <h4 id="helm-charttraefik-operator">Helm chartを用いたTraefik operatorのインストール<a class="headerlink" href="#helm-charttraefik-operator" title="Permanent link">&para;</a></h4>
 <p>WebLogic OperatorのローカルGitレポジトリが存在するディレクトリに移動します。</p>
-<div class="codehilite"><pre><span></span><code><span class="err">cd /u01/content/weblogic-kubernetes-operator/</span>
+<div class="codehilite"><pre><span></span><code>cd /u01/content/weblogic-kubernetes-operator/
 </code></pre></div>
 
 <p>traefikネームスペースにTraefik operatorをインストールするために以下のコマンドを実行します:</p>
-<div class="codehilite"><pre><span></span><code><span class="err">helm install stable/traefik \</span>
-<span class="err">--name traefik-operator \</span>
-<span class="err">--namespace traefik \</span>
-<span class="err">--values kubernetes/samples/charts/traefik/values.yaml  \</span>
-<span class="err">--set &quot;kubernetes.namespaces={traefik}&quot; \</span>
-<span class="err">--set &quot;serviceType=LoadBalancer&quot;</span>
+<div class="codehilite"><pre><span></span><code>helm install stable/traefik \
+--name traefik-operator \
+--namespace traefik \
+--values kubernetes/samples/charts/traefik/values.yaml  \
+--set &quot;kubernetes.namespaces={traefik}&quot; \
+--set &quot;serviceType=LoadBalancer&quot;
 </code></pre></div>
 
 <p>以下のような出力を得られます:</p>
@@ -1277,7 +1277,7 @@ traefik-operator                <span class="m">1</span>               Tue Nov <
 </code></pre></div>
 
 <p><code>curl</code>を使って、Traefik's dashboardを確認することもできます。上記で確認したパブリックIPアドレス(EXTERNAL_IP_ADDRESS)を使います:</p>
-<div class="codehilite"><pre><span></span><code><span class="err">curl -H &#39;host: traefik.example.com&#39; http://EXTERNAL_IP_ADDRESS</span>
+<div class="codehilite"><pre><span></span><code>curl -H &#39;host: traefik.example.com&#39; http://EXTERNAL_IP_ADDRESS
 </code></pre></div>
 
 <p>以下のように表示されます:</p>

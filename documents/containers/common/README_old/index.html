@@ -1404,8 +1404,8 @@
 </table>
 <p><img alt="" src="../images/01-20.png" /></p>
 <p>CLI実行環境への接続が成功すると、以下のようなコンソール出力が表示されます。</p>
-<div class="codehilite"><pre><span></span><code><span class="err">Last login: Fri Aug  2 04:21:15 2019 from 156.151.8.3</span>
-<span class="err">[opc@oke-client ~]$</span>
+<div class="codehilite"><pre><span></span><code><span class="k">Last</span><span class="w"> </span><span class="nl">login</span><span class="p">:</span><span class="w"> </span><span class="n">Fri</span><span class="w"> </span><span class="n">Aug</span><span class="w">  </span><span class="mi">2</span><span class="w"> </span><span class="mi">04</span><span class="err">:</span><span class="mi">21</span><span class="err">:</span><span class="mi">15</span><span class="w"> </span><span class="mi">2019</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="mf">156.151.8.3</span><span class="w"></span>
+<span class="o">[</span><span class="n">opc@oke-client ~</span><span class="o">]</span><span class="err">$</span><span class="w"></span>
 </code></pre></div>
 
 <p>必要なCLIはこの時点でインストール済みですので、例えば以下のようなコマンドを実行することが可能です。</p>
@@ -1495,7 +1495,7 @@ OCIコンソール画面右上の人型のアイコンをクリックし、展�
 <p>この値は後の手順で利用しますので、テキストエディタにペーストするなどして控えておいてください。</p>
 <h4 id="3-1-3-oci-cli">3-1-3. OCI CLIのセットアップ<a class="headerlink" href="#3-1-3-oci-cli" title="Permanent link">&para;</a></h4>
 <p>それでは、OCI CLIのセットアップを行います。Tera TermでCLI実行環境にログインし、以下のコマンドを実行してください。</p>
-<div class="codehilite"><pre><span></span><code><span class="err">oci setup config</span>
+<div class="codehilite"><pre><span></span><code>oci setup config
 </code></pre></div>
 
 <p>セットアップをおこなうためのインタラクションが開始されますので、提示される質問に対して、下表のように入力してください。</p>
@@ -1544,7 +1544,7 @@ OCIコンソール画面右上の人型のアイコンをクリックし、展�
 <p>CLIからOracle Cloud環境の操作をおこなう際は、コマンドの実行の度に認証が行われます。この認証のための鍵はあらかじめOracle Cloud上のユーザーアカウントに設定しておく必要があります。</p>
 <p>上記のOCI CLIのセットアップの中で鍵ペアが作成されていますので、公開鍵をユーザーアカウントに設定していきます。</p>
 <p>まず、Tera Termで以下のコマンドを実行し、公開鍵を表示しておきます。</p>
-<div class="codehilite"><pre><span></span><code><span class="err">cat ~/.oci/oci_api_key_public.pem</span>
+<div class="codehilite"><pre><span></span><code>cat ~/.oci/oci_api_key_public.pem
 </code></pre></div>
 
 <p>続いてコンソールに移り、ログイン中のユーザーアカウントのアカウント名部分をクリックしてください。</p>
@@ -1582,17 +1582,17 @@ OKEへのアクセス方法は「Cloud Shellアクセス」と「ローカル・
 <p><img alt="" src="../images/03-12.png" /></p>
 <p>1つ目のコマンドはOCI CLIのバージョンの確認です。<br />
 右端の「コピー」をクリックしてコピーします。</p>
-<div class="codehilite"><pre><span></span><code><span class="err">oci -v</span>
+<div class="codehilite"><pre><span></span><code>oci -v
 </code></pre></div>
 
 <p>2つ目のコマンドは、設定ファイルを格納するためのディレクトリの作成です。<br />
 右端の「コピー」をクリックしてコピーします。</p>
-<div class="codehilite"><pre><span></span><code><span class="err">mkdir -p $HOME/.kube</span>
+<div class="codehilite"><pre><span></span><code>mkdir -p $HOME/.kube
 </code></pre></div>
 
 <p>3つ目のコマンドは、OCI CLIの設定ファイル取得用のコマンドを実行しています（以下の例はダミーの値で埋めたものですので、実際のコマンドはダイアログからコピーしてください）。<br />
 右端の「コピー」をクリックしてコピーします。</p>
-<div class="codehilite"><pre><span></span><code><span class="err">oci ce cluster create-kubeconfig --cluster-id ocid1.cluster.oc1.iad.xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx --file $HOME/.kube/config --region ap-tokyo-1 --token-version 2.0.0</span>
+<div class="codehilite"><pre><span></span><code><span class="n">oci</span> <span class="n">ce</span> <span class="n">cluster</span> <span class="n">create</span><span class="o">-</span><span class="n">kubeconfig</span> <span class="o">--</span><span class="n">cluster</span><span class="o">-</span><span class="n">id</span> <span class="n">ocid1</span><span class="p">.</span><span class="n">cluster</span><span class="p">.</span><span class="n">oc1</span><span class="p">.</span><span class="n">iad</span><span class="p">.</span><span class="n">xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</span> <span class="o">--</span><span class="n">file</span> <span class="n">$HOME</span><span class="o">/</span><span class="p">.</span><span class="n">kube</span><span class="o">/</span><span class="n">config</span> <span class="o">--</span><span class="n">region</span> <span class="n">ap</span><span class="o">-</span><span class="n">tokyo</span><span class="o">-</span><span class="mh">1</span> <span class="o">--</span><span class="n">token</span><span class="o">-</span><span class="n">version</span> <span class="mf">2.0.0</span>
 </code></pre></div>
 
 <div class="admonition note">
@@ -1601,12 +1601,12 @@ OKEへのアクセス方法は「Cloud Shellアクセス」と「ローカル・
 <p>詳細は、kubectlコマンドに関する <i class="fa fa-external-link"></i> <a href="https://kubernetes.io/docs/tasks/access-application-cluster/configure-access-multiple-clusters/#set-the-kubeconfig-environment-variable">公式ドキュメントの記載</a>を参照ください。</p>
 </div>
 <p>最後に、以下のコマンドを実行して、kubectlの動作確認をしてみます。</p>
-<div class="codehilite"><pre><span></span><code><span class="err">kubectl get nodes</span>
+<div class="codehilite"><pre><span></span><code>kubectl get nodes
 </code></pre></div>
 
 <p>以下のような実行結果になれば、正常にクラスターにアクセスできています。</p>
-<div class="codehilite"><pre><span></span><code><span class="err">NAME        STATUS   ROLES   AGE   VERSION</span>
-<span class="err">10.0.10.2   Ready    node    20s   v1.13.5</span>
+<div class="codehilite"><pre><span></span><code>NAME        STATUS   ROLES   AGE   VERSION
+10.0.10.2   Ready    node    20s   v1.13.5
 </code></pre></div>
 
 <p>以上で、OKEでKubernetesクラスターをプロビジョニングし、利用を開始するまでの手順は完了です。<br />

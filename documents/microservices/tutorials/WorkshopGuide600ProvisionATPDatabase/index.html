@@ -1263,7 +1263,7 @@
 <p>別途クライアント環境を作成された方は作成した環境にログインし、ホームディレクトリ(<code>/home/opc</code>)からコマンドを実行してください。</p>
 </div>
 <p>oke_atp_workshopディレクトリに移動します。</p>
-<div class="codehilite"><pre><span></span><code><span class="err">cd oke_atp_workshop</span>
+<div class="codehilite"><pre><span></span><code>cd oke_atp_workshop
 </code></pre></div>
 
 <p>以下のコマンドを実行します。</p>
@@ -1286,7 +1286,7 @@
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>誤って作成してしまった場合等に削除する場合は以下のコマンドを実行。</p>
-<div class="codehilite"><pre><span></span><code><span class="err">kubectl delete configmap &lt;configmap名&gt;</span>
+<div class="codehilite"><pre><span></span><code>kubectl delete configmap &lt;configmap名&gt;
 </code></pre></div>
 
 </div>
@@ -1329,15 +1329,15 @@
 <p>Secretリソースについては<a href="https://kubernetes.io/docs/concepts/configuration/secret/">こちら</a>をご確認ください。</p>
 </div>
 <p>今回は、ATPのユーザを"handson"、パスワードを"Welcome12345"として作成します。</p>
-<div class="codehilite"><pre><span></span><code><span class="err">kubectl create secret generic customized-db-cred \</span>
-<span class="err">--from-literal=user_name=handson \</span>
-<span class="err">--from-literal=password=Welcome12345</span>
+<div class="codehilite"><pre><span></span><code>kubectl create secret generic customized-db-cred \
+--from-literal=user_name=handson \
+--from-literal=password=Welcome12345
 </code></pre></div>
 
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>誤って作成してしまった場合等に削除する場合は以下のコマンドを実行。</p>
-<div class="codehilite"><pre><span></span><code><span class="err">kubectl delete secret &lt;secret名&gt;</span>
+<div class="codehilite"><pre><span></span><code>kubectl delete secret &lt;secret名&gt;
 </code></pre></div>
 
 </div>
