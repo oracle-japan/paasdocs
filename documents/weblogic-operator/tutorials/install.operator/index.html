@@ -1187,9 +1187,9 @@ Oracle WebLogic Server Kubernetes Operator ("operator"と呼びます)は、WebL
 <p>事前に用意したVirtualBox環境をお使いの場合は、WebLogic Operatorのgit repositoryをcloneする必要はありません。
 この手順はスキップしてください。<br />
 VirtualBox環境をお使いでない方は、以下のコマンドを実行し、ディレクトリの作成とgit repositoryのcloneを行ってください。</p>
-<div class="codehilite"><pre><span></span><code><span class="err">mkdir -p /u01/content/</span>
-<span class="err">cd /u01/content/</span>
-<span class="err">git clone https://github.com/oracle/weblogic-kubernetes-operator.git  -b v2.3.0</span>
+<div class="codehilite"><pre><span></span><code>mkdir -p /u01/content/
+cd /u01/content/
+git clone https://github.com/oracle/weblogic-kubernetes-operator.git  -b v2.3.0
 </code></pre></div>
 
 </div>
@@ -1212,25 +1212,25 @@ subjects:
 EOF
 </code></pre></div>
 <p>以下のような出力が確認できます。</p>
-<div class="codehilite"><pre><span></span><code><span class="err">clusterrolebinding &quot;helm-user-cluster-admin-role&quot; created</span>
+<div class="codehilite"><pre><span></span><code>clusterrolebinding &quot;helm-user-cluster-admin-role&quot; created
 </code></pre></div>
 
 <p>Kubernetesは、様々な理由でユーザアカウントとサービスアカウントの概念を区別しています。主な理由は、ユーザアカウントはユーザ用、サービスアカウントはpodで実行されるプロセス用になっているためです。WebLogic Operatorにはサービスアカウントも必要です。サービスアカウントが指定されていない場合、デフォルトが指定されます。(たとえば、ネームスペースのデフォルトサービスアカウントになります)<br />
 別のサービスアカウントを使用する場合は、オペレーターのHelm chartをインストールする前に、オペレーター用のネームスペースとサービスアカウントを作成する必要があります。</p>
 <p>以下のように、事前にoperatorのネームスペースを作成しておきます。</p>
-<div class="codehilite"><pre><span></span><code><span class="err">kubectl create namespace sample-weblogic-operator-ns</span>
+<div class="codehilite"><pre><span></span><code>kubectl create namespace sample-weblogic-operator-ns
 </code></pre></div>
 
 <p>サービスアカウントを作成します。</p>
-<div class="codehilite"><pre><span></span><code><span class="err">kubectl create serviceaccount -n sample-weblogic-operator-ns sample-weblogic-operator-sa</span>
+<div class="codehilite"><pre><span></span><code>kubectl create serviceaccount -n sample-weblogic-operator-ns sample-weblogic-operator-sa
 </code></pre></div>
 
 <p>operatorの<code>helm</code>インストールを実行するためにカレントディレクトリがWebLogic OperatorのローカルGitレポジトリが存在するディレクトリになっていることを確認してください。</p>
-<div class="codehilite"><pre><span></span><code><span class="err">cd /u01/content/weblogic-kubernetes-operator/</span>
+<div class="codehilite"><pre><span></span><code>cd /u01/content/weblogic-kubernetes-operator/
 </code></pre></div>
 
 <p>helmを使い始める前にサーバサイドのTillerサービスをアップグレードしておくことをお勧めします。以下のコマンドを実行してください。</p>
-<div class="codehilite"><pre><span></span><code><span class="err">helm init --upgrade</span>
+<div class="codehilite"><pre><span></span><code>helm init --upgrade
 </code></pre></div>
 
 <p>operatorのHelm chartをインストールするために<code>helm install</code>を使用します。ここでは、operatorで使用する"release"名を決める必要があります。</p>

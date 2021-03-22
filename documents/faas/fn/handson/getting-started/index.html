@@ -1481,15 +1481,15 @@
 <p>上記手順でログインができます。</p>
 <h3 id="2-2-docker">2-2. Dockerのインストール<a class="headerlink" href="#2-2-docker" title="Permanent link">&para;</a></h3>
 <p>ログインしたら、パッケージインデックスの更新するために以下のコマンドを実行します。</p>
-<div class="codehilite"><pre><span></span><code><span class="err">sudo apt-get update</span>
+<div class="codehilite"><pre><span></span><code>sudo apt-get update
 </code></pre></div>
 
 <p>次に事前に必要なパッケージの導入を行うために以下のコマンドを実行します。</p>
-<div class="codehilite"><pre><span></span><code><span class="err">sudo apt-get install -y \</span>
-<span class="err">apt-transport-https \</span>
-<span class="err">ca-certificates \</span>
-<span class="err">curl \</span>
-<span class="err">software-properties-common</span>
+<div class="codehilite"><pre><span></span><code>sudo apt-get install -y \
+apt-transport-https \
+ca-certificates \
+curl \
+software-properties-common
 </code></pre></div>
 
 <p>GPG公開鍵のインストールを行うために以下のコマンドを実行します。</p>
@@ -1497,7 +1497,7 @@
 </code></pre></div>
 
 <p>GPG公開鍵がインストールされたことを確認するために以下のコマンドを実行します。</p>
-<div class="codehilite"><pre><span></span><code><span class="err">sudo apt-key fingerprint 0EBFCD88</span>
+<div class="codehilite"><pre><span></span><code>sudo apt-key fingerprint 0EBFCD88
 </code></pre></div>
 
 <p>以下のように表示されれば、GPG公開鍵がインストールされています。</p>
@@ -1515,11 +1515,11 @@
 </code></pre></div>
 
 <p>再度、パッケージインデックスを更新します。</p>
-<div class="codehilite"><pre><span></span><code><span class="err">sudo apt-get update</span>
+<div class="codehilite"><pre><span></span><code>sudo apt-get update
 </code></pre></div>
 
 <p>インストール可能なDockerバージョンをチェックします。</p>
-<div class="codehilite"><pre><span></span><code><span class="err">apt-cache madison docker-ce</span>
+<div class="codehilite"><pre><span></span><code>apt-cache madison docker-ce
 </code></pre></div>
 
 <p>以下のように表示されます。本ハンズオンでは、"18.03.1"を使用します。</p>
@@ -1542,44 +1542,44 @@
 </code></pre></div>
 
 <p>以下のコマンドでDockerをインストールします。</p>
-<div class="codehilite"><pre><span></span><code><span class="err">sudo apt-get install -y docker-ce=18.03.1~ce~3-0~ubuntu</span>
+<div class="codehilite"><pre><span></span><code>sudo apt-get install -y docker-ce=18.03.1~ce~3-0~ubuntu
 </code></pre></div>
 
 <p>これでDockerのインストールは完了です。<br />
 Dockerは自動的に起動しているので、以下のコマンドで動作確認してみます。</p>
-<div class="codehilite"><pre><span></span><code><span class="err">sudo docker container run hello-world</span>
+<div class="codehilite"><pre><span></span><code>sudo docker container run hello-world
 </code></pre></div>
 
 <p>以下のように表示されれば、問題なく起動できています。</p>
-<div class="codehilite"><pre><span></span><code><span class="n">Hello</span> <span class="k">from</span> <span class="n">Docker</span><span class="o">!</span>
-<span class="n">This</span> <span class="n">message</span> <span class="n">shows</span> <span class="n">that</span> <span class="n">your</span> <span class="n">installation</span> <span class="n">appears</span> <span class="k">to</span> <span class="n">be</span> <span class="n">working</span> <span class="n">correctly</span><span class="p">.</span>
+<div class="codehilite"><pre><span></span><code><span class="nv">Hello</span> <span class="nv">from</span> <span class="nv">Docker</span><span class="o">!</span>
+<span class="nv">This</span> <span class="nv">message</span> <span class="nv">shows</span> <span class="nv">that</span> <span class="nv">your</span> <span class="nv">installation</span> <span class="nv">appears</span> <span class="nv">to</span> <span class="nv">be</span> <span class="nv">working</span> <span class="nv">correctly</span>.
 
-<span class="k">To</span> <span class="n">generate</span> <span class="n">this</span> <span class="n">message</span><span class="p">,</span> <span class="n">Docker</span> <span class="n">took</span> <span class="n">the</span> <span class="n">following</span> <span class="n">steps</span><span class="p">:</span>
-<span class="mi">1</span><span class="p">.</span> <span class="n">The</span> <span class="n">Docker</span> <span class="n">client</span> <span class="n">contacted</span> <span class="n">the</span> <span class="n">Docker</span> <span class="n">daemon</span><span class="p">.</span>
-<span class="mi">2</span><span class="p">.</span> <span class="n">The</span> <span class="n">Docker</span> <span class="n">daemon</span> <span class="n">pulled</span> <span class="n">the</span> <span class="ss">&quot;hello-world&quot;</span> <span class="n">image</span> <span class="k">from</span> <span class="n">the</span> <span class="n">Docker</span> <span class="n">Hub</span><span class="p">.</span>
-    <span class="p">(</span><span class="n">amd64</span><span class="p">)</span>
-<span class="mi">3</span><span class="p">.</span> <span class="n">The</span> <span class="n">Docker</span> <span class="n">daemon</span> <span class="n">created</span> <span class="n">a</span> <span class="k">new</span> <span class="n">container</span> <span class="k">from</span> <span class="n">that</span> <span class="n">image</span> <span class="n">which</span> <span class="n">runs</span> <span class="n">the</span>
-    <span class="n">executable</span> <span class="n">that</span> <span class="n">produces</span> <span class="n">the</span> <span class="k">output</span> <span class="n">you</span> <span class="k">are</span> <span class="n">currently</span> <span class="n">reading</span><span class="p">.</span>
-<span class="mi">4</span><span class="p">.</span> <span class="n">The</span> <span class="n">Docker</span> <span class="n">daemon</span> <span class="n">streamed</span> <span class="n">that</span> <span class="k">output</span> <span class="k">to</span> <span class="n">the</span> <span class="n">Docker</span> <span class="n">client</span><span class="p">,</span> <span class="n">which</span> <span class="n">sent</span> <span class="n">it</span>
-    <span class="k">to</span> <span class="n">your</span> <span class="n">terminal</span><span class="p">.</span>
+<span class="nv">To</span> <span class="nv">generate</span> <span class="nv">this</span> <span class="nv">message</span>, <span class="nv">Docker</span> <span class="nv">took</span> <span class="nv">the</span> <span class="nv">following</span> <span class="nv">steps</span>:
+<span class="mi">1</span>. <span class="nv">The</span> <span class="nv">Docker</span> <span class="nv">client</span> <span class="nv">contacted</span> <span class="nv">the</span> <span class="nv">Docker</span> <span class="nv">daemon</span>.
+<span class="mi">2</span>. <span class="nv">The</span> <span class="nv">Docker</span> <span class="nv">daemon</span> <span class="nv">pulled</span> <span class="nv">the</span> <span class="s2">&quot;</span><span class="s">hello-world</span><span class="s2">&quot;</span> <span class="nv">image</span> <span class="nv">from</span> <span class="nv">the</span> <span class="nv">Docker</span> <span class="nv">Hub</span>.
+    <span class="ss">(</span><span class="nv">amd64</span><span class="ss">)</span>
+<span class="mi">3</span>. <span class="nv">The</span> <span class="nv">Docker</span> <span class="nv">daemon</span> <span class="nv">created</span> <span class="nv">a</span> <span class="nv">new</span> <span class="nv">container</span> <span class="nv">from</span> <span class="nv">that</span> <span class="nv">image</span> <span class="nv">which</span> <span class="nv">runs</span> <span class="nv">the</span>
+    <span class="nv">executable</span> <span class="nv">that</span> <span class="nv">produces</span> <span class="nv">the</span> <span class="nv">output</span> <span class="nv">you</span> <span class="nv">are</span> <span class="nv">currently</span> <span class="nv">reading</span>.
+<span class="mi">4</span>. <span class="nv">The</span> <span class="nv">Docker</span> <span class="nv">daemon</span> <span class="nv">streamed</span> <span class="nv">that</span> <span class="nv">output</span> <span class="nv">to</span> <span class="nv">the</span> <span class="nv">Docker</span> <span class="nv">client</span>, <span class="nv">which</span> <span class="nv">sent</span> <span class="nv">it</span>
+    <span class="nv">to</span> <span class="nv">your</span> <span class="nv">terminal</span>.
 
-<span class="k">To</span> <span class="n">try</span> <span class="n">something</span> <span class="k">more</span> <span class="n">ambitious</span><span class="p">,</span> <span class="n">you</span> <span class="n">can</span> <span class="n">run</span> <span class="n">an</span> <span class="n">Ubuntu</span> <span class="n">container</span> <span class="k">with</span><span class="p">:</span>
-<span class="err">$</span> <span class="n">docker</span> <span class="n">run</span> <span class="o">-</span><span class="n">it</span> <span class="n">ubuntu</span> <span class="n">bash</span>
+<span class="nv">To</span> <span class="nv">try</span> <span class="nv">something</span> <span class="nv">more</span> <span class="nv">ambitious</span>, <span class="nv">you</span> <span class="nv">can</span> <span class="nv">run</span> <span class="nv">an</span> <span class="nv">Ubuntu</span> <span class="nv">container</span> <span class="nv">with</span>:
+$ <span class="nv">docker</span> <span class="nv">run</span> <span class="o">-</span><span class="nv">it</span> <span class="nv">ubuntu</span> <span class="nv">bash</span>
 
-<span class="k">Share</span> <span class="n">images</span><span class="p">,</span> <span class="n">automate</span> <span class="n">workflows</span><span class="p">,</span> <span class="k">and</span> <span class="k">more</span> <span class="k">with</span> <span class="n">a</span> <span class="k">free</span> <span class="n">Docker</span> <span class="n">ID</span><span class="p">:</span>
-<span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">hub</span><span class="p">.</span><span class="n">docker</span><span class="p">.</span><span class="n">com</span><span class="o">/</span>
+<span class="nv">Share</span> <span class="nv">images</span>, <span class="nv">automate</span> <span class="nv">workflows</span>, <span class="nv">and</span> <span class="nv">more</span> <span class="nv">with</span> <span class="nv">a</span> <span class="nv">free</span> <span class="nv">Docker</span> <span class="nv">ID</span>:
+<span class="nv">https</span>:<span class="o">//</span><span class="nv">hub</span>.<span class="nv">docker</span>.<span class="nv">com</span><span class="o">/</span>
 
-<span class="k">For</span> <span class="k">more</span> <span class="n">examples</span> <span class="k">and</span> <span class="n">ideas</span><span class="p">,</span> <span class="n">visit</span><span class="p">:</span>
-<span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">docs</span><span class="p">.</span><span class="n">docker</span><span class="p">.</span><span class="n">com</span><span class="o">/</span><span class="k">get</span><span class="o">-</span><span class="n">started</span><span class="o">/</span>
+<span class="k">For</span> <span class="nv">more</span> <span class="nv">examples</span> <span class="nv">and</span> <span class="nv">ideas</span>, <span class="nv">visit</span>:
+<span class="nv">https</span>:<span class="o">//</span><span class="nv">docs</span>.<span class="nv">docker</span>.<span class="nv">com</span><span class="o">/</span><span class="nv">get</span><span class="o">-</span><span class="nv">started</span><span class="o">/</span>
 </code></pre></div>
 
 <p>Dockerは、rootユーザで利用することが奨励されていないので、ubuntuユーザで利用できるように以下のコマンドを実行します。</p>
-<div class="codehilite"><pre><span></span><code><span class="err">sudo usermod -aG docker ubuntu</span>
+<div class="codehilite"><pre><span></span><code>sudo usermod -aG docker ubuntu
 </code></pre></div>
 
 <p>上記コマンドを実行したら<code>exit</code>コマンドでコンピュートインスタンスからログアウトし、ログインし直します。</p>
 <p>再ログイン後に、ubuntuユーザでDockerを利用できるかどうかを以下のコマンドで確認します。</p>
-<div class="codehilite"><pre><span></span><code><span class="err">docker container run hello-world</span>
+<div class="codehilite"><pre><span></span><code>docker container run hello-world
 </code></pre></div>
 
 <p>先ほど実行した"sudo docker container run hello-world"の結果と同様になれば成功です。</p>
@@ -1593,44 +1593,44 @@ Dockerは自動的に起動しているので、以下のコマンドで動作�
 <h4 id="2-3-1-fn-cli">2-3-1. Fn CLIのインストール<a class="headerlink" href="#2-3-1-fn-cli" title="Permanent link">&para;</a></h4>
 <p>まず、Fn CLIのインストールを行います。<br />
 Fn Server:0.5.74をインストールするためのインストールスクリプトを以下のレポジトリに配置しているので、任意のディレクトリでcloneします。</p>
-<div class="codehilite"><pre><span></span><code><span class="err">git clone https://github.com/oracle-japan/faas-fnproject-handson</span>
+<div class="codehilite"><pre><span></span><code>git clone https://github.com/oracle-japan/faas-fnproject-handson
 </code></pre></div>
 
 <p>cloneしたディレクトリに移動します。</p>
-<div class="codehilite"><pre><span></span><code><span class="err">cd faas-fnproject-handson</span>
+<div class="codehilite"><pre><span></span><code>cd faas-fnproject-handson
 </code></pre></div>
 
 <p>以下のコマンドを実行し、スクリプトへの権限を付与します。</p>
-<div class="codehilite"><pre><span></span><code><span class="err"> chmod 755 install.sh</span>
+<div class="codehilite"><pre><span></span><code> chmod 755 install.sh
 </code></pre></div>
 
 <p>以下のコマンドを実行し、Fn CLIをインストールします。</p>
-<div class="codehilite"><pre><span></span><code><span class="err"> sh install.sh</span>
+<div class="codehilite"><pre><span></span><code> sh install.sh
 </code></pre></div>
 
 <p>インストールに成功すると以下のように表示されます。</p>
-<div class="codehilite"><pre><span></span><code><span class="err">fn version 0.5.74</span>
-<span class="err">    ______</span>
-<span class="err">   / ____/___</span>
-<span class="err">  / /_  / __ \</span>
-<span class="err"> / __/ / / / /</span>
-<span class="err">/_/   /_/ /_/`</span>
+<div class="codehilite"><pre><span></span><code>fn version 0.5.74
+    ______
+   / ____/___
+  / /_  / __ \
+ / __/ / / / /
+/_/   /_/ /_/`
 </code></pre></div>
 
 <p>これで、Fn CLIのインストールは完了です。</p>
 <h4 id="2-3-2-fn-server">2-3-2. Fn Serverのインストール<a class="headerlink" href="#2-3-2-fn-server" title="Permanent link">&para;</a></h4>
 <p>次にFn Serverのインストールを行います。
 Fn Server:0.3.694のコンテナイメージをpullするために以下のコマンドを実行します。</p>
-<div class="codehilite"><pre><span></span><code><span class="err">docker image pull fnproject/fnserver:0.3.694</span>
+<div class="codehilite"><pre><span></span><code>docker image pull fnproject/fnserver:0.3.694
 </code></pre></div>
 
 <p>先ほどpullしたコンテナイメージを確認するために以下のコマンドを実行します。</p>
-<div class="codehilite"><pre><span></span><code><span class="err">docker image ls</span>
+<div class="codehilite"><pre><span></span><code>docker image ls
 </code></pre></div>
 
 <p>以下のように、"fnproject/fnserver"というイメージが表示されていれば、Fn Serverのコンテナイメージをpullできています。</p>
-<div class="codehilite"><pre><span></span><code><span class="err">REPOSITORY           TAG                 IMAGE ID            CREATED             SIZE</span>
-<span class="err">fnproject/fnserver   0.3.694             c127f1aafb2f        3 weeks ago         161MB</span>
+<div class="codehilite"><pre><span></span><code>REPOSITORY           TAG                 IMAGE ID            CREATED             SIZE
+fnproject/fnserver   0.3.694             c127f1aafb2f        3 weeks ago         161MB
 </code></pre></div>
 
 <p>この後のFn Serverの起動の準備として、Fn Serverのコンテナイメージのタグを"latest"に変更しておきます。<br />
@@ -1639,17 +1639,17 @@ Fn Server:0.3.694のコンテナイメージをpullするために以下のコ�
 </code></pre></div>
 
 <p>このハンズオン手順では以下のようになります。</p>
-<div class="codehilite"><pre><span></span><code><span class="err">docker image tag c127f1aafb2f fnproject/fnserver:latest</span>
+<div class="codehilite"><pre><span></span><code>docker image tag c127f1aafb2f fnproject/fnserver:latest
 </code></pre></div>
 
 <p>タグが変更されたことを確認するために以下のコマンドを実行します。</p>
-<div class="codehilite"><pre><span></span><code><span class="err">docker image ls</span>
+<div class="codehilite"><pre><span></span><code>docker image ls
 </code></pre></div>
 
 <p>以下のようにlatestタグのコンテナイメージが追加されていればOKです。</p>
-<div class="codehilite"><pre><span></span><code><span class="err">REPOSITORY           TAG                 IMAGE ID            CREATED             SIZE</span>
-<span class="err">fnproject/fnserver   0.3.694             c127f1aafb2f        3 weeks ago         161MB</span>
-<span class="err">fnproject/fnserver   latest              c127f1aafb2f        3 weeks ago         161MB</span>
+<div class="codehilite"><pre><span></span><code>REPOSITORY           TAG                 IMAGE ID            CREATED             SIZE
+fnproject/fnserver   0.3.694             c127f1aafb2f        3 weeks ago         161MB
+fnproject/fnserver   latest              c127f1aafb2f        3 weeks ago         161MB
 </code></pre></div>
 
 <div class="admonition note">
@@ -1657,21 +1657,21 @@ Fn Server:0.3.694のコンテナイメージをpullするために以下のコ�
 <p>Fn Serverの起動には、Fn Project専用のCLI(Fn CLI)を利用します。このCLIでは、"fnproject/fnserver:latest"というイメージ名／タグのコンテナイメージが固定で利用されるため、上記のような変更を行っています。</p>
 </div>
 <p>Fn Serverを起動するために以下のコマンドを実行します。</p>
-<div class="codehilite"><pre><span></span><code><span class="err">fn start</span>
+<div class="codehilite"><pre><span></span><code>fn start
 </code></pre></div>
 
 <p>以下のように表示されれば成功です。  </p>
-<div class="codehilite"><pre><span></span><code><span class="err">time=&quot;2019-07-16T09:38:19Z&quot; level=info msg=&quot;available memory&quot; cgroup_limit=9223372036854771712 head_room=1447603814 total_memory=14476038144</span>
-<span class="err">time=&quot;2019-07-16T09:38:19Z&quot; level=info msg=&quot;ram reservations&quot; avail_memory=13028434330</span>
-<span class="err">time=&quot;2019-07-16T09:38:19Z&quot; level=info msg=&quot;available cpu&quot; avail_cpu=2000 total_cpu=2000</span>
-<span class="err">time=&quot;2019-07-16T09:38:19Z&quot; level=info msg=&quot;cpu reservations&quot; cpu=2000</span>
-<span class="err">    ______</span>
-<span class="err">   / ____/___</span>
-<span class="err">  / /_  / __ \</span>
-<span class="err"> / __/ / / / /</span>
-<span class="err">/_/   /_/ /_/</span>
-<span class="err">    v0.3.694</span>
-<span class="err">time=&quot;2019-08-26T10:16:30Z&quot; level=info msg=&quot;Fn serving on `:8080`&quot; type=full version=0.3.694</span>
+<div class="codehilite"><pre><span></span><code>time=&quot;2019-07-16T09:38:19Z&quot; level=info msg=&quot;available memory&quot; cgroup_limit=9223372036854771712 head_room=1447603814 total_memory=14476038144
+time=&quot;2019-07-16T09:38:19Z&quot; level=info msg=&quot;ram reservations&quot; avail_memory=13028434330
+time=&quot;2019-07-16T09:38:19Z&quot; level=info msg=&quot;available cpu&quot; avail_cpu=2000 total_cpu=2000
+time=&quot;2019-07-16T09:38:19Z&quot; level=info msg=&quot;cpu reservations&quot; cpu=2000
+    ______
+   / ____/___
+  / /_  / __ \
+ / __/ / / / /
+/_/   /_/ /_/
+    v0.3.694
+time=&quot;2019-08-26T10:16:30Z&quot; level=info msg=&quot;Fn serving on `:8080`&quot; type=full version=0.3.694
 </code></pre></div>
 
 <p>これでFn Serverが起動したので、このコンソールはこのままの状態にしておきます。<br />
@@ -1682,14 +1682,14 @@ Fn Server:0.3.694のコンテナイメージをpullするために以下のコ�
 <p>まず、Tera Termのメニューから"セッションの複製"をクリックし、新しいコンソールでコンピュートインスタンスにログインします。</p>
 <p><img alt="" src="images/02-05.png" /></p>
 <p>次に、fn initコマンドを使用してfunctionのひな形を作成します。今回は、以下のコマンドを実行します。</p>
-<div class="codehilite"><pre><span></span><code><span class="err">fn init --runtime java javafn</span>
+<div class="codehilite"><pre><span></span><code>fn init --runtime java javafn
 </code></pre></div>
 
 <p>ここではfunctionをJavaで記述しますので、<code>--runtime java</code>というオプションを指定しています。</p>
 <p>ひな形の作成が成功すると以下のように表示されます。</p>
-<div class="codehilite"><pre><span></span><code><span class="err">Creating function at: ./javafn</span>
-<span class="err">Function boilerplate generated.</span>
-<span class="err">func.yaml created.</span>
+<div class="codehilite"><pre><span></span><code>Creating function at: ./javafn
+Function boilerplate generated.
+func.yaml created.
 </code></pre></div>
 
 <p>ここまでの時点で、"Hello World"と返すだけのシンプルなfunctionの作成が完了しています。</p>
@@ -1705,26 +1705,26 @@ Fn Server:0.3.694のコンテナイメージをpullするために以下のコ�
 <p>その他コマンドの詳細については、<i class="fa fa-external-link"></i> <a href="https://github.com/fnproject/docs/blob/master/cli/ref/fn-init.md">Fn CLIのリファレンス</a>を参照ください。</p>
 </div>
 <p>作成したディレクトリに移動します。</p>
-<div class="codehilite"><pre><span></span><code><span class="err">cd javafn</span>
+<div class="codehilite"><pre><span></span><code>cd javafn
 </code></pre></div>
 
 <p>"javafn"ディレクトリ配下は以下のような構成になっています。</p>
-<div class="codehilite"><pre><span></span><code><span class="err">├── func.yaml</span>
-<span class="err">├── pom.xml</span>
-<span class="err">└── src</span>
-<span class="err">    ├── main</span>
-<span class="err">    │   └── java</span>
-<span class="err">    │       └── com</span>
-<span class="err">    │           └── example</span>
-<span class="err">    │               └── fn</span>
-<span class="err">    │                   └── HelloFunction.java</span>
-<span class="err">    └── test</span>
-<span class="err">        └── java</span>
-<span class="err">            └── com</span>
-<span class="err">                └── example</span>
-<span class="err">                    └── fn</span>
-<span class="err">                        └── HelloFunctionTest.java</span>
-<span class="err">11 directories, 4 files</span>
+<div class="codehilite"><pre><span></span><code>├── func.yaml
+├── pom.xml
+└── src
+    ├── main
+    │   └── java
+    │       └── com
+    │           └── example
+    │               └── fn
+    │                   └── HelloFunction.java
+    └── test
+        └── java
+            └── com
+                └── example
+                    └── fn
+                        └── HelloFunctionTest.java
+11 directories, 4 files
 </code></pre></div>
 
 <ul>
@@ -1759,34 +1759,34 @@ Fn Server:0.3.694のコンテナイメージをpullするために以下のコ�
 <p>まず、functionを実行する上で必要な準備を行っていきます。</p>
 <p>functionをFn Serverにデプロイするためには、applicationと呼ばれる区画を予め作成しておく必要があります。applicationは複数のfunctionを内包する管理単位です。</p>
 <p>以下のように、fn create appコマンドを実行してapplicationを作成します。</p>
-<div class="codehilite"><pre><span></span><code><span class="err">fn create app hello-app</span>
+<div class="codehilite"><pre><span></span><code>fn create app hello-app
 </code></pre></div>
 
 <p>次に、fn deployコマンドを使用してfunctionをデプロイします。</p>
-<div class="codehilite"><pre><span></span><code><span class="err">fn --verbose deploy --app hello-app --local</span>
+<div class="codehilite"><pre><span></span><code>fn --verbose deploy --app hello-app --local
 </code></pre></div>
 
 <p>以下のように表示されることを確認します。(しばらく時間がかかります)</p>
-<div class="codehilite"><pre><span></span><code><span class="n">Deploying</span> <span class="n">javafn</span> <span class="k">to</span> <span class="n">app</span><span class="p">:</span> <span class="n">hello</span><span class="o">-</span><span class="n">app</span>
-<span class="n">Bumped</span> <span class="k">to</span> <span class="k">version</span> <span class="mi">0</span><span class="p">.</span><span class="mi">0</span><span class="p">.</span><span class="mi">2</span>
-<span class="n">Building</span> <span class="n">image</span> <span class="n">javafn</span><span class="p">:</span><span class="mi">0</span><span class="p">.</span><span class="mi">0</span><span class="p">.</span><span class="mi">2</span>
-<span class="n">FN_REGISTRY</span><span class="p">:</span>  <span class="n">FN_REGISTRY</span> <span class="k">is</span> <span class="k">not</span> <span class="k">set</span><span class="p">.</span>
-<span class="k">Current</span> <span class="n">Context</span><span class="p">:</span>  <span class="k">default</span>
-<span class="n">Sending</span> <span class="n">build</span> <span class="n">context</span> <span class="k">to</span> <span class="n">Docker</span> <span class="n">daemon</span>  <span class="mi">14</span><span class="p">.</span><span class="mi">34</span><span class="n">kB</span>
-<span class="n">Step</span> <span class="mi">1</span><span class="o">/</span><span class="mi">11</span> <span class="p">:</span> <span class="k">FROM</span> <span class="n">fnproject</span><span class="o">/</span><span class="n">fn</span><span class="o">-</span><span class="n">java</span><span class="o">-</span><span class="n">fdk</span><span class="o">-</span><span class="n">build</span><span class="p">:</span><span class="n">jdk11</span><span class="o">-</span><span class="mi">1</span><span class="p">.</span><span class="mi">0</span><span class="p">.</span><span class="mi">98</span> <span class="k">as</span> <span class="n">build</span><span class="o">-</span><span class="n">stage</span>
-<span class="c1">---&gt; d490a89232cf</span>
-<span class="n">Step</span> <span class="mi">2</span><span class="o">/</span><span class="mi">11</span> <span class="p">:</span> <span class="n">WORKDIR</span> <span class="o">/</span><span class="k">function</span>
-<span class="c1">---&gt; Using cache</span>
-<span class="c1">---&gt; 931e8c2e85d5</span>
+<div class="codehilite"><pre><span></span><code><span class="n">Deploying</span> <span class="n">javafn</span> <span class="n">to</span> <span class="n">app</span><span class="o">:</span> <span class="n">hello</span><span class="o">-</span><span class="n">app</span>
+<span class="n">Bumped</span> <span class="n">to</span> <span class="n">version</span> <span class="mf">0.0.2</span>
+<span class="n">Building</span> <span class="n">image</span> <span class="n">javafn</span><span class="o">:</span><span class="mf">0.0.2</span>
+<span class="n">FN_REGISTRY</span><span class="o">:</span>  <span class="n">FN_REGISTRY</span> <span class="n">is</span> <span class="kr">not</span> <span class="nf">set</span><span class="p">.</span>
+<span class="n">Current</span> <span class="n">Context</span><span class="o">:</span>  <span class="n">default</span>
+<span class="n">Sending</span> <span class="kr">build</span> <span class="n">context</span> <span class="n">to</span> <span class="n">Docker</span> <span class="n">daemon</span>  <span class="mf">14.34</span><span class="n">kB</span>
+<span class="n">Step</span> <span class="mi">1</span><span class="o">/</span><span class="mi">11</span> <span class="o">:</span> <span class="n">FROM</span> <span class="n">fnproject</span><span class="o">/</span><span class="n">fn</span><span class="o">-</span><span class="n">java</span><span class="o">-</span><span class="n">fdk</span><span class="o">-</span><span class="kr">build</span><span class="o">:</span><span class="n">jdk11</span><span class="o">-</span><span class="mf">1.0.98</span> <span class="kr">as</span> <span class="kr">build</span><span class="o">-</span><span class="n">stage</span>
+<span class="o">---&gt;</span> <span class="n">d490a89232cf</span>
+<span class="n">Step</span> <span class="mi">2</span><span class="o">/</span><span class="mi">11</span> <span class="o">:</span> <span class="n">WORKDIR</span> <span class="o">/</span><span class="kr">function</span>
+<span class="o">---&gt;</span> <span class="n">Using</span> <span class="n">cache</span>
+<span class="o">---&gt;</span> <span class="mf">931e8</span><span class="n">c2e85d5</span>
 <span class="p">(</span><span class="err">中略</span><span class="p">)</span>
-<span class="n">Step</span> <span class="mi">11</span><span class="o">/</span><span class="mi">11</span> <span class="p">:</span> <span class="n">CMD</span> <span class="p">[</span><span class="ss">&quot;com.example.fn.HelloFunction::handleRequest&quot;</span><span class="p">]</span>
-<span class="c1">---&gt; Using cache</span>
-<span class="c1">---&gt; 5970d6bcd334</span>
+<span class="n">Step</span> <span class="mi">11</span><span class="o">/</span><span class="mi">11</span> <span class="o">:</span> <span class="n">CMD</span> <span class="p">[</span><span class="s">&quot;com.example.fn.HelloFunction::handleRequest&quot;</span><span class="p">]</span>
+<span class="o">---&gt;</span> <span class="n">Using</span> <span class="n">cache</span>
+<span class="o">---&gt;</span> <span class="mi">5970</span><span class="n">d6bcd334</span>
 <span class="n">Successfully</span> <span class="n">built</span> <span class="mi">5970</span><span class="n">d6bcd334</span>
-<span class="n">Successfully</span> <span class="n">tagged</span> <span class="n">javafn</span><span class="p">:</span><span class="mi">0</span><span class="p">.</span><span class="mi">0</span><span class="p">.</span><span class="mi">2</span>
+<span class="n">Successfully</span> <span class="n">tagged</span> <span class="n">javafn</span><span class="o">:</span><span class="mf">0.0.2</span>
 
-<span class="n">Updating</span> <span class="k">function</span> <span class="n">javafn</span> <span class="k">using</span> <span class="n">image</span> <span class="n">javafn</span><span class="p">:</span><span class="mi">0</span><span class="p">.</span><span class="mi">0</span><span class="p">.</span><span class="mi">2</span><span class="p">...</span>
-<span class="n">Successfully</span> <span class="n">created</span> <span class="k">function</span><span class="p">:</span> <span class="n">javafn</span> <span class="k">with</span> <span class="n">javafn</span><span class="p">:</span><span class="mi">0</span><span class="p">.</span><span class="mi">0</span><span class="p">.</span><span class="mi">2</span>
+<span class="n">Updating</span> <span class="kr">function</span> <span class="n">javafn</span> <span class="n">using</span> <span class="n">image</span> <span class="n">javafn</span><span class="o">:</span><span class="mf">0.0.2</span><span class="p">...</span>
+<span class="n">Successfully</span> <span class="n">created</span> <span class="kr">function</span><span class="o">:</span> <span class="n">javafn</span> <span class="n">with</span> <span class="n">javafn</span><span class="o">:</span><span class="mf">0.0.2</span>
 </code></pre></div>
 
 <div class="admonition note">
@@ -1810,11 +1810,11 @@ Fn Server:0.3.694のコンテナイメージをpullするために以下のコ�
 </div>
 <p>fn invokeコマンドを実行し、functionを実行します。
 引数は[application名] [function名]の順に指定します。</p>
-<div class="codehilite"><pre><span></span><code><span class="err">fn invoke hello-app javafn</span>
+<div class="codehilite"><pre><span></span><code>fn invoke hello-app javafn
 </code></pre></div>
 
 <p>以下のように表示されたら成功です。</p>
-<div class="codehilite"><pre><span></span><code><span class="err">Hello, World!</span>
+<div class="codehilite"><pre><span></span><code>Hello, World!
 </code></pre></div>
 
 <p>以上で、Fn Projectのハンズオンは終了です。<br />

@@ -1422,12 +1422,12 @@ CLIセットアップ時にデフォルト値(角括弧内の値)でも問題な
 </code></pre></div>
 
 <p>設定ファイルの場所についてはデフォルト値を利用するので、そのままEnterを押してください。User OCIDとTenancy OCIDを入力してください。</p>
-<div class="codehilite"><pre><span></span><code><span class="err">Enter a user OCID: &lt;YOUR_USER_OCID&gt;</span>
-<span class="err">Enter a tenancy OCID: &lt;YOUR_TENANCY_OCID&gt;</span>
+<div class="codehilite"><pre><span></span><code>Enter a user OCID: &lt;YOUR_USER_OCID&gt;
+Enter a tenancy OCID: &lt;YOUR_TENANCY_OCID&gt;
 </code></pre></div>
 
 <p>利用しているリージョンを入力してください。リージョンは、OCIコンソールの右上で確認できます。何も入力しない場合は、<em>eu-frankfurt-1</em>になります。</p>
-<div class="codehilite"><pre><span></span><code><span class="err">Enter a region (e.g. ap-mumbai-1, ap-seoul-1, ap-sydney-1, ap-tokyo-1, ca-toronto-1, eu-frankfurt-1, eu-zurich-1, sa-saopaulo-1, uk-london-1, us-ashburn-1, us-gov-ashburn-1, us-gov-chicago-1, us-gov-phoenix-1, us-langley-1, us-luke-1, us-phoenix-1):  &lt;YOUR_REGION&gt;</span>
+<div class="codehilite"><pre><span></span><code><span class="n">Enter</span> <span class="n">a</span> <span class="n">region</span> <span class="p">(</span><span class="n">e</span><span class="p">.</span><span class="n">g</span><span class="p">.</span> <span class="n">ap</span><span class="o">-</span><span class="n">mumbai</span><span class="o">-</span><span class="mh">1</span><span class="p">,</span> <span class="n">ap</span><span class="o">-</span><span class="n">seoul</span><span class="o">-</span><span class="mh">1</span><span class="p">,</span> <span class="n">ap</span><span class="o">-</span><span class="n">sydney</span><span class="o">-</span><span class="mh">1</span><span class="p">,</span> <span class="n">ap</span><span class="o">-</span><span class="n">tokyo</span><span class="o">-</span><span class="mh">1</span><span class="p">,</span> <span class="n">ca</span><span class="o">-</span><span class="n">toronto</span><span class="o">-</span><span class="mh">1</span><span class="p">,</span> <span class="n">eu</span><span class="o">-</span><span class="n">frankfurt</span><span class="o">-</span><span class="mh">1</span><span class="p">,</span> <span class="n">eu</span><span class="o">-</span><span class="n">zurich</span><span class="o">-</span><span class="mh">1</span><span class="p">,</span> <span class="n">sa</span><span class="o">-</span><span class="n">saopaulo</span><span class="o">-</span><span class="mh">1</span><span class="p">,</span> <span class="n">uk</span><span class="o">-</span><span class="n">london</span><span class="o">-</span><span class="mh">1</span><span class="p">,</span> <span class="n">us</span><span class="o">-</span><span class="n">ashburn</span><span class="o">-</span><span class="mh">1</span><span class="p">,</span> <span class="n">us</span><span class="o">-</span><span class="n">gov</span><span class="o">-</span><span class="n">ashburn</span><span class="o">-</span><span class="mh">1</span><span class="p">,</span> <span class="n">us</span><span class="o">-</span><span class="n">gov</span><span class="o">-</span><span class="n">chicago</span><span class="o">-</span><span class="mh">1</span><span class="p">,</span> <span class="n">us</span><span class="o">-</span><span class="n">gov</span><span class="o">-</span><span class="n">phoenix</span><span class="o">-</span><span class="mh">1</span><span class="p">,</span> <span class="n">us</span><span class="o">-</span><span class="n">langley</span><span class="o">-</span><span class="mh">1</span><span class="p">,</span> <span class="n">us</span><span class="o">-</span><span class="n">luke</span><span class="o">-</span><span class="mh">1</span><span class="p">,</span> <span class="n">us</span><span class="o">-</span><span class="n">phoenix</span><span class="o">-</span><span class="mh">1</span><span class="p">)</span><span class="o">:</span>  <span class="o">&lt;</span><span class="n">YOUR_REGION</span><span class="o">&gt;</span>
 </code></pre></div>
 
 <p>API署名キーを作成します。デフォルト値を利用するので、そのままEnterを押してください。秘密鍵のpassphraseは入力しないでください。</p>
@@ -1494,7 +1494,7 @@ NAME            STATUS    ROLES     AGE       VERSION
 <p>Kubernetes clusterへのアクセスを許可するためにOracle Container Engine for Kubernetes上のクラスタ管理者としてのOCIアカウントを認可する必要があります。
 これには、OCI CLIセットアップ時に使用したuser OCIDが必要になります。(OCIコンソールの右上にある人型マークをクリックし、ユーザ名をクリックすると表示されるユーザ情報で確認できます)</p>
 <p>user OCIDを利用してcluster role bindingコマンドを実行します。</p>
-<div class="codehilite"><pre><span></span><code><span class="err">kubectl create clusterrolebinding my-cluster-admin-binding --clusterrole=cluster-admin --user=&lt;YOUR_USER_OCID&gt;</span>
+<div class="codehilite"><pre><span></span><code>kubectl create clusterrolebinding my-cluster-admin-binding --clusterrole=cluster-admin --user=&lt;YOUR_USER_OCID&gt;
 </code></pre></div>
 
 <p>以下のように表示されます。:</p>

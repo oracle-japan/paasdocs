@@ -1348,7 +1348,7 @@
 <h2 id="1">1 . サンプルアプリケーションの動作確認<a class="headerlink" href="#1" title="Permanent link">&para;</a></h2>
 <p>チュートリアルの内容に入る前に、サンプルアプリケーションが正常に動作しているか確認します。</p>
 <p>以下のコマンドを実行すると、クラスターに作成済みのPod、Serviceを一覧することができます。</p>
-<div class="codehilite"><pre><span></span><code><span class="err">kubectl get pod,service</span>
+<div class="codehilite"><pre><span></span><code>kubectl get pod,service
 </code></pre></div>
 
 <p><a href="../k8s-walkthrough/">前ページのチュートリアル</a>が完了していれば、以下のようにリソースが一覧表示されます。</p>
@@ -1362,11 +1362,11 @@ service/cowweb       LoadBalancer   10.96.229.191   130.61.97.82   80:30975/TCP 
 <p>すべてのPodのSTATUSがRunnigであることと、cowwebという名前のServiceがあることが確認してください。</p>
 <p>上の例では、クラスターを構成するマシンの30609番ポートにリクエストを送信すると、アプリケーションにアクセスできることを意味しています。このポート番号（通常30000番台が割り当てられます）をテキストエディタ等に控えておいてください。</p>
 <p>クラスターを構成するマシンのIPアドレスは、以下のコマンドで確認することができます。</p>
-<div class="codehilite"><pre><span></span><code><span class="err">kubectl get nodes</span>
+<div class="codehilite"><pre><span></span><code>kubectl get nodes
 </code></pre></div>
 
 <p>実際に動作確認してみます。以下のコマンドを実行してください。</p>
-<div class="codehilite"><pre><span></span><code><span class="err">curl &quot;http://[ロードバランサーのIP]/cowsay/say&quot;</span>
+<div class="codehilite"><pre><span></span><code>curl &quot;http://[ロードバランサーのIP]/cowsay/say&quot;
 </code></pre></div>
 
 <p>正常に応答が返ってくれば（牛のアスキーアートが表示されれば）、動作確認は完了です。</p>
@@ -1451,19 +1451,19 @@ I&#39;m working...
 <h3 id="41">4.1. スケールアウト<a class="headerlink" href="#41" title="Permanent link">&para;</a></h3>
 <p>Deploymentに対してレプリカの数を指定することによって、そのDeploymentが管理するPodの数を増減することができます。</p>
 <p>レプリカの数を変更するには、<code>kubectl scale</code>コマンドを使用します。以下のように実行することで、cowwebのPodを管理するDeploymentに対して、レプリカ数を4にするよう指示します。</p>
-<div class="codehilite"><pre><span></span><code><span class="err">kubectl scale deployments/cowweb --replicas=4</span>
+<div class="codehilite"><pre><span></span><code>kubectl scale deployments/cowweb --replicas=4
 </code></pre></div>
 
 <p>Podの一覧を表示してみます。</p>
-<div class="codehilite"><pre><span></span><code><span class="err">kubectl get pods</span>
+<div class="codehilite"><pre><span></span><code>kubectl get pods
 </code></pre></div>
 
 <p>すると、4つのPodが構成されていることがわかります。</p>
-<div class="codehilite"><pre><span></span><code><span class="err">NAME                      READY   STATUS    RESTARTS   AGE</span>
-<span class="err">cowweb-57885b669c-4h5l4   0/1     Running   0          7s</span>
-<span class="err">cowweb-57885b669c-9dzg4   1/1     Running   0          1h</span>
-<span class="err">cowweb-57885b669c-hxvpz   0/1     Running   0          7s</span>
-<span class="err">cowweb-57885b669c-r7l4g   1/1     Running   0          1h</span>
+<div class="codehilite"><pre><span></span><code>NAME                      READY   STATUS    RESTARTS   AGE
+cowweb-57885b669c-4h5l4   0/1     Running   0          7s
+cowweb-57885b669c-9dzg4   1/1     Running   0          1h
+cowweb-57885b669c-hxvpz   0/1     Running   0          7s
+cowweb-57885b669c-r7l4g   1/1     Running   0          1h
 </code></pre></div>
 
 <p>上の例では、一部のPodは起動中の状態です。少し時間が経過すると全てのPodのSTATUSがRunningになります。</p>
@@ -1471,7 +1471,7 @@ I&#39;m working...
 <p>この時点で、クラスターには4つのcowwebのPodがデプロイされている状態です。この状態で、Podに対するアクセスが負荷分散される様子を確認してみましょう。</p>
 <p>cowwebには、環境変数の変数名を指定することで、その値を答えてくれる仕掛けがしてあります。これを利用してPodのホスト名を応答させることで、負荷分散の動きを見てみます。</p>
 <p>動作確認で実行したcurlコマンドのURLに<code>?say=HOSTNAME</code>というクエリを追加して、以下のようなコマンドを実行してみてください。</p>
-<div class="codehilite"><pre><span></span><code><span class="err">curl &quot;http://[ロードバランサーのIP]/cowsay/say?say=HOSTNAME&quot;</span>
+<div class="codehilite"><pre><span></span><code>curl &quot;http://[ロードバランサーのIP]/cowsay/say?say=HOSTNAME&quot;
 </code></pre></div>
 
 <p>このコマンドを何度か繰り返すと、その度に異なるホスト名が返ってくることがわかります。</p>
@@ -1497,7 +1497,7 @@ I&#39;m working...
 <p>Pod数を縮小することも当然ながら可能です。スケールアウトで行ったように、<code>kubectl scale</code>コマンドでレプリカ数を指定して減らすことが可能です。</p>
 <p>他の方法として、Deploymentのmanifestファイルで現在より少ないreplica数を記述しておき、そのmanifestをクラスターに適用することで同様のことが可能になります。</p>
 <p>最初にサンプルアプリケーションをデプロイしたときに利用したmanifestファイルには、レプリカ数に2を指定してありますので、これを適用することで4-&gt;2にスケールインしてみます。</p>
-<div class="codehilite"><pre><span></span><code><span class="err">kubectl apply -f ./kubernetes/cowweb.yaml</span>
+<div class="codehilite"><pre><span></span><code>kubectl apply -f ./kubernetes/cowweb.yaml
 </code></pre></div>
 
 <p>Podの一覧を表示すると、2個に減っていることがわかります。</p>
@@ -1519,7 +1519,7 @@ cowweb-57885b669c-r7l4g   1/1     Running   0          1h
 </code></pre></div>
 
 <p>例えばこのようなコマンドとなります（実際のPod名は、<code>kubectl get pods</code>コマンドで確認してください）。</p>
-<div class="codehilite"><pre><span></span><code><span class="err">kubectl delete pod cowweb-57885b669c-9dzg4</span>
+<div class="codehilite"><pre><span></span><code>kubectl delete pod cowweb-57885b669c-9dzg4
 </code></pre></div>
 
 <p>この後すぐにPodの一覧を表示すると、削除したPodのPod名はなく、新しい名前のPodが起動していることがわかります。</p>

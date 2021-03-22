@@ -1397,17 +1397,17 @@
 <p>これにより、クリップボードにURLがコピーされます。</p>
 <p><img alt="" src="images/2.3.PNG" /></p>
 <p>Linuxのコンソールから、以下のコマンドを実行してソースコードをCloneします。</p>
-<div class="codehilite"><pre><span></span><code><span class="err">git clone [コピーしたリポジトリのURL]</span>
+<div class="codehilite"><pre><span></span><code>git clone [コピーしたリポジトリのURL]
 </code></pre></div>
 
 <p>続いて、Cloneしてできたディレクトリをカレントディレクトリにしておきます。</p>
-<div class="codehilite"><pre><span></span><code><span class="err">cd cowweb-for-wercker-demo</span>
+<div class="codehilite"><pre><span></span><code><span class="nv">cd</span> <span class="nv">cowweb</span><span class="o">-</span><span class="k">for</span><span class="o">-</span><span class="nv">wercker</span><span class="o">-</span><span class="nv">demo</span>
 </code></pre></div>
 
 <h3 id="13">1.3. コンテナイメージを作る<a class="headerlink" href="#13" title="Permanent link">&para;</a></h3>
 <p>コンテナイメージは、Dockerfileと呼ばれるコンテナの構成を記述したファイルによって、その内容が定義されます。</p>
 <p>サンプルアプリケーションのコードには作成済みのDockerfileが含まれていますので、その内容を確認してみます。以下のコマンドを実行してください。</p>
-<div class="codehilite"><pre><span></span><code><span class="err">cat Dockerfile</span>
+<div class="codehilite"><pre><span></span><code>cat Dockerfile
 </code></pre></div>
 
 <div class="highlight"><pre><span></span><code><span class="k">FROM</span> <span class="s">gradle:jdk8-alpine</span> <span class="k">as</span> <span class="s">builder</span>
@@ -1429,11 +1429,11 @@
 <p>Dockerfileの内容を見ると、FROMで始まる行が2つあることがわかります。最初のFROMから始まる数行は、jdk8がインストールされたコンテナイメージ内にサンプルアプリケーションのコードをコピーし、さらに<code>gradle build</code>を実行してアプリをビルドしています。</p>
 <p>次のFROMから続く一連の処理は、jreがインストールされたイメージを基に、アプリの実行ユーザーの作成、ビルドしてできたjarファイルのコピー、コンテナ起動時に実行するコマンドの設定などを行っています。</p>
 <p>それではこのDockerfileを使ってコンテナイメージを作成します。以下のコマンドを実行してください。</p>
-<div class="codehilite"><pre><span></span><code><span class="err">docker build -t [リポジトリ名]/cowweb:v1.0 .</span>
+<div class="codehilite"><pre><span></span><code>docker build -t [リポジトリ名]/cowweb:v1.0 .
 </code></pre></div>
 
 <p>このコマンドにおいて<code>リポジトリ名</code>には任意の文字列を指定できますが、通常はプロジェクト名やユーザー名などを小文字にしたものを指定します。例えば、以下のようなコマンドになります。</p>
-<div class="codehilite"><pre><span></span><code><span class="err">docker build -t handson-001/cowweb:v1.0 .</span>
+<div class="codehilite"><pre><span></span><code>docker build -t handson-001/cowweb:v1.0 .
 </code></pre></div>
 
 <p>以下のように、<code>Successfully tagged</code>のメッセージで処理が終了していれば、イメージのビルドは完了です。</p>
@@ -1462,7 +1462,7 @@ Successfully built fe2f2527b8d4
 Successfully tagged handson-001/cowweb:v1.0
 </code></pre></div>
 <p>実際にビルドされたイメージは、<code>docker image ls</code>コマンドで確認することができます。</p>
-<div class="codehilite"><pre><span></span><code><span class="err">docker image ls</span>
+<div class="codehilite"><pre><span></span><code>docker image ls
 </code></pre></div>
 
 <div class="highlight"><pre><span></span><code>REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE
@@ -1572,11 +1572,11 @@ java                8-jre-alpine        fdc893b19a14        19 months ago       
 <p>!! note
     オブジェクト・ストレージ・ネームスペースはテナントに対し1つ割り当てられます。リージョン内のすべてのコンパートメントにまたがり使用されます。任意の文字列が設定され、変更することはできません。</p>
 <p>次に、以下のコマンドでOCIRにログインします。</p>
-<div class="codehilite"><pre><span></span><code><span class="err">docker login [リージョンコード].ocir.io</span>
+<div class="codehilite"><pre><span></span><code>docker login [リージョンコード].ocir.io
 </code></pre></div>
 
 <p>例えば、東京リージョン(nrt)をご利用の場合は、以下のコマンドでログインします。</p>
-<div class="codehilite"><pre><span></span><code><span class="err">docker login nrt.ocir.io</span>
+<div class="codehilite"><pre><span></span><code>docker login nrt.ocir.io
 </code></pre></div>
 
 <p>ユーザー名、パスワードの入力を求めるメッセージが表示されますので、以下のように入力してください。</p>
@@ -1594,24 +1594,32 @@ Password:
 Login Succeeded
 </code></pre></div>
 <p>続いて、OCIRの形式に合わせてコンテナイメージのタグを更新します。<code>docker tag</code>コマンドを実行してくさい。</p>
-<div class="codehilite"><pre><span></span><code><span class="err">docker tag [リポジトリ名]/cowweb:v1.0 [リージョンコード].ocir.io/オブジェクト・ストレージ・ネームスペース]/[リポジトリ名]/cowweb:v1.0</span>
+<div class="codehilite"><pre><span></span><code>docker tag [リポジトリ名]/cowweb:v1.0 [リージョンコード].ocir.io/オブジェクト・ストレージ・ネームスペース]/[リポジトリ名]/cowweb:v1.0
 </code></pre></div>
 
 <p>[リージョンコード]と[オブジェクト・ストレージ・ネームスペース]は、これまでの手順で指定したものと同じものを指定します。リポジトリ名には<code>docker build</code>のときにしてしたものと同じ文字列を指定してください。</p>
 <p>例えば、以下のように指定します。</p>
-<div class="codehilite"><pre><span></span><code><span class="err">docker tag handson-001/cowweb:v1.0 nrt.ocir.io/nrzftilbveen/handson-001/cowweb:v1.0</span>
+<div class="codehilite"><pre><span></span><code>docker tag handson-001/cowweb:v1.0 nrt.ocir.io/nrzftilbveen/handson-001/cowweb:v1.0
 </code></pre></div>
 
 <p>この操作によって、コンテナイメージにプッシュ先のレジストリを指定する情報を追加しています。これを行わない場合、コンテナイメージはデフォルトのレジストリが指定されたものとみなされ、Docker社が提供するDocker Hubというレジストリが利用されてしまいます。</p>
 <p>これで準備が整いましたので、実際にOCIRにイメージをプッシュします。以下のコマンドを実行してください。</p>
-<div class="codehilite"><pre><span></span><code><span class="err">docker push [リージョンコード].ocir.io/[オブジェクト・ストレージ・ネームスペース]/[リポジトリ名]/cowweb:v1.0</span>
+<div class="codehilite"><pre><span></span><code>docker push [リージョンコード].ocir.io/[オブジェクト・ストレージ・ネームスペース]/[リポジトリ名]/cowweb:v1.0
 </code></pre></div>
 
 <p>例えば、以下のように指定します。</p>
-<div class="codehilite"><pre><span></span><code><span class="err">docker push nrt.ocir.io/nrzftilbveen/handson-001/cowweb:v1.0</span>
+<div class="codehilite"><pre><span></span><code>docker push nrt.ocir.io/nrzftilbveen/handson-001/cowweb:v1.0
 </code></pre></div>
 
 <p>以下のような実行結果となれば、プッシュが成功しています。</p>
+<div class="highlight"><pre><span></span><code>The push refers to repository [nrt.ocir.io/nrzftilbveen/handson-001/cowweb]
+d07a2053e8fb: Pushed
+93ed7a751af8: Pushed
+20dd87a4c2ab: Pushed
+78075328e0da: Pushed
+9f8566ee5135: Pushed
+v1.0: digest: sha256:5769c194f3861f71c9fd43eb763813676aaba0b41acf453fb6a09a1af7525c82 size: 1367
+</code></pre></div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>集合ハンズオンなどで、コンテナレジストリを複数のユーザーで共有している場合、以下のようなメッセージとなることがあります。</p>
@@ -1636,32 +1644,32 @@ Login Succeeded
 <p>サンプルアプリケーションのコードには作成済みのmanifestファイルが含まれていますので、その内容を確認してみます。以下のコマンドを実行してください。</p>
 <div class="highlight"><pre><span></span><code>cat ./kubernetes/cowweb.yaml
 </code></pre></div>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="nt">apiVersion</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">apps/v1</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span></pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="nt">apiVersion</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">apps/v1</span>
 <span class="nt">kind</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Deployment</span>
 <span class="nt">metadata</span><span class="p">:</span>
   <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">cowweb</span>
@@ -1695,11 +1703,11 @@ Login Succeeded
 <p>実際にKubernetes上でコンテナが動作する際には、Podと言われる管理単位に内包される形で実行されます。上記のmanifestでは、サンプルアプリのコンテナを内包するPodが、2つデプロイされることになります。</p>
 </div>
 <p>22行目には、実際にクラスター上で動かすコンテナイメージが指定されています。現在の記述内容は、ご自身環境に合わせた記述にはなっていませんので、この部分を正しい値に修正してください。具体的には、2.2.で<code>docker push</code>コマンドを実行する際に指定した文字列と同じ内容に修正してください。</p>
-<div class="codehilite"><pre><span></span><code><span class="err">[リージョンコード].ocir.io/[オブジェクト・ストレージ・ネームスペース]/[リポジトリ名]/cowweb:v1.0</span>
+<div class="codehilite"><pre><span></span><code>[リージョンコード].ocir.io/[オブジェクト・ストレージ・ネームスペース]/[リポジトリ名]/cowweb:v1.0
 </code></pre></div>
 
 <p>例えば、以下のような文字列となります。</p>
-<div class="codehilite"><pre><span></span><code><span class="err">nrt.ocir.io/nrzftilbveen/handson-001/cowweb:v1.0</span>
+<div class="codehilite"><pre><span></span><code>nrt.ocir.io/nrzftilbveen/handson-001/cowweb:v1.0
 </code></pre></div>
 
 <p>ファイルの修正が完了したら、修正内容をリポジトリに反映しておきます。以下のコマンドを順次実行してください。</p>
@@ -1727,18 +1735,18 @@ Login Succeeded
 <p>次に、cowweb-service.yamlというmanifestファイルの内容を確認してみます。</p>
 <div class="highlight"><pre><span></span><code>cat kubernetes/cowweb-service.yaml
 </code></pre></div>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="nt">apiVersion</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">v1</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span></pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="nt">apiVersion</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">v1</span>
 <span class="nt">kind</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Service</span>
 <span class="nt">metadata</span><span class="p">:</span>
   <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">cowweb</span>
@@ -1755,11 +1763,11 @@ Login Succeeded
 <p>このmanifestファイルは、クラスターに対するリクエストのトラフィックを受け付ける際のルールを定義しています。<code>type: LoadBalancer</code>という記述は、クラスターがホストされているクラウドサービスのロードバランサーを自動プロビジョニングし、そのLBに来たトラフィックをコンテナに届けるという意味です。</p>
 <p>それでは、Kubernetes上でサンプルアプリケーションのコンテナを動かしてみます。まずは、クラスターを区画に分けて管理するための領域である、namespaceを作成します。以下のコマンドで、namespace名は任意の文字列を指定できます。<br />
 今回は"handson"というnamespace名で作成します。</p>
-<div class="codehilite"><pre><span></span><code><span class="err">kubectl create namespace handson</span>
+<div class="codehilite"><pre><span></span><code>kubectl create namespace handson
 </code></pre></div>
 
 <p>デフォルトのNamespaceを上記で作成したものに変更しておきます。これを行うと、以降、kubectlの実行の度にNamespaceを指定する必要がなくなります。</p>
-<div class="codehilite"><pre><span></span><code><span class="err">kubectl config set-context $(kubectl config current-context) --namespace=handson</span>
+<div class="codehilite"><pre><span></span><code>kubectl config set-context $(kubectl config current-context) --namespace=handson
 </code></pre></div>
 
 <p>次に、manifestファイルをクラスターに適用し、PodやServiceをクラスター内に作成します。</p>
@@ -1768,7 +1776,7 @@ Login Succeeded
 <div class="highlight"><pre><span></span><code>kubectl apply -f ./kubernetes/cowweb-service.yaml
 </code></pre></div></p>
 <p>以下のコマンドを実行して、リソースの構成が完了しているかどうかを確認することができます。</p>
-<div class="codehilite"><pre><span></span><code><span class="err">kubectl get pod,service</span>
+<div class="codehilite"><pre><span></span><code>kubectl get pod,service
 </code></pre></div>
 
 <p>すべてのPodのSTATUSがRunnigであることと、cowwebという名前のServiceがあることが確認できれば、リソースの作成は完了です（ServiceのEXTERNAL-IPは、ロードバランサーが実際に作成されるまで表示されません。その場合は少し時間を置いて上記コマンドを再実行してください）。</p>
@@ -1783,17 +1791,17 @@ service/cowweb       LoadBalancer   10.96.229.191   130.61.97.82   80:30975/TCP 
 <p class="admonition-title">Warning</p>
 <p>集合ハンズオンなどで、一つのクラウド環境を複数のユーザーで共有している場合、利用可能なロードバランサー数の上限に達して正常にServiceが作成できない場合があります。そのような場合は、ロードバランサーのシェイプ（対応可能なトラフィック量）を変更して、サービスの作成を行ってみてください。</p>
 <p>具体的には以下のコマンドを実行します。</p>
-<div class="codehilite"><pre><span></span><code><span class="o">#</span> <span class="err">作ってしまった</span><span class="n">Serviceを削除</span>
-<span class="n">kubectl</span> <span class="k">delete</span> <span class="o">-</span><span class="n">f</span> <span class="p">.</span><span class="o">/</span><span class="n">kubernetes</span><span class="o">/</span><span class="n">cowweb</span><span class="o">-</span><span class="n">service</span><span class="p">.</span><span class="n">yaml</span>
+<div class="codehilite"><pre><span></span><code># 作ってしまったServiceを削除
+kubectl delete -f ./kubernetes/cowweb-service.yaml
 
-<span class="o">#</span> <span class="err">シェイプの異なる</span><span class="n">Serviceを作成</span>
-<span class="n">kubectl</span> <span class="n">apply</span> <span class="o">-</span><span class="n">f</span> <span class="p">.</span><span class="o">/</span><span class="n">kubernetes</span><span class="o">/</span><span class="n">cowweb</span><span class="o">-</span><span class="n">service</span><span class="o">-</span><span class="n">oci400m</span><span class="p">.</span><span class="n">yaml</span>
+# シェイプの異なるServiceを作成
+kubectl apply -f ./kubernetes/cowweb-service-oci400m.yaml
 </code></pre></div>
 
 </div>
 <p>上の例では、IPアドレス130.61.97.82の80番ポートでロードバランサーが公開されておりここにリクエストを送信すると、アプリケーションにアクセスできることを意味しています。このIPアドレスをテキストエディタ等に控えておいてください。</p>
 <p>これでクラスターへのデプロイは完了しましたので、実際に動作確認してみます。以下のコマンドを実行してください。</p>
-<div class="codehilite"><pre><span></span><code><span class="err">curl &quot;http://[ロードバランサーのIP]/cowsay/say&quot;</span>
+<div class="codehilite"><pre><span></span><code>curl &quot;http://[ロードバランサーのIP]/cowsay/say&quot;
 </code></pre></div>
 
 <p>ローカルで動作確認したときと同様、以下のようなアスキーアートが表示されれば、アプリケーションが正常に動作しています。</p>
